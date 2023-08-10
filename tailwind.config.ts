@@ -6,32 +6,43 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
+
   theme: {
     extend: {
-      backgroundColor: {},
+      backgroundColor: {
+        main: '#333',
+        active: '#e4e4e31a',
+        yellow: '#FBE576',
+        gray: '#454545',
+        dark: '#1C1C1C',
+      },
       backgroundImage: {},
-      textColor: {},
+      textColor: {
+        main: '#e4e4e4',
+        active: '#e4e4e3',
+        inactive: '#e1e1e1',
+      },
+
       borderColor: {},
       fontFamily: {
-        sans: ['var(--font-plus-jakarta)'],
-        space: ['var(--font-space-grotesk)'],
-        chivo: ['var(--font-chivo)'],
+        sans: ['var(--font-dm-sans)'],
       },
       fontSize: {},
       boxShadow: {},
-      borderRadius: {},
+      borderRadius: {
+        xl: '10px',
+      },
+      maxWidth: {
+        sidebarItem: '297px',
+      },
     },
     screens: {
-      mobile: { max: '640px' },
-      // => @media (max-width: 640px) { ... }
+      mobile: { max: '767px' },
+      // => @media (max-width: 767px) { ... }
+      laptop: { max: '1280px' },
 
-      tablet: { min: '640px', max: '1024px' },
-      // => @media (min-width: 640px) { ... }
-
-      laptop: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      desktop: '1500px',
+      desktop: '767px',
       // => @media (min-width: 1280px) { ... }
     },
   },
