@@ -1,5 +1,6 @@
 import { NAVITEMS as TNAVITEMS } from '@/types';
 import { home, history, account, myGData } from './assets';
+
 export const PATHS = {
   HOME: '/',
   HISTORY: '/history',

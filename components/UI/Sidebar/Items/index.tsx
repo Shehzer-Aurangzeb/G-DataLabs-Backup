@@ -1,15 +1,15 @@
 'use client';
 
-import { NAVITEMS } from '@/types';
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NAVITEMS } from '@/types';
 import Image from '@/components/UI/StyledImage';
 
 interface IProps {
   items: NAVITEMS[];
 }
-const Items = ({ items }: IProps) => {
+function Items({ items }: IProps) {
   const pathname = usePathname();
   return (
     <ul className="max-w-sidebarItem w-4/5 flex flex-col gap-y-4">
@@ -22,27 +22,27 @@ const Items = ({ items }: IProps) => {
               pathname === item.to ? 'bg-active' : 'bg-transparent'
             }`}
           >
-            <Image src={item.icon} alt="icon" className={'w-[30px] h-[30px]'} />
+            <Image src={item.icon} alt="icon" className="w-[30px] h-[30px]" />
             <span className="font-sans text-main text-xl font-medium">{item.title}</span>
           </Link>
 
           {item.nestedItems && (
             <ul className="flex flex-col gap-y-[18px] ml-10 mt-5">
-              {item.nestedItems.map((item) => (
+              {item.nestedItems.map((nestedItem) => (
                 <li>
                   <Link
-                    key={item.title}
-                    href={item.to}
+                    key={nestedItem.title}
+                    href={nestedItem.to}
                     className={`flex flex-row items-center gap-x-3 px-4 transition-all duration-200 w-full rounded-xl ${
-                      pathname === item.to ? 'bg-active py-3' : 'bg-transparent'
+                      pathname === nestedItem.to ? 'bg-active py-3' : 'bg-transparent'
                     }`}
                   >
                     <span
                       className={`w-[30px] inline-block transition-all duration-200 bg-yellow ${
-                        pathname === item.to ? 'h-[13px]' : 'h-[6px]'
+                        pathname === nestedItem.to ? 'h-[13px]' : 'h-[6px]'
                       }`}
                     />
-                    <span className="font-sans text-main text-base font-medium">{item.title}</span>
+                    <span className="font-sans text-main text-base font-medium">{nestedItem.title}</span>
                   </Link>
                 </li>
               ))}
@@ -52,6 +52,6 @@ const Items = ({ items }: IProps) => {
       ))}
     </ul>
   );
-};
+}
 
 export default Items;

@@ -1,27 +1,32 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 'use client';
+
 import React, { useState } from 'react';
 import { bulb_active, bulb_inactive } from '@/constants/assets';
 import { useTheme } from '@/context/ThemeProvider';
 import { Theme } from 'types';
 import Image from '@/components/UI/StyledImage';
+
 interface IProps {
   className?: string;
 }
 
-const Switch: React.FC<IProps> = ({ className }) => {
+function Switch({ className }: IProps) {
   const { theme, setTheme } = useTheme();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [checked, setChecked] = useState<boolean>(theme !== Theme.DARK);
+
+  const handleChange = () => {
     if (checked) setTheme(Theme.DARK);
     else setTheme(Theme.LIGHT);
     setChecked(!checked);
   };
-  const [checked, setChecked] = useState<boolean>(theme === Theme.DARK ? false : true);
 
   return (
-    <React.Fragment>
+    <>
       <input type="checkbox" id="switch" className="hidden" onChange={handleChange} />
       <div className={['bg-gray rounded-md py-3 px-4 w-full max-w-sidebarItem', className].join(' ')}>
-        <label htmlFor="switch" className={'flex gap-x-3 items-center cursor-pointer justify-center'}>
+        <label htmlFor="switch" className="flex gap-x-3 items-center cursor-pointer justify-center">
           <div
             className={`flex gap-x-4 items-center transition-all ease-in-out duration-200 rounded-md py-2 px-4 ${
               checked ? 'bg-dark' : 'bg-transparent'
@@ -40,8 +45,11 @@ const Switch: React.FC<IProps> = ({ className }) => {
           </div>
         </label>
       </div>
-    </React.Fragment>
+    </>
   );
+}
+Switch.defaultProps = {
+  className: '',
 };
 
 export default Switch;

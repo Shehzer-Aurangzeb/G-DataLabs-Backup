@@ -1,5 +1,3 @@
-import { NextRequest } from 'next/server';
-
-export default async function middleware(request: NextRequest) {
-  console.log('request', request);
+export default async function middleware() {
+  // console.log('request', request);
 }

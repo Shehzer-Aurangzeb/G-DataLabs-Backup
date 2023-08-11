@@ -1,13 +1,14 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 
-interface windowSize {
+import { useState, useEffect } from 'react';
+
+interface WindowSize {
   height: number;
   width: number;
 }
 
 export function useWindowSize() {
-  const [windowSize, setWindowSize] = useState<windowSize>({
+  const [windowSize, setWindowSize] = useState<WindowSize>({
     width: 0,
     height: 0,
   });

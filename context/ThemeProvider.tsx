@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, createContext, useEffect, useContext } from 'react';
+
+import React, { useState, createContext, useEffect, useContext, useMemo } from 'react';
 import { Theme } from '@/types';
 import { getInitialTheme } from '@/lib/theme';
 
@@ -16,9 +17,9 @@ const ThemeContext = createContext<ThemeContextType>({
   setTheme: () => {},
 });
 
-const ThemeProvider: React.FC<IProps> = ({ children }) => {
+function ThemeProvider({ children }: IProps) {
   const [theme, setTheme] = useState(getInitialTheme());
-
+  const value = useMemo(() => ({ theme, setTheme }), [theme]);
   const checkTheme = (existing: string) => {
     const root = window.document.documentElement;
     const isDark = existing === Theme.DARK;
@@ -33,10 +34,8 @@ const ThemeProvider: React.FC<IProps> = ({ children }) => {
     checkTheme(theme);
   }, [theme]);
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
-};
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+}
 
-export const useTheme = () => {
-  return useContext(ThemeContext);
-};
+export const useTheme = () => useContext(ThemeContext);
 export default ThemeProvider;

@@ -9,3 +9,4 @@ export const getInitialTheme = (): string => {
   }
   return Theme.LIGHT;
 };
+export const toavoiderror = true;

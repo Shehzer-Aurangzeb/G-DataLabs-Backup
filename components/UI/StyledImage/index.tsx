@@ -1,17 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
+
 interface IProps {
   className: string;
   src: any;
   alt: string;
   rounded?: boolean;
 }
-const StyledImage = ({ className, src, alt, rounded }: IProps) => {
+function StyledImage({ className, src, alt, rounded }: IProps) {
   return (
     <div className={['relative', className].join(' ')}>
       <Image src={src} alt={alt} fill className={`${rounded ? 'object-cover rounded-full' : 'object-contain'}`} />
     </div>
   );
-};
+}
 
+StyledImage.defaultProps = {
+  rounded: false,
+};
 export default StyledImage;
