@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 type NAVITEM = {
   title: string;
   icon: any;
@@ -22,7 +24,7 @@ export type TMessage = {
   messageID: string;
   content: {
     text: string;
-    images: string[];
+    images: StaticImageData[];
   };
 };
 export type THistory = {
