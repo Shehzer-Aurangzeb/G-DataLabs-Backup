@@ -14,9 +14,8 @@ function Items({ items }: IProps) {
   return (
     <ul className="max-w-sidebarItem w-4/5 flex flex-col gap-y-4">
       {items.map((item) => (
-        <li>
+        <li key={item.title}>
           <Link
-            key={item.title}
             href={item.to}
             className={`flex flex-row items-center gap-x-3 py-3 px-4 transition-all duration-200 w-full rounded-xl ${
               pathname === item.to ? 'bg-active' : 'bg-transparent'
@@ -29,9 +28,8 @@ function Items({ items }: IProps) {
           {item.nestedItems && (
             <ul className="flex flex-col gap-y-[18px] ml-10 mt-5">
               {item.nestedItems.map((nestedItem) => (
-                <li>
+                <li key={nestedItem.title}>
                   <Link
-                    key={nestedItem.title}
                     href={nestedItem.to}
                     className={`flex flex-row items-center gap-x-3 px-4 transition-all duration-200 w-full rounded-xl ${
                       pathname === nestedItem.to ? 'bg-active py-3' : 'bg-transparent'

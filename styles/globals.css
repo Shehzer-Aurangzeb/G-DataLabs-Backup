@@ -23,3 +23,21 @@ body {
 ul {
   list-style: none;
 }
+.textarea-container::-webkit-scrollbar {
+  display: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d1d1d4;
+  border-radius: 10px;
+}

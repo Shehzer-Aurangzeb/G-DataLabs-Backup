@@ -1,7 +1,7 @@
 import React from 'react';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { DMSANS } from '@/public/assets/fonts';
+import { DMSANS, RALEWAY } from '@/public/assets/fonts';
 import Layout from '@/components/UI/Layout';
 import ThemeProvider from '@/context/ThemeProvider';
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={DMSANS.variable}>
+    <html lang="en" className={[DMSANS.variable, RALEWAY.variable].join(' ')}>
       <body className="bg-main">
         <ThemeProvider>
           <Layout>{children}</Layout>

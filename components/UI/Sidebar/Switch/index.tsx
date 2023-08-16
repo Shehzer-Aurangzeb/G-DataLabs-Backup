@@ -12,7 +12,7 @@ interface IProps {
   className?: string;
 }
 
-function Switch({ className }: IProps) {
+function Switch({ className = '' }: IProps) {
   const { theme, setTheme } = useTheme();
   const [checked, setChecked] = useState<boolean>(theme !== Theme.DARK);
 
@@ -25,7 +25,7 @@ function Switch({ className }: IProps) {
   return (
     <>
       <input type="checkbox" id="switch" className="hidden" onChange={handleChange} />
-      <div className={['bg-gray rounded-md py-3 px-4 w-full max-w-sidebarItem', className].join(' ')}>
+      <div className={['bg-gray rounded-md py-3 px-4 w-full', className].join(' ')}>
         <label htmlFor="switch" className="flex gap-x-3 items-center cursor-pointer justify-center">
           <div
             className={`flex gap-x-4 items-center transition-all ease-in-out duration-200 rounded-md py-2 px-4 ${
@@ -48,8 +48,5 @@ function Switch({ className }: IProps) {
     </>
   );
 }
-Switch.defaultProps = {
-  className: '',
-};
 
 export default Switch;

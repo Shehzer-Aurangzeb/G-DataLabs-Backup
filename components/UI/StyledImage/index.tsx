@@ -7,7 +7,7 @@ interface IProps {
   alt: string;
   rounded?: boolean;
 }
-function StyledImage({ className, src, alt, rounded }: IProps) {
+function StyledImage({ className, src, alt, rounded = false }: IProps) {
   return (
     <div className={['relative', className].join(' ')}>
       <Image src={src} alt={alt} fill className={`${rounded ? 'object-cover rounded-full' : 'object-contain'}`} />
@@ -15,7 +15,4 @@ function StyledImage({ className, src, alt, rounded }: IProps) {
   );
 }
 
-StyledImage.defaultProps = {
-  rounded: false,
-};
 export default StyledImage;

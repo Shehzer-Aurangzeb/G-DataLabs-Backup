@@ -1,4 +1,4 @@
-import { NAVITEMS as TNAVITEMS } from '@/types';
+import { NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
 import { home, history, account, myGData } from './assets';
 
 export const PATHS = {
@@ -60,5 +60,20 @@ export const NAVITEMS: TNAVITEMS[] = [
     title: 'My Account',
     icon: account,
     to: PATHS.ACCOUNT,
+  },
+];
+
+export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
+  {
+    title: 'Generate Text Only',
+    color: '#046C98',
+  },
+  {
+    title: 'Generate Image Only',
+    color: '#F5B11A',
+  },
+  {
+    title: 'Generate Text + Image',
+    color: '#E62431',
   },
 ];

@@ -11,3 +11,26 @@ export enum Theme {
   DARK = 'dark',
   LIGHT = 'light',
 }
+
+export type TPROPTION = {
+  title: string;
+  color: string;
+};
+
+export type TMessage = {
+  isBotResponse: boolean;
+  messageID: string;
+  content: {
+    text: string;
+    images: string[];
+  };
+};
+export type THistory = {
+  title: string;
+  date: string;
+  messages: TMessage[];
+};
+
+export type TGroupedChatHistory = {
+  [key: string]: THistory[];
+};
