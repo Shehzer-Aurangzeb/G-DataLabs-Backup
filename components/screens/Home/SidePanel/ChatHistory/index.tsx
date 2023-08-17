@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { TGroupedChatHistory } from '@/types';
 import Image from '@/components/UI/StyledImage';
 import { chat } from '@/constants/assets';
-import { v4 as uuidv4 } from 'uuid';
 
 interface IProps {
   groupedChatHistory: TGroupedChatHistory;

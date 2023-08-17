@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
 import { profile } from '@/temp';
+
 function Header() {
   return (
     <div className="bg-lightGreen flex flex-row items-center w-full pl-4 py-6 rounded-md gap-x-4">

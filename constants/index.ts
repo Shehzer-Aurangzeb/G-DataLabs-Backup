@@ -1,7 +1,7 @@
-import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
-import { home, history, account, myGData } from './assets';
-import { PersonalInfoSchemaType } from '@/schema';
 import { Column } from 'react-table';
+import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
+import { PersonalInfoSchemaType } from '@/schema';
+import { home, history, account, myGData } from './assets';
 
 export const PATHS = {
   HOME: '/',

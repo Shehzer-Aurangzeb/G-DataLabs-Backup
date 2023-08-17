@@ -1,5 +1,6 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { PersonalInfoSchema } from '@/schema';
 import { PERSONALINFOINITIALVALUES } from '@/constants';
@@ -7,11 +8,12 @@ import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import CardInformation from './CardInformation';
 import UploadPicture from './UploadPicture';
+
 function Form() {
   const [profile, setProfile] = useState<File | null>(null);
   const [profileUrl, setProfileUrl] = useState<string>('');
-  const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       setProfile(file);
       const reader = new FileReader();
@@ -26,8 +28,9 @@ function Form() {
     initialValues: PERSONALINFOINITIALVALUES,
     validationSchema: PersonalInfoSchema,
 
-    onSubmit: async (values, onSubmit) => {
-      console.log('values', values);
+    onSubmit: async (results, onSubmit) => {
+      if (!profile) return;
+      // console.log('values', results);
       onSubmit.setSubmitting(false);
     },
   });
@@ -99,7 +102,7 @@ function Form() {
           error={touched.totalRewards && errors.totalRewards}
           onChange={handleChange}
           value={values.totalRewards}
-          isMonetaryInput={true}
+          isMonetaryInput
           currency="$"
           className="max-w-[450px] w-full"
         />

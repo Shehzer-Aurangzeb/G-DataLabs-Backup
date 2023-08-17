@@ -1,8 +1,12 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 'use client';
-import React, { useEffect } from 'react';
+
+import React from 'react';
 import Image from '@/components/UI/StyledImage';
 import { profile as defaultPorfile } from '@/temp';
 import { upload } from '@/constants/assets';
+
 interface IProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   profile: string;

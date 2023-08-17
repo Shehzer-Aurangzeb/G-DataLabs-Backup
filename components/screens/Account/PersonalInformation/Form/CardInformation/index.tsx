@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Input from '@/components/UI/Input';
 import { FormikErrors, FormikTouched } from 'formik';
+import Input from '@/components/UI/Input';
 
 interface IProps {
   values: {
@@ -25,6 +25,7 @@ interface IProps {
   }>;
   handleChange: {
     (e: React.ChangeEvent<any>): void;
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     <T_1 = string | React.ChangeEvent<any>>(
       field: T_1,
     ): T_1 extends React.ChangeEvent<any> ? void : (e: string | React.ChangeEvent<any>) => void;
