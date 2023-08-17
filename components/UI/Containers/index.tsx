@@ -8,7 +8,7 @@ interface IProps {
   className?: string;
 }
 
-function Container({ children, type, className }: IProps) {
+function Container({ children, type, className = '' }: IProps) {
   return (
     <>
       {type === 'main' && <Main className={className}>{children}</Main>}
@@ -17,7 +17,4 @@ function Container({ children, type, className }: IProps) {
   );
 }
 
-Container.defaultProps = {
-  className: '',
-};
 export default Container;

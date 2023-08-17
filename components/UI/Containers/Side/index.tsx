@@ -24,7 +24,7 @@ function Side({ children, className = '' }: IProps) {
       {width < 1024 && (
         <div className="h-[calc(100vh_-_2.5rem)] bg-light relative w-[50px]">
           <button
-            className="absolute top-0 left-0 flex items-center justify-center p-2"
+            className="absolute top-0 left-0 flex items-center justify-center pt-2"
             onClick={() => setIsOpen(!isOpen)}
             type="submit"
           >
@@ -36,7 +36,9 @@ function Side({ children, className = '' }: IProps) {
         ref={containerRef}
         className={[
           `bg-light h-[calc(100vh_-_2.5rem)] max-w-[340px] mobile:max-w-full rounded-r-lg overflow-y-auto ${
-            width < 1024 ? `fixed right-0 z-20 transition-all duration-300 ${isOpen ? 'w-full' : 'w-0'}` : 'w-full '
+            width < 1024
+              ? `fixed right-0 z-20 transition-all duration-300 ${isOpen ? 'w-full pl-5' : 'w-0 p-0'}`
+              : 'w-full pl-5'
           }`,
           className,
         ].join(' ')}

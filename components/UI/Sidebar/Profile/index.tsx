@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
-import { logout, profile } from '@/constants/assets';
+import { logout } from '@/constants/assets';
+import { profile } from '@/temp';
 
 function Profile() {
   return (

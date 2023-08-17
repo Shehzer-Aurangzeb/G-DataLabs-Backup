@@ -36,3 +36,7 @@ export type THistory = {
 export type TGroupedChatHistory = {
   [key: string]: THistory[];
 };
+export type Columns = {
+  col1: string;
+  col2: string;
+};

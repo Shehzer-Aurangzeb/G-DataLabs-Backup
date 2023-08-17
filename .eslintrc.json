@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb", "prettier", "airbnb-typescript"],
+  "extends": ["next/core-web-vitals", "airbnb", "prettier", "airbnb-typescript", "prettier/@typescript-eslint"],
   "parserOptions": {
     "project": ["./tsconfig.json", "./next.config.js", "./postcss.config.js"]
   },

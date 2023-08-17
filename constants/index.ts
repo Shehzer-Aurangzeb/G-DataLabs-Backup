@@ -1,5 +1,7 @@
-import { NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
+import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
 import { home, history, account, myGData } from './assets';
+import { PersonalInfoSchemaType } from '@/schema';
+import { Column } from 'react-table';
 
 export const PATHS = {
   HOME: '/',
@@ -75,5 +77,34 @@ export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
     title: 'Generate Text + Image',
     color: '#E62431',
+  },
+];
+export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  username: '',
+};
+export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Personal Data and Webcam',
+    accessor: 'PDataAndWeb' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Definition',
+    accessor: 'Definition' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Companies',
+    accessor: 'Companies' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Use',
+    accessor: 'Use' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Consent',
+    accessor: 'Consent' as keyof Columns, // accessor is the "key" in the data
   },
 ];

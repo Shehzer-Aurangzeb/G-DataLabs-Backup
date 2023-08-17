@@ -1,5 +1,27 @@
-import React from 'react';
+'use client';
+import React, { useMemo } from 'react';
+import Container from '@/components/UI/Containers';
+import Table from '@/components/UI/Table';
+import { consentData } from '@/temp';
+import { CONSENTTABLECOLUMNS } from '@/constants';
 
 export default function Consent() {
-  return <h1 className="text-active">Consent</h1>;
+  const data = useMemo(
+    () =>
+      consentData.map((item, index) => {
+        return {
+          PDataAndWeb: item.PDataAndWeb,
+          Definition: item.Definition,
+          Companies: item.Companies,
+          Use: item.Use,
+          Consent: item.Consent,
+        };
+      }),
+    [consentData],
+  );
+  return (
+    <Container type="main" className="p-12 rounded-r-lg">
+      <Table data={data} columns={CONSENTTABLECOLUMNS} />
+    </Container>
+  );
 }
