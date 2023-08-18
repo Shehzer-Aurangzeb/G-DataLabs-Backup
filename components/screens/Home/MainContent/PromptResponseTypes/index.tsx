@@ -16,7 +16,7 @@ function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: 
         <button
           key={option.title}
           type="button"
-          className={`rounded-b-xl w-[30%] max-w-[250px] py-3 cursor-pointer ${
+          className={`rounded-b-xl w-[30%] max-w-[250px] py-3 mobile:px-1 cursor-pointer ${
             selectedResponseType === option && 'shadow-md'
           }`}
           style={{
@@ -24,7 +24,10 @@ function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: 
           }}
           onClick={() => setSelectedResponseType(option)}
         >
-          <p className="text-white font-sans font-medium text-xl laptop:text-base text-center"> {option.title}</p>
+          <p className="text-white font-sans font-medium text-xl laptop:text-base text-center mobile:text-xs">
+            {' '}
+            {option.title}
+          </p>
         </button>
       ))}
     </div>

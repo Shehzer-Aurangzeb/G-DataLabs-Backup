@@ -16,7 +16,11 @@ function ActiveChat({ chats }: TProps) {
           {msg.content.images.length > 0 && (
             <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6">
               {msg.content.images.map((img) => (
-                <Image src={img} alt="img" className="w-[170px] h-[170px] laptop:w-[140px] laptop:h-[140px]" />
+                <Image
+                  src={img}
+                  alt="img"
+                  className="w-[160px] h-[160px] laptop:w-[130px] laptop:h-[130px] mobile:w-[100px] mobile:h-[100px]"
+                />
               ))}
             </div>
           )}

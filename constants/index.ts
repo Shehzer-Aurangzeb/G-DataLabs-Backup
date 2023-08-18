@@ -108,3 +108,58 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
     accessor: 'Consent' as keyof Columns, // accessor is the "key" in the data
   },
 ];
+export const REWARDSTABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Personal Data and ScreenData',
+    accessor: 'PDataAndScreen' as keyof Columns, // accessor is the "key" in the data
+  },
+
+  {
+    Header: 'Consent',
+    accessor: 'Consent' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Personal Defined Value',
+    accessor: 'PDefinedValue' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Other Companies Value',
+    accessor: 'OtherCompValue' as keyof Columns, // accessor is the "key" in the data
+  },
+];
+export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Date',
+    accessor: 'date' as keyof Columns, // accessor is the "key" in the data
+  },
+
+  {
+    Header: 'High Temp',
+    accessor: 'highTemp' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Low Temp',
+    accessor: 'lowTemp' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Weather Type',
+    accessor: 'weatherType' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Emotion List',
+    accessor: 'emotions' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Emot. Overall',
+    accessor: 'emotionOverall' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Rel finance Status',
+    accessor: 'relFinanceStatus' as keyof Columns, // accessor is the "key" in the data
+  },
+
+  {
+    Header: 'Exercise Total Time',
+    accessor: 'exerciseTime' as keyof Columns, // accessor is the "key" in the data
+  },
+];

@@ -12,7 +12,7 @@ function SidePanel() {
   const groupedChatHistory = groupMessagesByDate(history);
 
   return (
-    <Container type="side" className="pr-3 pb-5">
+    <Container type="side" className="pb-5">
       <h3 className="font-sans text-xl text-primary font-bold px-2 pt-8 tablet:pt-10">Recent Chat History</h3>
       <ChatHistory groupedChatHistory={groupedChatHistory} />
       <Button title="New Chat" onClick={() => {}} className="bg-blue w-full mt-9" isLoading={false} icon={add} />

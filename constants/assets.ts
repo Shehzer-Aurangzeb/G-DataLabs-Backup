@@ -11,6 +11,12 @@ import sidebar_dark from '@/public/assets/icons/sidebar_dark__icon.png';
 import chat from '@/public/assets/icons/chat__icon.svg';
 import add from '@/public/assets/icons/add__icon.svg';
 import upload from '@/public/assets/icons/upload__icon.svg';
+import cross_disable from '@/public/assets/icons/cross_disable__icon.svg';
+import cross_active from '@/public/assets/icons/cross_active__icon.svg';
+import check_disable from '@/public/assets/icons/check_disable__icon.svg';
+import check_active from '@/public/assets/icons/check_active__icon.svg';
+import edit from '@/public/assets/icons/edit__icon.svg';
+import arrow from '@/public/assets/icons/arrow__icon.svg';
 
 export {
   home,
@@ -26,4 +32,10 @@ export {
   chat,
   add,
   upload,
+  cross_disable,
+  check_active,
+  check_disable,
+  cross_active,
+  edit,
+  arrow,
 };

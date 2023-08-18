@@ -22,6 +22,7 @@ const config: Config = {
         disabledBlue: '#046c98b0',
         table: '#3b7bbe',
         lightGreen: '#C3D2B7',
+        side: '#A1BF8C80',
       },
       backgroundImage: {
         chatBg: 'linear-gradient(180deg,rgba(53,55,64,0),#d9d9d9 58.85%)',

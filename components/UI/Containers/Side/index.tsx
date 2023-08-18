@@ -37,8 +37,8 @@ function Side({ children, className = '' }: IProps) {
         className={[
           `bg-light h-[calc(100vh_-_2.5rem)] max-w-[340px] mobile:max-w-full rounded-r-lg overflow-y-auto ${
             width < 1024
-              ? `fixed right-0 z-20 transition-all duration-300 ${isOpen ? 'w-full pl-5' : 'w-0 p-0'}`
-              : 'w-full pl-5'
+              ? `fixed right-0 z-20 transition-all duration-300 ${isOpen ? 'w-full pl-5 pr-3' : 'w-0 p-0'}`
+              : 'w-full pl-5 pr-3'
           }`,
           className,
         ].join(' ')}
