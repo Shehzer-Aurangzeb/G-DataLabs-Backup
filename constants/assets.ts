@@ -17,6 +17,7 @@ import check_disable from '@/public/assets/icons/check_disable__icon.svg';
 import check_active from '@/public/assets/icons/check_active__icon.svg';
 import edit from '@/public/assets/icons/edit__icon.svg';
 import arrow from '@/public/assets/icons/arrow__icon.svg';
+import plus from '@/public/assets/icons/plus__icon.svg';
 
 export {
   home,
@@ -38,4 +39,5 @@ export {
   cross_active,
   edit,
   arrow,
+  plus,
 };

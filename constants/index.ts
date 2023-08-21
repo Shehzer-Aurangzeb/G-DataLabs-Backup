@@ -1,6 +1,6 @@
 import { Column } from 'react-table';
 import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
-import { PersonalInfoSchemaType } from '@/schema';
+import { PersonalDataSchemaType, PersonalInfoSchemaType } from '@/schema';
 import { home, history, account, myGData } from './assets';
 
 export const PATHS = {
@@ -85,6 +85,16 @@ export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
   email: '',
   password: '',
   username: '',
+};
+export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
+  date: '',
+  highTemp: 0,
+  lowTemp: 0,
+  emotionList: [],
+  emotionOverall: '',
+  weatherType: '',
+  relFinanceStatus: '',
+  exerciseTotalTime: '',
 };
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
   {
