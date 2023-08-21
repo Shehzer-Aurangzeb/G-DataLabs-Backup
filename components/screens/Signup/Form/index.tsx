@@ -19,7 +19,6 @@ function SignupForm() {
       onSubmit.setSubmitting(false);
     },
   });
-  console.log('errors :>> ', errors);
   return (
     <form className="flex flex-row flex-wrap gap-y-5" noValidate onSubmit={handleSubmit}>
       <Input
