@@ -40,3 +40,7 @@ export type Columns = {
   col1: string;
   col2: string;
 };
+export enum KEYS {
+  USER = 'user',
+  TOKEN = 'token_datalabs',
+}

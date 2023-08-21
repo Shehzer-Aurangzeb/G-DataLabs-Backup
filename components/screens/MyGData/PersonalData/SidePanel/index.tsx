@@ -17,7 +17,7 @@ function SidePanel() {
     validationSchema: PersonalDataSchema,
 
     onSubmit: async (results, onSubmit) => {
-      console.log('values', results);
+      // console.log('values', results);
       onSubmit.setSubmitting(false);
     },
   });

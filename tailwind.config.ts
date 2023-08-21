@@ -34,11 +34,13 @@ const config: Config = {
         primary: '#333',
         placeholder: '#9B9B9B',
         error: '#FF3333',
+        blue: '#046C98',
       },
 
       borderColor: {
         main: '#333',
         table: '#bbb',
+        checkbox: 'rgba(0,0,0,.25)',
       },
       fontFamily: {
         sans: ['var(--font-dm-sans)'],

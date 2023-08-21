@@ -1,6 +1,6 @@
 import { Column } from 'react-table';
 import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
-import { PersonalDataSchemaType, PersonalInfoSchemaType } from '@/schema';
+import { LoginFormSchemaType, PersonalDataSchemaType, PersonalInfoSchemaType, SignupFormSchemaType } from '@/schema';
 import { home, history, account, myGData } from './assets';
 
 export const PATHS = {
@@ -13,6 +13,9 @@ export const PATHS = {
   CONSENT: '/my_g-data/consent',
   REWARDS: '/my_g-data/rewards',
   SCREEN: '/my_g-data/screen-data',
+  SIGNUP: '/signup',
+  LOGIN: '/login',
+  RESETPASSWORD: '/reset_password',
 };
 
 export const NAVITEMS: TNAVITEMS[] = [
@@ -85,6 +88,19 @@ export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
   email: '',
   password: '',
   username: '',
+};
+export const LOGINFORMINITIALVALUES: LoginFormSchemaType = {
+  email: '',
+  password: '',
+};
+export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
+  email: '',
+  password: '',
+  firstName: '',
+  lastName: '',
+  privacyPolicy: false,
+  termsConditions: false,
+  cookiePolicy: false,
 };
 export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   date: '',
