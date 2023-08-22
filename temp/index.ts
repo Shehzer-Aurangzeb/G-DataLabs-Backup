@@ -347,4 +347,26 @@ const personalData = [
     exerciseTime: 1.5,
   },
 ];
-export { messages, history, profile, consentData, rewardsData, personalData };
+const mygData = [
+  {
+    consents: 'emotion_list',
+    date1: 'happy',
+    date2: 'sad',
+    date3: 'happy',
+    date4: 'happy',
+    date5: 'sad',
+    consentValue: 'TRUE',
+    rewards: '$0.25/record',
+  },
+  {
+    consents: 'weather',
+    date1: 'sunny',
+    date2: 'rainy',
+    date3: 'cloudy',
+    date4: 'cloudy',
+    date5: 'sunny',
+    consentValue: 'FALSE',
+    rewards: '$1/record',
+  },
+];
+export { messages, history, profile, consentData, rewardsData, personalData, mygData };
