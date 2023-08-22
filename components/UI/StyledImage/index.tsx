@@ -1,9 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 interface IProps {
   className: string;
-  src: any;
+  src: string | StaticImport;
   alt: string;
   rounded?: boolean;
 }

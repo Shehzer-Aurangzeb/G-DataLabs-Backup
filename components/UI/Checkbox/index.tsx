@@ -21,7 +21,7 @@ function Checkbox({ id, name, label, checked, className, onChange, error }: IPro
         />
         {label}
       </label>
-      {error && <p className="font-sans text-sm text-error">{error}</p>}
+      {error && <p className="block w-full font-sans text-sm text-error -mt-4">{error}</p>}
     </>
   );
 }

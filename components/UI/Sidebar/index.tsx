@@ -1,35 +1,42 @@
 'use client';
 
-import React, { Fragment, useRef, useState } from 'react';
-import { NAVITEMS } from '@/constants';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { APPITEMS, AUTHITEMS } from '@/constants';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import Image from '@/components/UI/StyledImage';
 import { sidebar } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { useUser } from '@/state/user/hooks';
 import Logo from './Logo';
 import Items from './Items';
 import Switch from './Switch';
 import Profile from './Profile';
+import IconButton from '../IconButton';
 
 function Sidebar() {
   const { width } = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const { isAuthenticated } = useUser();
   const handleOutsideClick = () => {
     setIsOpen(false);
   };
   useOutsideClick(containerRef, handleOutsideClick);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
   return (
     <>
       {width < 1280 && (
         <div className="h-[calc(100vh_-_2.5rem)] bg-main relative w-[50px]">
-          <button
-            className="absolute top-0 left-0 flex items-center justify-center p-2"
+          <IconButton
+            className="absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
-            type="submit"
-          >
-            <Image src={sidebar} alt="sidebar-icon" className="w-[30px] h-[30px]" />
-          </button>
+            type="button"
+            src={sidebar}
+          />
         </div>
       )}
 
@@ -44,17 +51,16 @@ function Sidebar() {
       >
         <Logo />
         {width < 1280 && (
-          <button
-            className="z-10 absolute top-[5px] right-0 bg-main flex items-center justify-center p-2"
+          <IconButton
+            className="z-10 absolute top-3 right-2 bg-main flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
-            type="submit"
-          >
-            <Image src={sidebar} alt="sidebar-icon" className="w-[30px] h-[30px]" />
-          </button>
+            type="button"
+            src={sidebar}
+          />
         )}
-        <Items items={NAVITEMS} />
+        <Items items={isAuthenticated ? APPITEMS : AUTHITEMS} />
         <div className="max-w-sidebarItem w-full">
-          <Profile />
+          {isAuthenticated && <Profile />}
           <Switch />
         </div>
       </aside>

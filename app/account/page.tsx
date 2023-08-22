@@ -5,7 +5,7 @@ import PersonalInformation from '@/components/screens/Account/PersonalInformatio
 
 export default function Account() {
   return (
-    <Container type="main" className="py-12 px-10 rounded-r-lg">
+    <Container type="main" className="py-12 px-10 mobile:py-4 mobile:px-2 rounded-r-lg">
       <Header />
       <PersonalInformation />
     </Container>

@@ -9,9 +9,17 @@ type TProps = {
 };
 function Actions({ isAllowed }: TProps) {
   return (
-    <div className="flex flex-row gap-x-4 w-full justify-center items-center">
-      <IconButton src={isAllowed ? check_active : check_disable} className="h-[35px] w-[35px]" onClick={() => {}} />
-      <IconButton src={!isAllowed ? cross_active : cross_disable} className="h-[35px] w-[35px]" onClick={() => {}} />
+    <div className="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
+      <IconButton
+        src={isAllowed ? check_active : check_disable}
+        className="relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]"
+        onClick={() => {}}
+      />
+      <IconButton
+        src={!isAllowed ? cross_active : cross_disable}
+        className="relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]"
+        onClick={() => {}}
+      />
     </div>
   );
 }

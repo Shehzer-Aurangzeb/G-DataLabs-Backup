@@ -1,7 +1,13 @@
 import { Column } from 'react-table';
 import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
-import { LoginFormSchemaType, PersonalDataSchemaType, PersonalInfoSchemaType, SignupFormSchemaType } from '@/schema';
-import { home, history, account, myGData } from './assets';
+import {
+  LoginFormSchemaType,
+  PersonalDataSchemaType,
+  PersonalInfoSchemaType,
+  ResetPasswordFormSchemaType,
+  SignupFormSchemaType,
+} from '@/schema';
+import { home, history, account, myGData, logout } from './assets';
 
 export const PATHS = {
   HOME: '/',
@@ -18,7 +24,7 @@ export const PATHS = {
   RESETPASSWORD: '/reset_password',
 };
 
-export const NAVITEMS: TNAVITEMS[] = [
+export const APPITEMS: TNAVITEMS[] = [
   {
     title: 'Home',
     icon: home,
@@ -67,6 +73,23 @@ export const NAVITEMS: TNAVITEMS[] = [
     to: PATHS.ACCOUNT,
   },
 ];
+export const AUTHITEMS: TNAVITEMS[] = [
+  {
+    title: 'Home',
+    icon: home,
+    to: PATHS.HOME,
+  },
+  {
+    title: 'Login',
+    icon: logout,
+    to: PATHS.LOGIN,
+  },
+  {
+    title: 'Register',
+    icon: account,
+    to: PATHS.SIGNUP,
+  },
+];
 
 export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
@@ -92,6 +115,9 @@ export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
 export const LOGINFORMINITIALVALUES: LoginFormSchemaType = {
   email: '',
   password: '',
+};
+export const RESETPASSWORDFORMINITIALVALUES: ResetPasswordFormSchemaType = {
+  email: '',
 };
 export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
   email: '',

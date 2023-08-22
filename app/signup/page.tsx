@@ -4,7 +4,7 @@ import Main from '@/components/screens/Signup';
 
 export default function Login() {
   return (
-    <Container type="main" className="relative">
+    <Container type="main" className="relative overflow-y-auto">
       <Main />
     </Container>
   );

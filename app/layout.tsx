@@ -3,7 +3,7 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { DMSANS, RALEWAY } from '@/public/assets/fonts';
 import Layout from '@/components/UI/Layout';
-import ThemeProvider from '@/context/ThemeProvider';
+import Provider from './provider';
 
 export const metadata: Metadata = {
   title: 'G-DataLabs',
@@ -14,9 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={[DMSANS.variable, RALEWAY.variable].join(' ')}>
       <body className="bg-main">
-        <ThemeProvider>
+        <Provider>
           <Layout>{children}</Layout>
-        </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

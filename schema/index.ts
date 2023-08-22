@@ -34,18 +34,25 @@ export const SignupFormSchema = object({
   lastName: string().min(2, 'Last Name is too short').required('Last Name is required'),
   email: string().email().required('Email is required'),
   password: string().min(5, 'Password must be 5 characters long').required('Password is required'),
-  termsConditions: boolean().required('Please accept the Terms and Conditions in order to proceed'),
-  privacyPolicy: boolean().when(['termsConditions'], {
-    is: (termsConditions: boolean) => termsConditions === true,
-    then: (schema) => schema.required('Please accept the Privacy Policy in order to proceed '),
+  termsConditions: boolean()
+    .test('is-true', 'You must accept the terms and conditions.', (value) => value === true)
+    .required('Please accept the Terms and Conditions in order to proceed'),
+  privacyPolicy: boolean().when('termsConditions', {
+    is: true,
+    then: (schema) => schema.oneOf([true], 'You must accept privacy and policy.'),
   }),
   cookiePolicy: boolean().when(['privacyPolicy'], {
-    is: (privacyPolicy: boolean) => privacyPolicy === true,
-    then: (schema) => schema.required('Please accept the Cookie Policy in order to proceed '),
+    is: true,
+    then: (schema) => schema.oneOf([true], 'You must accept cookie policy.'),
   }),
+});
+export const ResetPasswordFormSchema = object({
+  email: string().email().required('Email is required'),
 });
 
 export type PersonalInfoSchemaType = InferType<typeof PersonalInfoSchema>;
 export type PersonalDataSchemaType = InferType<typeof PersonalDataSchema>;
 export type LoginFormSchemaType = InferType<typeof LoginFormSchema>;
+export type ResetPasswordFormSchemaType = InferType<typeof ResetPasswordFormSchema>;
+
 export type SignupFormSchemaType = InferType<typeof SignupFormSchema>;

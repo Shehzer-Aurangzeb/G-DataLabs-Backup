@@ -4,7 +4,7 @@ import Main from '@/components/screens/MyGData/Rewards';
 
 export default function Rewards() {
   return (
-    <Container type="main" className="p-12 rounded-r-lg">
+    <Container type="main" className="p-12 mobile:p-2 rounded-r-lg">
       <Main />
     </Container>
   );

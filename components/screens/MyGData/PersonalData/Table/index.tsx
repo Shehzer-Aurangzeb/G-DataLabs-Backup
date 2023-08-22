@@ -1,5 +1,6 @@
 import React from 'react';
 import { Column, useTable } from 'react-table';
+import { v4 as uuidv4 } from 'uuid';
 import { Columns } from '@/types';
 
 interface IProps {
@@ -20,7 +21,7 @@ function Table({ columns, data }: IProps) {
             {headerGroup.headers.map((column: any) => (
               <th
                 {...column.getHeaderProps()}
-                className="border-table border py-3 bg-table text-xl text-white font-medium font-sans whitespace-nowrap px-7"
+                className="border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap"
               >
                 {column.render('Header')}
               </th>
@@ -36,10 +37,10 @@ function Table({ columns, data }: IProps) {
               {row.cells.map((cell: any) => (
                 <td
                   {...cell.getCellProps()}
-                  className="border border-[#ced4da] py-4  bg-active text-black font-sans font-normal text-base text-center whitespace-nowrap px-7"
+                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap"
                 >
                   {cell.column.id === 'emotions'
-                    ? row.values.emotions.map((emt: string) => <p>{emt}</p>)
+                    ? row.values.emotions.map((emt: string) => <p key={uuidv4()}>{emt}</p>)
                     : cell.render('Cell')}
                 </td>
               ))}

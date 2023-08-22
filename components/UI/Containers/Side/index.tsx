@@ -2,9 +2,9 @@
 
 import React, { useRef, useState } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import Image from '@/components/UI/StyledImage';
 import { sidebar_dark } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import IconButton from '../../IconButton';
 
 interface IProps {
   children: React.ReactNode;
@@ -23,13 +23,12 @@ function Side({ children, className = '' }: IProps) {
     <>
       {width < 1024 && (
         <div className="h-[calc(100vh_-_2.5rem)] bg-light relative w-[50px]">
-          <button
-            className="absolute top-0 left-0 flex items-center justify-center pt-2"
+          <IconButton
+            className="z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
-            type="submit"
-          >
-            <Image src={sidebar_dark} alt="sidebar-icon" className="w-[30px] h-[30px]" />
-          </button>
+            type="button"
+            src={sidebar_dark}
+          />
         </div>
       )}
       <div
@@ -45,13 +44,12 @@ function Side({ children, className = '' }: IProps) {
       >
         {width < 1024 && (
           <div className="relative w-[50px]">
-            <button
-              className="absolute top-0 left-0 flex items-center justify-center p-2"
+            <IconButton
+              className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px]"
               onClick={() => setIsOpen(!isOpen)}
-              type="submit"
-            >
-              <Image src={sidebar_dark} alt="sidebar-icon" className="w-[30px] h-[30px]" />
-            </button>
+              type="button"
+              src={sidebar_dark}
+            />
           </div>
         )}
         {children}

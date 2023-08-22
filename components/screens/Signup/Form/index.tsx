@@ -20,7 +20,7 @@ function SignupForm() {
     },
   });
   return (
-    <form className="flex flex-row flex-wrap gap-y-5" noValidate onSubmit={handleSubmit}>
+    <form className="flex flex-row flex-wrap gap-5 items-center" noValidate onSubmit={handleSubmit}>
       <Input
         label="First Name"
         placeholder="John Doe"
@@ -28,7 +28,7 @@ function SignupForm() {
         error={touched.firstName && errors.firstName}
         onChange={handleChange}
         value={values.firstName}
-        className="w-full"
+        className="w-full max-w-[450px]"
       />
       <Input
         label="Last Name"
@@ -37,7 +37,7 @@ function SignupForm() {
         error={touched.lastName && errors.lastName}
         onChange={handleChange}
         value={values.lastName}
-        className="w-full"
+        className="w-full max-w-[450px]"
       />
       <Input
         label="Email"
@@ -47,7 +47,7 @@ function SignupForm() {
         error={touched.email && errors.email}
         onChange={handleChange}
         value={values.email}
-        className="w-full"
+        className="w-full max-w-[450px]"
       />
       <Input
         label="Password"
@@ -56,33 +56,67 @@ function SignupForm() {
         error={touched.password && errors.password}
         onChange={handleChange}
         value={values.password}
-        className="w-full"
+        className="w-full max-w-[450px]"
       />
-      <Checkbox
-        checked={values.termsConditions}
-        onChange={handleChange}
-        name="termsConditions"
-        id="termsConditions"
-        error={errors.termsConditions}
-        label={
-          <p className="text-primary font-sans font-semibold text-base">
-            {' '}
-            I accept the
-            <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
-              Terms and Conditions
-            </Link>
-          </p>
-        }
-      />
-      <p className="text-primary font-sans font-semibold text-base">
-        {' '}
-        Already have an account?
-        <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
-          Click here to Login
-        </Link>
-      </p>
+      <div className="flex flex-col gap-y-5">
+        <Checkbox
+          checked={values.termsConditions}
+          onChange={handleChange}
+          name="termsConditions"
+          id="termsConditions"
+          error={errors.termsConditions}
+          label={
+            <p className="text-primary font-sans font-semibold text-base">
+              {' '}
+              I accept the
+              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+                Terms and Conditions
+              </Link>
+            </p>
+          }
+        />
+        <Checkbox
+          checked={values.privacyPolicy}
+          onChange={handleChange}
+          name="privacyPolicy"
+          id="privacyPolicy"
+          error={errors.privacyPolicy}
+          label={
+            <p className="text-primary font-sans font-semibold text-base">
+              {' '}
+              I accept the
+              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+                Privacy Policy
+              </Link>
+            </p>
+          }
+        />
+        <Checkbox
+          checked={values.cookiePolicy}
+          onChange={handleChange}
+          name="cookiePolicy"
+          id="cookiePolicy"
+          error={errors.cookiePolicy}
+          label={
+            <p className="text-primary font-sans font-semibold text-base">
+              {' '}
+              I accept the
+              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+                Cookie Policy
+              </Link>
+            </p>
+          }
+        />
+        <p className="text-primary font-sans font-semibold text-base">
+          {' '}
+          Already have an account?
+          <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+            Click here to Login
+          </Link>
+        </p>
 
-      <Button type="submit" className="bg-blue w-full" title="Sign up" isLoading={false} />
+        <Button type="submit" className="bg-blue w-full" title="Sign up" isLoading={false} />
+      </div>
     </form>
   );
 }

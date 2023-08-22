@@ -15,7 +15,7 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function IconButton({ onClick, type = 'button', isLoading = false, src, className = '' }: IProps) {
   return (
     <button
-      className={['relative  disabled:cursor-not-allowed', className].join(' ')}
+      className={['disabled:cursor-not-allowed', className].join(' ')}
       onClick={onClick}
       type={type}
       disabled={isLoading}

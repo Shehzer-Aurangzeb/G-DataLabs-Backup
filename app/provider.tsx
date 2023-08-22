@@ -4,8 +4,9 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import ThemeProvider from '@/context/ThemeProvider';
 import store from '@/state/store';
+
+import ThemeProvider from '@/context/ThemeProvider';
 
 interface IProps {
   children: React.ReactNode;
