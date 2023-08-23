@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 'use client';
 
 import { useEffect } from 'react';

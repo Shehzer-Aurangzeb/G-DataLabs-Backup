@@ -4,9 +4,11 @@ import { persistStore, persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage'; //
 import UserReducer from '@/state/user';
+import LoadingReducer from '@/state/loading';
 
 const rootReducer = combineReducers({
   user: UserReducer,
+  loading: LoadingReducer,
 
   // Add other reducers here if you have any
 });

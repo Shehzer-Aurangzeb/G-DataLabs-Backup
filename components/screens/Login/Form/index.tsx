@@ -7,14 +7,17 @@ import { LoginFormSchema } from '@/schema';
 import { LOGINFORMINITIALVALUES, PATHS } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
+import { useAuth } from '@/hooks/useAuth';
 
 function LoginForm() {
+  const { loginUser, isLoading } = useAuth();
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
     initialValues: LOGINFORMINITIALVALUES,
     validationSchema: LoginFormSchema,
 
     onSubmit: async (results, onSubmit) => {
       // console.log('values', results);
+      loginUser(results);
       onSubmit.setSubmitting(false);
     },
   });
@@ -47,7 +50,7 @@ function LoginForm() {
         </Link>
       </p>
 
-      <Button type="submit" className="bg-blue w-full" title="Sign In" isLoading={false} />
+      <Button type="submit" className="bg-blue w-full" title="Sign In" isLoading={isLoading} />
 
       <Link href={PATHS.RESETPASSWORD} className="text-blue underline text-center font-sans font-semibold text-base">
         Forgot Password?

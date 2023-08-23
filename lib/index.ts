@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import dayjs from 'dayjs';
 import { THistory, TGroupedChatHistory } from '@/types';
 

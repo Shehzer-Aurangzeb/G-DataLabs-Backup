@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import { RootState, useAppDispatch } from 'state/store';
-import { deleteUserInfoFromLocalStorage, saveUserInfoInLocalStorage, getUserInfoFromLocalStorage } from '@/lib/cache';
+import { deleteUserInfoFromCookies, saveUserInfoInCookies, getUserInfoFromCookies } from '@/lib/cookies';
 import { setUserAction } from '.';
 import { UserSliceType } from './types';
 
@@ -12,14 +12,14 @@ export const useUser = () => {
   const setUser = useCallback(
     (payload: UserSliceType) => {
       dispatch(setUserAction(payload));
-      if (payload.user) saveUserInfoInLocalStorage(payload.user);
-      else deleteUserInfoFromLocalStorage();
+      if (payload.user) saveUserInfoInCookies(payload.user);
+      else deleteUserInfoFromCookies();
     },
     [dispatch],
   );
 
   useEffect(() => {
-    const userInfo = getUserInfoFromLocalStorage();
+    const userInfo = getUserInfoFromCookies();
     if (userInfo && !user) setUser({ user: userInfo, isAuthenticated: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -8,14 +8,22 @@ import { PATHS, SIGNUPFORMINITIALVALUES } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import Checkbox from '@/components/UI/Checkbox';
+import { useAuth } from '@/hooks/useAuth';
 
 function SignupForm() {
+  const { registerUser, isLoading } = useAuth();
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
     initialValues: SIGNUPFORMINITIALVALUES,
     validationSchema: SignupFormSchema,
 
     onSubmit: async (results, onSubmit) => {
-      // console.log('values', results);
+      const payload = {
+        email: results.email,
+        first_name: results.firstName,
+        last_name: results.lastName,
+        password: results.password,
+      };
+      registerUser(payload);
       onSubmit.setSubmitting(false);
     },
   });
@@ -115,7 +123,7 @@ function SignupForm() {
           </Link>
         </p>
 
-        <Button type="submit" className="bg-blue w-full" title="Sign up" isLoading={false} />
+        <Button type="submit" className="bg-blue w-full" title="Sign up" isLoading={isLoading} />
       </div>
     </form>
   );
