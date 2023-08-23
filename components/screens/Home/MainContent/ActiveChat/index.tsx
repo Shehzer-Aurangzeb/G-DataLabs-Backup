@@ -9,12 +9,12 @@ type TProps = {
 
 function ActiveChat({ chats }: TProps) {
   return (
-    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)]">
+    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 ">
       {chats.map((msg) => (
         <Chat key={msg.messageID} isBotResponse={msg.isBotResponse}>
           {msg.content.text.length > 0 && <p>{msg.content.text}</p>}
           {msg.content.images.length > 0 && (
-            <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6">
+            <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6  mobile:max-w-[70%] mobile:py-2 mobile:gap-0">
               {msg.content.images.map((img) => (
                 <Image
                   src={img}

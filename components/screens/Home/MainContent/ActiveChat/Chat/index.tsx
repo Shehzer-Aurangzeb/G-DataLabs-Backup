@@ -9,8 +9,8 @@ interface IProps {
 }
 function Chat({ isBotResponse = false, children }: IProps) {
   return (
-    <div className="bg-chat flex flex-row gap-x-8 items-center justify-start py-5 px-8 font-raleway text-primary text-xl font-semibold mb-4">
-      <Image src={isBotResponse ? logo : profile} alt="profile" className="w-12 h-12 self-start" rounded />
+    <div className="bg-chat flex flex-row gap-x-8 items-center justify-start py-5 px-8 font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-[16px]">
+      <Image src={isBotResponse ? logo : profile} alt="profile" className="w-12 h-12 self-start " rounded />
       <div>{children}</div>
     </div>
   );
