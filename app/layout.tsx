@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { DMSANS, RALEWAY } from '@/public/assets/fonts';
 import Layout from '@/components/UI/Layout';
+import Toast from '@/components/UI/Notification';
 import Provider from './provider';
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={[DMSANS.variable, RALEWAY.variable].join(' ')}>
       <body className="bg-main">
         <Provider>
+          <Toast />
           <Layout>{children}</Layout>
         </Provider>
       </body>

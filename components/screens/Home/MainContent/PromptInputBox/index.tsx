@@ -1,45 +1,57 @@
-'use client';
-
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Image from 'components/UI/StyledImage';
 import { send } from '@/constants/assets';
 import { useAutosizeTextArea } from '@/hooks/useAutoSizeTextArea';
-import PromptResponseTypes from '@/components/screens/Home/MainContent/PromptResponseTypes';
-import { PROMPTRESPONSEOPTIONS } from '@/constants';
+import PromptResponseTypes from '@/components/screens/Home/MainContent/PromptInputBox/PromptResponseTypes';
 import { TPROPTION } from '@/types';
+import { UserPrompt } from '@/state/chats/types';
 
-function PromptInputBox() {
-  const [prompt, setPrompt] = useState('');
-  const [selectedResponseType, setSelectedResponseType] = useState(PROMPTRESPONSEOPTIONS[0]);
-
+type TProps = {
+  userPrompt: UserPrompt;
+  setUserPrompt: (payload: UserPrompt) => void;
+  sendPrompt: () => void;
+  isLoading: boolean;
+};
+function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TProps) {
   const handleResponseTypeChange = (responseType: TPROPTION) => {
-    setSelectedResponseType(responseType);
+    setUserPrompt({
+      data: userPrompt.data,
+      choice: responseType.value,
+    });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPrompt(e.target.value);
+  const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = e.target;
+    setUserPrompt({
+      data: value,
+      choice: userPrompt.choice,
+    });
   };
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  useAutosizeTextArea(textAreaRef.current, prompt);
+  useAutosizeTextArea(textAreaRef.current, userPrompt?.data ?? '');
   return (
     <div className="w-full flex flex-col absolute bottom-0 left-0 px-10 bg-chatBg pb-10 mobile:px-4 mobile:pb-2">
       <div className="flex items-center w-full pl-4 py-4 bg-chat border-main border rounded-xl relative textarea-container">
         <textarea
           className="resize-none w-full bg-transparent overflow-hidden focus:outline-none pr-12 max-h-[200px] overflow-y-auto h-[24px]"
-          value={prompt}
+          value={userPrompt?.data}
           ref={textAreaRef}
           name="prompt"
-          onChange={handleInputChange}
+          onChange={handlePromptChange}
         />
         <button
           type="button"
-          className="absolute bottom-1 right-5 bg-transparent focus:shadow-none focus:outline-none "
+          className={`absolute bottom-1 right-5 bg-transparent focus:shadow-none focus:outline-none ${
+            (isLoading || userPrompt.data.length === 0) && 'cursor-not-allowed'
+          }`}
+          onClick={sendPrompt}
+          disabled={isLoading || userPrompt.data.length === 0}
         >
           <Image src={send} alt="send-icon" className="w-[40px] h-[40px]" />
         </button>
       </div>
       <PromptResponseTypes
-        selectedResponseType={selectedResponseType}
+        selectedResponseType={userPrompt.choice}
         setSelectedResponseType={handleResponseTypeChange}
       />
     </div>

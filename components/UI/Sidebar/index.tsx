@@ -6,7 +6,7 @@ import { APPITEMS, AUTHITEMS } from '@/constants';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { sidebar } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { useUser } from '@/state/user/hooks';
+import { useAuth } from '@/hooks/useAuth';
 import Logo from './Logo';
 import Items from './Items';
 import Switch from './Switch';
@@ -18,7 +18,7 @@ function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated, logoutUser } = useAuth();
   const handleOutsideClick = () => {
     setIsOpen(false);
   };
@@ -60,7 +60,7 @@ function Sidebar() {
         )}
         <Items items={isAuthenticated ? APPITEMS : AUTHITEMS} />
         <div className="max-w-sidebarItem w-full">
-          {isAuthenticated && <Profile />}
+          {isAuthenticated && <Profile logoutUser={logoutUser} />}
           <Switch />
         </div>
       </aside>

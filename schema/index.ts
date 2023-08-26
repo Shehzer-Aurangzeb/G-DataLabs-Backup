@@ -14,14 +14,16 @@ export const PersonalInfoSchema = object({
   cvv: number(),
 });
 export const PersonalDataSchema = object({
-  date: string().required('Date is required'),
-  highTemp: number().required('High Temperature is required'),
-  lowTemp: number().required('Low Temperature is required'),
-  emotionList: array().of(string().required('Emotion List cannot be empty')).min(1, 'At least one emotion is required'),
-  emotionOverall: string().required('Overall emotion is required'),
-  weatherType: string().required('Weather type is required'),
-  relFinanceStatus: string().required(),
-  exerciseTotalTime: string().required('Exercise time is required'),
+  date: string(),
+  high_temperature: number().required('High Temperature is required'),
+  low_temperature: number().required('Low Temperature is required'),
+  emotional_list: array()
+    .of(string().required('Emotion List cannot be empty'))
+    .min(1, 'At least one emotion is required'),
+  emotional_overall: string().required('Overall emotion is required'),
+  weather_type: string(),
+  relative_finance_status: string().required(),
+  exercise_total_time: string(),
 });
 
 export const LoginFormSchema = object({

@@ -1,0 +1,58 @@
+.loader {
+  display: flex;
+  flex-direction: row;
+  column-gap: 6px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.blink {
+  background-color: #333;
+  height: 20px;
+  width: 12px;
+  display: block;
+  animation: blink 0.4s linear infinite;
+}
+.typewriter {
+  font-size: 20px;
+  font-weight: 700;
+  overflow: hidden;
+  border-right: 0.15em solid #333;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  width: 0;
+  border-color: transparent;
+  animation: typing 1s steps(40, end) forwards;
+  animation-delay: 0.4s;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* @keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #333;
+  }
+} */

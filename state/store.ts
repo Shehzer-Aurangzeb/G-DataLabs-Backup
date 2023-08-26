@@ -5,17 +5,21 @@ import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage'; //
 import UserReducer from '@/state/user';
 import LoadingReducer from '@/state/loading';
+import MyGDataReducer from '@/state/myGData';
+import ChatsReducer from '@/state/chats';
 
 const rootReducer = combineReducers({
   user: UserReducer,
   loading: LoadingReducer,
+  my_g_data: MyGDataReducer,
+  chats: ChatsReducer,
 
   // Add other reducers here if you have any
 });
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user'],
+  blacklist: ['loading', 'user', 'chats'],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

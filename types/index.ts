@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import { Chat as TMessage, ResponseChoice } from '@/state/chats/types';
 
 type NAVITEM = {
   title: string;
@@ -17,16 +17,9 @@ export enum Theme {
 export type TPROPTION = {
   title: string;
   color: string;
+  value: ResponseChoice;
 };
 
-export type TMessage = {
-  isBotResponse: boolean;
-  messageID: string;
-  content: {
-    text: string;
-    images: StaticImageData[];
-  };
-};
 export type THistory = {
   title: string;
   date: string;

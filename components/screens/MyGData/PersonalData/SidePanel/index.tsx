@@ -1,14 +1,17 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
 import { PERSONALDATAINITIALVALUES } from '@/constants';
-import { PersonalDataSchema } from '@/schema';
+import { PersonalDataSchema, PersonalDataSchemaType } from '@/schema';
 import Button from '@/components/UI/Button';
 import CollapsableInput from './CollapsableInput';
 
-function SidePanel() {
+type TProps = {
+  isLoading: boolean;
+  savePersonalData: (payload: PersonalDataSchemaType) => void;
+};
+
+function SidePanel({ savePersonalData, isLoading }: TProps) {
   const [emotionList, setEmotionList] = useState<{ [key: string]: string }>({
     initialKey: '',
   });
@@ -17,7 +20,7 @@ function SidePanel() {
     validationSchema: PersonalDataSchema,
 
     onSubmit: async (results, onSubmit) => {
-      // console.log('values', results);
+      savePersonalData(results);
       onSubmit.setSubmitting(false);
     },
   });
@@ -25,11 +28,10 @@ function SidePanel() {
   useEffect(() => {
     //* debouncing on state update
     const timer = setTimeout(() => {
-      setFieldValue('emotionList', Object.values(emotionList));
+      setFieldValue('emotional_list', Object.values(emotionList));
     }, 400);
     return () => clearTimeout(timer);
   }, [emotionList, setFieldValue]);
-
   return (
     <form
       className="flex flex-col gap-y-3 h-full w-full overflow-y-auto max-w-[377px] bg-side rounded-md pl-4 pr-6 py-6 "
@@ -45,18 +47,18 @@ function SidePanel() {
         error={touched.date && errors.date}
       />
       <CollapsableInput
-        value={values.highTemp}
+        value={values.high_temperature}
         onChange={handleChange}
         title="High Temperature (F)"
-        name="highTemp"
-        error={touched.highTemp && errors.highTemp}
+        name="high_temperature"
+        error={touched.high_temperature && errors.high_temperature}
       />
       <CollapsableInput
-        value={values.lowTemp}
+        value={values.low_temperature}
         onChange={handleChange}
         title="Low Temperature (F)"
-        name="lowTemp"
-        error={touched.lowTemp && errors.lowTemp}
+        name="low_temperature"
+        error={touched.low_temperature && errors.low_temperature}
       />
       <CollapsableInput
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,38 +77,38 @@ function SidePanel() {
           }));
         }}
         isAddingFieldEnabled
-        error={touched.emotionList && errors.emotionList}
+        error={touched.emotional_list && errors.emotional_list}
       />
       <CollapsableInput
-        value={values.emotionOverall}
+        value={values.emotional_overall}
         onChange={handleChange}
         title="Emotion Overall"
-        name="emotionOverall"
-        error={touched.emotionOverall && errors.emotionOverall}
+        name="emotional_overall"
+        error={touched.emotional_overall && errors.emotional_overall}
       />
       <CollapsableInput
-        value={values.weatherType}
+        value={values.weather_type}
         onChange={handleChange}
         title="Weather Type"
-        name="weatherType"
-        error={touched.weatherType && errors.weatherType}
+        name="weather_type"
+        error={touched.weather_type && errors.weather_type}
       />
       <CollapsableInput
-        value={values.relFinanceStatus}
+        value={values.relative_finance_status}
         onChange={handleChange}
         title="Rel_Finance Status"
-        name="relFinanceStatus"
-        error={touched.relFinanceStatus && errors.relFinanceStatus}
+        name="relative_finance_status"
+        error={touched.relative_finance_status && errors.relative_finance_status}
       />
       <CollapsableInput
-        value={values.exerciseTotalTime}
+        value={values.exercise_total_time}
         onChange={handleChange}
         title="Exercise Total Time"
-        name="exerciseTotalTime"
-        error={touched.exerciseTotalTime && errors.exerciseTotalTime}
+        name="exercise_total_time"
+        error={touched.exercise_total_time && errors.exercise_total_time}
       />
-      <Button type="submit" className="bg-blue w-full" title="Save" />
-      <Button type="button" className="bg-[#F5B11A] w-full" title="Save & enter new data" isLoading={false} />
+      <Button type="button" className="bg-blue w-full" title="Save" isLoading={false} />
+      <Button type="submit" className="bg-[#F5B11A] w-full" title="Save & enter new data" isLoading={isLoading} />
     </form>
   );
 }

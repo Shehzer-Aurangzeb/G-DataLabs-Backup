@@ -1,5 +1,6 @@
 import { Column } from 'react-table';
 import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
+import { ResponseChoice } from '@/state/chats/types';
 import {
   LoginFormSchemaType,
   PersonalDataSchemaType,
@@ -95,14 +96,17 @@ export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
     title: 'Generate Text Only',
     color: '#046C98',
+    value: ResponseChoice.TEXT,
   },
   {
     title: 'Generate Image Only',
     color: '#F5B11A',
+    value: ResponseChoice.IMAGES,
   },
   {
     title: 'Generate Text + Image',
     color: '#E62431',
+    value: ResponseChoice.BOTH,
   },
 ];
 export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
@@ -130,13 +134,13 @@ export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
 };
 export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   date: '',
-  highTemp: 0,
-  lowTemp: 0,
-  emotionList: [],
-  emotionOverall: '',
-  weatherType: '',
-  relFinanceStatus: '',
-  exerciseTotalTime: '',
+  high_temperature: 0,
+  low_temperature: 0,
+  emotional_list: [],
+  emotional_overall: '',
+  weather_type: '',
+  relative_finance_status: '',
+  exercise_total_time: '',
 };
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
   {

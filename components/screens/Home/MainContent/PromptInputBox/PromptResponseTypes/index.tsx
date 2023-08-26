@@ -3,9 +3,10 @@
 import React from 'react';
 import { PROMPTRESPONSEOPTIONS } from '@/constants';
 import { TPROPTION } from '@/types';
+import { ResponseChoice } from '@/state/chats/types';
 
 interface IProps {
-  selectedResponseType: TPROPTION;
+  selectedResponseType: ResponseChoice;
   setSelectedResponseType: (responseType: TPROPTION) => void;
 }
 
@@ -17,7 +18,7 @@ function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: 
           key={option.title}
           type="button"
           className={`rounded-b-xl w-[30%] max-w-[250px] py-3 cursor-pointer mobile:w-[211px] mobile:text-[14px] mobile:px-[2px] mobile:my-[2px] mobile:py-2 ${
-            selectedResponseType === option && 'shadow-md'
+            selectedResponseType === option.value && 'shadow-md'
           }`}
           style={{
             backgroundColor: option.color,
