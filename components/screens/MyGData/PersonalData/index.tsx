@@ -10,9 +10,9 @@ import SidePanel from './SidePanel';
 function Main() {
   const { savePersonalData, isLoading } = useMyGData();
   return (
-    <div className="flex flex-row gap-x-2 w-full h-full overflow-hidden">
+    <div className="flex flex-row gap-x-2 w-full overflow-hidden  h-full mobile:flex-col-reverse mobile:">
       <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
-      <div className="overflow-x-auto w-full h-full">
+      <div className="overflow-x-auto w-full h-full mobile:min-h-[350px]">
         <Table data={data} columns={PERSONALDATATABLECOLUMNS} />
       </div>
     </div>
