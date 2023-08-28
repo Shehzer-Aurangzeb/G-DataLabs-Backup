@@ -191,32 +191,32 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
 
   {
     Header: 'High Temp',
-    accessor: 'highTemp' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'high_temperature' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Low Temp',
-    accessor: 'lowTemp' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'low_temperature' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Weather Type',
-    accessor: 'weatherType' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'weather_type' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Emotion List',
-    accessor: 'emotions' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'emotional_list' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Emot. Overall',
-    accessor: 'emotionOverall' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'emotional_overall' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Rel finance Status',
-    accessor: 'relFinanceStatus' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'relative_finance_status' as keyof Columns, // accessor is the "key" in the data
   },
 
   {
     Header: 'Exercise Total Time',
-    accessor: 'exerciseTime' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'exercise_total_time' as keyof Columns, // accessor is the "key" in the data
   },
 ];
 export const MYGDATATABLECOLUMNS: Column<Columns>[] = [

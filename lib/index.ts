@@ -1,8 +1,10 @@
+/* eslint-disable no-restricted-syntax */
 import dayjs from 'dayjs';
 import { v4 as uuidv4 } from 'uuid';
-import { THistory, TGroupedChatHistory } from '@/types';
+import { THistory, TGroupedChatHistory, TableName, PersonalDataType } from '@/types';
 import { PersonalDataSchemaType } from '@/schema';
 import { Chat } from '@/state/chats/types';
+import { Data } from '@/state/myGData/types';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
   if (!categorizedMessagesMap[groupName]) {
@@ -47,12 +49,14 @@ export const createPayload = (personal_data: PersonalDataSchemaType) => {
   delete personal_data.exercise_total_time;
 
   return Object.entries(personal_data).map(([key, value]) => ({
-    value: typeof value !== 'string' ? JSON.stringify(value) : value,
+    value: typeof value === 'object' ? `${value}` : value,
     personal_data_field: {
       field_name: key.toUpperCase(),
     },
   }));
 };
+
+//* create a single chat
 export const createChat = (arg: {
   text: string;
   images: { url: string }[];
@@ -71,4 +75,21 @@ export const createChat = (arg: {
       images,
     },
   } as Chat;
+};
+
+//* create table data
+
+export const craeteTableData = (arg: { tableName: string; data: PersonalDataType[] }) => {
+  const { tableName, data } = arg;
+  const result: Data = {};
+  if (tableName === TableName.PData) {
+    for (const d of data) {
+      const date = dayjs(d.created_at).format('YYYY-MM-DD');
+      result[date] = {
+        ...result[date],
+        [d.personal_data_field.field_name]: d.value,
+      };
+    }
+  }
+  return result;
 };

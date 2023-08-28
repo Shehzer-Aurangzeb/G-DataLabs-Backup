@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MyGDataSliceType } from './types';
+import { Data, MyGDataSliceType } from './types';
 
 const initialState: MyGDataSliceType = {
-  personalData: [],
+  personalData: {},
 };
 
 const personalDataSlice = createSlice({
@@ -12,11 +12,14 @@ const personalDataSlice = createSlice({
     setPersonalDataAction: (
       state,
       action: {
-        payload: MyGDataSliceType;
+        payload: Data;
       },
     ) => ({
       ...state,
-      ...action.payload,
+      personalData: {
+        ...state.personalData,
+        ...action.payload,
+      },
     }),
   },
 });

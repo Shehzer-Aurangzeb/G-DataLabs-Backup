@@ -1,6 +1,5 @@
 import React from 'react';
 import { Column, useTable } from 'react-table';
-import { v4 as uuidv4 } from 'uuid';
 import { Columns } from '@/types';
 
 interface IProps {
@@ -39,9 +38,10 @@ function Table({ columns, data }: IProps) {
                   {...cell.getCellProps()}
                   className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap"
                 >
-                  {cell.column.id === 'emotions'
-                    ? row.values.emotions.map((emt: string) => <p key={uuidv4()}>{emt}</p>)
-                    : cell.render('Cell')}
+                  {/* {cell.column.id === 'emotional_list'
+                    ? row.values.emotional_list.map((emt: string) => <p key={uuidv4()}>{emt}</p>)
+                    : cell.render('Cell')} */}
+                  {cell.render('Cell')}
                 </td>
               ))}
             </tr>

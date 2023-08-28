@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Chat as TMessage } from '@/state/chats/types';
 import Image from '@/components/UI/StyledImage';
@@ -13,14 +13,15 @@ function ActiveChat({ chats }: TProps) {
   const responseRef = useRef<HTMLDivElement>(null);
 
   //* typewriter effect
-  const typeWriter = useCallback((message: string) => {
-    let i = 0;
-    if (i < message.length && messagesRef.current && messagesRef.current.classList.contains('typing')) {
-      messagesRef.current.innerHTML += message.charAt(i);
-      i += 1;
-      setTimeout(typeWriter, 30);
-    }
-  }, []);
+  // const typeWriter = useCallback((message: string) => {
+  //   console.log('message :>> ', message);
+  //   let i = 0;
+  //   if (i < message.length && messagesRef.current) {
+  //     messagesRef.current.innerHTML += message.charAt(i);
+  //     i += 1;
+  //     setTimeout(typeWriter, 50);
+  //   }
+  // }, []);
   //* scroll to bottom whenever new message is added
   useEffect(() => {
     if (!messagesRef.current) return;
@@ -28,7 +29,8 @@ function ActiveChat({ chats }: TProps) {
       top: messagesRef.current.scrollHeight,
       behavior: 'smooth',
     });
-  }, [chats, typeWriter]);
+    // if (chats.length > 0) typeWriter(chats[chats.length - 1].content.text);
+  }, [chats]);
 
   return (
     <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>

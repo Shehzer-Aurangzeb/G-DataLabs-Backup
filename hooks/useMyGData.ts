@@ -5,7 +5,8 @@ import { api } from '@/config';
 import { useLoading } from '@/state/loading/hooks';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { PersonalDataSchemaType } from '@/schema';
-import { createPayload } from '@/lib';
+import { craeteTableData, createPayload } from '@/lib';
+import { TableName } from '@/types';
 
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
@@ -17,8 +18,8 @@ export const useMyGData = () => {
         setIsLoading(true);
         const payload = createPayload(personal_data);
         const { data } = await api.post('api/personal_data_consents_rewards', payload);
-        console.log('response :>> ', data.data);
-        setPersonalData(data.data);
+        const newData = craeteTableData({ tableName: TableName.PData, data: data.data });
+        setPersonalData(newData);
       } catch (e) {
         console.log('e :>> ', e);
       } finally {
