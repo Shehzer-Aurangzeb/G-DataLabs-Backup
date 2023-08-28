@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 function Loader() {
   return (
     <div className={styles.loader}>
-      <span className={styles.blink} />
       <span className={styles.typewriter}>...</span>
+      <span className={styles.blink} />
     </div>
   );
 }
