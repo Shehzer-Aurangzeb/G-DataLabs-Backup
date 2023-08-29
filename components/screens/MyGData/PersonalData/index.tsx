@@ -20,7 +20,7 @@ function Main() {
     <div className="flex flex-row gap-x-2 w-full h-full overflow-hidden">
       <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
       <div className="overflow-x-auto w-full h-full">
-        {tableData.length > 0 && <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />}
+        <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />
       </div>
     </div>
   );

@@ -182,6 +182,10 @@ export const REWARDSTABLECOLUMNS: Column<Columns>[] = [
     Header: 'Other Companies Value',
     accessor: 'OtherCompValue' as keyof Columns, // accessor is the "key" in the data
   },
+  {
+    Header: 'id',
+    accessor: 'id' as keyof Columns, // accessor is the "key" in the data
+  },
 ];
 export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
   {

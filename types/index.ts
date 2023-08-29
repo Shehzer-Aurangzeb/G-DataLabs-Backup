@@ -50,6 +50,9 @@ export type SignupCredentials = {
 };
 export enum TableName {
   PData = 'Personal Data',
+  GData = 'My G-Data',
+  RData = 'Rewards Data',
+  CData = 'Consent Data',
 }
 export type PersonalDataType = {
   consents_to_sell: boolean;
@@ -62,4 +65,18 @@ export type PersonalDataType = {
   };
   personal_data_field_id: number;
   value: string;
+};
+export type GDataType = {
+  consents_to_sell: boolean;
+  created_at: string;
+  demanded_reward_value: string;
+  field_name: string;
+  id: number;
+  user_id: number;
+  values: [
+    {
+      created_at: string;
+      value: string;
+    },
+  ];
 };

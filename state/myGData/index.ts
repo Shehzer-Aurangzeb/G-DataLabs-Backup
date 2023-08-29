@@ -3,6 +3,9 @@ import { Data, MyGDataSliceType } from './types';
 
 const initialState: MyGDataSliceType = {
   personalData: {},
+  gData: {},
+  rData: {},
+  cData: {},
 };
 
 const personalDataSlice = createSlice({
@@ -21,9 +24,36 @@ const personalDataSlice = createSlice({
         ...action.payload,
       },
     }),
+    setGDataAction: (
+      state,
+      action: {
+        payload: Data;
+      },
+    ) => ({
+      ...state,
+      gData: action.payload,
+    }),
+    setRDataAction: (
+      state,
+      action: {
+        payload: Data;
+      },
+    ) => ({
+      ...state,
+      rData: action.payload,
+    }),
+    setCDataAction: (
+      state,
+      action: {
+        payload: Data;
+      },
+    ) => ({
+      ...state,
+      cData: action.payload,
+    }),
   },
 });
 
-export const { setPersonalDataAction } = personalDataSlice.actions;
+export const { setPersonalDataAction, setGDataAction, setRDataAction, setCDataAction } = personalDataSlice.actions;
 
 export default personalDataSlice.reducer;
