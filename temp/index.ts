@@ -1,5 +1,9 @@
 import profile from '@/public/assets/images/profile.jpeg';
-
+import img1 from '@/temp/assets/reply__image_1.png';
+import img2 from '@/temp/assets/reply__image_2.png';
+import img3 from '@/temp/assets/reply__image_3.png';
+import img4 from '@/temp/assets/reply__image_4.png';
+import img from '@/public/assets/images/screenData.svg';
 import { THistory } from '@/types';
 
 // const messages: TMessage[] = [
@@ -463,6 +467,38 @@ const personalData = [
     exerciseTime: 1.5,
   },
 ];
+const historyData = [
+  {
+    question: 'Hello',
+    answers: 'Hello! How can I help you?',
+    image: [],
+    feedback: '-',
+  },
+  {
+    question: 'here is the feedback',
+    answers:
+      'Sorry, but I"m unable to give feedback without any context or information about what the feedback is about. Could you please  provide  more details or clarify your question.',
+    image: [],
+    feedback: '-',
+  },
+  {
+    question: 'random question',
+    answers: 'Sure, ask me anything!',
+    image: [],
+    feedback: '-',
+  },
+  {
+    question: 'What is 2+2?',
+    answers: '',
+    image: [
+      { url: img1, alt: 'profile' },
+      { url: img2, alt: 'profile' },
+      { url: img3, alt: 'profile' },
+      { url: img4, alt: 'profile' },
+    ],
+    feedback: '-',
+  },
+];
 const mygData = [
   {
     consents: 'emotion_list',
@@ -485,4 +521,11 @@ const mygData = [
     rewards: '$1/record',
   },
 ];
-export { history, profile, consentData, rewardsData, personalData, mygData };
+const screenData = [
+  { url: img, name: 'Screen Data' },
+  { url: img, name: 'Screen Data' },
+  { url: img, name: 'Screen Data' },
+  { url: img, name: 'Screen Data' },
+  { url: img, name: 'Screen Data' },
+];
+export { history, profile, consentData, rewardsData, personalData, mygData, historyData, screenData };

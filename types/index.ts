@@ -48,3 +48,7 @@ export type SignupCredentials = {
   first_name: string;
   last_name: string;
 };
+export type ScreenData = {
+  url: any;
+  name: string;
+};

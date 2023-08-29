@@ -219,6 +219,24 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
     accessor: 'exerciseTime' as keyof Columns, // accessor is the "key" in the data
   },
 ];
+export const HISTORYDATATABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Questions',
+    accessor: 'question' as keyof Columns,
+  },
+  {
+    Header: 'Answers',
+    accessor: 'answers' as keyof Columns,
+  },
+  {
+    Header: 'Image',
+    accessor: 'image' as keyof Columns,
+  },
+  {
+    Header: 'Feedback',
+    accessor: 'feedback' as keyof Columns,
+  },
+];
 export const MYGDATATABLECOLUMNS: Column<Columns>[] = [
   {
     Header: 'Consents',
