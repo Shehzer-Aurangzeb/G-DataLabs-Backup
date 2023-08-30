@@ -12,7 +12,7 @@ function Input({ readOnly, name, onChange, value }: IProps) {
     <div className="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto">
       <span
         className={`absolute top-[23%] ${
-          readOnly ? 'left-[41px]' : 'left-[19px]'
+          readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
         } text-white font-sans text-xl font-medium`}
       >
         $

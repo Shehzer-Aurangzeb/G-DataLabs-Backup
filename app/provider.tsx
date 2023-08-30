@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from '@/state/store';
 
 import ThemeProvider from '@/context/ThemeProvider';
+import AppProvider from '@/context/AppProvider';
 
 interface IProps {
   children: React.ReactNode;
@@ -15,7 +16,9 @@ interface IProps {
 export default function Providers({ children }: IProps) {
   return (
     <Provider store={store}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <AppProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </AppProvider>
     </Provider>
   );
 }
