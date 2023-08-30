@@ -21,13 +21,17 @@ export const useChatBot = () => {
       setIsLoading(true);
       resetUserPrompt();
       const { data } = await api.post('get-answer-images', userPrompt);
+      let images = [];
+      let text = '';
       // @ts-ignore
-      const images = data.images.map(({ url }) => url);
+      if (data.images) images = data.images.map(({ url }) => url);
+      if (data.response) text = data.response;
+
       updateChat({
         ...botResponseLoading,
         isLoading: false,
         content: {
-          text: '',
+          text,
           images,
         },
       });

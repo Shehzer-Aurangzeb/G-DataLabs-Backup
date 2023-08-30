@@ -11,7 +11,7 @@ function MainContent() {
 
   return (
     <Container type="main">
-      <ActiveChat chats={chats} />
+      {chats ? <ActiveChat chats={chats} /> : <p>Loading</p>}
       <PromptInputBox
         userPrompt={userPrompt}
         setUserPrompt={setUserPrompt}

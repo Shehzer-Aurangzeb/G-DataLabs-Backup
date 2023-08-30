@@ -11,7 +11,7 @@ api.interceptors.request.use(
   async (config) => {
     const user = getUserInfoFromCookies();
     if (user) {
-      config.headers.Authorization = `Token ${user.key}`;
+      config.headers.Authorization = `Bearer ${user.key}`;
     }
     return config;
   },

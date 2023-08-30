@@ -12,7 +12,7 @@ interface IProps {
 function Chat({ isBotResponse = false, isLoading = false, children }: IProps) {
   return (
     <div className="bg-chat flex flex-row gap-x-8 items-center justify-start py-5 px-8 font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base">
-      <Image src={isBotResponse ? logo : profile} alt="profile" className="w-12 h-12 self-start " rounded />
+      <Image src={isBotResponse ? logo : profile} alt="profile" className="w-12 h-12 self-start min-w-[3rem]" rounded />
       <div>
         {isLoading && <Loader />}
         {children}

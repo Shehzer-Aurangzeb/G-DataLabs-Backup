@@ -10,6 +10,7 @@ export const getUserInfoFromCookies = () => {
   }
   return null;
 };
+
 export const saveUserInfoInCookies = (user: UserType) => {
   const data = JSON.stringify(user);
   const token = user.key;

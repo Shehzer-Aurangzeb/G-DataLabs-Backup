@@ -5,6 +5,7 @@ import { useAutosizeTextArea } from '@/hooks/useAutoSizeTextArea';
 import PromptResponseTypes from '@/components/screens/Home/MainContent/PromptInputBox/PromptResponseTypes';
 import { TPROPTION } from '@/types';
 import { UserPrompt } from '@/state/chats/types';
+import Loader from '@/components/UI/Loader/Loader';
 
 type TProps = {
   userPrompt: UserPrompt;
@@ -39,6 +40,7 @@ function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TP
           name="prompt"
           onChange={handlePromptChange}
         />
+
         <button
           type="button"
           className={`absolute bottom-1 right-5 bg-transparent focus:shadow-none focus:outline-none ${
@@ -47,7 +49,7 @@ function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TP
           onClick={sendPrompt}
           disabled={isLoading || userPrompt.data.length === 0}
         >
-          <Image src={send} alt="send-icon" className="w-[40px] h-[40px]" />
+          {isLoading ? <Loader /> : <Image src={send} alt="send-icon" className="w-[40px] h-[40px]" />}
         </button>
       </div>
       <PromptResponseTypes

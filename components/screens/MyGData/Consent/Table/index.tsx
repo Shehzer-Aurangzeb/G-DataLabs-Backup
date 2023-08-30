@@ -40,7 +40,7 @@ function Table({ columns, data }: IProps) {
                   className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap"
                 >
                   {cellIndex === row.cells.length - 1 ? (
-                    <Actions isAllowed={row.values.Consent !== 'false'} />
+                    <Actions isAllowed={row.values.Consent !== 'false'} onClick={() => {}} />
                   ) : (
                     cell.render('Cell')
                   )}
