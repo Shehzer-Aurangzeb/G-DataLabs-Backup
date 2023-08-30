@@ -13,6 +13,14 @@ export type Chat = {
     images: string[];
   };
 };
+export type ChatHistory = {
+  answer: string;
+  chat_id: number;
+  choice: string | null;
+  images: string[];
+  question: string;
+  date: string;
+};
 export type UserPrompt = {
   data: string;
   choice: ResponseChoice;
@@ -21,4 +29,5 @@ export type UserPrompt = {
 export type ChatsSliceType = {
   chats: Chat[];
   userPrompt: UserPrompt;
+  chatHistory: ChatHistory[];
 };

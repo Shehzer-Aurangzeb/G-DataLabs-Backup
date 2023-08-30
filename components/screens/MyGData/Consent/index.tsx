@@ -1,14 +1,23 @@
 'use client';
 
-import React from 'react';
-import { consentData as data } from '@/temp';
+import React, { useMemo } from 'react';
 import { CONSENTTABLECOLUMNS } from '@/constants';
+import { useMyGData } from '@/hooks/useMyGData';
 import Table from './Table';
 
 function Main() {
+  const { cData } = useMyGData();
+  const tableData = useMemo(
+    () =>
+      Object.entries(cData).map(([key, value]) => ({
+        PDataAndWeb: key,
+        ...value,
+      })),
+    [cData],
+  );
   return (
     <div className="overflow-x-auto w-full h-full">
-      <Table data={data} columns={CONSENTTABLECOLUMNS} />
+      <Table data={tableData} columns={CONSENTTABLECOLUMNS} />
     </div>
   );
 }

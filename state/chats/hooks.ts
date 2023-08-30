@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { RootState, useAppDispatch } from 'state/store';
-import { setChatsAction, setUserPromptAction, updateChatAction } from '.';
-import { Chat, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
+import { setChatHistoryAction, setChatsAction, setUserPromptAction, updateChatAction } from '.';
+import { Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
 
 export const useChats = () => {
-  const { chats, userPrompt } = useSelector<RootState, ChatsSliceType>((state) => state.chats);
+  const { chats, userPrompt, chatHistory } = useSelector<RootState, ChatsSliceType>((state) => state.chats);
   const dispatch = useAppDispatch();
 
   const setChats = useCallback(
@@ -34,13 +34,21 @@ export const useChats = () => {
       }),
     );
   }, [dispatch]);
+  const setChatHistory = useCallback(
+    (payload: ChatHistory[]) => {
+      dispatch(setChatHistoryAction(payload));
+    },
+    [dispatch],
+  );
 
   return {
     chats,
-    setChats,
     userPrompt,
+    chatHistory,
     resetUserPrompt,
     updateChat,
     setUserPrompt,
+    setChatHistory,
+    setChats,
   };
 };

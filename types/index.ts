@@ -84,3 +84,15 @@ export type GDataType = {
     },
   ];
 };
+
+export type ChatHistoryResponseType = {
+  answer: string;
+  chat_id: number;
+  choice: null;
+  id: number;
+  images: string;
+  question: string;
+  timestamp: string;
+  u_email: string;
+  user_id: number;
+};

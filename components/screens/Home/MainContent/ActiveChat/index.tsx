@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typed from 'react-typed';
 import { Chat as TMessage } from '@/state/chats/types';
 import Image from '@/components/UI/StyledImage';
 import Chat from './Chat';
@@ -10,18 +11,7 @@ type TProps = {
 
 function ActiveChat({ chats }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
-  const responseRef = useRef<HTMLDivElement>(null);
 
-  //* typewriter effect
-  // const typeWriter = useCallback((message: string) => {
-  //   console.log('message :>> ', message);
-  //   let i = 0;
-  //   if (i < message.length && messagesRef.current) {
-  //     messagesRef.current.innerHTML += message.charAt(i);
-  //     i += 1;
-  //     setTimeout(typeWriter, 50);
-  //   }
-  // }, []);
   //* scroll to bottom whenever new message is added
   useEffect(() => {
     if (!messagesRef.current) return;
@@ -29,18 +19,19 @@ function ActiveChat({ chats }: TProps) {
       top: messagesRef.current.scrollHeight,
       behavior: 'smooth',
     });
-    // if (chats.length > 0) typeWriter(chats[chats.length - 1].content.text);
   }, [chats]);
 
   return (
     <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
         <Chat key={msg.messageID} isBotResponse={msg.isBotResponse} isLoading={msg.isLoading}>
-          {msg.content.text.length > 0 && (
-            <p ref={responseRef} className={`${msg.isBotResponse && 'typing'}`}>
-              {msg.content.text}
-            </p>
+          {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (
+            <p>{msg.content.text}</p>
           )}
+          {msg.content.text.length > 0 && msg.messageID === chats[chats.length - 1].messageID && (
+            <Typed strings={[msg.content.text]} typeSpeed={40} showCursor={false} />
+          )}
+
           {msg.content.images.length > 0 && (
             <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6  mobile:max-w-[70%] mobile:py-2 mobile:gap-0">
               {msg.content.images.map((img) => (

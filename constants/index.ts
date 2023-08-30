@@ -230,15 +230,15 @@ export const HISTORYDATATABLECOLUMNS: Column<Columns>[] = [
   },
   {
     Header: 'Answers',
-    accessor: 'answers' as keyof Columns,
+    accessor: 'answer' as keyof Columns,
   },
   {
     Header: 'Image',
-    accessor: 'image' as keyof Columns,
+    accessor: 'images' as keyof Columns,
   },
   {
     Header: 'Feedback',
-    accessor: 'feedback' as keyof Columns,
+    accessor: 'choice' as keyof Columns,
   },
 ];
 export const MYGDATATABLECOLUMNS: Column<Columns>[] = [

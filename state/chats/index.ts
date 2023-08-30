@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Chat, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
+import { Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
 
 const initialState: ChatsSliceType = {
   chats: [],
+  chatHistory: [],
   userPrompt: {
     data: '',
     choice: ResponseChoice.TEXT,
@@ -45,9 +46,18 @@ const chatSlice = createSlice({
       ...state,
       userPrompt: action.payload,
     }),
+    setChatHistoryAction: (
+      state,
+      action: {
+        payload: ChatHistory[];
+      },
+    ) => ({
+      ...state,
+      chatHistory: action.payload,
+    }),
   },
 });
 
-export const { setChatsAction, setUserPromptAction, updateChatAction } = chatSlice.actions;
+export const { setChatsAction, setUserPromptAction, updateChatAction, setChatHistoryAction } = chatSlice.actions;
 
 export default chatSlice.reducer;
