@@ -7,8 +7,9 @@ import { Column } from 'react-table';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
-import { createTableColumns, createTableData } from '@/lib';
+import { createHistoryTableData, createTableColumns, createTableData } from '@/lib';
 import { Columns, TableName } from '@/types';
+import { useChats } from '@/state/chats/hooks';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
@@ -25,6 +26,7 @@ const AppContext = createContext<AppContextType>({
 
 function AppProvider({ children }: IProps) {
   const { setPersonalData, setGData, setRData, setCData } = usePersonalData();
+  const { setChatHistory, chats } = useChats();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
 
@@ -51,16 +53,33 @@ function AppProvider({ children }: IProps) {
     setGTableColumns(gDataTableColumns);
     setGData(gData);
   }, [setGData]);
+  const fetchChatHistory = useCallback(async () => {
+    try {
+      const { data } = await api.get('api/history/');
+      const chatHistoryTableData = createHistoryTableData(data.data);
+      setChatHistory(chatHistoryTableData);
+    } catch (e) {
+      console.log('e :>> ', e);
+    }
+  }, [setChatHistory]);
 
   const initApp = useCallback(() => {
     getAllPersonalData();
     getLastFivePersonalData();
-  }, [getAllPersonalData, getLastFivePersonalData]);
+    fetchChatHistory();
+    getAllConsentData();
+  }, [getAllPersonalData, getLastFivePersonalData, fetchChatHistory, getAllConsentData]);
 
   useEffect(() => {
     if (!user) return;
     initApp();
   }, [user, initApp]);
+
+  //* to update chat history when user is logged in and is new chat comes.
+  useEffect(() => {
+    if (!user) return;
+    fetchChatHistory();
+  }, [chats, fetchChatHistory, user]);
 
   return <AppContext.Provider value={{ gTableColumns, getAllConsentData }}>{children}</AppContext.Provider>;
 }

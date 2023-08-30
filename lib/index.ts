@@ -2,9 +2,17 @@
 import dayjs from 'dayjs';
 import { v4 as uuidv4 } from 'uuid';
 import { Column } from 'react-table';
-import { THistory, TGroupedChatHistory, TableName, PersonalDataType, Columns, GDataType } from '@/types';
+import {
+  THistory,
+  TGroupedChatHistory,
+  TableName,
+  PersonalDataType,
+  Columns,
+  GDataType,
+  ChatHistoryResponseType,
+} from '@/types';
 import { PersonalDataSchemaType } from '@/schema';
-import { Chat } from '@/state/chats/types';
+import { Chat, ChatHistory } from '@/state/chats/types';
 import { Data, UpdateConsentRewardType } from '@/state/myGData/types';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
@@ -41,8 +49,15 @@ export const groupMessagesByDate = (messages: THistory[]) => {
   return CategorizedMessagesMap;
 };
 
-//* create a payload for personal data post api
+//* capatalize string
+const capitalize = (arg: string) => {
+  const text = arg.split(' ');
+  const result = text.map((word) => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
 
+  return result;
+};
+
+//* create a payload for personal data post api
 export const createPayload = (personal_data: PersonalDataSchemaType) => {
   // * deleting because server does not accept these values right now
   delete personal_data.date;
@@ -94,7 +109,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.GData) {
     for (const d of data) {
-      const fieldName = d.field_name;
+      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
       const date = dayjs(d.created_at).format('YYYY-MM-DD');
       result[fieldName] = {
         ...result[fieldName],
@@ -106,7 +121,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.RData) {
     for (const d of data) {
-      const fieldName = d.field_name;
+      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
@@ -118,7 +133,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.CData) {
     for (const d of data) {
-      const fieldName = d.field_name;
+      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
@@ -157,5 +172,23 @@ export const createRewardsState = (data: any) => {
       demanded_reward_value: Number(d.PDefinedValue),
     };
   }
+  return result;
+};
+
+//* create history table data
+export const createHistoryTableData = (data: ChatHistoryResponseType[]) => {
+  const result: ChatHistory[] = data.map((chat) => {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const { answer, images, chat_id, choice, question, timestamp } = chat;
+
+    return {
+      answer,
+      chat_id,
+      choice,
+      question,
+      date: dayjs(timestamp).format('YYYY-MM-DD'),
+      images: JSON.parse(images.replace(/'/g, '"')),
+    };
+  });
   return result;
 };

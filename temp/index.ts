@@ -3,7 +3,6 @@ import img1 from '@/temp/assets/reply__image_1.png';
 import img2 from '@/temp/assets/reply__image_2.png';
 import img3 from '@/temp/assets/reply__image_3.png';
 import img4 from '@/temp/assets/reply__image_4.png';
-import img from '@/public/assets/images/screenData.svg';
 import { THistory } from '@/types';
 
 // const messages: TMessage[] = [
@@ -522,10 +521,10 @@ const mygData = [
   },
 ];
 const screenData = [
-  { url: img, name: 'Screen Data' },
-  { url: img, name: 'Screen Data' },
-  { url: img, name: 'Screen Data' },
-  { url: img, name: 'Screen Data' },
-  { url: img, name: 'Screen Data' },
+  { url: 'https://youtube.com/watch?v=8kooIgKESYE', name: 'Screen Data' },
+  { url: 'https://youtube.com/watch?v=8kooIgKESYE', name: 'Screen Data' },
+  { url: 'https://youtube.com/watch?v=8kooIgKESYE', name: 'Screen Data' },
+  { url: 'https://youtube.com/watch?v=8kooIgKESYE', name: 'Screen Data' },
+  { url: 'https://youtube.com/watch?v=8kooIgKESYE', name: 'Screen Data' },
 ];
 export { history, profile, consentData, rewardsData, personalData, mygData, historyData, screenData };

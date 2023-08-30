@@ -1,6 +1,7 @@
 import React from 'react';
 import { Column, useTable, useSortBy } from 'react-table';
-import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
+import Image from '@/components/UI/StyledImage';
 import { Columns } from '@/types';
 
 interface IProps {
@@ -16,7 +17,6 @@ function Table({ columns, data }: IProps) {
     },
     useSortBy,
   );
-
   return (
     <table {...getTableProps()} className="w-full">
       <thead>
@@ -51,15 +51,19 @@ function Table({ columns, data }: IProps) {
                 >
                   {cell.column.Header === 'Image'
                     ? cell.value.length > 0
-                      ? cell.value.map((image: any) => (
-                          <Image key={image.url} src={image.url} alt={image.alt} className="my-3" />
+                      ? cell.value.map((image: string, index: number) => (
+                          <Image
+                            key={uuidv4()}
+                            src={image}
+                            alt={`response-image-${index}`}
+                            className="my-3 w-[120px] h-[120px]"
+                          />
                         ))
                       : '-'
                     : cell.render('Cell')}
                 </td>
               ))}
             </tr>
-            /* eslint-enable */
           );
         })}
       </tbody>

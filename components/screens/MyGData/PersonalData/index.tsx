@@ -17,9 +17,9 @@ function Main() {
     [personalData],
   );
   return (
-    <div className="flex flex-row gap-x-2 w-full overflow-hidden  h-full mobile:flex-col-reverse mobile:">
+    <div className="flex flex-row gap-x-2 w-full overflow-hidden  h-full mobile:flex-col-reverse">
       <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
-      <div className="overflow-x-auto w-full h-full">
+      <div className="overflow-x-auto w-full h-full mobile:min-h-[350px]">
         <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />
       </div>
     </div>

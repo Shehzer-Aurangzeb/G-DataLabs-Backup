@@ -48,6 +48,10 @@ export type SignupCredentials = {
   first_name: string;
   last_name: string;
 };
+export type ScreenData = {
+  url: any;
+  name: string;
+};
 export enum TableName {
   PData = 'Personal Data',
   GData = 'My G-Data',
@@ -80,7 +84,15 @@ export type GDataType = {
     },
   ];
 };
-export type ScreenData = {
-  url: any;
-  name: string;
+
+export type ChatHistoryResponseType = {
+  answer: string;
+  chat_id: number;
+  choice: null;
+  id: number;
+  images: string;
+  question: string;
+  timestamp: string;
+  u_email: string;
+  user_id: number;
 };

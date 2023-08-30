@@ -12,7 +12,7 @@ import { useApp } from '@/context/AppProvider';
 
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
-  const { personalData, setPersonalData, gData, rData } = usePersonalData();
+  const { personalData, setPersonalData, gData, rData, cData } = usePersonalData();
   const { getAllConsentData } = useApp();
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
@@ -66,5 +66,6 @@ export const useMyGData = () => {
     updateConsentRewards,
     gData,
     rData,
+    cData,
   };
 };
