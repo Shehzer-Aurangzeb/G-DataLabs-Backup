@@ -29,7 +29,7 @@ function ActiveChat({ chats }: TProps) {
             <p>{msg.content.text}</p>
           )}
           {msg.content.text.length > 0 && msg.messageID === chats[chats.length - 1].messageID && (
-            <Typed strings={[msg.content.text]} typeSpeed={40} showCursor={false} />
+            <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} />
           )}
 
           {msg.content.images.length > 0 && (

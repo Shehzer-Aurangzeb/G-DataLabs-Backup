@@ -34,7 +34,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
 
   const handleConsetUpdate = useCallback((Id: string) => {
     const recordConsent = PDefinedValue[Id];
-    console.log('recordConsent :>> ', recordConsent);
+
     updateConsentRewards({
       id: Number(Id),
       payload: {
@@ -47,7 +47,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     const timeout = setTimeout(() => {
       if (!recordID) return;
       updateConsentRewards({ id: Number(recordID), payload: PDefinedValue[recordID] });
-    }, 300);
+    }, 500);
 
     return () => clearTimeout(timeout);
   }, [PDefinedValue, recordID, updateConsentRewards]);

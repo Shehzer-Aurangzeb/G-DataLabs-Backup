@@ -163,6 +163,10 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
     Header: 'Consent',
     accessor: 'Consent' as keyof Columns, // accessor is the "key" in the data
   },
+  {
+    Header: 'id',
+    accessor: 'id' as keyof Columns, // accessor is the "key" in the data
+  },
 ];
 export const REWARDSTABLECOLUMNS: Column<Columns>[] = [
   {
