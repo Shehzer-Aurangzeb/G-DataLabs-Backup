@@ -55,7 +55,7 @@ export const useMyGData = () => {
         setIsLoading(false);
       }
     },
-    [setIsLoading],
+    [setIsLoading, getAllConsentData],
   );
 
   return {

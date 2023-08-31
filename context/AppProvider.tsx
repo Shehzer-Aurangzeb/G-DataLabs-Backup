@@ -25,7 +25,7 @@ const AppContext = createContext<AppContextType>({
 });
 
 function AppProvider({ children }: IProps) {
-  const { setPersonalData, setGData, setRData, setCData } = usePersonalData();
+  const { setPersonalData, setGData, setRData, setCData, cData } = usePersonalData();
   const { setChatHistory, chats } = useChats();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
@@ -41,9 +41,9 @@ function AppProvider({ children }: IProps) {
   const getAllConsentData = useCallback(async () => {
     const { data } = await api.get('api/user_consents_rewards');
     const rData = createTableData({ tableName: TableName.RData, data: data.data });
-    const cData = createTableData({ tableName: TableName.CData, data: data.data });
+    const consentTableData = createTableData({ tableName: TableName.CData, data: data.data });
     setRData(rData);
-    setCData(cData);
+    setCData(consentTableData);
   }, [setRData, setCData]);
 
   const getLastFivePersonalData = useCallback(async () => {
@@ -68,7 +68,7 @@ function AppProvider({ children }: IProps) {
     getLastFivePersonalData();
     fetchChatHistory();
     getAllConsentData();
-  }, [getAllPersonalData, getLastFivePersonalData, fetchChatHistory, getAllConsentData]);
+  }, [getAllPersonalData, getLastFivePersonalData, getAllConsentData, fetchChatHistory]);
 
   useEffect(() => {
     if (!user) return;
@@ -80,6 +80,12 @@ function AppProvider({ children }: IProps) {
     if (!user) return;
     fetchChatHistory();
   }, [chats, fetchChatHistory, user]);
+
+  //* whenever consent table is updated fecth last five records data
+  useEffect(() => {
+    if (!user) return;
+    getLastFivePersonalData();
+  }, [cData, user, getLastFivePersonalData]);
 
   return <AppContext.Provider value={{ gTableColumns, getAllConsentData }}>{children}</AppContext.Provider>;
 }
