@@ -15,7 +15,7 @@ export type Chat = {
 };
 export type ChatHistory = {
   answer: string;
-  chat_id: number;
+  chatID: number;
   choice: string | null;
   images: string[];
   question: string;

@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Data, MyGDataSliceType } from './types';
+import { Data, MyGDataSliceType, ScreenDataType } from './types';
 
 const initialState: MyGDataSliceType = {
   personalData: {},
   gData: {},
   rData: {},
   cData: {},
+  screenData: [],
 };
 
 const personalDataSlice = createSlice({
@@ -51,9 +52,19 @@ const personalDataSlice = createSlice({
       ...state,
       cData: action.payload,
     }),
+    setScreenDataAction: (
+      state,
+      action: {
+        payload: ScreenDataType[];
+      },
+    ) => ({
+      ...state,
+      screenData: action.payload,
+    }),
   },
 });
 
-export const { setPersonalDataAction, setGDataAction, setRDataAction, setCDataAction } = personalDataSlice.actions;
+export const { setPersonalDataAction, setGDataAction, setRDataAction, setCDataAction, setScreenDataAction } =
+  personalDataSlice.actions;
 
 export default personalDataSlice.reducer;

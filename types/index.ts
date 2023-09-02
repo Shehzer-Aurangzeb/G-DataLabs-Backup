@@ -41,6 +41,15 @@ export type UserCredentials = {
   password: string;
   email: string;
 };
+export type UpdateUserPayloadType = {
+  email: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  total_rewards: number;
+  username: string;
+  password: string;
+};
 
 export type SignupCredentials = {
   password: string;
@@ -94,5 +103,14 @@ export type ChatHistoryResponseType = {
   question: string;
   timestamp: string;
   u_email: string;
+  user_id: number;
+};
+
+export type ScreenDataResponseType = {
+  camera_recording_url: string | null;
+  data: string;
+  id: number;
+  screen_recording_url: string;
+  timestamp: string;
   user_id: number;
 };

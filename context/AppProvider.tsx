@@ -7,7 +7,7 @@ import { Column } from 'react-table';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
-import { createHistoryTableData, createTableColumns, createTableData } from '@/lib';
+import { createHistoryTableData, createScreenData, createTableColumns, createTableData } from '@/lib';
 import { Columns, TableName } from '@/types';
 import { useChats } from '@/state/chats/hooks';
 
@@ -25,7 +25,7 @@ const AppContext = createContext<AppContextType>({
 });
 
 function AppProvider({ children }: IProps) {
-  const { setPersonalData, setGData, setRData, setCData, cData } = usePersonalData();
+  const { setPersonalData, setGData, setRData, setCData, cData, setScreenData } = usePersonalData();
   const { setChatHistory, chats } = useChats();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
@@ -59,16 +59,26 @@ function AppProvider({ children }: IProps) {
       const chatHistoryTableData = createHistoryTableData(data.data);
       setChatHistory(chatHistoryTableData);
     } catch (e) {
-      console.log('e :>> ', e);
+      // console.log('e :>> ', e);
     }
   }, [setChatHistory]);
+  const getAllScreenData = useCallback(async () => {
+    try {
+      const { data } = await api.get('api/file-data/');
+      const screenData = createScreenData(data.data);
+      setScreenData(screenData);
+    } catch (e) {
+      // console.log('e :>> ', e);
+    }
+  }, [setScreenData]);
 
   const initApp = useCallback(() => {
     getAllPersonalData();
     getLastFivePersonalData();
     fetchChatHistory();
     getAllConsentData();
-  }, [getAllPersonalData, getLastFivePersonalData, getAllConsentData, fetchChatHistory]);
+    getAllScreenData();
+  }, [getAllPersonalData, getLastFivePersonalData, getAllConsentData, fetchChatHistory, getAllScreenData]);
 
   useEffect(() => {
     if (!user) return;

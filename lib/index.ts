@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-restricted-syntax */
 import dayjs from 'dayjs';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,10 +11,12 @@ import {
   Columns,
   GDataType,
   ChatHistoryResponseType,
+  ScreenDataResponseType,
 } from '@/types';
 import { PersonalDataSchemaType } from '@/schema';
 import { Chat, ChatHistory } from '@/state/chats/types';
-import { Data, UpdateConsentRewardType } from '@/state/myGData/types';
+import { Data, ScreenDataType, UpdateConsentRewardType } from '@/state/myGData/types';
+import { DESCRIPTIONOFVARIABLES } from '@/constants';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
   if (!categorizedMessagesMap[groupName]) {
@@ -50,7 +53,7 @@ export const groupMessagesByDate = (messages: THistory[]) => {
 };
 
 //* capatalize string
-const capitalize = (arg: string) => {
+export const capitalize = (arg: string) => {
   const text = arg.split(' ');
   const result = text.map((word) => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
 
@@ -61,8 +64,6 @@ const capitalize = (arg: string) => {
 export const createPayload = (personal_data: PersonalDataSchemaType) => {
   // * deleting because server does not accept these values right now
   delete personal_data.date;
-  delete personal_data.weather_type;
-  delete personal_data.exercise_total_time;
 
   return Object.entries(personal_data).map(([key, value]) => ({
     value: typeof value === 'object' ? `${value}` : value,
@@ -137,7 +138,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
-        Definition: '',
+        Definition: DESCRIPTIONOFVARIABLES[d.field_name],
         Companies: '',
         Use: '',
         id: d.id,
@@ -178,12 +179,11 @@ export const createRewardsState = (data: any) => {
 //* create history table data
 export const createHistoryTableData = (data: ChatHistoryResponseType[]) => {
   const result: ChatHistory[] = data.map((chat) => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { answer, images, chat_id, choice, question, timestamp } = chat;
 
     return {
       answer,
-      chat_id,
+      chatID: chat_id,
       choice,
       question,
       date: dayjs(timestamp).format('YYYY-MM-DD'),
@@ -191,4 +191,40 @@ export const createHistoryTableData = (data: ChatHistoryResponseType[]) => {
     };
   });
   return result;
+};
+
+//* create screen data
+export const createScreenData = (data: ScreenDataResponseType[]): ScreenDataType[] =>
+  data.map((d) => {
+    const { id, screen_recording_url, camera_recording_url, timestamp } = d;
+    return {
+      id,
+      screenRecording: screen_recording_url,
+      cameraRecording: camera_recording_url,
+      date: dayjs(timestamp).format('YYYY-MM-DD'),
+    };
+  });
+
+//* create default avatar image
+
+export const generateAvatar = (firstName: string) => {
+  const initial = firstName[0].toUpperCase();
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+
+  canvas.width = 100;
+  canvas.height = 100;
+  if (context) {
+    // Draw background
+    context.fillStyle = '#F3511C';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw text
+    context.font = 'bold 50px DM-Sans';
+    context.fillStyle = '#ffffff';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(initial, canvas.width / 2, canvas.height / 2);
+  }
+  return canvas.toDataURL('image/png');
 };

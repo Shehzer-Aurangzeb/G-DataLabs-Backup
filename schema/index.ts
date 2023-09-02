@@ -21,9 +21,9 @@ export const PersonalDataSchema = object({
     .of(string().required('Emotion List cannot be empty'))
     .min(1, 'At least one emotion is required'),
   emotional_overall: string().required('Overall emotion is required'),
-  weather_type: string(),
+  weather: string(),
   relative_finance_status: string().required(),
-  exercise_total_time: string(),
+  exercise_time: string(),
 });
 
 export const LoginFormSchema = object({

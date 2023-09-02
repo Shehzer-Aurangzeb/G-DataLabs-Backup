@@ -1,5 +1,6 @@
 import React from 'react';
 import '@/styles/globals.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import type { Metadata } from 'next';
 import { DMSANS, RALEWAY } from '@/public/assets/fonts';
 import Layout from '@/components/UI/Layout';

@@ -48,6 +48,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
       />
       <CollapsableInput
         value={values.high_temperature}
+        type="number"
         onChange={handleChange}
         title="High Temperature (F)"
         name="high_temperature"
@@ -55,6 +56,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
       />
       <CollapsableInput
         value={values.low_temperature}
+        type="number"
         onChange={handleChange}
         title="Low Temperature (F)"
         name="low_temperature"
@@ -87,11 +89,11 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={touched.emotional_overall && errors.emotional_overall}
       />
       <CollapsableInput
-        value={values.weather_type}
+        value={values.weather}
         onChange={handleChange}
         title="Weather Type"
-        name="weather_type"
-        error={touched.weather_type && errors.weather_type}
+        name="weather"
+        error={touched.weather && errors.weather}
       />
       <CollapsableInput
         value={values.relative_finance_status}
@@ -101,11 +103,11 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={touched.relative_finance_status && errors.relative_finance_status}
       />
       <CollapsableInput
-        value={values.exercise_total_time}
+        value={values.exercise_time}
         onChange={handleChange}
         title="Exercise Total Time"
-        name="exercise_total_time"
-        error={touched.exercise_total_time && errors.exercise_total_time}
+        name="exercise_time"
+        error={touched.exercise_time && errors.exercise_time}
       />
       <Button type="button" className="bg-blue w-full" title="Save" isLoading={false} />
       <Button type="submit" className="bg-[#F5B11A] w-full" title="Save & enter new data" isLoading={isLoading} />

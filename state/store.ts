@@ -7,12 +7,14 @@ import UserReducer from '@/state/user';
 import LoadingReducer from '@/state/loading';
 import MyGDataReducer from '@/state/myGData';
 import ChatsReducer from '@/state/chats';
+import SidebarReducer from '@/state/sidebar';
 
 const rootReducer = combineReducers({
   user: UserReducer,
   loading: LoadingReducer,
   my_g_data: MyGDataReducer,
   chats: ChatsReducer,
+  sidebar: SidebarReducer,
 
   // Add other reducers here if you have any
 });

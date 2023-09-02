@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { screenData } from '@/temp';
 import ScreenDataVideo from '@/components/screens/MyGData/ScreenData/Video';
 import { useMyGData } from '@/hooks/useMyGData';
 import { useApp } from '@/context/AppProvider';
@@ -18,6 +17,8 @@ function Main() {
       })),
     [gData],
   );
+  const { screenData } = useMyGData();
+
   return (
     <div className="flex flex-row gap-x-2 w-full h-full">
       <div className="overflow-x-auto w-full h-full">

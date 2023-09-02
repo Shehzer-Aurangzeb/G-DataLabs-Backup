@@ -3,15 +3,23 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { PersonalInfoSchema } from '@/schema';
-import { PERSONALINFOINITIALVALUES } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
+import { UserType } from '@/state/user/types';
+import { PERSONALINFOINITIALVALUES } from '@/constants';
+import { UpdateUserPayloadType } from '@/types';
 import CardInformation from './CardInformation';
 import UploadPicture from './UploadPicture';
 
-function Form() {
-  const [profile, setProfile] = useState<File | null>(null);
-  const [profileUrl, setProfileUrl] = useState<string>('');
+type TProps = {
+  user: UserType;
+  updateUser: (payload: UpdateUserPayloadType) => void;
+  isLoading: boolean;
+};
+
+function Form({ user, updateUser, isLoading }: TProps) {
+  const [, setProfile] = useState<File | null>(null);
+  const [profileUrl, setProfileUrl] = useState<string>(user.image ?? '');
   const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -25,17 +33,34 @@ function Form() {
   };
 
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
-    initialValues: PERSONALINFOINITIALVALUES,
+    initialValues: {
+      ...PERSONALINFOINITIALVALUES,
+      ...user,
+      phone: user.phoneNumber,
+    },
     validationSchema: PersonalInfoSchema,
 
     onSubmit: async (results, onSubmit) => {
-      if (!profile) return;
+      console.log('profileUrl :>> ', profileUrl);
+      if (!profileUrl) return;
+      const { firstName, lastName, email, username, phone, password, totalRewards } = results;
       // console.log('values', results);
+      const payload: UpdateUserPayloadType = {
+        first_name: firstName,
+        email,
+        username,
+        phone_number: phone,
+        password,
+        total_rewards: Number(totalRewards),
+        last_name: lastName,
+      };
+      updateUser(payload);
       onSubmit.setSubmitting(false);
     },
   });
+
   return (
-    <form className="flex flex-col w-full" noValidate onSubmit={handleSubmit}>
+    <form className="w-full" noValidate onSubmit={handleSubmit}>
       <div className="flex flex-row flex-wrap gap-x-14 gap-y-6">
         <UploadPicture handleChange={handleProfileChange} profile={profileUrl} />
         <Input
@@ -116,7 +141,7 @@ function Form() {
             onClick={() => {}}
             isLoading={false}
           />
-          <Button type="submit" className="bg-blue max-w-[230px] w-full" title="Save" isLoading={false} />
+          <Button type="submit" className="bg-blue max-w-[230px] w-full" title="Save" isLoading={isLoading} />
         </div>
       </div>
     </form>

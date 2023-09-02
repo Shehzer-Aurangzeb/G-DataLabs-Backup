@@ -4,8 +4,7 @@
 
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
-import { profile as defaultPorfile } from '@/temp';
-import { upload } from '@/constants/assets';
+import { default_profile, upload } from '@/constants/assets';
 
 interface IProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -20,7 +19,7 @@ function UploadPicture({ handleChange, profile }: IProps) {
       </label>
       <div className="flex flex-row w-full max-w-[450px] items-center bg-chat gap-x-5 relative py-[9px] px-4 ">
         <Image
-          src={profile.length === 0 ? defaultPorfile : profile}
+          src={profile.length === 0 ? default_profile : profile}
           alt="profile"
           className="w-[50px] h-[50px]"
           rounded

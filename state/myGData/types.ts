@@ -3,12 +3,18 @@ export type Data = {
     [key: string]: {};
   };
 };
-
+export type ScreenDataType = {
+  id: number;
+  screenRecording: string;
+  cameraRecording: string | null;
+  date: string;
+};
 export type MyGDataSliceType = {
   personalData: Data;
   gData: Data;
   rData: Data;
   cData: Data;
+  screenData: ScreenDataType[];
 };
 
 export type UpdateConsentRewardType = {

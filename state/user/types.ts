@@ -1,6 +1,12 @@
 export type UserType = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  totalRewards: string;
+  username: string;
   id: string;
-  name: string;
+  image: string;
   key: string;
 };
 
