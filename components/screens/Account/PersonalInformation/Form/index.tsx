@@ -18,7 +18,7 @@ type TProps = {
 };
 
 function Form({ user, updateUser, isLoading }: TProps) {
-  const [, setProfile] = useState<File | null>(null);
+  const [profile, setProfile] = useState<File | null>(null);
   const [profileUrl, setProfileUrl] = useState<string>(user.image ?? '');
   const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -41,19 +41,28 @@ function Form({ user, updateUser, isLoading }: TProps) {
     validationSchema: PersonalInfoSchema,
 
     onSubmit: async (results, onSubmit) => {
-      console.log('profileUrl :>> ', profileUrl);
       if (!profileUrl) return;
       const { firstName, lastName, email, username, phone, password, totalRewards } = results;
       // console.log('values', results);
-      const payload: UpdateUserPayloadType = {
+      let payload: UpdateUserPayloadType = {
         first_name: firstName,
         email,
         username,
         phone_number: phone,
-        password,
-        total_rewards: Number(totalRewards),
+        total_rewards: totalRewards,
         last_name: lastName,
       };
+      if (profile)
+        payload = {
+          ...payload,
+          profile_picture: profile,
+        };
+      if (password) {
+        payload = {
+          ...payload,
+          password,
+        };
+      }
       updateUser(payload);
       onSubmit.setSubmitting(false);
     },

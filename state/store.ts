@@ -8,6 +8,7 @@ import LoadingReducer from '@/state/loading';
 import MyGDataReducer from '@/state/myGData';
 import ChatsReducer from '@/state/chats';
 import SidebarReducer from '@/state/sidebar';
+import WeatherReducer from '@/state/weather';
 
 const rootReducer = combineReducers({
   user: UserReducer,
@@ -15,7 +16,7 @@ const rootReducer = combineReducers({
   my_g_data: MyGDataReducer,
   chats: ChatsReducer,
   sidebar: SidebarReducer,
-
+  weather: WeatherReducer,
   // Add other reducers here if you have any
 });
 const persistConfig = {

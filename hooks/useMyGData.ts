@@ -23,7 +23,7 @@ export const useMyGData = () => {
         const newData = createTableData({ tableName: TableName.PData, data: data.data });
         setPersonalData(newData);
       } catch (e) {
-        console.log('e :>> ', e);
+        // console.log('e :>> ', e);
       } finally {
         setIsLoading(false);
       }
@@ -39,7 +39,7 @@ export const useMyGData = () => {
         await api.patch(`api/user_consents_rewards/${id}/`, payload);
         await getAllConsentData();
       } catch (e) {
-        console.log('e :>> ', e);
+        // console.log('e :>> ', e);
       } finally {
         setIsLoading(false);
       }

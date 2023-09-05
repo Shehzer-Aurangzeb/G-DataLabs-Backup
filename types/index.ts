@@ -46,9 +46,10 @@ export type UpdateUserPayloadType = {
   first_name: string;
   last_name: string;
   phone_number: string;
-  total_rewards: number;
+  total_rewards: string;
   username: string;
-  password: string;
+  password?: string;
+  profile_picture?: File;
 };
 
 export type SignupCredentials = {
@@ -113,4 +114,8 @@ export type ScreenDataResponseType = {
   screen_recording_url: string;
   timestamp: string;
   user_id: number;
+};
+export type GeolocationSuccessResponseType = {
+  coords: GeolocationCoordinates;
+  timestamp: number;
 };

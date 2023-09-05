@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable @typescript-eslint/naming-convention */
 
 'use client';
@@ -20,6 +21,7 @@ export const useAuth = () => {
   const { setUser, isAuthenticated, user } = useUser();
   const { deleteChats } = useChats();
   const router = useRouter();
+
   const getUserInfo = useCallback(async (token: string) => {
     const { data } = await api.get('api/user_profile/1/', {
       headers: {
@@ -27,9 +29,9 @@ export const useAuth = () => {
       },
     });
     const { email, first_name, last_name, phone_number, total_rewards, username, id } = data.data;
-    let { image } = data.data;
-    if (!image) {
-      image = generateAvatar(first_name);
+    let { profile_picture_url } = data.data;
+    if (!profile_picture_url) {
+      profile_picture_url = generateAvatar(first_name);
     }
     const userInfo: UserType = {
       email,
@@ -37,7 +39,7 @@ export const useAuth = () => {
       lastName: last_name,
       id,
       username,
-      image,
+      image: profile_picture_url,
       phoneNumber: phone_number,
       totalRewards: total_rewards,
       key: '',
@@ -45,6 +47,7 @@ export const useAuth = () => {
 
     return userInfo;
   }, []);
+
   const loginUser = useCallback(
     async (credentials: UserCredentials) => {
       try {
@@ -73,10 +76,14 @@ export const useAuth = () => {
     async (payload: UpdateUserPayloadType) => {
       try {
         setIsLoading(true);
-        const { data } = await api.patch('api/user_profile/1/', payload);
-        let { image } = data.data;
-        if (!image) {
-          image = generateAvatar(data.data.first_name);
+        const formdata = new FormData();
+        for (const [key, value] of Object.entries(payload)) {
+          formdata.append(key, value);
+        }
+        const { data } = await api.patch('api/user_profile/1/', formdata);
+        let { profile_picture_url } = data.data;
+        if (!profile_picture_url) {
+          profile_picture_url = generateAvatar(data.data.first_name);
         }
         const updatedUserInfo: UserType = {
           firstName: data.data.first_name,
@@ -84,7 +91,7 @@ export const useAuth = () => {
           phoneNumber: data.data.phone_number,
           totalRewards: data.data.total_rewards,
           email: data.data.email,
-          image,
+          image: profile_picture_url,
           username: data.data.username,
           id: data.data.id,
           key: user?.key!,
@@ -119,6 +126,7 @@ export const useAuth = () => {
     },
     [setIsLoading, router],
   );
+
   const logoutUser = useCallback(() => {
     setUser({ user: undefined, isAuthenticated: false });
     deleteChats();

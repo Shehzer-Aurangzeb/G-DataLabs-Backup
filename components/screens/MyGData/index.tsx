@@ -18,7 +18,6 @@ function Main() {
     [gData],
   );
   const { screenData } = useMyGData();
-
   return (
     <div className="flex flex-row gap-x-2 w-full h-full">
       <div className="overflow-x-auto w-full h-full">

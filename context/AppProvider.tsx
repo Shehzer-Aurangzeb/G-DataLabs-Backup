@@ -10,6 +10,7 @@ import { useUser } from '@/state/user/hooks';
 import { createHistoryTableData, createScreenData, createTableColumns, createTableData } from '@/lib';
 import { Columns, TableName } from '@/types';
 import { useChats } from '@/state/chats/hooks';
+import { useWeather } from '@/hooks/useWeather';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
@@ -29,7 +30,8 @@ function AppProvider({ children }: IProps) {
   const { setChatHistory, chats } = useChats();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
-
+  //* weather hook
+  useWeather();
   //* functions
   const getAllPersonalData = useCallback(async () => {
     const { data } = await api.get('api/personal_data_consents_rewards');

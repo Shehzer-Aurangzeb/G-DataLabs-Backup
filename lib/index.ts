@@ -66,7 +66,7 @@ export const createPayload = (personal_data: PersonalDataSchemaType) => {
   delete personal_data.date;
 
   return Object.entries(personal_data).map(([key, value]) => ({
-    value: typeof value === 'object' ? `${value}` : value,
+    value: typeof value === 'object' ? `${value}` : value.toString(),
     personal_data_field: {
       field_name: key.toUpperCase(),
     },
@@ -111,12 +111,17 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   if (tableName === TableName.GData) {
     for (const d of data) {
       const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
-      const date = dayjs(d.created_at).format('YYYY-MM-DD');
+      for (const value of d.values) {
+        const date = dayjs(value.created_at).format('YYYY-MM-DD');
+        result[fieldName] = {
+          ...result[fieldName],
+          [date]: value.value,
+        };
+      }
       result[fieldName] = {
         ...result[fieldName],
         'Consent Value': d.consents_to_sell.toString().toUpperCase(),
         Rewards: d.demanded_reward_value,
-        [date]: d.values[0].value,
       };
     }
   }
@@ -151,7 +156,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
 // * create Columns for My G-Data
 export const createTableColumns = (data: GDataType[]) => {
   const columns: string[] = [];
-  let result = [];
+  let result: string[] = [];
   for (const d of data) {
     const date = dayjs(d.created_at).format('YYYY-MM-DD');
     if (!columns.includes(date)) columns.push(date);
