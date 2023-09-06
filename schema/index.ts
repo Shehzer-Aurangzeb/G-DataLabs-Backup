@@ -4,7 +4,7 @@ export const PersonalInfoSchema = object({
   firstName: string().min(2, 'First Name is too short').required('First Name is required'),
   lastName: string().min(2, 'Last Name is too short').required('Last Name is required'),
   email: string().email().required('Email is required'),
-  password: string().min(5, 'Password must be 5 characters long').required('Password is required'),
+  password: string().min(5, 'Password must be 5 characters long'),
   username: string().min(3).required('Username is required'),
   phone: number(),
   totalRewards: number(),
@@ -21,9 +21,9 @@ export const PersonalDataSchema = object({
     .of(string().required('Emotion List cannot be empty'))
     .min(1, 'At least one emotion is required'),
   emotional_overall: string().required('Overall emotion is required'),
-  weather_type: string(),
+  weather: string(),
   relative_finance_status: string().required(),
-  exercise_total_time: string(),
+  exercise_time: string(),
 });
 
 export const LoginFormSchema = object({

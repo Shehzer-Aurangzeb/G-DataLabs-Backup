@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { RootState, useAppDispatch } from 'state/store';
-import { setCDataAction, setGDataAction, setPersonalDataAction, setRDataAction } from '.';
-import { Data, MyGDataSliceType } from './types';
+import { setCDataAction, setGDataAction, setPersonalDataAction, setRDataAction, setScreenDataAction } from '.';
+import { Data, MyGDataSliceType, ScreenDataType } from './types';
 
 export const usePersonalData = () => {
-  const { personalData, gData, rData, cData } = useSelector<RootState, MyGDataSliceType>((state) => state.my_g_data);
+  const { personalData, gData, rData, cData, screenData } = useSelector<RootState, MyGDataSliceType>(
+    (state) => state.my_g_data,
+  );
   const dispatch = useAppDispatch();
 
   const setPersonalData = useCallback(
@@ -32,12 +34,20 @@ export const usePersonalData = () => {
     },
     [dispatch],
   );
+  const setScreenData = useCallback(
+    (payload: ScreenDataType[]) => {
+      dispatch(setScreenDataAction(payload));
+    },
+    [dispatch],
+  );
 
   return {
     setPersonalData,
     setGData,
     setRData,
     setCData,
+    setScreenData,
+    screenData,
     cData,
     rData,
     personalData,

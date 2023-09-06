@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TGroupedChatHistory } from '@/types';
 import Image from '@/components/UI/StyledImage';
@@ -25,4 +25,4 @@ function ChatHistory({ groupedChatHistory }: IProps) {
   );
 }
 
-export default ChatHistory;
+export default memo(ChatHistory);

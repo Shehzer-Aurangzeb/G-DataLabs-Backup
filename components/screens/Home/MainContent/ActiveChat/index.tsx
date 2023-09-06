@@ -1,15 +1,18 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typed from 'react-typed';
+import { StaticImageData } from 'next/image';
 import { Chat as TMessage } from '@/state/chats/types';
+import logo from '@/public/assets/images/logo.svg';
 import Image from '@/components/UI/StyledImage';
 import Chat from './Chat';
 
 type TProps = {
   chats: TMessage[];
+  userProfile: string | StaticImageData;
 };
 
-function ActiveChat({ chats }: TProps) {
+function ActiveChat({ chats, userProfile }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
 
   //* scroll to bottom whenever new message is added
@@ -24,7 +27,7 @@ function ActiveChat({ chats }: TProps) {
   return (
     <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
-        <Chat key={msg.messageID} isBotResponse={msg.isBotResponse} isLoading={msg.isLoading}>
+        <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
           {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (
             <p>{msg.content.text}</p>
           )}

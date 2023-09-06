@@ -1,0 +1,43 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
+'use client';
+
+import { useCallback, useEffect } from 'react';
+import axios from 'axios';
+import { getCurrentLocation } from '@/lib/location';
+import { GeolocationSuccessResponseType } from '@/types';
+import { useWeatherState } from '@/state/weather/hooks';
+import { WeatherType } from '@/state/weather/types';
+
+export const useWeather = () => {
+  const { setWeather } = useWeatherState();
+  const getCurrentLocationWeather = useCallback(
+    async (response: GeolocationSuccessResponseType) => {
+      try {
+        const { coords } = response;
+        const { data } = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}&units=metric`,
+        );
+        if (!data.main) return;
+        const payload: WeatherType = {
+          lowestTemperature: data.main.temp_min,
+          highestTemperature: data.main.temp_max,
+        };
+        setWeather(payload);
+      } catch (e) {
+        console.log('e :>> ', e);
+      }
+    },
+    [setWeather],
+  );
+
+  const errorCallback = useCallback(async () => {}, []);
+
+  useEffect(() => {
+    getCurrentLocation({ successCallback: getCurrentLocationWeather, errorCallback });
+  }, [errorCallback, getCurrentLocationWeather]);
+
+  return {
+    getCurrentLocationWeather,
+  };
+};

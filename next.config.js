@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'g-datalabs.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
     ],
   },
   experimental: {

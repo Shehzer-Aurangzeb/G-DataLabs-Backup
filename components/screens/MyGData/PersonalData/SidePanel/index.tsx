@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { PERSONALDATAINITIALVALUES } from '@/constants';
 import { PersonalDataSchema, PersonalDataSchemaType } from '@/schema';
 import Button from '@/components/UI/Button';
+import { useWeatherState } from '@/state/weather/hooks';
 import CollapsableInput from './CollapsableInput';
 
 type TProps = {
@@ -15,8 +16,13 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
   const [emotionList, setEmotionList] = useState<{ [key: string]: string }>({
     initialKey: '',
   });
+  const { weather } = useWeatherState();
   const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = useFormik({
-    initialValues: PERSONALDATAINITIALVALUES,
+    initialValues: {
+      ...PERSONALDATAINITIALVALUES,
+      high_temperature: weather ? weather.highestTemperature : 0,
+      low_temperature: weather ? weather.lowestTemperature : 0,
+    },
     validationSchema: PersonalDataSchema,
 
     onSubmit: async (results, onSubmit) => {
@@ -48,15 +54,17 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
       />
       <CollapsableInput
         value={values.high_temperature}
+        type="number"
         onChange={handleChange}
-        title="High Temperature (F)"
+        title="High Temperature (C)"
         name="high_temperature"
         error={touched.high_temperature && errors.high_temperature}
       />
       <CollapsableInput
         value={values.low_temperature}
+        type="number"
         onChange={handleChange}
-        title="Low Temperature (F)"
+        title="Low Temperature (C)"
         name="low_temperature"
         error={touched.low_temperature && errors.low_temperature}
       />
@@ -87,11 +95,11 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={touched.emotional_overall && errors.emotional_overall}
       />
       <CollapsableInput
-        value={values.weather_type}
+        value={values.weather}
         onChange={handleChange}
         title="Weather Type"
-        name="weather_type"
-        error={touched.weather_type && errors.weather_type}
+        name="weather"
+        error={touched.weather && errors.weather}
       />
       <CollapsableInput
         value={values.relative_finance_status}
@@ -101,11 +109,11 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={touched.relative_finance_status && errors.relative_finance_status}
       />
       <CollapsableInput
-        value={values.exercise_total_time}
+        value={values.exercise_time}
         onChange={handleChange}
         title="Exercise Total Time"
-        name="exercise_total_time"
-        error={touched.exercise_total_time && errors.exercise_total_time}
+        name="exercise_time"
+        error={touched.exercise_time && errors.exercise_time}
       />
       <Button type="button" className="bg-blue w-full" title="Save" isLoading={false} />
       <Button type="submit" className="bg-[#F5B11A] w-full" title="Save & enter new data" isLoading={isLoading} />

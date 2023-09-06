@@ -1,12 +1,6 @@
 import React from 'react';
-import MainContent from '@/components/screens/Home/MainContent';
-import SidePanel from '@/components/screens/Home/SidePanel';
+import Main from '@/components/screens/Home';
 
 export default function Home() {
-  return (
-    <>
-      <MainContent />
-      <SidePanel />
-    </>
-  );
+  return <Main />;
 }

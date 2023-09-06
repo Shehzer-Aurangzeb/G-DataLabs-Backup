@@ -55,9 +55,14 @@ const chatSlice = createSlice({
       ...state,
       chatHistory: action.payload,
     }),
+    deleteChatsActions: (state) => ({
+      ...state,
+      chats: [],
+    }),
   },
 });
 
-export const { setChatsAction, setUserPromptAction, updateChatAction, setChatHistoryAction } = chatSlice.actions;
+export const { setChatsAction, setUserPromptAction, updateChatAction, setChatHistoryAction, deleteChatsActions } =
+  chatSlice.actions;
 
 export default chatSlice.reducer;

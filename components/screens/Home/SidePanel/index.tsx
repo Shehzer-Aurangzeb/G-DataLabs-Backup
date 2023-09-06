@@ -1,17 +1,17 @@
-'use client';
-
-import React from 'react';
+import React, { memo } from 'react';
 import Container from '@/components/UI/Containers';
 import { history } from '@/temp';
 import { add } from '@/constants/assets';
 import { groupMessagesByDate } from '@/lib';
 import Button from '@/components/UI/Button';
-import { useAuth } from '@/hooks/useAuth';
 import ChatHistory from './ChatHistory';
 
-function SidePanel() {
+type TProps = {
+  isAuthenticated: boolean;
+};
+
+function SidePanel({ isAuthenticated }: TProps) {
   const groupedChatHistory = groupMessagesByDate(history);
-  const { isAuthenticated } = useAuth();
   return (
     <Container type="side" className={`pb-5 ${!isAuthenticated && 'hidden'}`}>
       <h3 className="font-sans text-xl text-primary font-bold px-2 pt-8 tablet:pt-10">Recent Chat History</h3>
@@ -21,4 +21,4 @@ function SidePanel() {
   );
 }
 
-export default SidePanel;
+export default memo(SidePanel);

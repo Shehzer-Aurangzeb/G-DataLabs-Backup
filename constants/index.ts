@@ -138,10 +138,11 @@ export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   low_temperature: 0,
   emotional_list: [],
   emotional_overall: '',
-  weather_type: '',
+  weather: '',
   relative_finance_status: '',
-  exercise_total_time: '',
+  exercise_time: '',
 };
+
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
   {
     Header: 'Personal Data and Webcam',
@@ -207,7 +208,7 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
   },
   {
     Header: 'Weather Type',
-    accessor: 'weather_type' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'weather' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Emotion List',
@@ -224,7 +225,7 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
 
   {
     Header: 'Exercise Total Time',
-    accessor: 'exercise_total_time' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'exercise_time' as keyof Columns, // accessor is the "key" in the data
   },
 ];
 export const HISTORYDATATABLECOLUMNS: Column<Columns>[] = [
@@ -281,3 +282,12 @@ export const MYGDATATABLECOLUMNS: Column<Columns>[] = [
     accessor: 'rewards' as keyof Columns, // accessor is the "key" in the data
   },
 ];
+export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
+  emotional_list: 'list of emotions experienced throughout the day',
+  high_temperature: 'highest temperature of the day',
+  emotional_overall: 'an overall assessment of the days feelings',
+  low_temperature: 'lowest temperature of the day',
+  relative_finance_status: 'relative financial status ',
+  weather: 'list of the weather of the day',
+  exercise_time: 'total amount of exercise during the day',
+};

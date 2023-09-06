@@ -1,12 +1,13 @@
 'use client';
 
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { APPITEMS, AUTHITEMS } from '@/constants';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { sidebar } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAuth } from '@/hooks/useAuth';
+import { useSidebar } from '@/state/sidebar/hooks';
 import Logo from './Logo';
 import Items from './Items';
 import Switch from './Switch';
@@ -15,10 +16,10 @@ import IconButton from '../IconButton';
 
 function Sidebar() {
   const { width } = useWindowSize();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useSidebar();
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { isAuthenticated, logoutUser } = useAuth();
+  const { isAuthenticated, logoutUser, user } = useAuth();
   const handleOutsideClick = () => {
     setIsOpen(false);
   };
@@ -60,7 +61,7 @@ function Sidebar() {
         )}
         <Items items={isAuthenticated ? APPITEMS : AUTHITEMS} />
         <div className="max-w-sidebarItem w-full">
-          {isAuthenticated && <Profile logoutUser={logoutUser} />}
+          {isAuthenticated && user && <Profile logoutUser={logoutUser} user={user} />}
           <Switch />
         </div>
       </aside>
