@@ -11,7 +11,6 @@ import { createChat } from '@/lib';
 export const useChatBot = () => {
   const { isLoading, setIsLoading } = useLoading();
   const { chats, userPrompt, setUserPrompt, setChats, resetUserPrompt, updateChat } = useChats();
-
   const fetchBotResponse = useCallback(async () => {
     try {
       const userMessage = createChat({ isBotResponse: false, isLoading: false, text: userPrompt.data, images: [] });
