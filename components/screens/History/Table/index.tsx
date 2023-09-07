@@ -66,26 +66,24 @@ function Table({ columns, data }: IProps) {
       <table {...getTableProps()} className="w-full">
         <thead>
           {headerGroups.map((headerGroup: any) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id} className="flex">
+            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
               {headerGroup.headers.map((column: any, columnIndex: number) => (
                 /* eslint-disable */
                 <th
                   key={columnIndex}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   className={
-                    column.Header === 'Answers'
-                      ? 'flex w-[800px] border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
-                      : 'flex border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
+                    'border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
                   }
                 >
                   {column.render('Header')}
-                  <div className="ml-2 float-right" style={{ filter: 'brightness(0) invert(1)' }}>
+                  <span className="ml-2 float-right" style={{ filter: 'brightness(0) invert(1)' }}>
                     {column.isSorted ? (
                       <Image src={arrowdown} alt={'arrow_down'} className="w-5 h-5 mt-1" />
                     ) : (
                       <Image src={arrowUp} alt={'arrow_up'} className="w-5 h-5 mt-1" />
                     )}
-                  </div>
+                  </span>
                 </th>
                 /* eslint-enable */
               ))}
@@ -123,15 +121,15 @@ function Table({ columns, data }: IProps) {
           <button
             onClick={() => previousPage()}
             disabled={!canPreviousPage}
-            className="bg-black text-white px-4 py-2 text-base disabled:bg-slate-600"
+            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-xl"
           >
             Previous
           </button>
-          <span className="bg-blue text-white px-4 py-[10px] text-base">{pageOptions.length}</span>
+          <span className="bg-blue text-white px-6 py-3 rounded-lg text-xl">{pageOptions.length}</span>
           <button
             onClick={() => nextPage()}
             disabled={!canNextPage}
-            className="bg-black text-white px-4 py-2 text-base disabled:bg-slate-600"
+            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-xl"
           >
             Next
           </button>
