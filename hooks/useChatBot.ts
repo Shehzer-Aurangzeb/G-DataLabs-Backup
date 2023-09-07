@@ -10,7 +10,17 @@ import { createChat } from '@/lib';
 
 export const useChatBot = () => {
   const { isLoading, setIsLoading } = useLoading();
-  const { chats, userPrompt, setUserPrompt, setChats, resetUserPrompt, updateChat } = useChats();
+  const {
+    chats,
+    userPrompt,
+    setUserPrompt,
+    setChats,
+    resetUserPrompt,
+    updateChat,
+    recentChatHistory,
+    startNewChat,
+    openPreviousChats,
+  } = useChats();
   const fetchBotResponse = useCallback(async () => {
     try {
       const userMessage = createChat({ isBotResponse: false, isLoading: false, text: userPrompt.data, images: [] });
@@ -48,5 +58,8 @@ export const useChatBot = () => {
     chats,
     userPrompt,
     setUserPrompt,
+    recentChatHistory,
+    startNewChat,
+    openPreviousChats,
   };
 };

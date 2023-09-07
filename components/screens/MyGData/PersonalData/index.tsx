@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import { PERSONALDATATABLECOLUMNS } from '@/constants';
 import { useMyGData } from '@/hooks/useMyGData';
+import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';
 import SidePanel from './SidePanel';
 
@@ -21,6 +22,7 @@ function Main() {
       <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
       <div className="overflow-x-auto w-full h-full mobile:min-h-[350px]">
         <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />
+        {tableData.length === 0 && <NoData />}
       </div>
     </div>
   );

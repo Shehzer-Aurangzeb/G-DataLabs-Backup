@@ -6,6 +6,7 @@ import { Chat as TMessage } from '@/state/chats/types';
 import logo from '@/public/assets/images/logo.svg';
 import Image from '@/components/UI/StyledImage';
 import Chat from './Chat';
+import ResponseFeedback from './FeedbackAction';
 
 type TProps = {
   chats: TMessage[];
@@ -47,6 +48,7 @@ function ActiveChat({ chats, userProfile }: TProps) {
               ))}
             </div>
           )}
+          {msg.isBotResponse && <ResponseFeedback show={!msg.isLoading} />}
         </Chat>
       ))}
     </div>

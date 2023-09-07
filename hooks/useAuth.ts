@@ -117,6 +117,7 @@ export const useAuth = () => {
           toast.error(data.error);
           return;
         }
+        toast.success('Your account has been successfully created');
         router.replace(PATHS.LOGIN);
       } catch (e) {
         toast.error('Something went wrong');

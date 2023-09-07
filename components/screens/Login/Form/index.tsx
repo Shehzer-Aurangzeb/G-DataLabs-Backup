@@ -50,7 +50,7 @@ function LoginForm() {
         </Link>
       </p>
 
-      <Button type="submit" className="bg-blue w-full" title="Sign In" isLoading={isLoading} />
+      <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue" title="Sign In" isLoading={isLoading} />
 
       <Link href={PATHS.RESETPASSWORD} className="text-blue underline text-center font-sans font-semibold text-base">
         Forgot Password?

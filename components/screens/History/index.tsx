@@ -3,6 +3,8 @@
 import React from 'react';
 import { HISTORYDATATABLECOLUMNS } from '@/constants';
 import { useChats } from '@/state/chats/hooks';
+import NoData from '@/components/UI/NoDataMessage';
+import { no_chats } from '@/constants/assets';
 import Table from './Table';
 
 function Main() {
@@ -10,6 +12,7 @@ function Main() {
   return (
     <div className="overflow-x-auto w-full h-full mobile:min-h-[350px]">
       <Table data={chatHistory} columns={HISTORYDATATABLECOLUMNS} />
+      {chatHistory.length === 0 && <NoData message="No chat history to display" icon={no_chats} />}
     </div>
   );
 }

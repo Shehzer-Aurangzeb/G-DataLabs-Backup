@@ -10,7 +10,7 @@ interface IProps {
 }
 function Chat({ isLoading = false, children, profile }: IProps) {
   return (
-    <div className="bg-chat flex flex-row gap-x-8 items-center justify-start py-5 px-8 font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base">
+    <div className="bg-chat flex flex-row gap-x-8 items-center justify-start py-5 pl-8 pr-[72px] font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base relative">
       <Image src={profile} alt="profile" className="w-12 h-12 self-start min-w-[3rem]" rounded />
       <div>
         {isLoading && <Loader />}

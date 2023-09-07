@@ -115,8 +115,13 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         name="exercise_time"
         error={touched.exercise_time && errors.exercise_time}
       />
-      <Button type="button" className="bg-blue w-full" title="Save" isLoading={false} />
-      <Button type="submit" className="bg-[#F5B11A] w-full" title="Save & enter new data" isLoading={isLoading} />
+      <Button type="button" className="bg-blue w-full disabled:bg-disabledBlue" title="Save" isLoading={false} />
+      <Button
+        type="submit"
+        className="bg-[#F5B11A] w-full disabled:bg-[#f5b01aa7]"
+        title="Save & enter new data"
+        isLoading={isLoading}
+      />
     </form>
   );
 }

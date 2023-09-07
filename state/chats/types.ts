@@ -25,9 +25,19 @@ export type UserPrompt = {
   data: string;
   choice: ResponseChoice;
 };
+export type THistory = {
+  id: number;
+  title: string;
+  date: string;
+  messages: Chat[];
+};
+export type TGroupedChatHistory = {
+  [key: string]: THistory[];
+};
 
 export type ChatsSliceType = {
   chats: Chat[];
   userPrompt: UserPrompt;
+  recentChatHistory: TGroupedChatHistory;
   chatHistory: ChatHistory[];
 };

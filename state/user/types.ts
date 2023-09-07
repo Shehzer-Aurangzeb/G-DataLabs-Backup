@@ -8,6 +8,9 @@ export type UserType = {
   id: string;
   image: string;
   key: string;
+  accountNo?: string;
+  accountTitle?: string;
+  bankName?: string;
 };
 
 export type UserSliceType = {
