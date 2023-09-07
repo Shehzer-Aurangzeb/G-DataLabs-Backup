@@ -29,7 +29,7 @@ function ActiveChat({ chats, userProfile }: TProps) {
       {chats.map((msg) => (
         <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
           {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (
-            <p>{msg.content.text}</p>
+            <div>{msg.content.text}</div>
           )}
           {msg.content.text.length > 0 && msg.messageID === chats[chats.length - 1].messageID && (
             <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} />

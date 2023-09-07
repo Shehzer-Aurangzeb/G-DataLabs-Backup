@@ -55,9 +55,10 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     <table {...getTableProps()} className="w-full">
       <thead>
         {headerGroups.map((headerGroup: any) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
             {headerGroup.headers.map((column: any, columnIndex: number) => (
               <th
+                key={column.id}
                 {...column.getHeaderProps()}
                 className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap ${
                   columnIndex === headerGroup.headers.length - 1 && 'hidden'
@@ -76,6 +77,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
             <tr {...row.getRowProps()}>
               {row.cells.map((cell: any, cellIndex: number) => (
                 <td
+                  key={cell.id}
                   {...cell.getCellProps()}
                   className={`border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
                     cellIndex === row.cells.length - 1 && 'hidden'
