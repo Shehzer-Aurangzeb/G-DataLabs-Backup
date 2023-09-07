@@ -7,7 +7,14 @@ import { Column } from 'react-table';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
-import { createHistoryTableData, createScreenData, createTableColumns, createTableData } from '@/lib';
+import {
+  createHistoryTableData,
+  createRecentChatHistory,
+  createScreenData,
+  createTableColumns,
+  createTableData,
+  groupMessagesByDate,
+} from '@/lib';
 import { Columns, TableName } from '@/types';
 import { useChats } from '@/state/chats/hooks';
 import { useWeather } from '@/hooks/useWeather';
@@ -27,7 +34,7 @@ const AppContext = createContext<AppContextType>({
 
 function AppProvider({ children }: IProps) {
   const { setPersonalData, setGData, setRData, setCData, cData, setScreenData } = usePersonalData();
-  const { setChatHistory, chats } = useChats();
+  const { setChatHistory, chats, setRecentChatHistory } = useChats();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
   //* weather hook
@@ -51,10 +58,23 @@ function AppProvider({ children }: IProps) {
   const getLastFivePersonalData = useCallback(async () => {
     const { data } = await api.get('api/user_personal_data/last_five');
     const gData = createTableData({ tableName: TableName.GData, data });
+    if (data.length === 0) return;
     const gDataTableColumns = createTableColumns(data);
     setGTableColumns(gDataTableColumns);
     setGData(gData);
   }, [setGData]);
+
+  const fetchRecentChats = useCallback(async () => {
+    try {
+      const { data } = await api.get('api/chat/');
+      const recentchatHistory = createRecentChatHistory(data.data);
+      const groupedMessages = groupMessagesByDate(recentchatHistory);
+      if (groupedMessages) setRecentChatHistory(groupedMessages);
+    } catch (e) {
+      // console.log('e :>> ', e);
+    }
+  }, [setRecentChatHistory]);
+
   const fetchChatHistory = useCallback(async () => {
     try {
       const { data } = await api.get('api/history/');
@@ -78,9 +98,17 @@ function AppProvider({ children }: IProps) {
     getAllPersonalData();
     getLastFivePersonalData();
     fetchChatHistory();
+    fetchRecentChats();
     getAllConsentData();
     getAllScreenData();
-  }, [getAllPersonalData, getLastFivePersonalData, getAllConsentData, fetchChatHistory, getAllScreenData]);
+  }, [
+    getAllPersonalData,
+    getLastFivePersonalData,
+    getAllConsentData,
+    fetchChatHistory,
+    getAllScreenData,
+    fetchRecentChats,
+  ]);
 
   useEffect(() => {
     if (!user) return;

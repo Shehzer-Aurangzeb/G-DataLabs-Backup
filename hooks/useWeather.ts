@@ -9,6 +9,7 @@ import { GeolocationSuccessResponseType } from '@/types';
 import { useWeatherState } from '@/state/weather/hooks';
 import { WeatherType } from '@/state/weather/types';
 
+const POLL_ONE_HOUR = 60 * 60 * 1000;
 export const useWeather = () => {
   const { setWeather } = useWeatherState();
   const getCurrentLocationWeather = useCallback(
@@ -25,7 +26,7 @@ export const useWeather = () => {
         };
         setWeather(payload);
       } catch (e) {
-        console.log('e :>> ', e);
+        // console.log('e :>> ', e);
       }
     },
     [setWeather],
@@ -35,6 +36,10 @@ export const useWeather = () => {
 
   useEffect(() => {
     getCurrentLocation({ successCallback: getCurrentLocationWeather, errorCallback });
+
+    setInterval(() => {
+      getCurrentLocation({ successCallback: getCurrentLocationWeather, errorCallback });
+    }, POLL_ONE_HOUR);
   }, [errorCallback, getCurrentLocationWeather]);
 
   return {

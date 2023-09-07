@@ -123,7 +123,12 @@ function SignupForm() {
           </Link>
         </p>
 
-        <Button type="submit" className="bg-blue w-full" title="Sign up" isLoading={isLoading} />
+        <Button
+          type="submit"
+          className="bg-blue w-full disabled:bg-disabledBlue"
+          title="Sign up"
+          isLoading={isLoading}
+        />
       </div>
     </form>
   );

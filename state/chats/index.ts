@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
+import { TGroupedChatHistory, Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
 
 const initialState: ChatsSliceType = {
   chats: [],
   chatHistory: [],
+  recentChatHistory: {},
+  // selectedRecentChat:
   userPrompt: {
     data: '',
     choice: ResponseChoice.TEXT,
@@ -59,10 +61,40 @@ const chatSlice = createSlice({
       ...state,
       chats: [],
     }),
+    setRecentChatHistoryAction: (
+      state,
+      action: {
+        payload: TGroupedChatHistory;
+      },
+    ) => ({
+      ...state,
+      recentChatHistory: action.payload,
+    }),
+    startNewChatAction: (state) => ({
+      ...state,
+      chats: [],
+    }),
+    openPreviousChatsAction: (
+      state,
+      action: {
+        payload: Chat[];
+      },
+    ) => ({
+      ...state,
+      chats: action.payload,
+    }),
   },
 });
 
-export const { setChatsAction, setUserPromptAction, updateChatAction, setChatHistoryAction, deleteChatsActions } =
-  chatSlice.actions;
+export const {
+  setChatsAction,
+  setUserPromptAction,
+  updateChatAction,
+  setChatHistoryAction,
+  deleteChatsActions,
+  setRecentChatHistoryAction,
+  startNewChatAction,
+  openPreviousChatsAction,
+} = chatSlice.actions;
 
 export default chatSlice.reducer;

@@ -8,7 +8,16 @@ import SidePanel from './SidePanel';
 
 export default function Main() {
   const { user, isAuthenticated } = useAuth();
-  const { userPrompt, setUserPrompt, chats, fetchBotResponse, isLoading } = useChatBot();
+  const {
+    userPrompt,
+    setUserPrompt,
+    chats,
+    fetchBotResponse,
+    isLoading,
+    recentChatHistory,
+    openPreviousChats,
+    startNewChat,
+  } = useChatBot();
   return (
     <>
       <MainContent
@@ -19,7 +28,12 @@ export default function Main() {
         userPrompt={userPrompt}
         setUserPrompt={setUserPrompt}
       />
-      <SidePanel isAuthenticated={isAuthenticated} />
+      <SidePanel
+        isAuthenticated={isAuthenticated}
+        recentChatHistory={recentChatHistory}
+        openPreviousChats={openPreviousChats}
+        newChat={startNewChat}
+      />
     </>
   );
 }

@@ -11,8 +11,9 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: StaticImageData;
   isLoading?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
-function Button({ onClick, type = 'button', title, isLoading = false, icon, className = '' }: IProps) {
+function Button({ onClick, type = 'button', title, isLoading = false, icon, className = '', style }: IProps) {
   return (
     <button
       className={[
@@ -21,6 +22,7 @@ function Button({ onClick, type = 'button', title, isLoading = false, icon, clas
       ].join(' ')}
       onClick={onClick}
       type={type}
+      style={style}
       disabled={isLoading}
     >
       {icon && !isLoading && (

@@ -8,7 +8,8 @@ import Button from '@/components/UI/Button';
 import { UserType } from '@/state/user/types';
 import { PERSONALINFOINITIALVALUES } from '@/constants';
 import { UpdateUserPayloadType } from '@/types';
-import CardInformation from './CardInformation';
+import { usePlaidAuth } from '@/hooks/usePlaidAuth';
+import BankInformation from './BankInformation';
 import UploadPicture from './UploadPicture';
 
 type TProps = {
@@ -20,6 +21,8 @@ type TProps = {
 function Form({ user, updateUser, isLoading }: TProps) {
   const [profile, setProfile] = useState<File | null>(null);
   const [profileUrl, setProfileUrl] = useState<string>(user.image ?? '');
+  const { getPlaidLinkToken, isLoading: isPlaidLoading } = usePlaidAuth();
+
   const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -140,17 +143,28 @@ function Form({ user, updateUser, isLoading }: TProps) {
           currency="$"
           className="max-w-[450px] w-full"
         />
+        {(user.accountNo || user.accountTitle || user.bankName) && (
+          <BankInformation values={values} touched={touched} errors={errors} />
+        )}
 
-        <CardInformation values={values} touched={touched} errors={errors} handleChange={handleChange} />
-        <div className="w-full flex flex-row items-center justify-end gap-x-4 mt-10">
+        <div className="w-full flex flex-row mobile:flex-col items-center justify-between gap-x-4 mobile:gap-y-4 mt-10">
           <Button
             type="button"
-            className="bg-chat max-w-[230px] w-full"
-            title="Cancel"
-            onClick={() => {}}
-            isLoading={false}
+            className="bg-transparent uppercase disabled:bg-disabledBlue max-w-[320px] w-full border-2 border-black mobile:order-2 connect_btn"
+            style={{ color: 'black' }}
+            onClick={getPlaidLinkToken}
+            title={user && user.accountNo ? 'Edit bank information' : 'Connect with my bank'}
+            isLoading={isPlaidLoading}
           />
-          <Button type="submit" className="bg-blue max-w-[230px] w-full" title="Save" isLoading={isLoading} />
+          <div className="flex w-full gap-x-4 justify-end mobile:justify-between">
+            <Button type="button" className="bg-chat max-w-[230px] w-full" title="Cancel" />
+            <Button
+              type="submit"
+              className="bg-blue disabled:bg-disabledBlue max-w-[230px] w-full"
+              title="Save"
+              isLoading={isLoading}
+            />
+          </div>
         </div>
       </div>
     </form>

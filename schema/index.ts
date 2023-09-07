@@ -8,10 +8,9 @@ export const PersonalInfoSchema = object({
   username: string().min(3).required('Username is required'),
   phone: number(),
   totalRewards: number(),
-  nameOnCard: string().min(3),
-  cardNo: number(),
-  cardExpiry: number(),
-  cvv: number(),
+  accountNo: string(),
+  accountTitle: string(),
+  bankName: string(),
 });
 export const PersonalDataSchema = object({
   date: string(),

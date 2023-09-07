@@ -1,4 +1,4 @@
-import { Chat as TMessage, ResponseChoice } from '@/state/chats/types';
+import { ResponseChoice } from '@/state/chats/types';
 
 type NAVITEM = {
   title: string;
@@ -20,15 +20,6 @@ export type TPROPTION = {
   value: ResponseChoice;
 };
 
-export type THistory = {
-  title: string;
-  date: string;
-  messages: TMessage[];
-};
-
-export type TGroupedChatHistory = {
-  [key: string]: THistory[];
-};
 export type Columns = {
   col1: string;
   col2: string;
@@ -118,4 +109,25 @@ export type ScreenDataResponseType = {
 export type GeolocationSuccessResponseType = {
   coords: GeolocationCoordinates;
   timestamp: number;
+};
+
+export type RecentChatHistoryResponseType = {
+  created_at: string;
+  history: [
+    {
+      answer: string;
+      chat_id: number;
+      choice: null;
+      id: number;
+      images: string;
+      question: string;
+      timestamp: string;
+      u_email: string;
+      user_id: number;
+    },
+  ];
+  id: number;
+  name: string;
+  status: string;
+  user_id: number;
 };

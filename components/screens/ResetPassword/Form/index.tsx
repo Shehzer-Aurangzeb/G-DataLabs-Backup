@@ -35,7 +35,7 @@ function ResetPasswordForm() {
         Go back to Login
       </Link>
 
-      <Button type="submit" className="bg-blue w-full" title="Sign In" isLoading={false} />
+      <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue" title="Sign In" isLoading={false} />
     </form>
   );
 }

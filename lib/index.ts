@@ -4,17 +4,16 @@ import dayjs from 'dayjs';
 import { v4 as uuidv4 } from 'uuid';
 import { Column } from 'react-table';
 import {
-  THistory,
-  TGroupedChatHistory,
   TableName,
   PersonalDataType,
   Columns,
   GDataType,
   ChatHistoryResponseType,
   ScreenDataResponseType,
+  RecentChatHistoryResponseType,
 } from '@/types';
+import { THistory, Chat, ChatHistory, TGroupedChatHistory } from '@/state/chats/types';
 import { PersonalDataSchemaType } from '@/schema';
-import { Chat, ChatHistory } from '@/state/chats/types';
 import { Data, ScreenDataType, UpdateConsentRewardType } from '@/state/myGData/types';
 import { DESCRIPTIONOFVARIABLES } from '@/constants';
 
@@ -26,6 +25,7 @@ const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: stri
 };
 
 export const groupMessagesByDate = (messages: THistory[]) => {
+  if (messages.length === 0) return;
   const CategorizedMessagesMap: TGroupedChatHistory = {};
   const today = dayjs();
   //* sort the messages in array
@@ -49,6 +49,7 @@ export const groupMessagesByDate = (messages: THistory[]) => {
       addToGroup(CategorizedMessagesMap, month, msg);
     }
   });
+  // eslint-disable-next-line consistent-return
   return CategorizedMessagesMap;
 };
 
@@ -155,12 +156,16 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
 
 // * create Columns for My G-Data
 export const createTableColumns = (data: GDataType[]) => {
-  const columns: string[] = [];
   let result: string[] = [];
+  let index = 0;
   for (const d of data) {
-    const date = dayjs(d.created_at).format('YYYY-MM-DD');
-    if (!columns.includes(date)) columns.push(date);
+    const values = d.values.length;
+    if (values > data[index].values.length) {
+      index = data.indexOf(d);
+    }
   }
+  const columns: string[] = data[index].values.map((item) => dayjs(item.created_at).format('YYYY-MM-DD'));
+
   result = ['Consent', ...columns, 'Consent Value', 'Rewards'];
   const tableColumns: Column<Columns>[] = result.map((col) => ({
     Header: col,
@@ -233,3 +238,31 @@ export const generateAvatar = (firstName: string) => {
   }
   return canvas.toDataURL('image/png');
 };
+
+export const createRecentChatHistory = (payload: RecentChatHistoryResponseType[]) =>
+  payload.map((chats) => {
+    const messages = [];
+    for (const chat of chats.history) {
+      const response = createChat({
+        text: chat.answer,
+        images: JSON.parse(chat.images.replace(/'/g, '"')).map((img: string) => ({ url: img })),
+        isBotResponse: true,
+        isLoading: false,
+      });
+      const question = createChat({
+        text: chat.question,
+        images: [],
+        isBotResponse: false,
+        isLoading: false,
+      });
+      messages.push(question);
+      messages.push(response);
+    }
+
+    return {
+      title: chats.name,
+      date: dayjs(chats.created_at).format('YYYY-MM-DD'),
+      id: chats.id,
+      messages,
+    } as THistory;
+  });
