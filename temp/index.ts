@@ -1,4 +1,4 @@
-import { THistory } from '@/types';
+// import { THistory } from '@/types';
 
 // const messages: TMessage[] = [
 //   {
@@ -34,259 +34,259 @@ import { THistory } from '@/types';
 //     },
 //   },
 // ];
-const history: THistory[] = [
-  {
-    title: 'Search Text Heading Here',
-    date: '08-11-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-  {
-    title: 'Search Text Heading Here',
-    date: '08-06-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-  {
-    title: 'Search Text Heading Here',
-    date: '08-04-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-  {
-    title: 'Search Text Heading Here',
-    date: '08-01-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-  {
-    title: 'Search Text Heading Here',
-    date: '07-28-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-  {
-    title: 'Search Text Heading Here',
-    date: '06-18-2023',
-    messages: [
-      {
-        isBotResponse: false,
-        messageID: '1',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '2',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '3',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-      {
-        isBotResponse: false,
-        messageID: '4',
-        isLoading: false,
-        content: {
-          text: 'What is 2+2?',
-          images: [],
-        },
-      },
-    ],
-  },
-];
+// const history: THistory[] = [
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '08-11-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '08-06-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '08-04-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '08-01-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '07-28-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     title: 'Search Text Heading Here',
+//     date: '06-18-2023',
+//     messages: [
+//       {
+//         isBotResponse: false,
+//         messageID: '1',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '2',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '3',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//       {
+//         isBotResponse: false,
+//         messageID: '4',
+//         isLoading: false,
+//         content: {
+//           text: 'What is 2+2?',
+//           images: [],
+//         },
+//       },
+//     ],
+//   },
+// ];
 
-export { history };
+// export { history };
