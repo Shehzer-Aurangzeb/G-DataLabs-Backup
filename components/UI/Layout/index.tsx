@@ -1,15 +1,25 @@
+'use client';
+
 import React from 'react';
-import Sidebar from '../Sidebar';
+import { usePathname } from 'next/navigation';
+import { PATHS } from '@/constants';
+import NoSidebarLayout from './NoSidebar';
+import MainLayout from './Main';
 
 interface IProps {
   children: React.ReactNode;
 }
 function Layout({ children }: IProps) {
+  const pathname = usePathname();
   return (
-    <div className="h-screen w-screen flex flex-row py-5 pr-5">
-      <Sidebar />
-      {children}
-    </div>
+    <>
+      {' '}
+      {pathname === PATHS.COOKIEPOLICY || pathname === PATHS.PRIVACY || pathname === PATHS.TERMS ? (
+        <NoSidebarLayout>{children}</NoSidebarLayout>
+      ) : (
+        <MainLayout>{children}</MainLayout>
+      )}
+    </>
   );
 }
 

@@ -37,7 +37,14 @@ export const groupMessagesByDate = (messages: THistory[]) => {
   //* group the sorted messages
   sortedMessages.forEach((msg) => {
     const daysDiffernce = today.diff(msg.date, 'day');
-
+    if (daysDiffernce === 0) {
+      addToGroup(CategorizedMessagesMap, 'Today', msg);
+      return;
+    }
+    if (daysDiffernce === 1) {
+      addToGroup(CategorizedMessagesMap, 'Yesterday', msg);
+      return;
+    }
     if (daysDiffernce <= 7) {
       addToGroup(CategorizedMessagesMap, 'Last 7 days', msg);
       return;
