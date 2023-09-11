@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { RootState, useAppDispatch } from 'state/store';
-import { TGroupedChatHistory, Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt } from './types';
+import { TGroupedChatHistory, Chat, ChatHistory, ChatsSliceType, ResponseChoice, UserPrompt, THistory } from './types';
 import {
   deleteChatsActions,
   setChatHistoryAction,
@@ -11,10 +11,11 @@ import {
   setRecentChatHistoryAction,
   startNewChatAction,
   openPreviousChatsAction,
+  setActiveChatIdAction,
 } from '.';
 
 export const useChats = () => {
-  const { chats, userPrompt, chatHistory, recentChatHistory } = useSelector<RootState, ChatsSliceType>(
+  const { chats, userPrompt, chatHistory, recentChatHistory, activeChatID } = useSelector<RootState, ChatsSliceType>(
     (state) => state.chats,
   );
   const dispatch = useAppDispatch();
@@ -63,11 +64,19 @@ export const useChats = () => {
   const startNewChat = useCallback(() => {
     dispatch(startNewChatAction());
   }, [dispatch]);
-  const openPreviousChats = useCallback(
-    (payload: Chat[]) => {
-      dispatch(openPreviousChatsAction(payload));
+
+  const setActiveChatID = useCallback(
+    (payload: number) => {
+      dispatch(setActiveChatIdAction(payload));
     },
     [dispatch],
+  );
+  const openPreviousChats = useCallback(
+    (payload: THistory) => {
+      setActiveChatID(payload.id);
+      if (payload.messages.length > 0) dispatch(openPreviousChatsAction(payload.messages));
+    },
+    [dispatch, setActiveChatID],
   );
 
   return {
@@ -75,6 +84,7 @@ export const useChats = () => {
     userPrompt,
     chatHistory,
     recentChatHistory,
+    activeChatID,
     resetUserPrompt,
     updateChat,
     setUserPrompt,
@@ -84,5 +94,6 @@ export const useChats = () => {
     startNewChat,
     setRecentChatHistory,
     openPreviousChats,
+    setActiveChatID,
   };
 };

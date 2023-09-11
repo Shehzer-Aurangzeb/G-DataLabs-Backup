@@ -16,7 +16,7 @@ export default function Main() {
     isLoading,
     recentChatHistory,
     openPreviousChats,
-    startNewChat,
+    newChat,
   } = useChatBot();
   return (
     <>
@@ -27,12 +27,13 @@ export default function Main() {
         isLoading={isLoading}
         userPrompt={userPrompt}
         setUserPrompt={setUserPrompt}
+        isAuthenticated={isAuthenticated}
       />
       <SidePanel
         isAuthenticated={isAuthenticated}
         recentChatHistory={recentChatHistory}
         openPreviousChats={openPreviousChats}
-        newChat={startNewChat}
+        newChat={newChat}
       />
     </>
   );

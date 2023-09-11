@@ -69,6 +69,13 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={touched.low_temperature && errors.low_temperature}
       />
       <CollapsableInput
+        value={values.weather}
+        onChange={handleChange}
+        title="Weather Type"
+        name="weather"
+        error={touched.weather && errors.weather}
+      />
+      <CollapsableInput
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           const { name, value } = e.target;
           setEmotionList((prev) => ({
@@ -94,24 +101,19 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         name="emotional_overall"
         error={touched.emotional_overall && errors.emotional_overall}
       />
-      <CollapsableInput
-        value={values.weather}
-        onChange={handleChange}
-        title="Weather Type"
-        name="weather"
-        error={touched.weather && errors.weather}
-      />
+
       <CollapsableInput
         value={values.relative_finance_status}
         onChange={handleChange}
-        title="Rel_Finance Status"
+        title="Relative Finance Status"
         name="relative_finance_status"
         error={touched.relative_finance_status && errors.relative_finance_status}
       />
       <CollapsableInput
         value={values.exercise_time}
         onChange={handleChange}
-        title="Exercise Total Time"
+        type="number"
+        title="Exercise Total Time (min)"
         name="exercise_time"
         error={touched.exercise_time && errors.exercise_time}
       />

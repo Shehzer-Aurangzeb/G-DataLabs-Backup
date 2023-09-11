@@ -5,7 +5,7 @@ const initialState: ChatsSliceType = {
   chats: [],
   chatHistory: [],
   recentChatHistory: {},
-  // selectedRecentChat:
+  activeChatID: undefined,
   userPrompt: {
     data: '',
     choice: ResponseChoice.TEXT,
@@ -83,6 +83,15 @@ const chatSlice = createSlice({
       ...state,
       chats: action.payload,
     }),
+    setActiveChatIdAction: (
+      state,
+      action: {
+        payload: number;
+      },
+    ) => ({
+      ...state,
+      activeChatID: action.payload,
+    }),
   },
 });
 
@@ -95,6 +104,7 @@ export const {
   setRecentChatHistoryAction,
   startNewChatAction,
   openPreviousChatsAction,
+  setActiveChatIdAction,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;

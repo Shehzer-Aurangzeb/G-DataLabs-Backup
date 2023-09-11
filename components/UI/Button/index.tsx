@@ -17,7 +17,7 @@ function Button({ onClick, type = 'button', title, isLoading = false, icon, clas
   return (
     <button
       className={[
-        'text-xl text-center font-sans font-bold text-white py-3 rounded-md relative  disabled:cursor-not-allowed disabled:bg-disabledBlue',
+        'text-xl text-center font-sans font-bold text-white py-3 rounded-md relative  disabled:cursor-not-allowed',
         className,
       ].join(' ')}
       onClick={onClick}

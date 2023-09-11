@@ -2,16 +2,24 @@
 
 import React from 'react';
 import { useMyGData } from '@/hooks/useMyGData';
-import NoData from '@/components/UI/NoDataMessage';
-import ScreenDataVideo from './Video';
+import { maxWidth } from '@/constants';
+import Accordion from './Accordion';
 
 function Main() {
   const { screenData } = useMyGData();
   return (
-    <div className="h-full w-full">
-      <ScreenDataVideo data={screenData} />
-      {screenData.length === 0 && <NoData />}
-    </div>
+    <>
+      <h1
+        className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap text-center max-w-[${maxWidth}]`}
+      >
+        Screen Data
+      </h1>
+      <div className={`max-w-[${maxWidth}] overflow-x-auto w-full`}>
+        {screenData.map((item) => (
+          <Accordion data={item} />
+        ))}
+      </div>
+    </>
   );
 }
 export default Main;

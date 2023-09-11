@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { CONSENTTABLECOLUMNS } from '@/constants';
+import { CONSENTTABLECOLUMNS, maxWidth } from '@/constants';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';
@@ -18,7 +18,7 @@ function Main() {
     [cData],
   );
   return (
-    <div className="overflow-x-auto w-full h-full">
+    <div className={`overflow-x-auto w-full h-full max-w-[${maxWidth}]`}>
       <Table data={tableData} columns={CONSENTTABLECOLUMNS} updateConsentRewards={updateConsentRewards} />
       {tableData.length === 0 && <NoData />}
     </div>

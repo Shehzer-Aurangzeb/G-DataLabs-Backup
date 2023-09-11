@@ -40,4 +40,5 @@ export type ChatsSliceType = {
   userPrompt: UserPrompt;
   recentChatHistory: TGroupedChatHistory;
   chatHistory: ChatHistory[];
+  activeChatID: number | undefined;
 };

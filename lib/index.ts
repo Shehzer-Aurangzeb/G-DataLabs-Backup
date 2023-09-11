@@ -217,7 +217,7 @@ export const createScreenData = (data: ScreenDataResponseType[]): ScreenDataType
     return {
       id,
       screenRecording: screen_recording_url,
-      cameraRecording: camera_recording_url,
+      cameraRecording: camera_recording_url ?? '',
       date: dayjs(timestamp).format('YYYY-MM-DD'),
     };
   });

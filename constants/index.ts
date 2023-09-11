@@ -143,7 +143,7 @@ export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   emotional_overall: '',
   weather: '',
   relative_finance_status: '',
-  exercise_time: '',
+  exercise_time: 0,
 };
 
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
@@ -294,3 +294,5 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
   weather: 'list of the weather of the day',
   exercise_time: 'total amount of exercise during the day',
 };
+
+export const maxWidth = '1450px';

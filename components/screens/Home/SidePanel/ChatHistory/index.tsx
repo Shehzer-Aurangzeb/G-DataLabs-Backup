@@ -1,12 +1,12 @@
 import React, { Fragment, memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Chat, TGroupedChatHistory } from '@/state/chats/types';
+import { TGroupedChatHistory, THistory } from '@/state/chats/types';
 import Image from '@/components/UI/StyledImage';
 import { chat } from '@/constants/assets';
 
 interface IProps {
   groupedChatHistory: TGroupedChatHistory;
-  openPreviousChats: (payload: Chat[]) => void;
+  openPreviousChats: (payload: THistory) => void;
 }
 function ChatHistory({ groupedChatHistory, openPreviousChats }: IProps) {
   return (
@@ -20,7 +20,7 @@ function ChatHistory({ groupedChatHistory, openPreviousChats }: IProps) {
               className="flex flex-row gap-x-4 px-3 py-4 bg-chat"
               key={uuidv4()}
               onClick={() => {
-                openPreviousChats(msg.messages);
+                openPreviousChats(msg);
               }}
             >
               <Image src={chat} alt="chat-icon" className="w-[24px] h-[24px]" />

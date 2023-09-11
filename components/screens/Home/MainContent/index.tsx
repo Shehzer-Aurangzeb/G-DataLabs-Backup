@@ -13,12 +13,15 @@ type TProps = {
   isLoading: boolean;
   chats: Chat[];
   user: UserType | undefined;
+  isAuthenticated: boolean;
 };
 
-function MainContent({ user, userPrompt, sendPrompt, setUserPrompt, isLoading, chats }: TProps) {
+function MainContent({ user, userPrompt, sendPrompt, setUserPrompt, isLoading, chats, isAuthenticated }: TProps) {
   return (
     <Container type="main">
-      {chats && <ActiveChat chats={chats} userProfile={user ? user.image : default_profile} />}
+      {chats && (
+        <ActiveChat chats={chats} userProfile={user ? user.image : default_profile} isLoggedIn={isAuthenticated} />
+      )}
       <PromptInputBox
         userPrompt={userPrompt}
         setUserPrompt={setUserPrompt}

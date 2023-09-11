@@ -22,7 +22,7 @@ export const PersonalDataSchema = object({
   emotional_overall: string().required('Overall emotion is required'),
   weather: string(),
   relative_finance_status: string().required(),
-  exercise_time: string(),
+  exercise_time: number(),
 });
 
 export const LoginFormSchema = object({

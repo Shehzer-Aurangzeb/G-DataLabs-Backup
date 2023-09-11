@@ -11,9 +11,10 @@ import ResponseFeedback from './FeedbackAction';
 type TProps = {
   chats: TMessage[];
   userProfile: string | StaticImageData;
+  isLoggedIn: boolean;
 };
 
-function ActiveChat({ chats, userProfile }: TProps) {
+function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
 
   //* scroll to bottom whenever new message is added
@@ -48,7 +49,7 @@ function ActiveChat({ chats, userProfile }: TProps) {
               ))}
             </div>
           )}
-          {msg.isBotResponse && <ResponseFeedback show={!msg.isLoading} />}
+          {isLoggedIn && msg.isBotResponse && <ResponseFeedback show={!msg.isLoading} />}
         </Chat>
       ))}
     </div>

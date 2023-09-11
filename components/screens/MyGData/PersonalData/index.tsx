@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { PERSONALDATATABLECOLUMNS } from '@/constants';
+import { PERSONALDATATABLECOLUMNS, maxWidth } from '@/constants';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';
@@ -18,9 +18,9 @@ function Main() {
     [personalData],
   );
   return (
-    <div className="flex flex-row gap-x-2 w-full overflow-hidden  h-full mobile:flex-col-reverse">
+    <div className="flex flex-row gap-x-2 w-full overflow-hidden h-full mobile:flex-col-reverse">
       <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
-      <div className="overflow-x-auto w-full h-full mobile:min-h-[350px]">
+      <div className={`overflow-x-auto w-full h-full mobile:min-h-[350px] max-w-[${maxWidth}]`}>
         <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />
         {tableData.length === 0 && <NoData />}
       </div>

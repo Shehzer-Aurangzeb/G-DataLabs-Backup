@@ -2,14 +2,14 @@ import React, { memo } from 'react';
 import Container from '@/components/UI/Containers';
 import { add, no_chats } from '@/constants/assets';
 import Button from '@/components/UI/Button';
-import { Chat, TGroupedChatHistory } from '@/state/chats/types';
+import { TGroupedChatHistory, THistory } from '@/state/chats/types';
 import NoData from '@/components/UI/NoDataMessage';
 import ChatHistory from './ChatHistory';
 
 type TProps = {
   isAuthenticated: boolean;
   recentChatHistory: TGroupedChatHistory;
-  openPreviousChats: (payload: Chat[]) => void;
+  openPreviousChats: (payload: THistory) => void;
   newChat: () => void;
 };
 

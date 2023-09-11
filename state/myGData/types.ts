@@ -6,7 +6,7 @@ export type Data = {
 export type ScreenDataType = {
   id: number;
   screenRecording: string;
-  cameraRecording: string | null;
+  cameraRecording: string;
   date: string;
 };
 export type MyGDataSliceType = {

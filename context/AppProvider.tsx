@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-constructed-context-values */
 
 'use client';
@@ -110,6 +111,7 @@ function AppProvider({ children }: IProps) {
     fetchRecentChats,
   ]);
 
+  //* initialize the app.
   useEffect(() => {
     if (!user) return;
     initApp();
@@ -119,7 +121,8 @@ function AppProvider({ children }: IProps) {
   useEffect(() => {
     if (!user) return;
     fetchChatHistory();
-  }, [chats, fetchChatHistory, user]);
+    fetchRecentChats();
+  }, [chats, fetchChatHistory, user, fetchRecentChats]);
 
   //* whenever consent table is updated fecth last five records data
   useEffect(() => {
