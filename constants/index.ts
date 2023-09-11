@@ -23,6 +23,9 @@ export const PATHS = {
   SIGNUP: '/signup',
   LOGIN: '/login',
   RESETPASSWORD: '/reset_password',
+  PRIVACY: '/privacy_policy',
+  COOKIEPOLICY: '/cookie_policy',
+  TERMS: '/terms_condition',
 };
 
 export const APPITEMS: TNAVITEMS[] = [
