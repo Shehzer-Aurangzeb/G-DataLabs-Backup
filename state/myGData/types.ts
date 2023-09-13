@@ -8,6 +8,7 @@ export type ScreenDataType = {
   screenRecording: string;
   cameraRecording: string;
   date: string;
+  detail: string;
 };
 export type MyGDataSliceType = {
   personalData: Data;

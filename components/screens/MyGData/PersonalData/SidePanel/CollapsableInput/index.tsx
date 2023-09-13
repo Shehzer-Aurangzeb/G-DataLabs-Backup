@@ -3,12 +3,15 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { arrow, plus } from '@/constants/assets';
+import FileInput from './fileInput';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error: string | boolean | undefined;
   isAddingFieldEnabled?: boolean;
   fields?: { [key: string]: string };
   addNewField?: () => void;
+  handleFileChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  noOfFiles?: number;
 }
 
 function CollapsableInput({
@@ -23,6 +26,8 @@ function CollapsableInput({
   isAddingFieldEnabled = false,
   fields,
   addNewField,
+  handleFileChange,
+  noOfFiles,
 }: IProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
@@ -46,7 +51,7 @@ function CollapsableInput({
           <label htmlFor={name} className="text-primary font-sans font-medium text-xl">
             {title}
           </label>
-          {!isCollapsed && !isAddingFieldEnabled && (
+          {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && (
             <input
               autoComplete="off"
               placeholder={placeholder}
@@ -58,6 +63,9 @@ function CollapsableInput({
               value={value}
               className="bg-chat py-[10px] px-4 rounded-md text-primary w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none tablet:px-2 mobile:px-1"
             />
+          )}
+          {!isCollapsed && !isAddingFieldEnabled && type === 'file' && (
+            <FileInput onChange={handleFileChange!} noOfFiles={noOfFiles ?? 0} />
           )}
           {!isCollapsed && isAddingFieldEnabled && fields && (
             <>

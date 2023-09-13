@@ -112,7 +112,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       const date = dayjs(d.created_at).format('YYYY-MM-DD');
       result[date] = {
         ...result[date],
-        [d.personal_data_field.field_name]: d.value,
+        [d.personal_data_field.field_name.toLowerCase()]: d.value,
       };
     }
   }
@@ -151,7 +151,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
-        Definition: DESCRIPTIONOFVARIABLES[d.field_name],
+        Definition: DESCRIPTIONOFVARIABLES[d.field_name.toLowerCase()],
         Companies: '',
         Use: '',
         id: d.id,
@@ -204,21 +204,22 @@ export const createHistoryTableData = (data: ChatHistoryResponseType[]) => {
       choice,
       question,
       date: dayjs(timestamp).format('YYYY-MM-DD'),
-      images: JSON.parse(images.replace(/'/g, '"')),
+      images: images != null ? JSON.parse(images.replace(/'/g, '"')) : [],
     };
   });
   return result;
 };
 
 //* create screen data
-export const createScreenData = (data: ScreenDataResponseType[]): ScreenDataType[] =>
-  data.map((d) => {
-    const { id, screen_recording_url, camera_recording_url, timestamp } = d;
+export const createScreenData = (arg: ScreenDataResponseType[]): ScreenDataType[] =>
+  arg.map((screenData) => {
+    const { id, screen_recording_url, camera_recording_url, timestamp, data } = screenData;
     return {
       id,
       screenRecording: screen_recording_url,
       cameraRecording: camera_recording_url ?? '',
       date: dayjs(timestamp).format('YYYY-MM-DD'),
+      detail: data,
     };
   });
 
@@ -252,7 +253,8 @@ export const createRecentChatHistory = (payload: RecentChatHistoryResponseType[]
     for (const chat of chats.history) {
       const response = createChat({
         text: chat.answer,
-        images: JSON.parse(chat.images.replace(/'/g, '"')).map((img: string) => ({ url: img })),
+        images:
+          chat.images != null ? JSON.parse(chat.images.replace(/'/g, '"')).map((img: string) => ({ url: img })) : [],
         isBotResponse: true,
         isLoading: false,
       });

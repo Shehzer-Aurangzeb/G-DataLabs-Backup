@@ -1,20 +1,20 @@
 import React from 'react';
-import { ToastContainer, Zoom } from 'react-toastify';
+import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Toast() {
   return (
     <ToastContainer
-      position="top-center"
-      autoClose={3000}
+      position="top-right"
+      autoClose={1500}
       hideProgressBar
-      newestOnTop={false}
+      newestOnTop
       closeOnClick
       rtl={false}
       pauseOnFocusLoss={false}
       draggable={false}
       pauseOnHover
-      transition={Zoom}
+      transition={Bounce}
       theme="colored"
     />
   );

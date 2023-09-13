@@ -136,8 +136,8 @@ function Form({ user, updateUser, isLoading }: TProps) {
           placeholder="50"
           name="totalRewards"
           type="number"
+          readOnly
           error={touched.totalRewards && errors.totalRewards}
-          onChange={handleChange}
           value={values.totalRewards}
           isMonetaryInput
           currency="$"

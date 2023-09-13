@@ -1,4 +1,4 @@
-import { InferType, array, boolean, number, object, string } from 'yup';
+import { InferType, array, boolean, mixed, number, object, string } from 'yup';
 
 export const PersonalInfoSchema = object({
   firstName: string().min(2, 'First Name is too short').required('First Name is required'),
@@ -23,6 +23,15 @@ export const PersonalDataSchema = object({
   weather: string(),
   relative_finance_status: string().required(),
   exercise_time: number(),
+  photos: mixed(),
+  health_overall: string(),
+  any_social_life: string(),
+  social_life_list: array().of(string()),
+  weight: number(),
+  family_status: string(),
+  device_screen_time: string(),
+  work_life_balance: number(),
+  journaling: string(),
 });
 
 export const LoginFormSchema = object({

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Column, useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
+import { v4 as uuidv4 } from 'uuid';
 import Image from '@/components/UI/StyledImage';
 import { Columns } from '@/types';
 import arrowUp from '@/public/assets/icons/arrow_upward.png';
@@ -42,7 +43,7 @@ function Table({ columns, data }: IProps) {
   const { globalFilter, pageSize } = state;
 
   return (
-    <div className="w-full">
+    <>
       <div className="flex justify-between items-center mobile:flex-col-reverse">
         <div className="flex items-center mb-4">
           <span className="mr-2">Show</span>
@@ -66,11 +67,10 @@ function Table({ columns, data }: IProps) {
       <table {...getTableProps()} className="w-full">
         <thead>
           {headerGroups.map((headerGroup: any) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-              {headerGroup.headers.map((column: any, columnIndex: number) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column: any) => (
                 /* eslint-disable */
                 <th
-                  key={columnIndex}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   className={
                     'border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
@@ -91,21 +91,25 @@ function Table({ columns, data }: IProps) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row: any, rowIndex: number) => {
+          {rows.map((row: any) => {
             prepareRow(row);
             return (
               /* eslint-disable */
-              <tr {...row.getRowProps()} key={rowIndex}>
-                {row.cells.map((cell: any, cellIndex: number) => (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell: any) => (
                   <td
-                    key={cellIndex}
                     {...cell.getCellProps()}
-                    className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap"
+                    className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center"
                   >
                     {cell.column.Header === 'Image'
                       ? cell.value.length > 0
-                        ? cell.value.map((image: string, index: number) => (
-                            <Image src={image} alt={`response-image-${index}`} className="my-3 w-[120px] h-[120px]" />
+                        ? cell.value.map((image: string) => (
+                            <Image
+                              src={image}
+                              key={uuidv4()}
+                              alt={'response-image'}
+                              className="my-3 w-[120px] h-[120px]"
+                            />
                           ))
                         : '-'
                       : cell.render('Cell')}
@@ -117,25 +121,25 @@ function Table({ columns, data }: IProps) {
         </tbody>
       </table>
       {rows.length !== 0 && (
-        <div className="my-2 mx-auto flex justify-center ">
+        <div className="mt-5 mx-auto w-fit">
           <button
             onClick={() => previousPage()}
             disabled={!canPreviousPage}
-            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-xl"
+            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-md"
           >
             Previous
           </button>
-          <span className="bg-blue text-white px-6 py-3 rounded-lg text-xl">{pageOptions.length}</span>
+          <span className="bg-blue text-white px-6 py-2 rounded-md text-lg">{pageOptions.length}</span>
           <button
             onClick={() => nextPage()}
             disabled={!canNextPage}
-            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-xl"
+            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-md"
           >
             Next
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

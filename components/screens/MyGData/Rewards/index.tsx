@@ -18,7 +18,9 @@ function Main() {
   );
   return (
     <div className={`overflow-x-auto w-full h-full max-w-[${maxWidth}]`}>
-      <Table data={tableData} columns={REWARDSTABLECOLUMNS} updateConsentRewards={updateConsentRewards} />
+      {Object.keys(rData).length > 0 && (
+        <Table data={tableData} columns={REWARDSTABLECOLUMNS} updateConsentRewards={updateConsentRewards} />
+      )}
       {tableData.length === 0 && <NoData />}
     </div>
   );

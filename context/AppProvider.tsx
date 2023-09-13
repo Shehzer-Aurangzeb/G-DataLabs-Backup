@@ -8,21 +8,15 @@ import { Column } from 'react-table';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
-import {
-  createHistoryTableData,
-  createRecentChatHistory,
-  createScreenData,
-  createTableColumns,
-  createTableData,
-  groupMessagesByDate,
-} from '@/lib';
+import { createScreenData, createTableColumns, createTableData } from '@/lib';
 import { Columns, TableName } from '@/types';
-import { useChats } from '@/state/chats/hooks';
 import { useWeather } from '@/hooks/useWeather';
+import { useChatBot } from '@/hooks/useChatBot';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
   getAllConsentData: () => Promise<void>;
+  updateMyGData: () => Promise<void>;
 };
 interface IProps {
   children: React.ReactNode;
@@ -31,11 +25,12 @@ interface IProps {
 const AppContext = createContext<AppContextType>({
   gTableColumns: [],
   getAllConsentData: async () => {},
+  updateMyGData: async () => {},
 });
 
 function AppProvider({ children }: IProps) {
-  const { setPersonalData, setGData, setRData, setCData, cData, setScreenData } = usePersonalData();
-  const { setChatHistory, chats, setRecentChatHistory } = useChats();
+  const { setPersonalData, setGData, setRData, setCData, setScreenData } = usePersonalData();
+  const { fetchChatHistory, fetchRecentChats } = useChatBot();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
   //* weather hook
@@ -65,26 +60,6 @@ function AppProvider({ children }: IProps) {
     setGData(gData);
   }, [setGData]);
 
-  const fetchRecentChats = useCallback(async () => {
-    try {
-      const { data } = await api.get('api/chat/');
-      const recentchatHistory = createRecentChatHistory(data.data);
-      const groupedMessages = groupMessagesByDate(recentchatHistory);
-      if (groupedMessages) setRecentChatHistory(groupedMessages);
-    } catch (e) {
-      // console.log('e :>> ', e);
-    }
-  }, [setRecentChatHistory]);
-
-  const fetchChatHistory = useCallback(async () => {
-    try {
-      const { data } = await api.get('api/history/');
-      const chatHistoryTableData = createHistoryTableData(data.data);
-      setChatHistory(chatHistoryTableData);
-    } catch (e) {
-      // console.log('e :>> ', e);
-    }
-  }, [setChatHistory]);
   const getAllScreenData = useCallback(async () => {
     try {
       const { data } = await api.get('api/file-data/');
@@ -117,20 +92,11 @@ function AppProvider({ children }: IProps) {
     initApp();
   }, [user, initApp]);
 
-  //* to update chat history when user is logged in and is new chat comes.
-  useEffect(() => {
-    if (!user) return;
-    fetchChatHistory();
-    fetchRecentChats();
-  }, [chats, fetchChatHistory, user, fetchRecentChats]);
-
-  //* whenever consent table is updated fecth last five records data
-  useEffect(() => {
-    if (!user) return;
-    getLastFivePersonalData();
-  }, [cData, user, getLastFivePersonalData]);
-
-  return <AppContext.Provider value={{ gTableColumns, getAllConsentData }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={{ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData }}>
+      {children}
+    </AppContext.Provider>
+  );
 }
 
 export const useApp = () => useContext(AppContext);

@@ -16,7 +16,7 @@ export default function Main() {
     isLoading,
     recentChatHistory,
     openPreviousChats,
-    newChat,
+    startNewChat,
   } = useChatBot();
   return (
     <>
@@ -33,7 +33,7 @@ export default function Main() {
         isAuthenticated={isAuthenticated}
         recentChatHistory={recentChatHistory}
         openPreviousChats={openPreviousChats}
-        newChat={newChat}
+        newChat={startNewChat}
       />
     </>
   );

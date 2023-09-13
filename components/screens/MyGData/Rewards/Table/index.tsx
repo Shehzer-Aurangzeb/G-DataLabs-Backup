@@ -55,10 +55,9 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     <table {...getTableProps()} className="w-full">
       <thead>
         {headerGroups.map((headerGroup: any) => (
-          <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
+          <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any, columnIndex: number) => (
               <th
-                key={column.id}
                 {...column.getHeaderProps()}
                 className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap ${
                   columnIndex === headerGroup.headers.length - 1 && 'hidden'

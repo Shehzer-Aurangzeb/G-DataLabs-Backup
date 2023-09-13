@@ -43,14 +43,12 @@ function Side({ children, className = '' }: IProps) {
         ].join(' ')}
       >
         {width < 1024 && (
-          <div className="relative w-[50px]">
-            <IconButton
-              className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px]"
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              src={sidebar_dark}
-            />
-          </div>
+          <IconButton
+            className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px]"
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            src={sidebar_dark}
+          />
         )}
         {children}
       </div>

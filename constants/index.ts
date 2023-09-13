@@ -202,11 +202,11 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
   },
 
   {
-    Header: 'High Temp',
+    Header: 'High Temperature',
     accessor: 'high_temperature' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Low Temp',
+    Header: 'Low Temperature',
     accessor: 'low_temperature' as keyof Columns, // accessor is the "key" in the data
   },
   {
@@ -214,21 +214,57 @@ export const PERSONALDATATABLECOLUMNS: Column<Columns>[] = [
     accessor: 'weather' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Emotion List',
+    Header: 'Emotional List',
     accessor: 'emotional_list' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Emot. Overall',
+    Header: 'Emotional Overall',
     accessor: 'emotional_overall' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Rel finance Status',
+    Header: 'Relative Finance Status',
     accessor: 'relative_finance_status' as keyof Columns, // accessor is the "key" in the data
   },
 
   {
     Header: 'Exercise Total Time',
     accessor: 'exercise_time' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Photos',
+    accessor: 'photos' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Health Overall',
+    accessor: 'health_overall' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Any Social Life',
+    accessor: 'any_social_life' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Social Life List',
+    accessor: 'social_life_list' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Weight',
+    accessor: 'weight' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Family Status',
+    accessor: 'family_status' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Device Screen Time',
+    accessor: 'device_screen_time' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Work Life Balance',
+    accessor: 'work_life_balance' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Journaling',
+    accessor: 'journaling' as keyof Columns, // accessor is the "key" in the data
   },
 ];
 export const HISTORYDATATABLECOLUMNS: Column<Columns>[] = [
@@ -293,6 +329,16 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
   relative_finance_status: 'relative financial status ',
   weather: 'list of the weather of the day',
   exercise_time: 'total amount of exercise during the day',
+  photos: 'any personal images that describe the day',
+  exercise_total_time: 'total amount of exercise during the day',
+  health_overall: 'an assessment of the days health',
+  any_social_life: 'whether or not any social life occurred',
+  social_life_list: 'list of social activities',
+  weight: 'measure of weight in pounds',
+  family_status: 'status of close friends and family',
+  device_screen_time: 'amount of time spent on personal devices',
+  work_life_balance: 'overall focus of the day in a range between 0(work)-1(relaxation',
+  journaling: 'any points throughout the day worthy of note',
 };
 
 export const maxWidth = '1450px';

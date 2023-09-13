@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 import { api } from '@/config';
 import { useLoading } from '@/state/loading/hooks';
 import { usePersonalData } from '@/state/myGData/hooks';
@@ -13,11 +14,19 @@ import { useApp } from '@/context/AppProvider';
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
   const { personalData, setPersonalData, gData, rData, cData, screenData } = usePersonalData();
-  const { getAllConsentData } = useApp();
+  const { getAllConsentData, gTableColumns, updateMyGData } = useApp();
+
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
       try {
         setIsLoading(true);
+        if (personal_data.photos) {
+          const formData = new FormData();
+          formData.append('field_name', 'photos');
+          formData.append('image_file', personal_data.photos);
+          await api.post('api/personal_data_consents_rewards/file_upload', formData);
+        }
+        delete personal_data.photos;
         const payload = createPayload(personal_data);
         const { data } = await api.post('api/personal_data_consents_rewards', payload);
         const newData = createTableData({ tableName: TableName.PData, data: data.data });
@@ -38,13 +47,16 @@ export const useMyGData = () => {
         setIsLoading(true);
         await api.patch(`api/user_consents_rewards/${id}/`, payload);
         await getAllConsentData();
+        await updateMyGData();
+        toast.success('Consent updated');
       } catch (e) {
         // console.log('e :>> ', e);
+        toast.error('Some problem updating consent');
       } finally {
         setIsLoading(false);
       }
     },
-    [setIsLoading, getAllConsentData],
+    [setIsLoading, getAllConsentData, updateMyGData],
   );
 
   return {
@@ -56,5 +68,6 @@ export const useMyGData = () => {
     rData,
     cData,
     screenData,
+    gTableColumns,
   };
 };

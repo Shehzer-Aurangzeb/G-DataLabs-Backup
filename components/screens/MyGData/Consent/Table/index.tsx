@@ -22,7 +22,6 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any) => (
               <th
-                key={column.id}
                 {...column.getHeaderProps()}
                 className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap ${
                   column.id === 'id' && 'hidden'

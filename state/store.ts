@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['loading', 'user', 'chats'],
+  blacklist: ['loading', 'user', 'chats', 'my_g_data'],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

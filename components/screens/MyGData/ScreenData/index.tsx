@@ -14,9 +14,9 @@ function Main() {
       >
         Screen Data
       </h1>
-      <div className={`max-w-[${maxWidth}] overflow-x-auto w-full`}>
+      <div className={`max-w-[${maxWidth}] overflow-x-auto w-full h-full pb-5`}>
         {screenData.map((item) => (
-          <Accordion data={item} />
+          <Accordion data={item} key={item.id} />
         ))}
       </div>
     </>

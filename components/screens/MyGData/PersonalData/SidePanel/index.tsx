@@ -16,7 +16,12 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
   const [emotionList, setEmotionList] = useState<{ [key: string]: string }>({
     initialKey: '',
   });
+  const [socialLifeList, setSocialLifeList] = useState<{ [key: string]: string }>({
+    initialKey: '',
+  });
+  const [noOfFiles, setNoOfFiles] = useState(0);
   const { weather } = useWeatherState();
+
   const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = useFormik({
     initialValues: {
       ...PERSONALDATAINITIALVALUES,
@@ -28,8 +33,17 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
     onSubmit: async (results, onSubmit) => {
       savePersonalData(results);
       onSubmit.setSubmitting(false);
+      onSubmit.resetForm();
     },
   });
+
+  const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    if (files) {
+      setNoOfFiles(files.length);
+      setFieldValue('photos', files[0]);
+    }
+  };
 
   useEffect(() => {
     //* debouncing on state update
@@ -38,6 +52,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
     }, 400);
     return () => clearTimeout(timer);
   }, [emotionList, setFieldValue]);
+
   return (
     <form
       className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile:"
@@ -117,6 +132,85 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         name="exercise_time"
         error={touched.exercise_time && errors.exercise_time}
       />
+      <CollapsableInput
+        value={values.health_overall}
+        onChange={handleChange}
+        title="Health Overall"
+        name="health_overall"
+        error={touched.health_overall && errors.health_overall}
+      />
+      <CollapsableInput
+        value={values.any_social_life}
+        onChange={handleChange}
+        title="Any Social Life?"
+        name="any_social_life"
+        error={touched.any_social_life && errors.any_social_life}
+      />
+      <CollapsableInput
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          const { name, value } = e.target;
+          setSocialLifeList((prev) => ({
+            ...prev,
+            [name]: value,
+          }));
+        }}
+        title="Social Life Activities"
+        fields={socialLifeList}
+        addNewField={() => {
+          setSocialLifeList((prev) => ({
+            ...prev,
+            [uuidv4()]: '',
+          }));
+        }}
+        isAddingFieldEnabled
+        error={touched.social_life_list && errors.social_life_list}
+      />
+      <CollapsableInput
+        value={values.weight}
+        onChange={handleChange}
+        type="number"
+        title="Weight (Pounds)"
+        name="weight"
+        error={touched.weight && errors.weight}
+      />
+      <CollapsableInput
+        value={values.family_status}
+        onChange={handleChange}
+        title="Family Status"
+        name="family_status"
+        error={touched.family_status && errors.family_status}
+      />
+      <CollapsableInput
+        value={values.device_screen_time}
+        onChange={handleChange}
+        title="Device Screen Time"
+        name="device_screen_time"
+        error={touched.device_screen_time && errors.device_screen_time}
+      />
+      <CollapsableInput
+        value={values.work_life_balance}
+        onChange={handleChange}
+        type="number"
+        title="Work life balance {0(Work)-1(Relaxation)}"
+        name="work_life_balance"
+        error={touched.work_life_balance && errors.work_life_balance}
+      />
+      <CollapsableInput
+        value={values.journaling}
+        onChange={handleChange}
+        title="Journaling"
+        name="journaling"
+        error={touched.journaling && errors.journaling}
+      />
+      <CollapsableInput
+        handleFileChange={handleProfileChange}
+        noOfFiles={noOfFiles}
+        type="file"
+        title="Photos"
+        name="photos"
+        error={false}
+      />
+
       <Button type="button" className="bg-blue w-full disabled:bg-disabledBlue" title="Save" isLoading={false} />
       <Button
         type="submit"

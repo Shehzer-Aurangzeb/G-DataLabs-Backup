@@ -25,7 +25,7 @@ function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: 
           }}
           onClick={() => setSelectedResponseType(option)}
         >
-          <p className="text-white font-sans font-medium text-xl laptop:text-base text-center mobile:text-xs">
+          <p className="text-white font-sans font-medium text-lg laptop:text-base text-center mobile:text-xs">
             {' '}
             {option.title}
           </p>

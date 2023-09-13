@@ -3,11 +3,10 @@
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
-import dayjs from 'dayjs';
 import { api } from '@/config';
 import { useLoading } from '@/state/loading/hooks';
 import { useChats } from '@/state/chats/hooks';
-import { createChat } from '@/lib';
+import { createChat, createHistoryTableData, createRecentChatHistory, groupMessagesByDate } from '@/lib';
 import { useUser } from '@/state/user/hooks';
 
 export const useChatBot = () => {
@@ -24,21 +23,47 @@ export const useChatBot = () => {
     openPreviousChats,
     activeChatID,
     setActiveChatID,
+    setChatHistory,
+    setRecentChatHistory,
   } = useChats();
   const { user } = useUser();
 
-  const fetchNewChatID = useCallback(async () => {
+  const fetchRecentChats = useCallback(async () => {
     try {
-      const { data } = await api.post('api/chat/', {
-        name: `Today Chat ${dayjs().format('YYYY-MM-DD')}`,
-      });
-      if (data.data.id) setActiveChatID(data.data.id);
-      return data.data.id;
+      const { data } = await api.get('api/chat/');
+      const recentchatHistory = createRecentChatHistory(data.data);
+      const groupedMessages = groupMessagesByDate(recentchatHistory);
+      if (groupedMessages) setRecentChatHistory(groupedMessages);
     } catch (e) {
       // console.log('e :>> ', e);
-      return e;
     }
-  }, [setActiveChatID]);
+  }, [setRecentChatHistory]);
+
+  const fetchChatHistory = useCallback(async () => {
+    try {
+      const { data } = await api.get('api/history/');
+      const chatHistoryTableData = createHistoryTableData(data.data);
+      setChatHistory(chatHistoryTableData);
+    } catch (e) {
+      // console.log('e :>> ', e);
+    }
+  }, [setChatHistory]);
+
+  const fetchNewChatID = useCallback(
+    async (chatName: string) => {
+      try {
+        const { data } = await api.post('api/chat/', {
+          name: chatName,
+        });
+        if (data.data.id) setActiveChatID(data.data.id);
+        return data.data.id;
+      } catch (e) {
+        // console.log('e :>> ', e);
+        return e;
+      }
+    },
+    [setActiveChatID],
+  );
 
   const fetchBotResponse = useCallback(async () => {
     try {
@@ -49,7 +74,7 @@ export const useChatBot = () => {
       setIsLoading(true);
       resetUserPrompt();
       let chatID = activeChatID;
-      if (!chatID) chatID = await fetchNewChatID();
+      if (user && !chatID) chatID = await fetchNewChatID(userPrompt.data);
       const payload = user ? { ...userPrompt, chat_id: chatID } : userPrompt;
       const { data } = await api.post('get-answer-images', payload);
       let images = [];
@@ -66,30 +91,26 @@ export const useChatBot = () => {
           images,
         },
       });
+      fetchRecentChats();
+      fetchChatHistory();
     } catch (e) {
       if (e instanceof AxiosError) toast.error(e.response?.data.error);
       else toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
     }
-  }, [setIsLoading, userPrompt, setChats, resetUserPrompt, updateChat, user, activeChatID]);
-
-  const newChat = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const { data } = await api.post('api/chat/', {
-        name: `Today Chat ${dayjs().format('YYYY-MM-DD')}`,
-      });
-      if (data.data.id) {
-        setActiveChatID(data.data.id);
-        startNewChat();
-      }
-    } catch (e) {
-      // console.log('e :>> ', e);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [setActiveChatID, setIsLoading, startNewChat]);
+  }, [
+    setIsLoading,
+    userPrompt,
+    setChats,
+    resetUserPrompt,
+    updateChat,
+    user,
+    activeChatID,
+    fetchNewChatID,
+    fetchChatHistory,
+    fetchRecentChats,
+  ]);
 
   return {
     fetchBotResponse,
@@ -98,7 +119,9 @@ export const useChatBot = () => {
     userPrompt,
     setUserPrompt,
     recentChatHistory,
-    newChat,
+    startNewChat,
     openPreviousChats,
+    fetchChatHistory,
+    fetchRecentChats,
   };
 };

@@ -1,16 +1,13 @@
 'use client';
 
 import React, { useMemo } from 'react';
-// import ScreenDataVideo from '@/components/screens/MyGData/ScreenData/Video';
 import { useMyGData } from '@/hooks/useMyGData';
-import { useApp } from '@/context/AppProvider';
 import { MYGDATATABLECOLUMNS, maxWidth } from '@/constants';
 import ScreenData from './ScreenData';
 import Table from './Table';
 
 function Main() {
-  const { gData } = useMyGData();
-  const { gTableColumns } = useApp();
+  const { gData, gTableColumns } = useMyGData();
   const tableData = useMemo(
     () =>
       Object.entries(gData).map(([key, value]) => ({

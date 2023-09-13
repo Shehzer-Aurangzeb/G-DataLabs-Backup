@@ -1,6 +1,7 @@
 import React from 'react';
 import { Column, useTable } from 'react-table';
 import { Columns } from '@/types';
+import Image from '@/components/UI/StyledImage';
 
 interface IProps {
   data: any;
@@ -19,7 +20,6 @@ function Table({ columns, data }: IProps) {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any) => (
               <th
-                key={column.id}
                 {...column.getHeaderProps()}
                 className="border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap"
               >
@@ -38,12 +38,13 @@ function Table({ columns, data }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap"
+                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center min-w-[200px]"
                 >
-                  {/* {cell.column.id === 'emotional_list'
-                    ? row.values.emotional_list.map((emt: string) => <p key={uuidv4()}>{emt}</p>)
-                    : cell.render('Cell')} */}
-                  {cell.render('Cell')}
+                  {cell.column.id === 'photos' && row.values.photos ? (
+                    <Image src={row.values.photos} alt="image" className="w-[550px] h-[250px]" />
+                  ) : (
+                    cell.render('Cell')
+                  )}
                 </td>
               ))}
             </tr>
