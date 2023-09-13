@@ -17,7 +17,7 @@ function NoData({ message = undefined, icon = undefined, isParentFixed }: TProps
     if (!messageContainerRef.current) return;
     if (!messageContainerRef.current.parentElement) return;
     messageContainerRef.current.parentElement.classList.add('relative');
-  }, []);
+  }, [isParentFixed]);
   return (
     <div
       className={`flex flex-col gap-y-3 ${

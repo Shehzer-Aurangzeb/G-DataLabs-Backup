@@ -12,29 +12,32 @@ export const usePlaidAuth = () => {
   const [linkToken, setLinkToken] = useState('');
   const { setUser, user } = useUser();
 
-  const addAndVerifyBankWithPlaidData = useCallback(async (arg: { public_token: string; account_id: string }) => {
-    try {
-      setIsLoading(true);
-      const { data } = await api.post('api/user_profile/add_and_verify_bank', arg);
-      // console.log('data :>> ', data.data);
-      if (user)
-        setUser({
-          user: {
-            ...user,
-            accountNo: `**** ${data.data.shortened_account_number}`,
-            accountTitle: data.data.bank_account_title,
-            bankName: data.data.bank_name,
-          },
-          isAuthenticated: true,
-        });
-      //* reset link token
-      setLinkToken('');
-    } catch (e) {
-      // console.log('e :>> ', e);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+  const addAndVerifyBankWithPlaidData = useCallback(
+    async (arg: { public_token: string; account_id: string }) => {
+      try {
+        setIsLoading(true);
+        const { data } = await api.post('api/user_profile/add_and_verify_bank', arg);
+        // console.log('data :>> ', data.data);
+        if (user)
+          setUser({
+            user: {
+              ...user,
+              accountNo: `**** ${data.data.shortened_account_number}`,
+              accountTitle: data.data.bank_account_title,
+              bankName: data.data.bank_name,
+            },
+            isAuthenticated: true,
+          });
+        //* reset link token
+        setLinkToken('');
+      } catch (e) {
+        // console.log('e :>> ', e);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [setUser, user],
+  );
 
   const { ready, open } = usePlaidLink({
     token: linkToken,

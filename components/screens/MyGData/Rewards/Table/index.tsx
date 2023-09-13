@@ -32,15 +32,18 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     setRecordID(id);
   };
 
-  const handleConsetUpdate = useCallback((Id: string) => {
-    const recordConsent = PDefinedValue[Id];
-    updateConsentRewards({
-      id: Number(Id),
-      payload: {
-        consents_to_sell: !recordConsent.consents_to_sell,
-      },
-    });
-  }, []);
+  const handleConsetUpdate = useCallback(
+    (Id: string) => {
+      const recordConsent = PDefinedValue[Id];
+      updateConsentRewards({
+        id: Number(Id),
+        payload: {
+          consents_to_sell: !recordConsent.consents_to_sell,
+        },
+      });
+    },
+    [updateConsentRewards, PDefinedValue],
+  );
 
   useEffect(() => {
     const timeout = setTimeout(() => {

@@ -27,7 +27,7 @@ function Sidebar() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname]);
+  }, [pathname, setIsOpen]);
   return (
     <>
       {width < 1280 && (
