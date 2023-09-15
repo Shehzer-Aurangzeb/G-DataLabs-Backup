@@ -110,9 +110,11 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   if (tableName === TableName.PData) {
     for (const d of data) {
       const date = dayjs(d.created_at).format('YYYY-MM-DD');
+      const fieldName = d.personal_data_field.field_name.toLowerCase();
+      const { files } = d;
       result[date] = {
         ...result[date],
-        [d.personal_data_field.field_name.toLowerCase()]: d.value,
+        [fieldName]: fieldName === 'photos' && files.length > 0 ? files : d.value,
       };
     }
   }

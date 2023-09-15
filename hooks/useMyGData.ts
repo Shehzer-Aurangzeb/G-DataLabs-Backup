@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+
 'use client';
 
 import { useCallback } from 'react';
@@ -23,7 +25,9 @@ export const useMyGData = () => {
         if (personal_data.photos) {
           const formData = new FormData();
           formData.append('field_name', 'photos');
-          formData.append('image_file', personal_data.photos);
+          for (const photo of personal_data.photos) {
+            formData.append('image_files', photo);
+          }
           await api.post('api/personal_data_consents_rewards/file_upload', formData);
         }
         delete personal_data.photos;
@@ -31,13 +35,14 @@ export const useMyGData = () => {
         const { data } = await api.post('api/personal_data_consents_rewards', payload);
         const newData = createTableData({ tableName: TableName.PData, data: data.data });
         setPersonalData(newData);
+        await updateMyGData();
       } catch (e) {
         // console.log('e :>> ', e);
       } finally {
         setIsLoading(false);
       }
     },
-    [setIsLoading, setPersonalData],
+    [setIsLoading, setPersonalData, updateMyGData],
   );
 
   const updateConsentRewards = useCallback(

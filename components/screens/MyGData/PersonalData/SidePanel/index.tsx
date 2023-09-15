@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
-import { PERSONALDATAINITIALVALUES } from '@/constants';
+import { PERSONALDATAINITIALVALUES, SOCIALLIFEOPTIONS } from '@/constants';
 import { PersonalDataSchema, PersonalDataSchemaType } from '@/schema';
 import Button from '@/components/UI/Button';
 import { useWeatherState } from '@/state/weather/hooks';
@@ -11,13 +11,12 @@ type TProps = {
   isLoading: boolean;
   savePersonalData: (payload: PersonalDataSchemaType) => void;
 };
+type KEYVALUE = { [key: string]: string };
 
 function SidePanel({ savePersonalData, isLoading }: TProps) {
-  const [emotionList, setEmotionList] = useState<{ [key: string]: string }>({
-    initialKey: '',
-  });
-  const [socialLifeList, setSocialLifeList] = useState<{ [key: string]: string }>({
-    initialKey: '',
+  const [list, setList] = useState<{ emotionList: KEYVALUE; socialLifeList: KEYVALUE }>({
+    emotionList: { initialKey: '' },
+    socialLifeList: { initialKey: '' },
   });
   const [noOfFiles, setNoOfFiles] = useState(0);
   const { weather } = useWeatherState();
@@ -41,17 +40,18 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
     const { files } = event.target;
     if (files) {
       setNoOfFiles(files.length);
-      setFieldValue('photos', files[0]);
+      setFieldValue('photos', files);
     }
   };
 
   useEffect(() => {
     //* debouncing on state update
     const timer = setTimeout(() => {
-      setFieldValue('emotional_list', Object.values(emotionList));
+      setFieldValue('emotional_list', Object.values(list.emotionList));
+      setFieldValue('social_life_list', Object.values(list.socialLifeList));
     }, 400);
     return () => clearTimeout(timer);
-  }, [emotionList, setFieldValue]);
+  }, [list, setFieldValue]);
 
   return (
     <form
@@ -93,17 +93,23 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
       <CollapsableInput
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           const { name, value } = e.target;
-          setEmotionList((prev) => ({
+          setList((prev) => ({
             ...prev,
-            [name]: value,
+            emotionList: {
+              ...prev.emotionList,
+              [name]: value,
+            },
           }));
         }}
         title="Emotion List"
-        fields={emotionList}
+        fields={list.emotionList}
         addNewField={() => {
-          setEmotionList((prev) => ({
+          setList((prev) => ({
             ...prev,
-            [uuidv4()]: '',
+            emotionList: {
+              ...prev.emotionList,
+              [uuidv4()]: '',
+            },
           }));
         }}
         isAddingFieldEnabled
@@ -141,25 +147,34 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
       />
       <CollapsableInput
         value={values.any_social_life}
-        onChange={handleChange}
+        isSelectInput
+        onSelectOption={(item: string) => {
+          setFieldValue('any_social_life', item);
+        }}
+        selectOptions={SOCIALLIFEOPTIONS}
         title="Any Social Life?"
-        name="any_social_life"
         error={touched.any_social_life && errors.any_social_life}
       />
       <CollapsableInput
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           const { name, value } = e.target;
-          setSocialLifeList((prev) => ({
+          setList((prev) => ({
             ...prev,
-            [name]: value,
+            socialLifeList: {
+              ...prev.socialLifeList,
+              [name]: value,
+            },
           }));
         }}
         title="Social Life Activities"
-        fields={socialLifeList}
+        fields={list.socialLifeList}
         addNewField={() => {
-          setSocialLifeList((prev) => ({
+          setList((prev) => ({
             ...prev,
-            [uuidv4()]: '',
+            socialLifeList: {
+              ...prev.socialLifeList,
+              [uuidv4()]: '',
+            },
           }));
         }}
         isAddingFieldEnabled
@@ -191,7 +206,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         value={values.work_life_balance}
         onChange={handleChange}
         type="number"
-        title="Work life balance {0(Work)-1(Relaxation)}"
+        title="Work Life Balance (0-1)"
         name="work_life_balance"
         error={touched.work_life_balance && errors.work_life_balance}
       />

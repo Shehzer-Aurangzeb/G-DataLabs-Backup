@@ -1,5 +1,5 @@
 import { Column } from 'react-table';
-import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
+import { Columns, DropDownOption, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
 import { ResponseChoice } from '@/state/chats/types';
 import {
   LoginFormSchemaType,
@@ -95,6 +95,11 @@ export const AUTHITEMS: TNAVITEMS[] = [
   },
 ];
 
+export const SOCIALLIFEOPTIONS: DropDownOption[] = [
+  { label: 'Yes', value: 'yes' },
+  { label: 'No', value: 'no' },
+];
+
 export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
     title: 'Generate Text Only',
@@ -144,6 +149,7 @@ export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   weather: '',
   relative_finance_status: '',
   exercise_time: 0,
+  any_social_life: SOCIALLIFEOPTIONS[0].value,
 };
 
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [

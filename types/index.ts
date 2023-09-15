@@ -131,3 +131,8 @@ export type RecentChatHistoryResponseType = {
   status: string;
   user_id: number;
 };
+
+export type DropDownOption = {
+  label: string;
+  value: string;
+};

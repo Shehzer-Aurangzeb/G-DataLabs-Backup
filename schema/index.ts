@@ -25,7 +25,7 @@ export const PersonalDataSchema = object({
   exercise_time: number(),
   photos: mixed(),
   health_overall: string(),
-  any_social_life: string(),
+  any_social_life: string().required(),
   social_life_list: array().of(string()),
   weight: number(),
   family_status: string(),
