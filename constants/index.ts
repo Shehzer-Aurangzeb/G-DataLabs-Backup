@@ -345,3 +345,5 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
 };
 
 export const maxWidth = '1450px';
+
+export const PAGEOPTION = [10, 20, 30, 40];

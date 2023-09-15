@@ -1,4 +1,5 @@
 import React from 'react';
+import { PAGEOPTION } from '@/constants';
 
 interface IProps {
   pageSize: string | number | readonly string[] | undefined;
@@ -17,7 +18,7 @@ function SelectEntries({ pageSize, setPageSize }: IProps) {
         }}
         className="py-2 px-3 rounded-md text-lg focus:outline-none"
       >
-        {[3, 4, 5].map((size) => (
+        {PAGEOPTION.map((size) => (
           <option
             key={size}
             value={size}
