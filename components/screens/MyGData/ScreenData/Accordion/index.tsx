@@ -11,15 +11,20 @@ function Accordion({ data }: TProps) {
     setIsOpen(!isOpen);
   };
   return (
-    <button type="button" className="bg-chat w-full border-none my-3 rounded-md " key={data.id} onClick={handleOpen}>
+    <button
+      type="button"
+      className="bg-chat dark:bg-darkChat w-full border-none my-3 rounded-md "
+      key={data.id}
+      onClick={handleOpen}
+    >
       <div className="flex flex-row justify-between items-center py-6 px-3">
         <h1 className="text-primary text-2xl font-sans font-semibold">{data.date}</h1>
         <div className="relative h-[40px] w-[40px]">
-          <span className="absolute w-[30px] h-[5px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-main rounded-md" />
+          <span className="absolute w-[30px] h-[5px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-main dark:bg-darkMain rounded-md" />
           <span
             className={`absolute w-[30px] h-[5px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-300 ${
               isOpen ? 'rotate-0' : 'rotate-90'
-            } bg-main rounded-md`}
+            } bg-main dark:bg-darkMain rounded-md`}
           />
         </div>
       </div>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={[DMSANS.variable, RALEWAY.variable].join(' ')}>
-      <body className="bg-main">
+      <body className="bg-main dark:bg-darkMain">
         <Provider>
           <Toast />
           <Layout>{children}</Layout>

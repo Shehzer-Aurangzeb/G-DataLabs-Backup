@@ -10,7 +10,7 @@ function Main() {
   return (
     <>
       <h1
-        className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap text-center max-w-[${maxWidth}]`}
+        className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap text-center max-w-[${maxWidth}]`}
       >
         Screen Data
       </h1>

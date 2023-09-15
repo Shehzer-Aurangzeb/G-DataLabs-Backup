@@ -55,7 +55,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
 
   return (
     <form
-      className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile:"
+      className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side dark:bg-darkMain rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile:"
       noValidate
       onSubmit={handleSubmit}
     >
@@ -211,10 +211,15 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         error={false}
       />
 
-      <Button type="button" className="bg-blue w-full disabled:bg-disabledBlue" title="Save" isLoading={false} />
+      <Button
+        type="button"
+        className="bg-blue dark:bg-darkBlue w-full disabled:bg-disabledBlue"
+        title="Save"
+        isLoading={false}
+      />
       <Button
         type="submit"
-        className="bg-[#F5B11A] w-full disabled:bg-[#f5b01aa7]"
+        className="bg-[#F5B11A] w-full disabled:bg-[#f5b01aa7] dark:bg-darkTable"
         title="Save & enter new data"
         isLoading={isLoading}
       />

@@ -25,7 +25,7 @@ function Input({ readOnly, name, onChange, value }: IProps) {
         id={name}
         type="number"
         value={value}
-        className="bg-chat py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+        className="bg-chat dark:bg-darkChat py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
       />
       {!readOnly && (
         <label htmlFor={name} className="cursor-pointer">

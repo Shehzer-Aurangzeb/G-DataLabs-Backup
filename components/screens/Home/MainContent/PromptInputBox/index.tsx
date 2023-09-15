@@ -32,7 +32,7 @@ function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TP
   useAutosizeTextArea(textAreaRef.current, userPrompt?.data ?? '');
   return (
     <div className="w-full flex flex-col absolute bottom-0 left-0 px-10 bg-chatBg pb-10 mobile:px-4 mobile:pb-2">
-      <div className="flex items-center w-full pl-4 py-4 bg-chat border-main border rounded-xl relative textarea-container">
+      <div className="flex items-center w-full pl-4 py-4 bg-chat border-main border rounded-xl relative textarea-container dark:bg-darkMain">
         <textarea
           className="resize-none w-full bg-transparent overflow-hidden focus:outline-none pr-12 max-h-[200px] overflow-y-auto h-[24px]"
           value={userPrompt?.data}

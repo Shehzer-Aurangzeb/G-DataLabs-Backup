@@ -23,7 +23,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
             {headerGroup.headers.map((column: any) => (
               <th
                 {...column.getHeaderProps()}
-                className={`border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap ${
+                className={`border-table dark:border-main border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap ${
                   column.id === 'id' && 'hidden'
                 }`}
               >
@@ -42,7 +42,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
+                  className={`border border-[#ced4da] dark:border-main py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
                   ${cellIndex === row.cells.length - 1 && 'hidden'}`}
                 >
                   {cellIndex === row.cells.length - 2 ? (

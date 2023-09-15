@@ -17,7 +17,7 @@ function UploadPicture({ handleChange, profile }: IProps) {
       <label className="text-base font-bold font-sans text-black" htmlFor="profile">
         Upload Picture
       </label>
-      <div className="flex flex-row w-full max-w-[450px] items-center bg-chat gap-x-5 relative py-[9px] px-4 ">
+      <div className="flex flex-row w-full max-w-[450px] items-center bg-chat dark:bg-darkChat gap-x-5 relative py-[9px] px-4 ">
         <Image
           src={profile.length === 0 ? default_profile : profile}
           alt="profile"

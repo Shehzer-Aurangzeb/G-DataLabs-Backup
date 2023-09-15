@@ -100,16 +100,19 @@ export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
     title: 'Generate Text Only',
     color: '#046C98',
     value: ResponseChoice.TEXT,
+    darkColor: 'FAB515',
   },
   {
     title: 'Generate Image Only',
     color: '#F5B11A',
     value: ResponseChoice.IMAGES,
+    darkColor: '#E4C375',
   },
   {
     title: 'Generate Text + Image',
     color: '#E62431',
     value: ResponseChoice.BOTH,
+    darkColor: '#EE3E2E',
   },
 ];
 export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {

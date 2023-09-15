@@ -11,7 +11,7 @@ function Header() {
   const { user } = useAuth();
   return (
     <div
-      className={`bg-lightGreen flex flex-row items-center w-full pl-4 mobile:pl-2 py-6 rounded-md gap-x-4 max-w-[${maxWidth}]`}
+      className={`bg-lightGreen dark:bg-Darkside flex flex-row items-center w-full pl-4 mobile:pl-2 py-6 rounded-md gap-x-4 max-w-[${maxWidth}]`}
     >
       {!user ? (
         <Skeleton circle width={50} height={50} containerClassName="avatar-skeleton" />

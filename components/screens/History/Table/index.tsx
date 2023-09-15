@@ -73,7 +73,7 @@ function Table({ columns, data }: IProps) {
                 <th
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   className={
-                    'border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
+                    'border-table border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans mx-auto justify-center'
                   }
                 >
                   {column.render('Header')}
@@ -129,7 +129,7 @@ function Table({ columns, data }: IProps) {
           >
             Previous
           </button>
-          <span className="bg-blue text-white px-6 py-2 rounded-md text-lg">{pageOptions.length}</span>
+          <span className="bg-blue text-white px-6 py-2 rounded-md text-lg dark:bg-darkBlue">{pageOptions.length}</span>
           <button
             onClick={() => nextPage()}
             disabled={!canNextPage}

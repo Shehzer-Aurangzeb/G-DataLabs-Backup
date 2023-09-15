@@ -18,8 +18,8 @@ function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: 
           key={option.title}
           type="button"
           className={`rounded-b-xl w-[30%] max-w-[250px] py-3 cursor-pointer mobile:w-[211px] mobile:text-[14px] mobile:px-[2px] mobile:my-[2px] mobile:py-2 ${
-            selectedResponseType === option.value && 'shadow-md'
-          }`}
+            selectedResponseType === option.value && 'shadow-md '
+          } dark:bg-[${option.darkColor}] bg-[${option.color}] `}
           style={{
             backgroundColor: option.color,
           }}

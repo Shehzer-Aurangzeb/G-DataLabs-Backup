@@ -13,9 +13,9 @@ interface IProps {
 
 function FileInput({ onChange, noOfFiles }: IProps) {
   return (
-    <div className="flex flex-row w-full max-w-[450px] items-center bg-chat gap-x-5 relative py-[9px] px-4 ">
+    <div className="flex flex-row w-full max-w-[450px] items-center bg-chat dark:bg-darkChat gap-x-5 relative py-[9px] px-4 ">
       <Image src={upload} alt="upload-icon" className="w-[36px] h-[36px]" />
-      <p className="text-black text-xl font-sans font-normal">
+      <p className="text-black text-xl font-sans font-normal ">
         {noOfFiles > 0 ? `${noOfFiles} files selected` : 'Select files'}
       </p>
       <input

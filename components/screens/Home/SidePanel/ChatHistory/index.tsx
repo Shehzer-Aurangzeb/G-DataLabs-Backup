@@ -17,7 +17,7 @@ function ChatHistory({ groupedChatHistory, openPreviousChats }: IProps) {
           {value.map((msg) => (
             <button
               type="button"
-              className="flex flex-row gap-x-4 px-3 py-4 bg-chat"
+              className="flex flex-row gap-x-4 px-3 py-4 bg-chat dark:bg-darkMain"
               key={uuidv4()}
               onClick={() => {
                 openPreviousChats(msg);

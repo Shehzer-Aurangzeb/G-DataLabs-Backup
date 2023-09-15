@@ -40,7 +40,7 @@ function Input({
         id={name}
         type={type || 'text'}
         value={value}
-        className="bg-chat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
+        className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
       />
       {error && <p className="font-sans text-sm text-error -mt-2">{error}</p>}
     </div>

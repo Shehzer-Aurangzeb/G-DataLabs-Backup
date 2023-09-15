@@ -31,7 +31,7 @@ function Sidebar() {
   return (
     <>
       {width < 1280 && (
-        <div className="h-[calc(100vh_-_2.5rem)] bg-main relative w-[50px]">
+        <div className="h-[calc(100vh_-_2.5rem)] bg-main dark:bg-darkMain relative w-[50px]">
           <IconButton
             className="absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
@@ -45,7 +45,7 @@ function Sidebar() {
         ref={containerRef}
         className={`h-[calc(100vh_-_2.5rem)] flex flex-col max-w-[360px] mobile:max-w-full items-start justify-between overflow-y-auto ${
           width < 1280
-            ? `fixed z-20 transition-all duration-300 bg-main ${isOpen ? 'w-full  pl-5' : 'w-0 p-0'}`
+            ? `fixed z-20 transition-all duration-300 bg-main dark:bg-darkMain ${isOpen ? 'w-full  pl-5' : 'w-0 p-0'}`
             : ' pl-5 w-[25%] bg-transparent'
         }
      `}
@@ -53,7 +53,7 @@ function Sidebar() {
         <Logo />
         {width < 1280 && (
           <IconButton
-            className="z-10 absolute top-3 right-2 bg-main flex items-center justify-center w-[30px] h-[30px]"
+            className="z-10 absolute top-3 right-2 bg-main dark:bg-darkMain flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             src={sidebar}

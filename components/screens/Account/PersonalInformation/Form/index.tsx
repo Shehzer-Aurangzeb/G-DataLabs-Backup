@@ -157,10 +157,10 @@ function Form({ user, updateUser, isLoading }: TProps) {
             isLoading={isPlaidLoading}
           />
           <div className="flex w-full gap-x-4 justify-end mobile:justify-between">
-            <Button type="button" className="bg-chat max-w-[230px] w-full" title="Cancel" />
+            <Button type="button" className="bg-chat dark:bg-darkChat max-w-[230px] w-full" title="Cancel" />
             <Button
               type="submit"
-              className="bg-blue disabled:bg-disabledBlue max-w-[230px] w-full"
+              className="bg-blue disabled:bg-disabledBlue dark:bg-darkBlue max-w-[230px] w-full"
               title="Save"
               isLoading={isLoading}
             />

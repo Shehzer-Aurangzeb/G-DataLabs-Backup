@@ -26,7 +26,7 @@ function SidePanel({ isAuthenticated, recentChatHistory, openPreviousChats, newC
       <Button
         title="New Chat"
         onClick={newChat}
-        className="bg-blue w-full mt-9 disabled:bg-disabledBlue"
+        className="bg-blue w-full mt-9 disabled:bg-disabledBlue dark:bg-darkBlue"
         isLoading={false}
         icon={add}
       />

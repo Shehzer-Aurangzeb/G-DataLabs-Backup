@@ -18,6 +18,7 @@ export type TPROPTION = {
   title: string;
   color: string;
   value: ResponseChoice;
+  darkColor: string;
 };
 
 export type Columns = {
