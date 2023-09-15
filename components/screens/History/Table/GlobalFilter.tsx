@@ -6,10 +6,16 @@ interface IProps {
 }
 function GlobalFilter({ filter, setFilter }: IProps) {
   return (
-    <div className="flex justify-between items-center my-4 float-right">
-      <span>
-        Search: <input value={filter || ''} onChange={(e) => setFilter(e.target.value)} className="py-2 px-2 mx-2" />
-      </span>
+    <div className="relative rounded-md border border-main  shadow-2xl dark:bg-darkinput dark:border-darkinput transition-all ease-in duration-150">
+      <div className="flex justify-between items-center gap-x-2 h-full px-2 md:py-0 bg-transparent">
+        <input
+          className="bg-transparent font-sans font-base font-bold text-black dark:text-white outline-none border-none  dark:bg-darkinput dark:border-darkinput dark:placeholder-[#D8D8D8] my-3 w-full"
+          type="text"
+          placeholder="Search Here"
+          value={filter || ''}
+          onChange={(e) => setFilter(e.target.value)}
+        />
+      </div>
     </div>
   );
 }

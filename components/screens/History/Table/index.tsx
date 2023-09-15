@@ -6,6 +6,8 @@ import { Columns } from '@/types';
 import arrowUp from '@/public/assets/icons/arrow_upward.png';
 import arrowdown from '@/public/assets/icons/arrow_down.png';
 import GlobalFilter from './GlobalFilter';
+import Pagination from './Pagination';
+import SelectEntries from './SelectEntries';
 
 interface IProps {
   data: any;
@@ -25,44 +27,29 @@ function Table({ columns, data }: IProps) {
     previousPage,
     canNextPage,
     canPreviousPage,
-    pageOptions,
     setPageSize,
+    page,
   } = useTable(
     {
       columns,
       data,
       initialState: {
+        pageSize: 3,
         pageIndex: 0,
-        pageSize: 10,
       },
     },
     useGlobalFilter,
     useSortBy,
     usePagination,
   );
-  const { globalFilter, pageSize } = state;
-
+  const { globalFilter, pageSize, pageIndex } = state;
   return (
     <>
       <div className="flex justify-between items-center mobile:flex-col-reverse">
-        <div className="flex items-center mb-4">
-          <span className="mr-2">Show</span>
-          <select
-            value={pageSize}
-            onChange={(e) => {
-              const newSize = Number(e.target.value);
-              setPageSize(newSize);
-            }}
-          >
-            {[10, 20, 30, 50].map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
-          </select>
-          <span className="ml-2">entries</span>
+        <SelectEntries pageSize={pageSize} setPageSize={setPageSize} />
+        <div className="my-3 mr-2">
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
-        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       </div>
       <table {...getTableProps()} className="w-full">
         <thead>
@@ -91,7 +78,7 @@ function Table({ columns, data }: IProps) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row: any) => {
+          {page.map((row: any) => {
             prepareRow(row);
             return (
               /* eslint-disable */
@@ -121,23 +108,13 @@ function Table({ columns, data }: IProps) {
         </tbody>
       </table>
       {rows.length !== 0 && (
-        <div className="mt-5 mx-auto w-fit">
-          <button
-            onClick={() => previousPage()}
-            disabled={!canPreviousPage}
-            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-md"
-          >
-            Previous
-          </button>
-          <span className="bg-blue text-white px-6 py-2 rounded-md text-lg dark:bg-darkBlue">{pageOptions.length}</span>
-          <button
-            onClick={() => nextPage()}
-            disabled={!canNextPage}
-            className="bg-black text-white px-6 py-2 text-base disabled:bg-slate-600 mx-3 rounded-md"
-          >
-            Next
-          </button>
-        </div>
+        <Pagination
+          canNextPage={canNextPage}
+          pageIndex={pageIndex}
+          canPreviousPage={canPreviousPage}
+          previousPage={previousPage}
+          nextPage={nextPage}
+        />
       )}
     </>
   );
