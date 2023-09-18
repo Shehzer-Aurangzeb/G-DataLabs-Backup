@@ -1,4 +1,4 @@
-import { InferType, array, boolean, mixed, number, object, string } from 'yup';
+import { InferType, array, boolean, mixed, number, object, ref, string } from 'yup';
 
 export const PersonalInfoSchema = object({
   firstName: string().min(2, 'First Name is too short').required('First Name is required'),
@@ -6,7 +6,7 @@ export const PersonalInfoSchema = object({
   email: string().email().required('Email is required'),
   password: string().min(5, 'Password must be 5 characters long'),
   username: string().min(3).required('Username is required'),
-  phone: number(),
+  phone: mixed().nullable().oneOf([number(), null]),
   totalRewards: number(),
   accountNo: string(),
   accountTitle: string(),
@@ -25,7 +25,7 @@ export const PersonalDataSchema = object({
   exercise_time: number(),
   photos: mixed(),
   health_overall: string(),
-  any_social_life: string(),
+  any_social_life: string().required(),
   social_life_list: array().of(string()),
   weight: number(),
   family_status: string(),
@@ -60,9 +60,18 @@ export const ResetPasswordFormSchema = object({
   email: string().email().required('Email is required'),
 });
 
+export const ConfirmPasswordFormSchema = object({
+  token: string().required('Token cannot be empty'),
+  password: string().required('Password is required'),
+  confirm_password: string()
+    .oneOf([ref('password'), ''], 'Password must match')
+    .required('Confirm Password is required'),
+});
+
 export type PersonalInfoSchemaType = InferType<typeof PersonalInfoSchema>;
 export type PersonalDataSchemaType = InferType<typeof PersonalDataSchema>;
 export type LoginFormSchemaType = InferType<typeof LoginFormSchema>;
 export type ResetPasswordFormSchemaType = InferType<typeof ResetPasswordFormSchema>;
+export type ConfirmPasswordFormSchemaType = InferType<typeof ConfirmPasswordFormSchema>;
 
 export type SignupFormSchemaType = InferType<typeof SignupFormSchema>;

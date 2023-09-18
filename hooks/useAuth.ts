@@ -15,6 +15,7 @@ import { SignupCredentials, UpdateUserPayloadType, UserCredentials } from 'types
 import { PATHS } from '@/constants';
 import { generateAvatar } from '@/lib';
 import { useChats } from '@/state/chats/hooks';
+import { ConfirmPasswordFormSchemaType, ResetPasswordFormSchemaType } from '@/schema';
 
 export const useAuth = () => {
   const { isLoading, setIsLoading } = useLoading();
@@ -56,6 +57,7 @@ export const useAuth = () => {
         const userInfo = await getUserInfo(data.access_token);
         const payload: UserType = {
           ...userInfo,
+          totalRewards: userInfo.totalRewards ?? 0,
           key: data.access_token,
         };
 
@@ -128,6 +130,38 @@ export const useAuth = () => {
     [setIsLoading, router],
   );
 
+  const resetPassword = useCallback(
+    async (payload: ResetPasswordFormSchemaType) => {
+      try {
+        setIsLoading(true);
+        const { data } = await api.post('api/user/reset_password_email', payload);
+        toast.success(data.message);
+        router.push(PATHS.CONFIRMPASSWORD);
+      } catch (e) {
+        if (e instanceof AxiosError) toast.error(e.response?.data.error);
+        else toast.error('Something went wrong ');
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [setIsLoading, router],
+  );
+  const confirmPassword = useCallback(
+    async (payload: ConfirmPasswordFormSchemaType) => {
+      try {
+        setIsLoading(true);
+        const { data } = await api.post('api/user/reset_token_confirm', payload);
+        toast.success(data.message);
+        router.push(PATHS.LOGIN);
+      } catch (e) {
+        if (e instanceof AxiosError) toast.error(e.response?.data.error);
+        else toast.error('Something went wrong ');
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [setIsLoading, router],
+  );
   const logoutUser = useCallback(() => {
     setUser({ user: undefined, isAuthenticated: false });
     deleteChats();
@@ -143,5 +177,7 @@ export const useAuth = () => {
     isAuthenticated,
     user,
     updateUser,
+    resetPassword,
+    confirmPassword,
   };
 };

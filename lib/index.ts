@@ -69,17 +69,13 @@ export const capitalize = (arg: string) => {
 };
 
 //* create a payload for personal data post api
-export const createPayload = (personal_data: PersonalDataSchemaType) => {
-  // * deleting because server does not accept these values right now
-  delete personal_data.date;
-
-  return Object.entries(personal_data).map(([key, value]) => ({
+export const createPayload = (personal_data: PersonalDataSchemaType) =>
+  Object.entries(personal_data).map(([key, value]) => ({
     value: typeof value === 'object' ? `${value}` : value.toString(),
     personal_data_field: {
       field_name: key.toUpperCase(),
     },
   }));
-};
 
 //* create a single chat
 export const createChat = (arg: {
@@ -109,10 +105,12 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   const result: Data = {};
   if (tableName === TableName.PData) {
     for (const d of data) {
-      const date = dayjs(d.created_at).format('YYYY-MM-DD');
+      const date = dayjs(d.created_at).format('YYYY-MM-DD HH:mm:ss');
+      const fieldName = d.personal_data_field.field_name.toLowerCase();
+      const { files } = d;
       result[date] = {
         ...result[date],
-        [d.personal_data_field.field_name.toLowerCase()]: d.value,
+        [fieldName]: fieldName === 'photos' && files.length > 0 ? files : d.value,
       };
     }
   }
@@ -120,7 +118,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
     for (const d of data) {
       const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
       for (const value of d.values) {
-        const date = dayjs(value.created_at).format('YYYY-MM-DD');
+        const date = dayjs(value.created_at).format('YYYY-MM-DD HH:mm:ss');
         result[fieldName] = {
           ...result[fieldName],
           [date]: value.value,
@@ -158,6 +156,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       };
     }
   }
+  console.log(`${arg.tableName}`, result);
   return result;
 };
 
@@ -165,13 +164,14 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
 export const createTableColumns = (data: GDataType[]) => {
   let result: string[] = [];
   let index = 0;
+  //* find index so that map will be run that many amount of time
   for (const d of data) {
     const values = d.values.length;
     if (values > data[index].values.length) {
       index = data.indexOf(d);
     }
   }
-  const columns: string[] = data[index].values.map((item) => dayjs(item.created_at).format('YYYY-MM-DD'));
+  const columns: string[] = data[index].values.map((item) => dayjs(item.created_at).format('YYYY-MM-DD HH:mm:ss'));
 
   result = ['Consent', ...columns, 'Consent Value', 'Rewards'];
   const tableColumns: Column<Columns>[] = result.map((col) => ({

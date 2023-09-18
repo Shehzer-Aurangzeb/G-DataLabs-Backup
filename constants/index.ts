@@ -1,7 +1,8 @@
 import { Column } from 'react-table';
-import { Columns, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
+import { Columns, DropDownOption, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
 import { ResponseChoice } from '@/state/chats/types';
 import {
+  ConfirmPasswordFormSchemaType,
   LoginFormSchemaType,
   PersonalDataSchemaType,
   PersonalInfoSchemaType,
@@ -26,6 +27,7 @@ export const PATHS = {
   PRIVACY: '/privacy_policy',
   COOKIEPOLICY: '/cookie_policy',
   TERMS: '/terms_condition',
+  CONFIRMPASSWORD: '/reset_password/confirm',
 };
 
 export const APPITEMS: TNAVITEMS[] = [
@@ -95,6 +97,11 @@ export const AUTHITEMS: TNAVITEMS[] = [
   },
 ];
 
+export const SOCIALLIFEOPTIONS: DropDownOption[] = [
+  { label: 'Yes', value: 'yes' },
+  { label: 'No', value: 'no' },
+];
+
 export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
     title: 'Generate Text Only',
@@ -129,6 +136,11 @@ export const LOGINFORMINITIALVALUES: LoginFormSchemaType = {
 export const RESETPASSWORDFORMINITIALVALUES: ResetPasswordFormSchemaType = {
   email: '',
 };
+export const CONFIRMPASSWORDFORMINITIALVALUES: ConfirmPasswordFormSchemaType = {
+  token: '',
+  password: '',
+  confirm_password: '',
+};
 export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
   email: '',
   password: '',
@@ -147,6 +159,7 @@ export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   weather: '',
   relative_finance_status: '',
   exercise_time: 0,
+  any_social_life: SOCIALLIFEOPTIONS[0].value,
 };
 
 export const CONSENTTABLECOLUMNS: Column<Columns>[] = [

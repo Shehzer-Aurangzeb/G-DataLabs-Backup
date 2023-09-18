@@ -40,11 +40,16 @@ function Table({ columns, data }: IProps) {
                   {...cell.getCellProps()}
                   className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black font-sans font-normal text-base mobile:text-sm text-center min-w-[200px]"
                 >
-                  {cell.column.id === 'photos' && row.values.photos ? (
+                  {cell.column.id === 'photos' && row.values.photos && typeof row.values.photos === 'string' && (
                     <Image src={row.values.photos} alt="image" className="w-[550px] h-[250px]" />
-                  ) : (
-                    cell.render('Cell')
                   )}
+                  {cell.column.id === 'photos' &&
+                    row.values.photos &&
+                    typeof row.values.photos === 'object' &&
+                    row.values.photos.map(({ file_url }: { file_url: string }) => (
+                      <Image src={file_url} alt="image" className="w-[550px] h-[250px]" />
+                    ))}
+                  {cell.column.id !== 'photos' && cell.render('Cell')}
                 </td>
               ))}
             </tr>

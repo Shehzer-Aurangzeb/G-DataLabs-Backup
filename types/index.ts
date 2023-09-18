@@ -37,8 +37,8 @@ export type UpdateUserPayloadType = {
   email: string;
   first_name: string;
   last_name: string;
-  phone_number: string;
-  total_rewards: string;
+  phone_number?: string;
+  total_rewards?: string;
   username: string;
   password?: string;
   profile_picture?: File;
@@ -131,4 +131,9 @@ export type RecentChatHistoryResponseType = {
   name: string;
   status: string;
   user_id: number;
+};
+
+export type DropDownOption = {
+  label: string;
+  value: string;
 };

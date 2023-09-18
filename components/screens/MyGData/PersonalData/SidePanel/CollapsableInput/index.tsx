@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { arrow, plus } from '@/constants/assets';
+import { DropDownOption } from '@/types';
+import Select from '@/components/UI/Select';
 import FileInput from './fileInput';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -12,6 +14,9 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   addNewField?: () => void;
   handleFileChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   noOfFiles?: number;
+  isSelectInput?: boolean;
+  selectOptions?: DropDownOption[];
+  onSelectOption?: (item: string) => void;
 }
 
 function CollapsableInput({
@@ -28,6 +33,9 @@ function CollapsableInput({
   addNewField,
   handleFileChange,
   noOfFiles,
+  isSelectInput = false,
+  selectOptions,
+  onSelectOption,
 }: IProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
@@ -51,7 +59,7 @@ function CollapsableInput({
           <label htmlFor={name} className="text-primary font-sans font-medium text-xl">
             {title}
           </label>
-          {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && (
+          {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && !isSelectInput && (
             <input
               autoComplete="off"
               placeholder={placeholder}
@@ -64,10 +72,13 @@ function CollapsableInput({
               className="bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none tablet:px-2 mobile:px-1"
             />
           )}
-          {!isCollapsed && !isAddingFieldEnabled && type === 'file' && (
+          {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && isSelectInput && (
+            <Select options={selectOptions!} className="w-auto" value={value?.toString()!} onClick={onSelectOption!} />
+          )}
+          {!isCollapsed && !isAddingFieldEnabled && type === 'file' && !isSelectInput && (
             <FileInput onChange={handleFileChange!} noOfFiles={noOfFiles ?? 0} />
           )}
-          {!isCollapsed && isAddingFieldEnabled && fields && (
+          {!isCollapsed && isAddingFieldEnabled && !isSelectInput && fields && (
             <>
               {Object.entries(fields).map(([key, val]) => (
                 <input

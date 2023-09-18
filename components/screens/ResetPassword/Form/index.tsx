@@ -1,20 +1,23 @@
-'use client';
-
 import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
-import { ResetPasswordFormSchema } from '@/schema';
+import { ResetPasswordFormSchema, ResetPasswordFormSchemaType } from '@/schema';
 import { RESETPASSWORDFORMINITIALVALUES, PATHS } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 
-function ResetPasswordForm() {
+type TProps = {
+  isLoading: boolean;
+  resetPassword: (payload: ResetPasswordFormSchemaType) => void;
+};
+
+function ResetPasswordForm({ isLoading, resetPassword }: TProps) {
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
     initialValues: RESETPASSWORDFORMINITIALVALUES,
     validationSchema: ResetPasswordFormSchema,
 
     onSubmit: async (results, onSubmit) => {
-      // console.log('values', results);
+      resetPassword(results);
       onSubmit.setSubmitting(false);
     },
   });
@@ -22,7 +25,7 @@ function ResetPasswordForm() {
     <form className="flex flex-col gap-y-5" noValidate onSubmit={handleSubmit}>
       <Input
         label="Email"
-        placeholder="JohnDoe@gmail.com"
+        placeholder="Email"
         type="email"
         name="email"
         error={touched.email && errors.email}
@@ -35,7 +38,7 @@ function ResetPasswordForm() {
         Go back to Login
       </Link>
 
-      <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue" title="Sign In" isLoading={false} />
+      <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue" title="Submit" isLoading={isLoading} />
     </form>
   );
 }

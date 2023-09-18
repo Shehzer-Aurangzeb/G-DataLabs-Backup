@@ -17,6 +17,7 @@ type AppContextType = {
   gTableColumns: Column<Columns>[];
   getAllConsentData: () => Promise<void>;
   updateMyGData: () => Promise<void>;
+  getAllPersonalData: () => void;
 };
 interface IProps {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ const AppContext = createContext<AppContextType>({
   gTableColumns: [],
   getAllConsentData: async () => {},
   updateMyGData: async () => {},
+  getAllPersonalData: async () => {},
 });
 
 function AppProvider({ children }: IProps) {
@@ -93,7 +95,9 @@ function AppProvider({ children }: IProps) {
   }, [user, initApp]);
 
   return (
-    <AppContext.Provider value={{ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData }}>
+    <AppContext.Provider
+      value={{ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData, getAllPersonalData }}
+    >
       {children}
     </AppContext.Provider>
   );
