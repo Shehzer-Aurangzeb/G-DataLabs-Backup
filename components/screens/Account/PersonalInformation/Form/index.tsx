@@ -77,7 +77,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         <UploadPicture handleChange={handleProfileChange} profile={profileUrl} />
         <Input
           label="First Name"
-          placeholder="John Doe"
+          placeholder="First Name"
           name="firstName"
           error={touched.firstName && errors.firstName}
           onChange={handleChange}
@@ -86,7 +86,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Email"
-          placeholder="JohnDoe@gmail.com"
+          placeholder="Email"
           type="email"
           name="email"
           error={touched.email && errors.email}
@@ -96,7 +96,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Last Name"
-          placeholder="John Doe"
+          placeholder="Last Name"
           name="lastName"
           error={touched.lastName && errors.lastName}
           onChange={handleChange}
@@ -105,7 +105,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Password"
-          placeholder="Password123"
+          placeholder="Password"
           name="password"
           error={touched.password && errors.password}
           onChange={handleChange}
@@ -114,7 +114,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Username"
-          placeholder="John Doe"
+          placeholder="Username"
           name="username"
           error={touched.username && errors.username}
           onChange={handleChange}
@@ -123,7 +123,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Phone"
-          placeholder="921258565656"
+          placeholder="Phone"
           name="phone"
           type="number"
           error={touched.phone && errors.phone}
@@ -133,7 +133,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         />
         <Input
           label="Total Rewards"
-          placeholder="50"
+          placeholder="Total rewards"
           name="totalRewards"
           type="number"
           readOnly

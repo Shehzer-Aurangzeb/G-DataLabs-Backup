@@ -16,7 +16,7 @@ import { useApp } from '@/context/AppProvider';
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
   const { personalData, setPersonalData, gData, rData, cData, screenData } = usePersonalData();
-  const { getAllConsentData, gTableColumns, updateMyGData } = useApp();
+  const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData } = useApp();
 
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
@@ -36,13 +36,15 @@ export const useMyGData = () => {
         const newData = createTableData({ tableName: TableName.PData, data: data.data });
         setPersonalData(newData);
         await updateMyGData();
+        await getAllConsentData();
+        await getAllPersonalData;
       } catch (e) {
         // console.log('e :>> ', e);
       } finally {
         setIsLoading(false);
       }
     },
-    [setIsLoading, setPersonalData, updateMyGData],
+    [setIsLoading, setPersonalData, updateMyGData, getAllConsentData, getAllPersonalData],
   );
 
   const updateConsentRewards = useCallback(
@@ -53,6 +55,7 @@ export const useMyGData = () => {
         await api.patch(`api/user_consents_rewards/${id}/`, payload);
         await getAllConsentData();
         await updateMyGData();
+
         toast.success('Consent updated');
       } catch (e) {
         // console.log('e :>> ', e);

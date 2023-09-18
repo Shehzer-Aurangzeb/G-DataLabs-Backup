@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
@@ -7,10 +5,14 @@ import { LoginFormSchema } from '@/schema';
 import { LOGINFORMINITIALVALUES, PATHS } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
-import { useAuth } from '@/hooks/useAuth';
+import { UserCredentials } from '@/types';
 
-function LoginForm() {
-  const { loginUser, isLoading } = useAuth();
+type TProps = {
+  isLoading: boolean;
+  loginUser: (payload: UserCredentials) => void;
+};
+
+function LoginForm({ isLoading, loginUser }: TProps) {
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
     initialValues: LOGINFORMINITIALVALUES,
     validationSchema: LoginFormSchema,
@@ -25,7 +27,7 @@ function LoginForm() {
     <form className="flex flex-col gap-y-5" noValidate onSubmit={handleSubmit}>
       <Input
         label="Email"
-        placeholder="JohnDoe@gmail.com"
+        placeholder="Email"
         type="email"
         name="email"
         error={touched.email && errors.email}
@@ -35,7 +37,7 @@ function LoginForm() {
       />
       <Input
         label="Password"
-        placeholder="Password123"
+        placeholder="Password"
         name="password"
         error={touched.password && errors.password}
         onChange={handleChange}

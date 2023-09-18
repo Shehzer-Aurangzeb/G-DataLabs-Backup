@@ -2,6 +2,7 @@ import { Column } from 'react-table';
 import { Columns, DropDownOption, NAVITEMS as TNAVITEMS, TPROPTION } from '@/types';
 import { ResponseChoice } from '@/state/chats/types';
 import {
+  ConfirmPasswordFormSchemaType,
   LoginFormSchemaType,
   PersonalDataSchemaType,
   PersonalInfoSchemaType,
@@ -26,6 +27,7 @@ export const PATHS = {
   PRIVACY: '/privacy_policy',
   COOKIEPOLICY: '/cookie_policy',
   TERMS: '/terms_condition',
+  CONFIRMPASSWORD: '/reset_password/confirm',
 };
 
 export const APPITEMS: TNAVITEMS[] = [
@@ -130,6 +132,11 @@ export const LOGINFORMINITIALVALUES: LoginFormSchemaType = {
 };
 export const RESETPASSWORDFORMINITIALVALUES: ResetPasswordFormSchemaType = {
   email: '',
+};
+export const CONFIRMPASSWORDFORMINITIALVALUES: ConfirmPasswordFormSchemaType = {
+  token: '',
+  password: '',
+  confirm_password: '',
 };
 export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
   email: '',

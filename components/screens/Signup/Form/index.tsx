@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
@@ -8,10 +6,14 @@ import { PATHS, SIGNUPFORMINITIALVALUES } from '@/constants';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import Checkbox from '@/components/UI/Checkbox';
-import { useAuth } from '@/hooks/useAuth';
+import { SignupCredentials } from '@/types';
 
-function SignupForm() {
-  const { registerUser, isLoading } = useAuth();
+type TProps = {
+  isLoading: boolean;
+  registerUser: (payload: SignupCredentials) => void;
+};
+
+function SignupForm({ isLoading, registerUser }: TProps) {
   const { handleSubmit, handleChange, values, touched, errors } = useFormik({
     initialValues: SIGNUPFORMINITIALVALUES,
     validationSchema: SignupFormSchema,
@@ -31,7 +33,7 @@ function SignupForm() {
     <form className="flex flex-row flex-wrap gap-5 items-center" noValidate onSubmit={handleSubmit}>
       <Input
         label="First Name"
-        placeholder="John Doe"
+        placeholder="First Name"
         name="firstName"
         error={touched.firstName && errors.firstName}
         onChange={handleChange}
@@ -40,7 +42,7 @@ function SignupForm() {
       />
       <Input
         label="Last Name"
-        placeholder="John Doe"
+        placeholder="Last Name"
         name="lastName"
         error={touched.lastName && errors.lastName}
         onChange={handleChange}
@@ -49,7 +51,7 @@ function SignupForm() {
       />
       <Input
         label="Email"
-        placeholder="JohnDoe@gmail.com"
+        placeholder="Email"
         type="email"
         name="email"
         error={touched.email && errors.email}
@@ -59,7 +61,7 @@ function SignupForm() {
       />
       <Input
         label="Password"
-        placeholder="Password123"
+        placeholder="Password"
         name="password"
         error={touched.password && errors.password}
         onChange={handleChange}
