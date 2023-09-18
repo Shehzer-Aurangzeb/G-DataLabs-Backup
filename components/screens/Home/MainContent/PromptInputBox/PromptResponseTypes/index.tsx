@@ -12,7 +12,7 @@ interface IProps {
 
 function PromptResponseTypes({ selectedResponseType, setSelectedResponseType }: IProps) {
   return (
-    <div className="flex gap-x-3 ml-2 w-full mobile:flex-col">
+    <div className="flex gap-x-3 ml-2 w-full mobile:flex-col dark:bg-dark">
       {PROMPTRESPONSEOPTIONS.map((option) => (
         <button
           key={option.title}

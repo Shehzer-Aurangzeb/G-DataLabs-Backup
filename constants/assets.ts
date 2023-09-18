@@ -23,6 +23,8 @@ import no_data from '@/public/assets/images/no-data.png';
 import no_chats from '@/public/assets/images/no-chats.png';
 import like from '@/public/assets/icons/like__icon.svg';
 import dislike from '@/public/assets/icons/dislike__icon.svg';
+import showpassword from '@/public/assets/icons/showpassword__icon.png';
+import hidepassword from '@/public/assets/icons/hidepassword__icon.png';
 
 export {
   home,
@@ -50,4 +52,6 @@ export {
   no_chats,
   like,
   dislike,
+  showpassword,
+  hidepassword,
 };

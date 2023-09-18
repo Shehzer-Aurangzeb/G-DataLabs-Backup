@@ -12,14 +12,14 @@ const config: Config = {
     extend: {
       backgroundColor: {
         main: '#333',
-        darkMain: '#e1ba5c',
+        darkMain: '#e4e4e3',
         active: '#e4e4e31a',
         yellow: '#FBE576',
         gray: '#454545',
         dark: '#1C1C1C',
         light: '#e4e4e3',
         chat: '#D9D9D9',
-        darkChat: '#efdcb1',
+        darkChat: '#333',
         blue: '#046C98',
         darkBlue: '#FAB515',
         disabledBlue: '#046c98b0',
@@ -38,7 +38,6 @@ const config: Config = {
         active: '#e4e4e3',
         inactive: '#e1e1e1',
         primary: '#333',
-
         placeholder: '#9B9B9B',
         error: '#FF3333',
         blue: '#046C98',

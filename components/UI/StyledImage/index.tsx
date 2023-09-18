@@ -15,7 +15,7 @@ function StyledImage({ className, src, alt, rounded = false }: IProps) {
         src={src}
         alt={alt}
         fill
-        className={`${rounded ? 'object-cover rounded-full' : 'object-contain'}`}
+        className={`${rounded ? 'object-cover rounded-full' : 'object-contain'} `}
         sizes="(max-width: 768px)"
       />
     </div>

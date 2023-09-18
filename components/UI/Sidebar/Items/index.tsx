@@ -18,7 +18,7 @@ function Items({ items }: IProps) {
           <Link
             href={item.to}
             className={`flex flex-row items-center gap-x-3 py-3 px-4 transition-all duration-200 w-full rounded-xl ${
-              pathname === item.to ? 'bg-active' : 'bg-transparent'
+              pathname === item.to ? 'bg-active dark:bg-chat' : 'bg-transparent'
             }`}
           >
             <Image src={item.icon} alt="icon" className="w-[30px] h-[30px]" />
@@ -32,7 +32,7 @@ function Items({ items }: IProps) {
                   <Link
                     href={nestedItem.to}
                     className={`flex flex-row items-center gap-x-3 px-4 transition-all duration-200 w-full rounded-xl ${
-                      pathname === nestedItem.to ? 'bg-active py-3' : 'bg-transparent'
+                      pathname === nestedItem.to ? 'bg-active  dark:bg-chat py-3' : 'bg-transparent'
                     }`}
                   >
                     <span

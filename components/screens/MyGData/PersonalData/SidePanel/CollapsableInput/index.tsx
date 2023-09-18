@@ -43,20 +43,20 @@ function CollapsableInput({
       <div
         className={`flex flex-row items-start gap-x-2 pt-3 pl-2 pr-3 w-full tablet:gap-x-0 mobile:gap-x-1 ${
           isCollapsed ? 'pb-3' : 'pb-5'
-        } rounded-xl bg-light transition duration-300`}
+        } rounded-xl bg-light dark:bg-dark transition duration-300`}
       >
         <Image
           src={arrow}
           alt="arrow-icon"
           height={24}
           width={24}
-          className={`transition duration-300 ${isCollapsed && 'rotate-180 '}`}
+          className={`transition duration-300 ${isCollapsed && 'rotate-180 '} dark:invert`}
           onClick={() => {
             setIsCollapsed(!isCollapsed);
           }}
         />
         <header className="flex flex-col gap-y-[18px] w-full relative">
-          <label htmlFor={name} className="text-primary font-sans font-medium text-xl">
+          <label htmlFor={name} className="text-primary font-sans font-medium text-xl  dark:text-main">
             {title}
           </label>
           {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && !isSelectInput && (

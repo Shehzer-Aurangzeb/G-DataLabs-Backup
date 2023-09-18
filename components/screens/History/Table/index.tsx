@@ -86,7 +86,7 @@ function Table({ columns, data }: IProps) {
                 {row.cells.map((cell: any) => (
                   <td
                     {...cell.getCellProps()}
-                    className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center"
+                    className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center"
                   >
                     {cell.column.Header === 'Image'
                       ? cell.value.length > 0

@@ -25,23 +25,43 @@ function Switch({ className = '' }: IProps) {
   return (
     <>
       <input type="checkbox" id="switch" className="hidden" onChange={handleChange} />
-      <div className={['bg-gray rounded-md py-3 px-4 w-full', className].join(' ')}>
+      <div className={['bg-gray rounded-md py-3 px-4 w-full dark:bg-chat', className].join(' ')}>
         <label htmlFor="switch" className="flex gap-x-3 items-center cursor-pointer justify-center">
           <div
             className={`flex gap-x-4 items-center transition-all ease-in-out duration-200 rounded-md py-2 px-4 ${
-              checked ? 'bg-dark' : 'bg-transparent'
+              checked ? 'bg-dark dark:bg-chat' : 'bg-transparent'
             } `}
           >
-            <Image src={checked ? bulb_active : bulb_inactive} alt="light-bulb-icon" className="h-5 w-4" />
-            <span className={`font-sans font-bold text-base  ${checked ? 'text-active' : 'text-inactive'}`}>Light</span>
+            <Image
+              src={checked ? bulb_active : bulb_inactive}
+              alt="light-bulb-icon"
+              className="h-5 w-4  dark:filter dark:brightness-0"
+            />
+            <span
+              className={`font-sans font-bold text-base dark:text-primary ${
+                checked ? 'text-active dark:text-primary' : 'text-inactive'
+              }`}
+            >
+              Light
+            </span>
           </div>
           <div
             className={`flex gap-x-4 items-center transition-all ease-in-out duration-200 rounded-md py-2 px-4 ${
-              !checked ? 'bg-dark' : 'bg-transparent'
+              !checked ? 'bg-dark dark:bg-chat' : 'bg-transparent'
             } `}
           >
-            <Image src={checked ? bulb_inactive : bulb_active} alt="light-bulb-icon" className="h-5 w-5" />
-            <span className={`font-sans font-bold text-base  ${!checked ? 'text-active' : 'text-inactive'}`}>Dark</span>
+            <Image
+              src={checked ? bulb_inactive : bulb_active}
+              alt="light-bulb-icon"
+              className="h-5 w-5 dark:filter dark:brightness-0"
+            />
+            <span
+              className={`font-sans font-bold text-base  ${
+                !checked ? 'text-active dark:text-primary' : 'text-inactive'
+              }`}
+            >
+              Dark
+            </span>
           </div>
         </label>
       </div>

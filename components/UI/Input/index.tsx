@@ -1,6 +1,7 @@
-'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
 
-import React from 'react';
+import { showpassword, hidepassword } from '@/constants/assets';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -8,7 +9,6 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isMonetaryInput?: boolean;
   currency?: string;
 }
-
 function Input({
   label,
   placeholder,
@@ -23,6 +23,13 @@ function Input({
   isMonetaryInput,
   currency,
 }: IProps) {
+  // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className={['flex flex-col gap-y-3 relative', className].join(' ')} style={style}>
       <label className="text-base font-bold font-sans text-black" htmlFor={name}>
@@ -31,17 +38,40 @@ function Input({
       {isMonetaryInput && (
         <span className="text-black font-sans font-normal text-xl absolute top-[54%] left-[15px]">{currency}</span>
       )}
-      <input
-        autoComplete="off"
-        placeholder={placeholder}
-        onChange={onChange}
-        name={name}
-        readOnly={readOnly}
-        id={name}
-        type={type || 'text'}
-        value={value}
-        className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
-      />
+      {type === 'password' ? (
+        <div className="relative w-full ">
+          <input
+            autoComplete="off"
+            placeholder={placeholder}
+            onChange={onChange}
+            name={name}
+            readOnly={readOnly}
+            id={name}
+            type={showPassword ? 'text' : 'password'}
+            value={value}
+            className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none w-full"
+          />
+          <Image
+            src={showPassword ? showpassword : hidepassword}
+            alt={showPassword ? 'hide-password-icon' : 'show-password-icon'}
+            className="h-5 w-5 dark:filter dark:brightness-0 cursor-pointer absolute top-[50%] right-[10px] transform translate-y-[-50%]"
+            onClick={togglePasswordVisibility}
+          />
+        </div>
+      ) : (
+        <input
+          autoComplete="off"
+          placeholder={placeholder}
+          onChange={onChange}
+          name={name}
+          readOnly={readOnly}
+          id={name}
+          type={type || 'text'}
+          value={value}
+          className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
+        />
+      )}
+
       {error && <p className="font-sans text-sm text-error -mt-2">{error}</p>}
     </div>
   );

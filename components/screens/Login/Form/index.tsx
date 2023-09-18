@@ -39,6 +39,7 @@ function LoginForm({ isLoading, loginUser }: TProps) {
         label="Password"
         placeholder="Password"
         name="password"
+        type="password"
         error={touched.password && errors.password}
         onChange={handleChange}
         value={values.password}

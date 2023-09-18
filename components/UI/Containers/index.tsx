@@ -13,7 +13,7 @@ function Container({ children, type, className = '', style }: IProps) {
   return (
     <>
       {type === 'main' && (
-        <Main className={className} style={style}>
+        <Main className={`${className} dark:bg-main`} style={style}>
           {children}
         </Main>
       )}

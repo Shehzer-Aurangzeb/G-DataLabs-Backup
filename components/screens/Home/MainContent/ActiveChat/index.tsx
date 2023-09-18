@@ -27,7 +27,10 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
   }, [chats]);
 
   return (
-    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
+    <div
+      className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2  dark:bg-dark"
+      ref={messagesRef}
+    >
       {chats.map((msg) => (
         <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
           {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (
@@ -38,7 +41,7 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
           )}
 
           {msg.content.images.length > 0 && (
-            <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6  mobile:max-w-[70%] mobile:py-2 mobile:gap-0">
+            <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6  mobile:max-w-[70%] mobile:py-2 mobile:gap-0 dark:bg-darkChat">
               {msg.content.images.map((img) => (
                 <Image
                   key={uuidv4()}

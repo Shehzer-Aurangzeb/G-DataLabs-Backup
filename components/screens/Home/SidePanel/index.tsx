@@ -15,8 +15,13 @@ type TProps = {
 
 function SidePanel({ isAuthenticated, recentChatHistory, openPreviousChats, newChat }: TProps) {
   return (
-    <Container type="side" className={`pb-5 ${!isAuthenticated && 'hidden'} flex flex-col justify-between`}>
-      <h3 className="font-sans text-xl text-primary font-bold px-2 pt-8 tablet:pt-10">Recent Chat History</h3>
+    <Container
+      type="side"
+      className={`pb-5 ${!isAuthenticated && 'hidden'} flex flex-col justify-between dark:bg-dark`}
+    >
+      <h3 className="font-sans text-xl text-primary font-bold px-2 pt-8 tablet:pt-10 dark:text-main">
+        Recent Chat History
+      </h3>
       {Object.keys(recentChatHistory).length > 0 ? (
         <ChatHistory groupedChatHistory={recentChatHistory} openPreviousChats={openPreviousChats} />
       ) : (
@@ -26,7 +31,7 @@ function SidePanel({ isAuthenticated, recentChatHistory, openPreviousChats, newC
       <Button
         title="New Chat"
         onClick={newChat}
-        className="bg-blue w-full mt-9 disabled:bg-disabledBlue dark:bg-darkBlue"
+        className="bg-blue w-full mt-9 disabled:bg-disabledBlue "
         isLoading={false}
         icon={add}
       />

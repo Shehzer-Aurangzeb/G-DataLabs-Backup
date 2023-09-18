@@ -55,7 +55,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
 
   return (
     <form
-      className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side dark:bg-darkMain rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile:"
+      className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side dark:bg-black rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile: dark:text-main"
       noValidate
       onSubmit={handleSubmit}
     >
