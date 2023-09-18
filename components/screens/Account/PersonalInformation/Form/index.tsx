@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+
 'use client';
 
 import React, { useState } from 'react';
@@ -44,28 +46,53 @@ function Form({ user, updateUser, isLoading }: TProps) {
     validationSchema: PersonalInfoSchema,
 
     onSubmit: async (results, onSubmit) => {
+      const { password } = results;
       if (!profileUrl) return;
-      const { firstName, lastName, email, username, phone, password, totalRewards } = results;
       // console.log('values', results);
-      let payload: UpdateUserPayloadType = {
-        first_name: firstName,
-        email,
-        username,
-        phone_number: phone,
-        total_rewards: totalRewards,
-        last_name: lastName,
-      };
+      let payload: UpdateUserPayloadType = {};
+
+      for (const [key, value] of Object.entries(results)) {
+        // @ts-ignore
+        // eslint-disable-next-line no-continue
+        if (user[key] === value) continue;
+        if (key === 'firstName')
+          payload = {
+            ...payload,
+            first_name: value,
+          };
+        if (key === 'lastName')
+          payload = {
+            ...payload,
+            last_name: value,
+          };
+        if (key === 'phone' && user.phoneNumber !== results.phone)
+          payload = {
+            ...payload,
+            phone_number: value,
+          };
+
+        if (key === 'email')
+          payload = {
+            ...payload,
+            email: value,
+          };
+        if (key === 'username')
+          payload = {
+            ...payload,
+            username: value,
+          };
+      }
+      if (password)
+        payload = {
+          ...payload,
+          password,
+        };
       if (profile)
         payload = {
           ...payload,
           profile_picture: profile,
         };
-      if (password) {
-        payload = {
-          ...payload,
-          password,
-        };
-      }
+
       updateUser(payload);
       onSubmit.setSubmitting(false);
     },
