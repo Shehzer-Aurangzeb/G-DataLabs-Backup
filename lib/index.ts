@@ -156,7 +156,6 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       };
     }
   }
-  console.log(`${arg.tableName}`, result);
   return result;
 };
 
