@@ -22,7 +22,7 @@ function Items({ items }: IProps) {
             }`}
           >
             <Image src={item.icon} alt="icon" className="w-[30px] h-[30px]" />
-            <span className="font-sans text-main text-xl font-medium">{item.title}</span>
+            <span className="font-sans text-main dark:text-primary text-xl font-medium">{item.title}</span>
           </Link>
 
           {item.nestedItems && (
@@ -40,7 +40,9 @@ function Items({ items }: IProps) {
                         pathname === nestedItem.to ? 'h-[13px]' : 'h-[6px]'
                       }`}
                     />
-                    <span className="font-sans text-main text-base font-medium">{nestedItem.title}</span>
+                    <span className="font-sans text-main dark:text-primary text-base font-medium">
+                      {nestedItem.title}
+                    </span>
                   </Link>
                 </li>
               ))}

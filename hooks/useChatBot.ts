@@ -91,8 +91,10 @@ export const useChatBot = () => {
           images,
         },
       });
-      fetchRecentChats();
-      fetchChatHistory();
+      if (user) {
+        fetchRecentChats();
+        fetchChatHistory();
+      }
     } catch (e) {
       if (e instanceof AxiosError) toast.error(e.response?.data.error);
       else toast.error('Something went wrong');
