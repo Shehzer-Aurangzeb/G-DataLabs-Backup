@@ -45,7 +45,7 @@ function LoginForm({ isLoading, loginUser }: TProps) {
         value={values.password}
         className="w-full"
       />
-      <p className="text-primary font-sans font-semibold text-base">
+      <p className="text-primary dark:text-main font-sans font-semibold text-base">
         {' '}
         Don&apos;t have an account?
         <Link href={PATHS.SIGNUP} className="text-blue underline ml-1">

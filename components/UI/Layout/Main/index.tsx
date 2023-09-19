@@ -6,7 +6,7 @@ interface IProps {
 }
 function MainLayout({ children }: IProps) {
   return (
-    <div className="h-screen w-screen flex flex-row py-5 pr-5">
+    <div className="h-screen w-screen flex dark:bg-[#b6b6b5] flex-row py-5 pr-5">
       <Sidebar />
       {children}
     </div>

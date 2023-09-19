@@ -18,7 +18,7 @@ type TProps = {
 
 function MainContent({ user, userPrompt, sendPrompt, setUserPrompt, isLoading, chats, isAuthenticated }: TProps) {
   return (
-    <Container type="main" className="dark:bg-dark">
+    <Container type="main">
       {chats && (
         <ActiveChat chats={chats} userProfile={user ? user.image : default_profile} isLoggedIn={isAuthenticated} />
       )}

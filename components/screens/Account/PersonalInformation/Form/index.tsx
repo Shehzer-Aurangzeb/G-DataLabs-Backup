@@ -150,7 +150,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
         <div className="w-full flex flex-row mobile:flex-col items-center justify-between gap-x-4 mobile:gap-y-4 mt-10">
           <Button
             type="button"
-            className="bg-transparent uppercase disabled:bg-disabledBlue max-w-[320px] w-full border-2 border-black mobile:order-2 connect_btn"
+            className="bg-transparent uppercase disabled:bg-disabledBlue max-w-[320px] w-full border-2 border-black dark:border-white mobile:order-2 connect_btn dark:text-white dark:bg-white"
             style={{ color: 'black' }}
             onClick={getPlaidLinkToken}
             title={user && user.accountNo ? 'Edit bank information' : 'Connect with my bank'}
