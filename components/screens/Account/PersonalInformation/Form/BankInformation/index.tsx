@@ -25,7 +25,7 @@ interface IProps {
 function CardInformation({ values, touched, errors }: IProps) {
   return (
     <div className="w-full">
-      <h1 className="text-primary text-2xl font-bold font-sans mt-8 mb-7">Bank Information</h1>
+      <h1 className="text-primary dark:text-main text-2xl font-bold font-sans mt-8 mb-7">Bank Information</h1>
       <div className="flex flex-row flex-wrap gap-x-14 gap-y-6 ">
         <Input
           label="Account No."

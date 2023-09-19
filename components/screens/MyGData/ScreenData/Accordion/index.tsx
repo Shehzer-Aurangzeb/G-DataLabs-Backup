@@ -18,7 +18,7 @@ function Accordion({ data }: TProps) {
       onClick={handleOpen}
     >
       <div className="flex flex-row justify-between items-center py-6 px-3">
-        <h1 className="text-primary text-2xl font-sans font-semibold">{data.date}</h1>
+        <h1 className="text-primary text-2xl font-sans font-semibold dark:text-main">{data.date}</h1>
         <div className="relative h-[40px] w-[40px]">
           <span className="absolute w-[30px] h-[5px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-main dark:bg-darkMain rounded-md" />
           <span
@@ -30,10 +30,10 @@ function Accordion({ data }: TProps) {
       </div>
       <div className={`px-3 transition-all duration-300 ${isOpen ? 'max-h-fit pb-6' : 'max-h-0 py-0'} overflow-hidden`}>
         {data.detail.length > 0 && (
-          <p className="text-primary font-medium text-xl font-raleway my-3 text-left">{data.detail}</p>
+          <p className="text-primary dark:text-main font-medium text-xl font-raleway my-3 text-left">{data.detail}</p>
         )}
         <div className="flex flex-row gap-x-4 mobile:flex-col mobile:gap-y-4">
-          {data.screenRecording.length > 0 && (
+          {data.screenRecording && (
             <video
               controls
               className={`my-2 w-1/2 mobile:w-full transition-all duration-300 delay-250 ${

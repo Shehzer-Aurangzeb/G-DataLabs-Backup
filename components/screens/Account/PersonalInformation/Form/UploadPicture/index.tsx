@@ -14,18 +14,18 @@ interface IProps {
 function UploadPicture({ handleChange, profile }: IProps) {
   return (
     <div className="flex flex-col gap-y-6 w-full">
-      <label className="text-base font-bold font-sans text-black" htmlFor="profile">
+      <label className="text-base font-bold font-sans text-black dark:text-main" htmlFor="profile">
         Upload Picture
       </label>
       <div className="flex flex-row w-full max-w-[450px] items-center bg-chat dark:bg-darkChat gap-x-5 relative py-[9px] px-4 ">
         <Image
           src={profile.length === 0 ? default_profile : profile}
           alt="profile"
-          className="w-[50px] h-[50px]"
+          className="w-[50px] h-[50px] dark:invert"
           rounded
         />
-        <Image src={upload} alt="upload-icon" className="w-[36px] h-[36px]" />
-        <p className="text-black text-xl font-sans font-normal">Upload Picture</p>
+        <Image src={upload} alt="upload-icon" className="w-[36px] h-[36px]  dark:invert" />
+        <p className="text-black text-xl dark:text-main font-sans font-normal">Upload Picture</p>
         <input
           onChange={handleChange}
           name="profile"

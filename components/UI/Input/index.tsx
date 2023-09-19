@@ -32,7 +32,7 @@ function Input({
 
   return (
     <div className={['flex flex-col gap-y-3 relative', className].join(' ')} style={style}>
-      <label className="text-base font-bold font-sans text-black" htmlFor={name}>
+      <label className="text-base font-bold font-sans text-black dark:text-white" htmlFor={name}>
         {label}
       </label>
       {isMonetaryInput && (
@@ -49,7 +49,7 @@ function Input({
             id={name}
             type={showPassword ? 'text' : 'password'}
             value={value}
-            className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none w-full"
+            className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black dark:text-main font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder  focus:outline-none w-full"
           />
           <Image
             src={showPassword ? showpassword : hidepassword}
@@ -68,7 +68,7 @@ function Input({
           id={name}
           type={type || 'text'}
           value={value}
-          className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
+          className="bg-chat dark:bg-darkChat py-5 px-7 rounded-md dark:text-main text-black font-sans font-normal text-xl placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
         />
       )}
 

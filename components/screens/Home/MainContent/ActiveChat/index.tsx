@@ -27,10 +27,7 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
   }, [chats]);
 
   return (
-    <div
-      className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2  dark:bg-dark"
-      ref={messagesRef}
-    >
+    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
         <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
           {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (

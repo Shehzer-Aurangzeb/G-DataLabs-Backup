@@ -81,7 +81,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-dark dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
+                  className={`border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
                     cellIndex === row.cells.length - 1 && 'hidden'
                   }`}
                 >

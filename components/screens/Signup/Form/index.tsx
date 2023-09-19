@@ -63,6 +63,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
         label="Password"
         placeholder="Password"
         name="password"
+        type="password"
         error={touched.password && errors.password}
         onChange={handleChange}
         value={values.password}
@@ -76,7 +77,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           id="termsConditions"
           error={errors.termsConditions}
           label={
-            <p className="text-primary font-sans font-semibold text-base">
+            <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
               <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
@@ -92,7 +93,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           id="privacyPolicy"
           error={errors.privacyPolicy}
           label={
-            <p className="text-primary font-sans font-semibold text-base">
+            <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
               <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
@@ -108,7 +109,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           id="cookiePolicy"
           error={errors.cookiePolicy}
           label={
-            <p className="text-primary font-sans font-semibold text-base">
+            <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
               <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
@@ -117,7 +118,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
             </p>
           }
         />
-        <p className="text-primary font-sans font-semibold text-base">
+        <p className="text-primary  dark:text-main font-sans font-semibold text-base">
           {' '}
           Already have an account?
           <Link href={PATHS.LOGIN} className="text-blue underline ml-1">

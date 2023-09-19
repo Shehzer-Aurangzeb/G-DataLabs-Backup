@@ -43,7 +43,7 @@ function CollapsableInput({
       <div
         className={`flex flex-row items-start gap-x-2 pt-3 pl-2 pr-3 w-full tablet:gap-x-0 mobile:gap-x-1 ${
           isCollapsed ? 'pb-3' : 'pb-5'
-        } rounded-xl bg-light dark:bg-dark transition duration-300`}
+        } rounded-xl bg-light dark:bg-main transition duration-300`}
       >
         <Image
           src={arrow}
@@ -69,11 +69,11 @@ function CollapsableInput({
               id={name}
               type={type || 'text'}
               value={value}
-              className="bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none tablet:px-2 mobile:px-1"
+              className="bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary dark:text-main w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none tablet:px-2 mobile:px-1"
             />
           )}
           {!isCollapsed && !isAddingFieldEnabled && type !== 'file' && isSelectInput && (
-            <Select options={selectOptions!} className="w-auto" value={value?.toString()!} onClick={onSelectOption!} />
+            <Select options={selectOptions!} className="w-auto " value={value?.toString()!} onClick={onSelectOption!} />
           )}
           {!isCollapsed && !isAddingFieldEnabled && type === 'file' && !isSelectInput && (
             <FileInput onChange={handleFileChange!} noOfFiles={noOfFiles ?? 0} />
@@ -96,11 +96,11 @@ function CollapsableInput({
               ))}
 
               <button
-                className="flex flex-row items-center gap-x-2 outline-none bg-none focus:outline-none font-sans font-medium text-primary text-sm"
+                className="flex flex-row items-center gap-x-2 outline-none bg-none dark:text-main focus:outline-none font-sans font-medium text-primary text-sm"
                 type="button"
                 onClick={addNewField}
               >
-                <Image src={plus} alt="plus-icon" height={20} width={22} /> Add new field
+                <Image src={plus} alt="plus-icon" height={20} width={22} className="dark:invert" /> Add new field
               </button>
             </>
           )}

@@ -11,7 +11,7 @@ function Header() {
   const { user } = useAuth();
   return (
     <div
-      className={`bg-lightGreen dark:bg-Darkside flex flex-row items-center w-full pl-4 mobile:pl-2 py-6 rounded-md gap-x-4 max-w-[${maxWidth}]`}
+      className={`bg-lightGreen dark:bg-dark flex flex-row items-center w-full pl-4 mobile:pl-2 py-6 rounded-md gap-x-4 max-w-[${maxWidth}]`}
     >
       {!user ? (
         <Skeleton circle width={50} height={50} containerClassName="avatar-skeleton" />
@@ -26,10 +26,10 @@ function Header() {
             <Skeleton width={190} />
           </>
         )}
-        <h3 className="font-sans font-bold text-xl text-primary leading-6">
+        <h3 className="font-sans font-bold text-xl text-primary  dark:text-main leading-6">
           {user && capitalize(`${user.firstName} ${user.lastName}`)}
         </h3>
-        <p className="font-sans font-normal text-primary text-base">{user && user.email}</p>
+        <p className="font-sans font-normal text-primary dark:text-main text-base">{user && user.email}</p>
       </div>
     </div>
   );
