@@ -38,7 +38,7 @@ function Table({ columns, data }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black font-sans font-normal text-base mobile:text-sm text-center "
+                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center "
                 >
                   {cell.render('Cell')}
                 </td>

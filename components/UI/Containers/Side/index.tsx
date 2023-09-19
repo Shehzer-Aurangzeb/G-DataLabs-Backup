@@ -22,7 +22,7 @@ function Side({ children, className = '' }: IProps) {
   return (
     <>
       {width < 1024 && (
-        <div className="h-[calc(100vh_-_2.5rem)] bg-light relative w-[50px]">
+        <div className="h-[calc(100vh_-_2.5rem)] bg-light dark:bg-main relative w-[50px]">
           <IconButton
             className="z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}

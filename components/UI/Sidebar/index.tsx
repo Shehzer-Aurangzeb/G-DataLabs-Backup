@@ -31,7 +31,7 @@ function Sidebar() {
   return (
     <>
       {width < 1280 && (
-        <div className="h-[calc(100vh_-_2.5rem)] bg-main  relative w-[50px]">
+        <div className="h-[calc(100vh_-_2.5rem)] bg-main dark:bg-transparent relative w-[50px]">
           <IconButton
             className="absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
@@ -53,7 +53,7 @@ function Sidebar() {
         <Logo />
         {width < 1280 && (
           <IconButton
-            className="z-10 absolute top-3 right-2 bg-main flex items-center justify-center w-[30px] h-[30px]"
+            className="z-10 absolute top-3 right-2 flex items-center justify-center w-[30px] h-[30px]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             src={sidebar}
