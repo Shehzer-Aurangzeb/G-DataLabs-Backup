@@ -1,0 +1,66 @@
+exports.id = 499;
+exports.ids = [499];
+exports.modules = {
+  /***/ 10894: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+    Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+    Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+    Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
+    Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+
+    /***/
+  },
+
+  /***/ 23488: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    'use strict';
+    /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+      /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__,
+      /* harmony export */
+    });
+    /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56786);
+    /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default =
+      /*#__PURE__*/ __webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18038);
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+      react__WEBPACK_IMPORTED_MODULE_1__,
+    );
+    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(98739);
+    /* harmony import */ var _components_UI_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17223);
+    /* __next_internal_client_entry_do_not_use__ default auto */
+
+    function Actions({ isAllowed, onClick }) {
+      return /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('div', {
+        className: 'flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center',
+        children: [
+          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+            _components_UI_IconButton__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z,
+            {
+              src: isAllowed
+                ? _constants_assets__WEBPACK_IMPORTED_MODULE_2__ /* .check_active */.Xv
+                : _constants_assets__WEBPACK_IMPORTED_MODULE_2__ /* .check_disable */.WA,
+              className: 'relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]',
+              onClick: () => {
+                if (!isAllowed) onClick();
+              },
+            },
+          ),
+          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+            _components_UI_IconButton__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z,
+            {
+              src: !isAllowed
+                ? _constants_assets__WEBPACK_IMPORTED_MODULE_2__ /* .cross_active */.JE
+                : _constants_assets__WEBPACK_IMPORTED_MODULE_2__ /* .cross_disable */.QM,
+              className: 'relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]',
+              onClick: () => {
+                if (isAllowed) onClick();
+              },
+            },
+          ),
+        ],
+      });
+    }
+    /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Actions;
+
+    /***/
+  },
+};

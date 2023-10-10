@@ -1,0 +1,49 @@
+{
+  "version": 4,
+  "routes": {
+    "/my_g-data/consent": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/my_g-data/consent",
+      "dataRoute": "/my_g-data/consent.rsc"
+    },
+    "/our_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/our_g-data", "dataRoute": "/our_g-data.rsc" },
+    "/": { "initialRevalidateSeconds": false, "srcRoute": "/", "dataRoute": "/index.rsc" },
+    "/reset_password/confirm": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/reset_password/confirm",
+      "dataRoute": "/reset_password/confirm.rsc"
+    },
+    "/my_g-data/screen-data": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/my_g-data/screen-data",
+      "dataRoute": "/my_g-data/screen-data.rsc"
+    },
+    "/signup": { "initialRevalidateSeconds": false, "srcRoute": "/signup", "dataRoute": "/signup.rsc" },
+    "/reset_password": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/reset_password",
+      "dataRoute": "/reset_password.rsc"
+    },
+    "/account": { "initialRevalidateSeconds": false, "srcRoute": "/account", "dataRoute": "/account.rsc" },
+    "/history": { "initialRevalidateSeconds": false, "srcRoute": "/history", "dataRoute": "/history.rsc" },
+    "/my_g-data/rewards": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/my_g-data/rewards",
+      "dataRoute": "/my_g-data/rewards.rsc"
+    },
+    "/my_g-data/personal-data": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/my_g-data/personal-data",
+      "dataRoute": "/my_g-data/personal-data.rsc"
+    },
+    "/my_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/my_g-data", "dataRoute": "/my_g-data.rsc" },
+    "/login": { "initialRevalidateSeconds": false, "srcRoute": "/login", "dataRoute": "/login.rsc" }
+  },
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "fb837d8cd90f04ee9a7c7eacafad1a98",
+    "previewModeSigningKey": "4f5b3cafc911a69637edd2b5c2948b7ea78303f98240d7cfa9d83f6b18c90a2f",
+    "previewModeEncryptionKey": "02de85726e6da953e840f7fc2d41eeec81699a5c7a68bce9de33011aebfbfffd"
+  }
+}
