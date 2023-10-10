@@ -3,7 +3,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { PlaidLinkOnSuccessMetadata, usePlaidLink } from 'react-plaid-link';
+import { usePlaidLink } from 'react-plaid-link';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
 
