@@ -1,49 +1,49 @@
 {
   "version": 4,
   "routes": {
-    "/account": { "initialRevalidateSeconds": false, "srcRoute": "/account", "dataRoute": "/account.rsc" },
-    "/my_g-data/personal-data": {
+    "/my_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/my_g-data", "dataRoute": "/my_g-data.rsc" },
+    "/my_g-data/screen-data": {
       "initialRevalidateSeconds": false,
-      "srcRoute": "/my_g-data/personal-data",
-      "dataRoute": "/my_g-data/personal-data.rsc"
+      "srcRoute": "/my_g-data/screen-data",
+      "dataRoute": "/my_g-data/screen-data.rsc"
     },
-    "/login": { "initialRevalidateSeconds": false, "srcRoute": "/login", "dataRoute": "/login.rsc" },
-    "/": { "initialRevalidateSeconds": false, "srcRoute": "/", "dataRoute": "/index.rsc" },
     "/history": { "initialRevalidateSeconds": false, "srcRoute": "/history", "dataRoute": "/history.rsc" },
-    "/reset_password/confirm": {
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/reset_password/confirm",
-      "dataRoute": "/reset_password/confirm.rsc"
-    },
-    "/signup": { "initialRevalidateSeconds": false, "srcRoute": "/signup", "dataRoute": "/signup.rsc" },
+    "/our_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/our_g-data", "dataRoute": "/our_g-data.rsc" },
+    "/": { "initialRevalidateSeconds": false, "srcRoute": "/", "dataRoute": "/index.rsc" },
+    "/login": { "initialRevalidateSeconds": false, "srcRoute": "/login", "dataRoute": "/login.rsc" },
     "/reset_password": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/reset_password",
       "dataRoute": "/reset_password.rsc"
     },
-    "/my_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/my_g-data", "dataRoute": "/my_g-data.rsc" },
-    "/our_g-data": { "initialRevalidateSeconds": false, "srcRoute": "/our_g-data", "dataRoute": "/our_g-data.rsc" },
-    "/my_g-data/consent": {
+    "/signup": { "initialRevalidateSeconds": false, "srcRoute": "/signup", "dataRoute": "/signup.rsc" },
+    "/reset_password/confirm": {
       "initialRevalidateSeconds": false,
-      "srcRoute": "/my_g-data/consent",
-      "dataRoute": "/my_g-data/consent.rsc"
+      "srcRoute": "/reset_password/confirm",
+      "dataRoute": "/reset_password/confirm.rsc"
     },
+    "/my_g-data/personal-data": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/my_g-data/personal-data",
+      "dataRoute": "/my_g-data/personal-data.rsc"
+    },
+    "/account": { "initialRevalidateSeconds": false, "srcRoute": "/account", "dataRoute": "/account.rsc" },
     "/my_g-data/rewards": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/my_g-data/rewards",
       "dataRoute": "/my_g-data/rewards.rsc"
     },
-    "/my_g-data/screen-data": {
+    "/my_g-data/consent": {
       "initialRevalidateSeconds": false,
-      "srcRoute": "/my_g-data/screen-data",
-      "dataRoute": "/my_g-data/screen-data.rsc"
+      "srcRoute": "/my_g-data/consent",
+      "dataRoute": "/my_g-data/consent.rsc"
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "ec20f3031e2312363d661936c93b7478",
-    "previewModeSigningKey": "43d4eb7d558b55f6ac61b0dc8f2981b8eb4146f9928763d1885fcfcdeee1ccc3",
-    "previewModeEncryptionKey": "70446a91c5ea4d4894a1189e9e1fbe1dac37d2be3e223f69734f770c0a6df514"
+    "previewModeId": "9629c6713f13d8e96c9125bc5c77fb2d",
+    "previewModeSigningKey": "6d84d49827c04790da55399adfd750d52527debdb1799722cfb23bd8129cb217",
+    "previewModeEncryptionKey": "cb428062fcc0c6b2d1e8a9ec12c48f9e643352af43d93026378b4ff92931e524"
   }
 }
