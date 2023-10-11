@@ -1,9 +1,6 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/jsx-no-constructed-context-values */
-
 'use client';
 
-import React, { createContext, useEffect, useContext, useCallback, useState } from 'react';
+import React, { createContext, useEffect, useContext, useCallback, useState, useMemo } from 'react';
 import { Column } from 'react-table';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { api } from '@/config';
@@ -35,13 +32,13 @@ function AppProvider({ children }: IProps) {
   const { fetchChatHistory, fetchRecentChats } = useChatBot();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
+
   //* weather hook
   useWeather();
   //* functions
   const getAllPersonalData = useCallback(async () => {
     const { data } = await api.get('api/personal_data_consents_rewards');
     const PData = createTableData({ tableName: TableName.PData, data: data.data });
-
     setPersonalData(PData);
   }, [setPersonalData]);
 
@@ -58,6 +55,9 @@ function AppProvider({ children }: IProps) {
     const gData = createTableData({ tableName: TableName.GData, data });
     if (data.length === 0) return;
     const gDataTableColumns = createTableColumns(data);
+    console.log('GData columns', gDataTableColumns);
+    console.log('GData ', gData);
+
     setGTableColumns(gDataTableColumns);
     setGData(gData);
   }, [setGData]);
@@ -88,19 +88,19 @@ function AppProvider({ children }: IProps) {
     fetchRecentChats,
   ]);
 
+  // values
+  const value = useMemo(
+    () => ({ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData, getAllPersonalData }),
+    [gTableColumns, getAllConsentData, getLastFivePersonalData, getAllPersonalData],
+  );
+
   //* initialize the app.
   useEffect(() => {
     if (!user) return;
     initApp();
   }, [user, initApp]);
 
-  return (
-    <AppContext.Provider
-      value={{ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData, getAllPersonalData }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
 export const useApp = () => useContext(AppContext);

@@ -12,8 +12,8 @@ function Main() {
   const tableData = useMemo(
     () =>
       Object.entries(personalData).map(([key, value]) => ({
-        date: key,
         ...value,
+        date: key,
       })),
     [personalData],
   );

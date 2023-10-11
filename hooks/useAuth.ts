@@ -88,10 +88,11 @@ export const useAuth = () => {
           profile_picture_url = generateAvatar(data.data.first_name);
         }
         const updatedUserInfo: UserType = {
+          ...user,
           firstName: data.data.first_name,
           lastName: data.data.last_name,
           phoneNumber: data.data.phone_number,
-          totalRewards: data.data.total_rewards,
+          totalRewards: data.data.total_rewards ?? 0,
           email: data.data.email,
           image: profile_picture_url,
           username: data.data.username,

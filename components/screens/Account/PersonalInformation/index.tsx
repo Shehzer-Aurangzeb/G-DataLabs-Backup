@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { maxWidth } from '@/constants';
 import Form from './Form';
@@ -16,4 +16,4 @@ function PersonalInformation() {
     </div>
   );
 }
-export default PersonalInformation;
+export default memo(PersonalInformation);

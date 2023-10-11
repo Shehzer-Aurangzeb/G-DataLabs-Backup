@@ -23,7 +23,7 @@ export const usePlaidAuth = () => {
             user: {
               ...user,
               accountNo: `**** ${data.data.shortened_account_number}`,
-              accountTitle: data.data.bank_account_title,
+              accountTitle: data.data.bank_account_title ?? '',
               bankName: data.data.bank_name,
             },
             isAuthenticated: true,

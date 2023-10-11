@@ -62,8 +62,11 @@ export const groupMessagesByDate = (messages: THistory[]) => {
 
 //* capatalize string
 export const capitalize = (arg: string) => {
-  const text = arg.split(' ');
-  const result = text.map((word) => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
+  const text = arg.split(' ').filter((item) => item.length > 0);
+  let result = '';
+  if (text.length > 0) {
+    result = text.map((word) => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
+  }
 
   return result;
 };
@@ -105,7 +108,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   const result: Data = {};
   if (tableName === TableName.PData) {
     for (const d of data) {
-      const date = dayjs(d.created_at).format('YYYY-MM-DD HH:mm:ss');
+      const date = dayjs(d.created_at).format('YYYY-MM-DD');
       const fieldName = d.personal_data_field.field_name.toLowerCase();
       const { files } = d;
       result[date] = {
@@ -118,7 +121,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
     for (const d of data) {
       const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
       for (const value of d.values) {
-        const date = dayjs(value.created_at).format('YYYY-MM-DD HH:mm:ss');
+        const date = dayjs(value.created_at).format('YYYY-MM-DD');
         result[fieldName] = {
           ...result[fieldName],
           [date]: value.value,
@@ -170,7 +173,9 @@ export const createTableColumns = (data: GDataType[]) => {
       index = data.indexOf(d);
     }
   }
-  const columns: string[] = data[index].values.map((item) => dayjs(item.created_at).format('YYYY-MM-DD HH:mm:ss'));
+  const columns: string[] = data[index].values
+    .map((item) => dayjs(item.created_at).format('YYYY-MM-DD'))
+    .filter((value, ind, self) => self.indexOf(value) === ind);
 
   result = ['Consent', ...columns, 'Consent Value', 'Rewards'];
   const tableColumns: Column<Columns>[] = result.map((col) => ({

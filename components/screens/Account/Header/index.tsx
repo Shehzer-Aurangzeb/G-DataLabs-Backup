@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import Image from '@/components/UI/StyledImage';
 import { useAuth } from '@/hooks/useAuth';
@@ -34,4 +34,4 @@ function Header() {
     </div>
   );
 }
-export default Header;
+export default memo(Header);

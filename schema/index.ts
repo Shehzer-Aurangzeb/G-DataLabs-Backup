@@ -4,9 +4,18 @@ export const PersonalInfoSchema = object({
   firstName: string().min(2, 'First Name is too short').required('First Name is required'),
   lastName: string().min(2, 'Last Name is too short').required('Last Name is required'),
   email: string().email().required('Email is required'),
-  password: string().min(5, 'Password must be 5 characters long'),
-  username: string().min(3).required('Username is required'),
-  phone: mixed().nullable().oneOf([number(), null]),
+  password: string(),
+  username: string(),
+  phone: mixed().test('is-phone-number', 'Invalid phone number', (value) => {
+    // Allow either a number or null
+    if (value === null) {
+      return true;
+    }
+    if (typeof value === 'number' || typeof value === 'string') {
+      return true;
+    }
+    return false;
+  }),
   totalRewards: number(),
   accountNo: string(),
   accountTitle: string(),

@@ -76,11 +76,6 @@ function Form({ user, updateUser, isLoading }: TProps) {
             ...payload,
             email: value,
           };
-        if (key === 'username')
-          payload = {
-            ...payload,
-            username: value,
-          };
       }
       if (password)
         payload = {
@@ -143,6 +138,7 @@ function Form({ user, updateUser, isLoading }: TProps) {
           label="Username"
           placeholder="Username"
           name="username"
+          readOnly
           error={touched.username && errors.username}
           onChange={handleChange}
           value={values.username}
