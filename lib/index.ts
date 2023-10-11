@@ -254,7 +254,8 @@ export const generateAvatar = (firstName: string) => {
 export const createRecentChatHistory = (payload: RecentChatHistoryResponseType[]) =>
   payload.map((chats) => {
     const messages = [];
-    for (const chat of chats.history) {
+    const descOrderedChats = chats.history.sort((a, b) => (dayjs(a.timestamp).isAfter(dayjs(b.timestamp)) ? 1 : -1));
+    for (const chat of descOrderedChats) {
       const response = createChat({
         text: chat.answer,
         images:
@@ -274,7 +275,7 @@ export const createRecentChatHistory = (payload: RecentChatHistoryResponseType[]
 
     return {
       title: chats.name,
-      date: dayjs(chats.created_at).format('YYYY-MM-DD'),
+      date: dayjs(chats.created_at).format('YYYY-MM-DD HH:mm:ss'),
       id: chats.id,
       messages,
     } as THistory;

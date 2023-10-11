@@ -73,6 +73,7 @@ const chatSlice = createSlice({
     startNewChatAction: (state) => ({
       ...state,
       chats: [],
+      activeChatID: undefined,
     }),
     openPreviousChatsAction: (
       state,

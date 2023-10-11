@@ -55,8 +55,8 @@ function AppProvider({ children }: IProps) {
     const gData = createTableData({ tableName: TableName.GData, data });
     if (data.length === 0) return;
     const gDataTableColumns = createTableColumns(data);
-    console.log('GData columns', gDataTableColumns);
-    console.log('GData ', gData);
+    // console.log('GData columns', gDataTableColumns);
+    // console.log('GData ', gData);
 
     setGTableColumns(gDataTableColumns);
     setGData(gData);

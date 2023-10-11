@@ -47,7 +47,7 @@ function Table({ columns, data }: IProps) {
                     row.values.photos &&
                     typeof row.values.photos === 'object' &&
                     row.values.photos.map(({ file_url }: { file_url: string }) => (
-                      <Image src={file_url} alt="image" className="w-[550px] h-[250px]" />
+                      <Image src={file_url} alt="image" className="min-w-[300px] h-[250px] max-w-[300px]" />
                     ))}
                   {cell.column.id !== 'photos' && cell.render('Cell')}
                 </td>

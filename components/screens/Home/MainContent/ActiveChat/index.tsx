@@ -30,12 +30,15 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
     <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
         <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
-          {msg.content.text.length > 0 && msg.messageID !== chats[chats.length - 1].messageID && (
-            <div>{msg.content.text}</div>
-          )}
-          {msg.content.text.length > 0 && msg.messageID === chats[chats.length - 1].messageID && (
-            <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} />
-          )}
+          {msg.content.text !== null &&
+            msg.content.text.length > 0 &&
+            msg.messageID !== chats[chats.length - 1].messageID && <div>{msg.content.text}</div>}
+          {msg.content.text !== null &&
+            msg.content.text.length > 0 &&
+            msg.messageID === chats[chats.length - 1].messageID && (
+              <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} />
+              // eslint-disable-next-line @typescript-eslint/indent
+            )}
 
           {msg.content.images.length > 0 && (
             <div className="flex flex-row max-w-[60%] gap-2 flex-wrap mt-6  mobile:max-w-[70%] mobile:py-2 mobile:gap-0 dark:bg-darkChat">
@@ -44,7 +47,7 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
                   key={uuidv4()}
                   src={img}
                   alt="img"
-                  className="w-[160px] h-[160px] laptop:w-[130px] laptop:h-[130px] mobile:w-[100px] mobile:h-[100px]"
+                  className="w-[150px] h-[160px] laptop:w-[120px] laptop:h-[130px] mobile:w-[95px] mobile:h-[100px]"
                 />
               ))}
             </div>
