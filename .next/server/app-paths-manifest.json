@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/my_g-data/page": "app/my_g-data/page.js",
+  "/my_g-data/personal-data/page": "app/my_g-data/personal-data/page.js",
+  "/my_g-data/rewards/page": "app/my_g-data/rewards/page.js",
+  "/my_g-data/consent/page": "app/my_g-data/consent/page.js"
+}
