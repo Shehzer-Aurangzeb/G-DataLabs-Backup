@@ -120,11 +120,13 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   if (tableName === TableName.GData) {
     for (const d of data) {
       const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
+
       for (const value of d.values) {
         const date = dayjs(value.created_at).format('YYYY-MM-DD');
         result[fieldName] = {
           ...result[fieldName],
-          [date]: value.value,
+          [date]: fieldName === 'Photos' ? value.files.map((file: string) => file) : value.value,
+          // fieldName === 'Photos' ? value.files.map((file: string) => file) :
         };
       }
       result[fieldName] = {

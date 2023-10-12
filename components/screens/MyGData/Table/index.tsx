@@ -1,6 +1,9 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable @typescript-eslint/indent */
 import React from 'react';
 import { Column, useTable } from 'react-table';
 import { Columns } from '@/types';
+import Image from '@/components/UI/StyledImage';
 
 interface IProps {
   data: any;
@@ -12,6 +15,9 @@ function Table({ columns, data }: IProps) {
     columns,
     data,
   });
+  const printCell = (cell: any) => {
+    console.log('cell :>> ', cell);
+  };
   return (
     <table {...getTableProps()} className="w-full">
       <thead>
@@ -40,7 +46,25 @@ function Table({ columns, data }: IProps) {
                   {...cell.getCellProps()}
                   className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center "
                 >
-                  {cell.render('Cell')}
+                  {/* {printCell(columns)} */}
+                  {/* {printCell(cell)} */}
+
+                  {cell.column.id === 'Consent' ||
+                  cell.column.id === 'Consent Value' ||
+                  cell.column.id === 'Rewards' ||
+                  row.values.Consent !== 'Photos' ? (
+                    cell.render('Cell')
+                  ) : (
+                    <>
+                      {row.values[cell.column.id] &&
+                        row.values[cell.column.id].length > 0 &&
+                        row.values[cell.column.id].map(({ file_url }: { file_url: string }) => (
+                          <Image src={file_url} alt="photo" className="min-w-[300px] h-[250px] max-w-[300px]" />
+                        ))}
+                      {printCell(row.values[cell.column.id])}
+                      <p>{cell.id}</p>
+                    </>
+                  )}
                 </td>
               ))}
             </tr>
