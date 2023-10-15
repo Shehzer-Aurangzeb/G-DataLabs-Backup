@@ -3,7 +3,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { PlaidLinkOnSuccessMetadata, usePlaidLink } from 'react-plaid-link';
+import { usePlaidLink } from 'react-plaid-link';
 import { api } from '@/config';
 import { useUser } from '@/state/user/hooks';
 
@@ -41,7 +41,7 @@ export const usePlaidAuth = () => {
 
   const { ready, open } = usePlaidLink({
     token: linkToken,
-    onSuccess: (public_token: string, metadata: PlaidLinkOnSuccessMetadata) => {
+    onSuccess: (public_token: string, metadata: any) => {
       // send public_token to server
       // console.log('info===>', public_token, metadata);
       addAndVerifyBankWithPlaidData({ public_token, account_id: metadata.account_id });
