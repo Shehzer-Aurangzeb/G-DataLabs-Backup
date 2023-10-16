@@ -1,10 +1,10 @@
 {
   "/page": "/",
-  "/login/page": "/login",
   "/account/page": "/account",
-  "/our_g-data/page": "/our_g-data",
   "/history/page": "/history",
+  "/login/page": "/login",
   "/my_g-data/page": "/my_g-data",
+  "/our_g-data/page": "/our_g-data",
   "/reset_password/page": "/reset_password",
   "/signup/page": "/signup",
   "/my_g-data/consent/page": "/my_g-data/consent",

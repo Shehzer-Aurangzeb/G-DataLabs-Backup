@@ -1,18 +1,1 @@
-input:checked ~ .styles_checkmark__BaDN0 {
-  background-color: #0c6efd;
-}
-.styles_checkmark__BaDN0:after {
-  content: '';
-  position: absolute;
-  display: none;
-  left: 4px;
-  top: 0;
-  width: 6px;
-  height: 12px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-input:checked ~ .styles_checkmark__BaDN0:after {
-  display: block;
-}
+input:checked~.styles_checkmark__BaDN0{background-color:#0c6efd}.styles_checkmark__BaDN0:after{content:"";position:absolute;display:none;left:4px;top:0;width:6px;height:12px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}input:checked~.styles_checkmark__BaDN0:after{display:block}
