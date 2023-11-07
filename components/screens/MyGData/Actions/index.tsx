@@ -6,23 +6,26 @@ import IconButton from '@/components/UI/IconButton';
 
 type TProps = {
   isAllowed: boolean;
+  isDisabled?: boolean;
   onClick: () => void;
 };
-function Actions({ isAllowed, onClick }: TProps) {
+function Actions({ isAllowed, onClick, isDisabled }: TProps) {
   return (
     <div className="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
       <IconButton
-        src={isAllowed ? check_active : check_disable}
-        className="relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]"
+        src={isAllowed && !isDisabled ? check_active : check_disable}
+        disabled={isDisabled}
+        className={`relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] ${isDisabled && 'cursor-default'}`}
         onClick={() => {
-          if (!isAllowed) onClick();
+          if (!isAllowed && !isDisabled) onClick();
         }}
       />
       <IconButton
-        src={!isAllowed ? cross_active : cross_disable}
-        className="relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px]"
+        src={!isAllowed && !isDisabled ? cross_active : cross_disable}
+        disabled={isDisabled}
+        className={`relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] ${isDisabled && 'cursor-default'}`}
         onClick={() => {
-          if (isAllowed) onClick();
+          if (isAllowed && !isDisabled) onClick();
         }}
       />
     </div>

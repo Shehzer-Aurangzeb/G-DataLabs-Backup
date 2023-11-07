@@ -1,9 +1,11 @@
+import { StaticImageData } from 'next/image';
 import { ResponseChoice } from '@/state/chats/types';
 
 type NAVITEM = {
   title: string;
   icon: any;
   to: string;
+  icon_dark?: string | StaticImageData;
 };
 export type NAVITEMS = NAVITEM & {
   nestedItems?: NAVITEM[];

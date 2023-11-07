@@ -20,7 +20,7 @@ export const useWeather = () => {
       try {
         const { coords } = response;
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}&units=metric`,
+          `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}&units=imperial`,
         );
         if (!data.main) return;
         const payload: WeatherType = {

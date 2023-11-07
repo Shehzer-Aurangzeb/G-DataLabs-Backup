@@ -10,10 +10,11 @@ import CollapsableInput from './CollapsableInput';
 type TProps = {
   isLoading: boolean;
   savePersonalData: (payload: PersonalDataSchemaType) => void;
+  saveDataTemporarily: (payload: PersonalDataSchemaType) => void;
 };
 type KEYVALUE = { [key: string]: string };
 
-function SidePanel({ savePersonalData, isLoading }: TProps) {
+function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }: TProps) {
   const [list, setList] = useState<{ emotionList: KEYVALUE; socialLifeList: KEYVALUE }>({
     emotionList: { initialKey: '' },
     socialLifeList: { initialKey: '' },
@@ -71,7 +72,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         value={values.high_temperature}
         type="number"
         onChange={handleChange}
-        title="High Temperature (C)"
+        title="High Temperature (F)"
         name="high_temperature"
         error={touched.high_temperature && errors.high_temperature}
       />
@@ -79,7 +80,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         value={values.low_temperature}
         type="number"
         onChange={handleChange}
-        title="Low Temperature (C)"
+        title="Low Temperature (F)"
         name="low_temperature"
         error={touched.low_temperature && errors.low_temperature}
       />
@@ -206,7 +207,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         value={values.work_life_balance}
         onChange={handleChange}
         type="number"
-        title="Work Life Balance (0-1)"
+        title="Work Life Balance (0-10)"
         name="work_life_balance"
         error={touched.work_life_balance && errors.work_life_balance}
       />
@@ -230,6 +231,7 @@ function SidePanel({ savePersonalData, isLoading }: TProps) {
         type="button"
         className="bg-blue dark:bg-darkBlue w-full disabled:bg-disabledBlue"
         title="Save"
+        onClick={() => saveDataTemporarily(values)}
         isLoading={false}
       />
       <Button

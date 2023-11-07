@@ -3,13 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAVITEMS } from '@/types';
+import { NAVITEMS, Theme } from '@/types';
 import Image from '@/components/UI/StyledImage';
+import { useTheme } from '@/context/ThemeProvider';
 
 interface IProps {
   items: NAVITEMS[];
 }
 function Items({ items }: IProps) {
+  const { theme } = useTheme();
   const pathname = usePathname();
   return (
     <ul className="max-w-sidebarItem w-4/5 flex flex-col gap-y-4">
@@ -21,7 +23,11 @@ function Items({ items }: IProps) {
               pathname === item.to ? 'bg-active dark:bg-[#888888]' : 'bg-transparent'
             }`}
           >
-            <Image src={item.icon} alt="icon" className="w-[30px] h-[30px]" />
+            <Image
+              src={theme === Theme.DARK && item.icon_dark ? item.icon_dark : item.icon}
+              alt="icon"
+              className="w-[30px] h-[30px]"
+            />
             <span className="font-sans text-main dark:text-primary text-xl font-medium">{item.title}</span>
           </Link>
 

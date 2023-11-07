@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Data, MyGDataSliceType, ScreenDataType } from './types';
+import { CONSENTTABLEDATA } from '@/constants';
+import { CData, Data, MyGDataSliceType, ScreenDataType } from './types';
 
 const initialState: MyGDataSliceType = {
   personalData: {},
   gData: {},
   rData: {},
-  cData: {},
+  cData: CONSENTTABLEDATA,
   screenData: [],
 };
 
@@ -46,11 +47,14 @@ const personalDataSlice = createSlice({
     setCDataAction: (
       state,
       action: {
-        payload: Data;
+        payload: CData;
       },
     ) => ({
       ...state,
-      cData: action.payload,
+      cData: {
+        ...state.cData,
+        ...action.payload,
+      },
     }),
     setScreenDataAction: (
       state,

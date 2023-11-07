@@ -9,7 +9,7 @@ import {
   ResetPasswordFormSchemaType,
   SignupFormSchemaType,
 } from '@/schema';
-import { home, history, account, myGData, logout } from './assets';
+import { home, history, account, logout, logo_dark, logo } from './assets';
 
 export const PATHS = {
   HOME: '/',
@@ -43,7 +43,8 @@ export const APPITEMS: TNAVITEMS[] = [
   },
   {
     title: 'My G-Data',
-    icon: myGData,
+    icon: logo,
+    icon_dark: logo_dark,
     to: PATHS.MYGDATA,
     nestedItems: [
       {
@@ -70,7 +71,8 @@ export const APPITEMS: TNAVITEMS[] = [
   },
   {
     title: 'Our G-Data',
-    icon: myGData,
+    icon: logo,
+    icon_dark: logo_dark,
     to: PATHS.OURGDATA,
   },
   {
@@ -104,22 +106,22 @@ export const SOCIALLIFEOPTIONS: DropDownOption[] = [
 
 export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
   {
-    title: 'Generate Text Only',
+    title: 'Text',
     color: '#046C98',
     value: ResponseChoice.TEXT,
-    darkColor: 'FAB515',
+    darkColor: '#A1BF8C',
   },
   {
-    title: 'Generate Image Only',
+    title: 'Image',
     color: '#F5B11A',
     value: ResponseChoice.IMAGES,
-    darkColor: '#E4C375',
+    darkColor: '#F5B11A',
   },
   {
-    title: 'Generate Text + Image',
+    title: 'Text + Image',
     color: '#E62431',
     value: ResponseChoice.BOTH,
-    darkColor: '#EE3E2E',
+    darkColor: '#907CB4',
   },
 ];
 export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
@@ -353,8 +355,128 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
   weight: 'measure of weight in pounds',
   family_status: 'status of close friends and family',
   device_screen_time: 'amount of time spent on personal devices',
-  work_life_balance: 'overall focus of the day in a range between 0(work)-1(relaxation',
+  work_life_balance: 'overall focus of the day in a range between 0(work)-10(relaxation)',
   journaling: 'any points throughout the day worthy of note',
+};
+export const CONSENTTABLEDATA = {
+  'EMOTIONAL OVERALL': {
+    Consent: 'TRUE',
+    Definition: 'an overall assessment of the days feelings',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  WEATHER: {
+    Consent: 'TRUE',
+    Definition: 'list of the weather of the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'RELATIVE FINANCE STATUS': {
+    Consent: 'TRUE',
+    Definition: 'relative financial status ',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'EXERCISE TIME': {
+    Consent: 'TRUE',
+    Definition: 'total amount of exercise during the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'ANY SOCIAL LIFE': {
+    Consent: 'TRUE',
+    Definition: 'whether or not any social life occurred',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'SOCIAL LIFE LIST': {
+    Consent: 'TRUE',
+    Definition: 'list of social activities',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'HEALTH OVERALL': {
+    Consent: 'TRUE',
+    Definition: 'an assessment of the days health',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  WEIGHT: {
+    Consent: 'TRUE',
+    Definition: 'measure of weight in pounds',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'FAMILY STATUS': {
+    Consent: 'TRUE',
+    Definition: 'status of close friends and family',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'DEVICE SCREEN TIME': {
+    Consent: 'TRUE',
+    Definition: 'amount of time spent on personal devices',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'WORK LIFE BALANCE': {
+    Consent: 'TRUE',
+    Definition: 'overall focus of the day in a range between 0(work)-10(relaxation)',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  JOURNALING: {
+    Consent: 'TRUE',
+    Definition: 'any points throughout the day worthy of note',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  DATE: {
+    Consent: 'TRUE',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'EMOTIONAL LIST': {
+    Consent: 'FALSE',
+    Definition: 'list of emotions experienced throughout the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'HIGH TEMPERATURE': {
+    Consent: 'FALSE',
+    Definition: 'highest temperature of the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  Photos: {
+    Consent: 'TRUE',
+    Definition: 'any personal images that describe the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
+  'LOW TEMPERATURE': {
+    Consent: 'FALSE',
+    Definition: 'lowest temperature of the day',
+    Companies: '',
+    Use: '',
+    id: null,
+  },
 };
 
 export const maxWidth = '1450px';

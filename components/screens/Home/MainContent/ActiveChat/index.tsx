@@ -1,12 +1,17 @@
-import React, { memo, useEffect, useRef } from 'react';
+import React, { memo, useCallback, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typed from 'react-typed';
 import { StaticImageData } from 'next/image';
-import { Chat as TMessage } from '@/state/chats/types';
-import logo from '@/public/assets/images/logo.svg';
+import logo from '@/public/assets/images/logo.png';
+import logo_dark from '@/public/assets/images/logo-dark.png';
+import logo_dark_gif from '@/public/assets/images/logo_dark.gif';
+import logo_gif from '@/public/assets/images/logo.gif';
 import Image from '@/components/UI/StyledImage';
-import Chat from './Chat';
+import { Chat as TMessage } from '@/state/chats/types';
+import { useTheme } from '@/context/ThemeProvider';
+import { Theme } from '@/types';
 import ResponseFeedback from './FeedbackAction';
+import Chat from './Chat';
 
 type TProps = {
   chats: TMessage[];
@@ -16,7 +21,18 @@ type TProps = {
 
 function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
+  const profile = useCallback(
+    (isLoading: boolean) => {
+      if (isLoading && theme === Theme.LIGHT) return logo_gif;
+      if (isLoading && theme === Theme.DARK) return logo_dark_gif;
+      if (!isLoading && theme === Theme.DARK) return logo_dark;
+
+      return logo;
+    },
+    [theme],
+  );
   //* scroll to bottom whenever new message is added
   useEffect(() => {
     if (!messagesRef.current) return;
@@ -29,7 +45,11 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
   return (
     <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
-        <Chat key={msg.messageID} isLoading={msg.isLoading} profile={msg.isBotResponse ? logo : userProfile}>
+        <Chat
+          key={msg.messageID}
+          isLoading={msg.isLoading}
+          profile={msg.isBotResponse ? profile(msg.isLoading) : userProfile}
+        >
           {msg.content.text !== null &&
             msg.content.text.length > 0 &&
             msg.messageID !== chats[chats.length - 1].messageID && <div>{msg.content.text}</div>}

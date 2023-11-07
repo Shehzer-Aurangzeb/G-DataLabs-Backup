@@ -25,8 +25,12 @@ import like from '@/public/assets/icons/like__icon.svg';
 import dislike from '@/public/assets/icons/dislike__icon.svg';
 import showpassword from '@/public/assets/icons/showpassword__icon.png';
 import hidepassword from '@/public/assets/icons/hidepassword__icon.png';
+import logo_dark from '@/public/assets/images/logo-dark.png';
+import logo from '@/public/assets/images/logo.png';
 
 export {
+  logo_dark,
+  logo,
   home,
   history,
   myGData,

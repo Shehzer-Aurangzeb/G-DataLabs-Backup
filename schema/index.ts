@@ -23,23 +23,21 @@ export const PersonalInfoSchema = object({
 });
 export const PersonalDataSchema = object({
   date: string(),
-  high_temperature: number().required('High Temperature is required'),
-  low_temperature: number().required('Low Temperature is required'),
-  emotional_list: array()
-    .of(string().required('Emotion List cannot be empty'))
-    .min(1, 'At least one emotion is required'),
-  emotional_overall: string().required('Overall emotion is required'),
+  high_temperature: number(),
+  low_temperature: number(),
+  emotional_list: array().of(string()),
+  emotional_overall: string(),
   weather: string(),
-  relative_finance_status: string().required(),
+  relative_finance_status: string(),
   exercise_time: number(),
   photos: mixed(),
   health_overall: string(),
-  any_social_life: string().required(),
+  any_social_life: string(),
   social_life_list: array().of(string()),
   weight: number(),
   family_status: string(),
   device_screen_time: string(),
-  work_life_balance: number(),
+  work_life_balance: number().min(0, 'Value must be at least 0').max(10, 'Value must not exceed 10'),
   journaling: string(),
 });
 

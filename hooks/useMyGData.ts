@@ -4,6 +4,7 @@
 
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
+import dayjs from 'dayjs';
 import { api } from '@/config';
 import { useLoading } from '@/state/loading/hooks';
 import { usePersonalData } from '@/state/myGData/hooks';
@@ -37,7 +38,7 @@ export const useMyGData = () => {
         setPersonalData(newData);
         await updateMyGData();
         await getAllConsentData();
-        await getAllPersonalData;
+        await getAllPersonalData();
       } catch (e) {
         // console.log('e :>> ', e);
       } finally {
@@ -66,12 +67,44 @@ export const useMyGData = () => {
     },
     [setIsLoading, getAllConsentData, updateMyGData],
   );
+  const savePersonalDataTemporarily = useCallback(
+    (data: PersonalDataSchemaType) => {
+      // const newData = createTableData({ tableName: TableName.PData, data });
+      const date = data.date ?? dayjs().format('YYYY-MM-DD');
+      const photos: { file_url: string | ArrayBuffer }[] = [];
+
+      for (const photo of data.photos) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          console.log('phot:>> ');
+
+          photos.push({
+            file_url: e.target && e.target.result !== null ? e.target.result : '',
+          });
+        };
+        reader.readAsDataURL(photo);
+      }
+      // wait for files to convert to data_uri
+      setTimeout(() => {
+        const updatedData = {
+          ...personalData,
+          [date]: {
+            ...data,
+            photos: [...photos],
+          },
+        };
+        setPersonalData(updatedData);
+      }, 3000);
+    },
+    [personalData, setPersonalData],
+  );
 
   return {
     savePersonalData,
     isLoading,
     personalData,
     updateConsentRewards,
+    savePersonalDataTemporarily,
     gData,
     rData,
     cData,

@@ -48,6 +48,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                   {cellIndex === row.cells.length - 2 ? (
                     <Actions
                       isAllowed={row.values.Consent !== 'FALSE'}
+                      isDisabled={row.values.id === null}
                       onClick={() => {
                         updateConsentRewards({
                           id: row.values.id,

@@ -16,7 +16,7 @@ type AppContextType = {
   gTableColumns: Column<Columns>[];
   getAllConsentData: () => Promise<void>;
   updateMyGData: () => Promise<void>;
-  getAllPersonalData: () => void;
+  getAllPersonalData: () => Promise<void>;
 };
 interface IProps {
   children: React.ReactNode;

@@ -91,7 +91,7 @@ function CollapsableInput({
                   id={`emotionList-${key}`}
                   type={type || 'text'}
                   value={val}
-                  className="bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
+                  className="bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary dark:text-white w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none"
                 />
               ))}
 
