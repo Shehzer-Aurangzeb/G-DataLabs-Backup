@@ -28,7 +28,7 @@ function IconButton({ onClick, type = 'button', isLoading = false, src, classNam
           }}
         />
       ) : (
-        <Image src={src} alt="icon" className="h-full w-full dark:invert-[1]" />
+        <Image src={src} alt="icon" className="h-full w-full" />
       )}
     </button>
   );

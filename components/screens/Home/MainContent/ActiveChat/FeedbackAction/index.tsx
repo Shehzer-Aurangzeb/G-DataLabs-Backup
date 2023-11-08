@@ -15,14 +15,14 @@ function FeedbackAction({ show }: TProps) {
     >
       <IconButton
         src={like}
-        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert"
+        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]"
         onClick={() => {
           // console.log('like');
         }}
       />
       <IconButton
         src={dislike}
-        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert"
+        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1]"
         onClick={() => {
           // console.log('dislike');
         }}

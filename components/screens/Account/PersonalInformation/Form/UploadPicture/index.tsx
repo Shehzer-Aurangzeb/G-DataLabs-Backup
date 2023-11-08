@@ -21,7 +21,7 @@ function UploadPicture({ handleChange, profile }: IProps) {
         <Image
           src={profile.length === 0 ? default_profile : profile}
           alt="profile"
-          className="w-[50px] h-[50px] dark:invert"
+          className="w-[50px] h-[50px]"
           rounded
         />
         <Image src={upload} alt="upload-icon" className="w-[36px] h-[36px]  dark:invert" />

@@ -1,7 +1,10 @@
 import home from '@/public/assets/icons/home__icon.svg';
+import home_dark from '@/public/assets/icons/home__icon_dark.svg';
 import history from '@/public/assets/icons/history__icon.svg';
+import history_dark from '@/public/assets/icons/history__icon_dark.svg';
 import myGData from '@/public/assets/icons/my_g-data__icon.svg';
 import account from '@/public/assets/icons/account__icon.svg';
+import account_dark from '@/public/assets/icons/account__icon_dark.svg';
 import bulb_active from '@/public/assets/icons/bulb_active__icon.svg';
 import bulb_inactive from '@/public/assets/icons/bulb_inactive__icon.svg';
 import logout from '@/public/assets/icons/logout__icon.svg';
@@ -32,9 +35,12 @@ export {
   logo_dark,
   logo,
   home,
+  home_dark,
   history,
+  history_dark,
   myGData,
   account,
+  account_dark,
   bulb_active,
   bulb_inactive,
   logout,

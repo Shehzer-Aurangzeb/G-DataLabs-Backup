@@ -6,6 +6,7 @@ function Toast() {
   return (
     <ToastContainer
       position="top-right"
+      limit={1}
       autoClose={1500}
       hideProgressBar
       newestOnTop

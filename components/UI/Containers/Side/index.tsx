@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { sidebar_dark } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import IconButton from '../../IconButton';
+import IconButton from 'components/UI/IconButton';
 
 interface IProps {
   children: React.ReactNode;
@@ -24,7 +24,7 @@ function Side({ children, className = '' }: IProps) {
       {width < 1024 && (
         <div className="h-[calc(100vh_-_2.5rem)] bg-light dark:bg-main relative w-[50px]">
           <IconButton
-            className="z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px]"
+            className="z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             src={sidebar_dark}
@@ -44,7 +44,7 @@ function Side({ children, className = '' }: IProps) {
       >
         {width < 1024 && (
           <IconButton
-            className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px]"
+            className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             src={sidebar_dark}

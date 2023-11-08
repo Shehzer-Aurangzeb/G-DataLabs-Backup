@@ -9,7 +9,7 @@ import {
   ResetPasswordFormSchemaType,
   SignupFormSchemaType,
 } from '@/schema';
-import { home, history, account, logout, logo_dark, logo } from './assets';
+import { home, history, account, logout, logo_dark, logo, home_dark, history_dark, account_dark } from './assets';
 
 export const PATHS = {
   HOME: '/',
@@ -35,11 +35,13 @@ export const APPITEMS: TNAVITEMS[] = [
     title: 'Home',
     icon: home,
     to: PATHS.HOME,
+    icon_dark: home_dark,
   },
   {
     title: 'History',
     icon: history,
     to: PATHS.HISTORY,
+    icon_dark: history_dark,
   },
   {
     title: 'My G-Data',
@@ -79,6 +81,7 @@ export const APPITEMS: TNAVITEMS[] = [
     title: 'My Account',
     icon: account,
     to: PATHS.ACCOUNT,
+    icon_dark: account_dark,
   },
 ];
 export const AUTHITEMS: TNAVITEMS[] = [
@@ -357,6 +360,7 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
   device_screen_time: 'amount of time spent on personal devices',
   work_life_balance: 'overall focus of the day in a range between 0(work)-10(relaxation)',
   journaling: 'any points throughout the day worthy of note',
+  date: 'the current day’s date',
 };
 export const CONSENTTABLEDATA = {
   'EMOTIONAL OVERALL': {
@@ -445,6 +449,7 @@ export const CONSENTTABLEDATA = {
   },
   DATE: {
     Consent: 'TRUE',
+    Definition: 'the current day’s date',
     Companies: '',
     Use: '',
     id: null,

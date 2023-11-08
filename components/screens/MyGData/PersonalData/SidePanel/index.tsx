@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
 import { PERSONALDATAINITIALVALUES, SOCIALLIFEOPTIONS } from '@/constants';
@@ -10,17 +10,17 @@ import CollapsableInput from './CollapsableInput';
 type TProps = {
   isLoading: boolean;
   savePersonalData: (payload: PersonalDataSchemaType) => void;
-  saveDataTemporarily: (payload: PersonalDataSchemaType) => void;
 };
 type KEYVALUE = { [key: string]: string };
 
-function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }: TProps) {
+function SidePanel({ savePersonalData, isLoading }: TProps) {
   const [list, setList] = useState<{ emotionList: KEYVALUE; socialLifeList: KEYVALUE }>({
     emotionList: { initialKey: '' },
     socialLifeList: { initialKey: '' },
   });
   const [noOfFiles, setNoOfFiles] = useState(0);
   const { weather } = useWeatherState();
+  const [selectedAction, setSelectedAction] = useState('Save');
 
   const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = useFormik({
     initialValues: {
@@ -29,13 +29,23 @@ function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }: TProps)
       low_temperature: weather ? weather.lowestTemperature : 0,
     },
     validationSchema: PersonalDataSchema,
-
-    onSubmit: async (results, onSubmit) => {
+    onSubmit: async (results, { resetForm, setSubmitting }) => {
       savePersonalData(results);
-      onSubmit.setSubmitting(false);
-      onSubmit.resetForm();
+      if (selectedAction === 'SaveEnter') {
+        resetForm({});
+        setList({
+          emotionList: { initialKey: '' },
+          socialLifeList: { initialKey: '' },
+        });
+        setNoOfFiles(0);
+      }
+      setSubmitting(false);
     },
   });
+
+  const handleEventListener = useCallback((action: string) => {
+    setSelectedAction(action);
+  }, []);
 
   const handleProfileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
@@ -53,7 +63,6 @@ function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }: TProps)
     }, 400);
     return () => clearTimeout(timer);
   }, [list, setFieldValue]);
-
   return (
     <form
       className="flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side dark:bg-dark rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile: dark:text-main"
@@ -228,16 +237,19 @@ function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }: TProps)
       />
 
       <Button
-        type="button"
+        type="submit"
+        value="Save"
         className="bg-blue dark:bg-darkBlue w-full disabled:bg-disabledBlue"
         title="Save"
-        onClick={() => saveDataTemporarily(values)}
-        isLoading={false}
+        isLoading={isLoading}
+        onClick={() => handleEventListener('Save')}
       />
       <Button
         type="submit"
+        value="SaveEnter"
         className="bg-[#F5B11A] w-full disabled:bg-[#f5b01aa7] dark:bg-darkTable"
-        title="Save & enter new data"
+        title="Save & Enter New Data"
+        onClick={() => handleEventListener('SaveEnter')}
         isLoading={isLoading}
       />
     </form>

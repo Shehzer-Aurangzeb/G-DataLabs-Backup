@@ -8,7 +8,7 @@ import Table from './Table';
 import SidePanel from './SidePanel';
 
 function Main() {
-  const { savePersonalData, isLoading, personalData, savePersonalDataTemporarily } = useMyGData();
+  const { savePersonalData, isLoading, personalData } = useMyGData();
   const tableData = useMemo(
     () =>
       Object.entries(personalData).map(([key, value]) => ({
@@ -19,11 +19,7 @@ function Main() {
   );
   return (
     <div className="flex flex-row gap-x-2 w-full overflow-hidden h-full mobile:flex-col-reverse">
-      <SidePanel
-        savePersonalData={savePersonalData}
-        isLoading={isLoading}
-        saveDataTemporarily={savePersonalDataTemporarily}
-      />
+      <SidePanel savePersonalData={savePersonalData} isLoading={isLoading} />
       <div className={`overflow-x-auto w-full h-full mobile:min-h-[350px] max-w-[${maxWidth}]`}>
         <Table data={tableData} columns={PERSONALDATATABLECOLUMNS} />
         {tableData.length === 0 && <NoData />}

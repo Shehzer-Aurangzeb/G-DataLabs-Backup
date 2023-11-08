@@ -42,7 +42,7 @@ function Items({ items }: IProps) {
                     }`}
                   >
                     <span
-                      className={`w-[30px] inline-block transition-all duration-200 bg-yellow ${
+                      className={`w-[30px] inline-block transition-all duration-200 bg-yellow dark:bg-[#F5B118] ${
                         pathname === nestedItem.to ? 'h-[13px]' : 'h-[6px]'
                       }`}
                     />
