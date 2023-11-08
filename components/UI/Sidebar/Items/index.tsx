@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { NAVITEMS, Theme } from '@/types';
 import Image from '@/components/UI/StyledImage';
 import { useTheme } from '@/context/ThemeProvider';
+import { SIDEBARLINKSCOLORS } from '@/constants';
 
 interface IProps {
   items: NAVITEMS[];
@@ -33,7 +34,7 @@ function Items({ items }: IProps) {
 
           {item.nestedItems && (
             <ul className="flex flex-col gap-y-[18px] ml-10 mt-5">
-              {item.nestedItems.map((nestedItem) => (
+              {item.nestedItems.map((nestedItem, index) => (
                 <li key={nestedItem.title}>
                   <Link
                     href={nestedItem.to}
@@ -42,9 +43,13 @@ function Items({ items }: IProps) {
                     }`}
                   >
                     <span
-                      className={`w-[30px] inline-block transition-all duration-200 bg-yellow dark:bg-[#F5B118] ${
+                      className={`w-[30px] inline-block transition-all duration-200 ${
                         pathname === nestedItem.to ? 'h-[13px]' : 'h-[6px]'
                       }`}
+                      style={{
+                        backgroundColor:
+                          theme === Theme.DARK ? SIDEBARLINKSCOLORS.DARK[index] : SIDEBARLINKSCOLORS.LIGHT[index],
+                      }}
                     />
                     <span className="font-sans text-main dark:text-primary text-base font-medium">
                       {nestedItem.title}

@@ -84,6 +84,11 @@ export const APPITEMS: TNAVITEMS[] = [
     icon_dark: account_dark,
   },
 ];
+
+export const SIDEBARLINKSCOLORS = {
+  DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98'],
+  LIGHT: ['#EE3E2E', '#3B7BBE', '#EFDCB1', '#DDAF40'],
+};
 export const AUTHITEMS: TNAVITEMS[] = [
   {
     title: 'Home',
