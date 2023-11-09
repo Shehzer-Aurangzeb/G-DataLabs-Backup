@@ -2,7 +2,7 @@
 (self['webpackChunk_N_E'] = self['webpackChunk_N_E'] || []).push([
   [826],
   {
-    /***/ 717: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 134: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -2039,6 +2039,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         TableName['GData'] = 'My G-Data';
         TableName['RData'] = 'Rewards Data';
         TableName['CData'] = 'Consent Data';
+        TableName['CompData'] = 'Company Data';
       })(TableName || (TableName = {})); // CONCATENATED MODULE: ./state/chats/types.ts
 
       var ResponseChoice;
@@ -2054,9 +2055,23 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         width: 31,
         blurWidth: 0,
         blurHeight: 0,
+      }; // CONCATENATED MODULE: ./public/assets/icons/home__icon_dark.svg
+      /* harmony default export */ const home_icon_dark = {
+        src: '/_next/static/media/home__icon_dark.836472a3.svg',
+        height: 31,
+        width: 31,
+        blurWidth: 0,
+        blurHeight: 0,
       }; // CONCATENATED MODULE: ./public/assets/icons/history__icon.svg
       /* harmony default export */ const history_icon = {
         src: '/_next/static/media/history__icon.317786c2.svg',
+        height: 31,
+        width: 31,
+        blurWidth: 0,
+        blurHeight: 0,
+      }; // CONCATENATED MODULE: ./public/assets/icons/history__icon_dark.svg
+      /* harmony default export */ const history_icon_dark = {
+        src: '/_next/static/media/history__icon_dark.970311ed.svg',
         height: 31,
         width: 31,
         blurWidth: 0,
@@ -2071,6 +2086,13 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
       }; // CONCATENATED MODULE: ./public/assets/icons/account__icon.svg
       /* harmony default export */ const account_icon = {
         src: '/_next/static/media/account__icon.b91bce68.svg',
+        height: 30,
+        width: 30,
+        blurWidth: 0,
+        blurHeight: 0,
+      }; // CONCATENATED MODULE: ./public/assets/icons/account__icon_dark.svg
+      /* harmony default export */ const account_icon_dark = {
+        src: '/_next/static/media/account__icon_dark.8bdda029.svg',
         height: 30,
         width: 30,
         blurWidth: 0,
@@ -2278,6 +2300,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         ACCOUNT: '/account',
         PERSONAL: '/my_g-data/personal-data',
         CONSENT: '/my_g-data/consent',
+        COMPANY: '/my_g-data/company',
         REWARDS: '/my_g-data/rewards',
         SCREEN: '/my_g-data/screen-data',
         SIGNUP: '/signup',
@@ -2293,11 +2316,13 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           title: 'Home',
           icon: home_icon,
           to: PATHS.HOME,
+          icon_dark: home_icon_dark,
         },
         {
           title: 'History',
           icon: history_icon,
           to: PATHS.HISTORY,
+          icon_dark: history_icon_dark,
         },
         {
           title: 'My G-Data',
@@ -2337,8 +2362,13 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           title: 'My Account',
           icon: account_icon,
           to: PATHS.ACCOUNT,
+          icon_dark: account_icon_dark,
         },
       ];
+      const SIDEBARLINKSCOLORS = {
+        DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98', '#EA6D24'],
+        LIGHT: ['#EE3E2E', '#3B7BBE', '#EFDCB1', '#DDAF40', '#E9CB84'],
+      };
       const AUTHITEMS = [
         {
           title: 'Home',
@@ -2386,6 +2416,21 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           darkColor: '#907CB4',
         },
       ];
+      var ACCOUNTTYPE;
+      (function (ACCOUNTTYPE) {
+        ACCOUNTTYPE['PERSONAL'] = 'Personal';
+        ACCOUNTTYPE['COMPANY'] = 'Company';
+      })(ACCOUNTTYPE || (ACCOUNTTYPE = {}));
+      const ACCOUNTTYPESOPTIONS = [
+        {
+          label: ACCOUNTTYPE.PERSONAL,
+          value: ACCOUNTTYPE.PERSONAL,
+        },
+        {
+          label: ACCOUNTTYPE.COMPANY,
+          value: ACCOUNTTYPE.COMPANY,
+        },
+      ];
       const PERSONALINFOINITIALVALUES = {
         firstName: '',
         lastName: '',
@@ -2413,6 +2458,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         privacyPolicy: false,
         termsConditions: false,
         cookiePolicy: false,
+        accountType: ACCOUNTTYPESOPTIONS[0].label,
       };
       const PERSONALDATAINITIALVALUES = {
         date: '',
@@ -2449,6 +2495,32 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         {
           Header: 'id',
           accessor: 'id',
+        },
+      ];
+      const COMPANYTABLECOLUMNS = [
+        {
+          Header: 'Personal Data and Webcam',
+          accessor: 'PDataAndWeb',
+        },
+        {
+          Header: 'Definition',
+          accessor: 'Definition',
+        },
+        {
+          Header: 'Use',
+          accessor: 'Use',
+        },
+        {
+          Header: 'Pricing',
+          accessor: 'Pricing',
+        },
+        {
+          Header: 'Consent',
+          accessor: 'Consent',
+        },
+        {
+          Header: 'Field Name',
+          accessor: 'fieldName',
         },
       ];
       const REWARDSTABLECOLUMNS = [
@@ -2613,94 +2685,96 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         device_screen_time: 'amount of time spent on personal devices',
         work_life_balance: 'overall focus of the day in a range between 0(work)-10(relaxation)',
         journaling: 'any points throughout the day worthy of note',
+        date: 'the current day’s date',
       };
       const CONSENTTABLEDATA = {
         'EMOTIONAL OVERALL': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'an overall assessment of the days feelings',
           Companies: '',
           Use: '',
           id: null,
         },
         WEATHER: {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'list of the weather of the day',
           Companies: '',
           Use: '',
           id: null,
         },
         'RELATIVE FINANCE STATUS': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'relative financial status ',
           Companies: '',
           Use: '',
           id: null,
         },
         'EXERCISE TIME': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'total amount of exercise during the day',
           Companies: '',
           Use: '',
           id: null,
         },
         'ANY SOCIAL LIFE': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'whether or not any social life occurred',
           Companies: '',
           Use: '',
           id: null,
         },
         'SOCIAL LIFE LIST': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'list of social activities',
           Companies: '',
           Use: '',
           id: null,
         },
         'HEALTH OVERALL': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'an assessment of the days health',
           Companies: '',
           Use: '',
           id: null,
         },
         WEIGHT: {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'measure of weight in pounds',
           Companies: '',
           Use: '',
           id: null,
         },
         'FAMILY STATUS': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'status of close friends and family',
           Companies: '',
           Use: '',
           id: null,
         },
         'DEVICE SCREEN TIME': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'amount of time spent on personal devices',
           Companies: '',
           Use: '',
           id: null,
         },
         'WORK LIFE BALANCE': {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'overall focus of the day in a range between 0(work)-10(relaxation)',
           Companies: '',
           Use: '',
           id: null,
         },
         JOURNALING: {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'any points throughout the day worthy of note',
           Companies: '',
           Use: '',
           id: null,
         },
         DATE: {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
+          Definition: 'the current day’s date',
           Companies: '',
           Use: '',
           id: null,
@@ -2720,7 +2794,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           id: null,
         },
         Photos: {
-          Consent: 'TRUE',
+          Consent: 'FALSE',
           Definition: 'any personal images that describe the day',
           Companies: '',
           Use: '',
@@ -2734,17 +2808,149 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           id: null,
         },
       };
+      const COMPANYTABLEDATA = {
+        'EMOTIONAL OVERALL': {
+          Consent: 'FALSE',
+          Definition: 'an overall assessment of the days feelings',
+          Pricing: '',
+          Use: '',
+          fieldName: 'EMOTIONAL OVERALL',
+        },
+        WEATHER: {
+          Consent: 'FALSE',
+          Definition: 'list of the weather of the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'WEATHER',
+        },
+        'RELATIVE FINANCE STATUS': {
+          Consent: 'FALSE',
+          Definition: 'relative financial status ',
+          Pricing: '',
+          Use: '',
+          fieldName: 'RELATIVE FINANCE STATUS',
+        },
+        'EXERCISE TIME': {
+          Consent: 'FALSE',
+          Definition: 'total amount of exercise during the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'EXERCISE TIME',
+        },
+        'ANY SOCIAL LIFE': {
+          Consent: 'FALSE',
+          Definition: 'whether or not any social life occurred',
+          Pricing: '',
+          Use: '',
+          fieldName: 'ANY SOCIAL LIFE',
+        },
+        'SOCIAL LIFE LIST': {
+          Consent: 'FALSE',
+          Definition: 'list of social activities',
+          Pricing: '',
+          Use: '',
+          fieldName: 'SOCIAL LIFE LIST',
+        },
+        'HEALTH OVERALL': {
+          Consent: 'FALSE',
+          Definition: 'an assessment of the days health',
+          Pricing: '',
+          Use: '',
+          fieldName: 'HEALTH OVERALL',
+        },
+        WEIGHT: {
+          Consent: 'FALSE',
+          Definition: 'measure of weight in pounds',
+          Pricing: '',
+          Use: '',
+          fieldName: 'WEIGHT',
+        },
+        'FAMILY STATUS': {
+          Consent: 'FALSE',
+          Definition: 'status of close friends and family',
+          Pricing: '',
+          Use: '',
+          fieldName: 'FAMILY STATUS',
+        },
+        'DEVICE SCREEN TIME': {
+          Consent: 'FALSE',
+          Definition: 'amount of time spent on personal devices',
+          Pricing: '',
+          Use: '',
+          fieldName: 'DEVICE SCREEN TIME',
+        },
+        'WORK LIFE BALANCE': {
+          Consent: 'FALSE',
+          Definition: 'overall focus of the day in a range between 0(work)-10(relaxation)',
+          Pricing: '',
+          Use: '',
+          fieldName: 'WORK LIFE BALANCE',
+        },
+        JOURNALING: {
+          Consent: 'FALSE',
+          Definition: 'any points throughout the day worthy of note',
+          Pricing: '',
+          Use: '',
+          fieldName: 'JOURNALING',
+        },
+        DATE: {
+          Consent: 'FALSE',
+          Definition: 'the current day’s date',
+          Pricing: '',
+          Use: '',
+          fieldName: 'DATE',
+        },
+        'EMOTIONAL LIST': {
+          Consent: 'FALSE',
+          Definition: 'list of emotions experienced throughout the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'EMOTIONAL LIST',
+        },
+        'HIGH TEMPERATURE': {
+          Consent: 'FALSE',
+          Definition: 'highest temperature of the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'HIGH TEMPERATURE',
+        },
+        Photos: {
+          Consent: 'FALSE',
+          Definition: 'any personal images that describe the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'Photos',
+        },
+        'LOW TEMPERATURE': {
+          Consent: 'FALSE',
+          Definition: 'lowest temperature of the day',
+          Pricing: '',
+          Use: '',
+          fieldName: 'LOW TEMPERATURE',
+        },
+      };
       const maxWidth = '1450px';
       const PAGEOPTION = /* unused pure expression or super */ null && [10, 20, 30, 40]; // CONCATENATED MODULE: ./middleware.ts
 
       async function middleware(request) {
         const cookie = request.cookies.get(COOKIES.TOKEN);
+        const user = request.cookies.get(COOKIES.USER);
         const { pathname } = request.nextUrl;
+        if (user) {
+          const { accountType } = JSON.parse(user.value);
+          if (
+            (!accountType && pathname === PATHS.COMPANY) ||
+            (accountType === ACCOUNTTYPE.PERSONAL && pathname === PATHS.COMPANY)
+          ) {
+            return NextResponse.redirect(new URL(PATHS.HOME, request.url));
+          }
+        }
         if (cookie && (pathname === PATHS.LOGIN || pathname === PATHS.SIGNUP)) {
           return NextResponse.redirect(new URL(PATHS.HOME, request.url));
         }
         if (
           (pathname === PATHS.ACCOUNT ||
+            pathname === PATHS.COMPANY ||
             pathname.includes(PATHS.MYGDATA) ||
             pathname === PATHS.HISTORY ||
             pathname === PATHS.OURGDATA) &&
@@ -3252,7 +3458,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ var __webpack_exports__ = __webpack_exec__(717);
+    /******/ var __webpack_exports__ = __webpack_exec__(134);
     /******/ (_ENTRIES = typeof _ENTRIES === 'undefined' ? {} : _ENTRIES).middleware_middleware = __webpack_exports__;
     /******/
   },

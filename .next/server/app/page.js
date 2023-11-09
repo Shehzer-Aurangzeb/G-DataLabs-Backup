@@ -455,8 +455,8 @@
 
       // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
       var StyledImage = __webpack_require__(29884);
-      // EXTERNAL MODULE: ./constants/assets.ts + 27 modules
-      var assets = __webpack_require__(98739); // CONCATENATED MODULE: ./hooks/useAutoSizeTextArea.ts
+      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
+      var assets = __webpack_require__(47721); // CONCATENATED MODULE: ./hooks/useAutoSizeTextArea.ts
       /* __next_internal_client_entry_do_not_use__ useAutosizeTextArea auto */
       // Updates the height of a <textarea> when the value changes.
       const useAutosizeTextArea = (textAreaRef, value) => {
@@ -629,14 +629,15 @@
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
               src: assets /* like */.vL,
-              className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert',
+              className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
               onClick: () => {
                 // console.log('like');
               },
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
               src: assets /* dislike */.DV,
-              className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert',
+              className:
+                'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1]',
               onClick: () => {
                 // console.log('dislike');
               },
@@ -953,6 +954,6 @@
   var __webpack_require__ = require('../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 702, 782, 54], () => __webpack_exec__(90009));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 262, 782, 54], () => __webpack_exec__(90009));
   module.exports = __webpack_exports__;
 })();

@@ -512,7 +512,7 @@
           className: 'absolute-center w-full max-w-[450px] overflow-y-auto',
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx('h1', {
-              className: 'text-3xl font-sans font-bold text-primary mb-5',
+              className: 'text-3xl font-sans font-bold text-primary mb-5 dark:text-main',
               children: 'Sign in to G-Data Labs',
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Form, {
@@ -572,6 +572,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 702, 782, 732, 628], () => __webpack_exec__(39471));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 262, 782, 732, 628], () => __webpack_exec__(39471));
   module.exports = __webpack_exports__;
 })();

@@ -412,12 +412,12 @@
 
     /***/ 85223: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 55094));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 33991));
 
       /***/
     },
 
-    /***/ 55094: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 33991: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -528,89 +528,10 @@
       // EXTERNAL MODULE: ./node_modules/next/image.js
       var next_image = __webpack_require__(52451);
       var image_default = /*#__PURE__*/ __webpack_require__.n(next_image);
-      // EXTERNAL MODULE: ./constants/assets.ts + 27 modules
-      var assets = __webpack_require__(98739);
-      // EXTERNAL MODULE: ./lib/index.ts
-      var lib = __webpack_require__(14088);
-      // EXTERNAL MODULE: ./hooks/useOutsideClick.ts
-      var useOutsideClick = __webpack_require__(95951); // CONCATENATED MODULE: ./components/UI/Select/index.tsx
-      /* eslint-disable jsx-a11y/label-has-associated-control */
-
-      function Select({ className, options, style, value, onClick }) {
-        const [isOpen, setIsOpen] = (0, react_.useState)(false);
-        const selectRef = (0, react_.useRef)(null);
-        const toggleDropdown = () => {
-          setIsOpen(!isOpen);
-        };
-        const handleOutsideClick = () => {
-          setIsOpen(false);
-        };
-        (0, useOutsideClick /* useOutsideClick */.O)(selectRef, handleOutsideClick);
-        return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-          ref: selectRef,
-          style: style,
-          className: [
-            `relative bg-chat py-[10px] dark:bg-darkChat dark:text-main px-4 ${
-              isOpen ? 'rounded-md rounded-b-none' : 'rounded-md'
-            } w-full`,
-            className,
-          ].join(' '),
-          children: [
-            /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-              className: 'flex w-full justify-between items-center',
-              onClick: toggleDropdown,
-              onKeyDown: toggleDropdown,
-              role: 'button',
-              tabIndex: 0,
-              children: [
-                /*#__PURE__*/ jsx_runtime_.jsx('label', {
-                  className:
-                    'text-primary dark:text-main  font-sans font-normal text-base max-w-[90%] overflow-hidden text-ellipsis whitespace-nowrap',
-                  children: (0, lib /* capitalize */.kC)(value),
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
-                  src: assets /* arrow */.x7,
-                  alt: 'dropdown-icon',
-                  className: `w-6 h-6 transition-all ease-in duration-250 dark:invert ${
-                    isOpen ? 'rotate-180 ' : 'rotate-0'
-                  }`,
-                }),
-              ],
-            }),
-            isOpen &&
-              /*#__PURE__*/ jsx_runtime_.jsx('ul', {
-                className: 'list-none rounded-b-md absolute bg-chat dark:bg-darkChat w-full top-[44px] left-0 z-10',
-                children: options
-                  .filter((item) => item.value !== value)
-                  .map((item) =>
-                    /*#__PURE__*/ jsx_runtime_.jsx(
-                      'li',
-                      {
-                        children: /*#__PURE__*/ jsx_runtime_.jsx('div', {
-                          tabIndex: 0,
-                          className:
-                            'cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 py-[10px]',
-                          role: 'button',
-                          onClick: () => {
-                            onClick(item.value);
-                            toggleDropdown();
-                          },
-                          onKeyDown: () => {
-                            onClick(item.value);
-                            toggleDropdown();
-                          },
-                          children: (0, lib /* capitalize */.kC)(item.value),
-                        }),
-                      },
-                      (0, v4 /* default */.Z)(),
-                    ),
-                  ),
-              }),
-          ],
-        });
-      }
-      /* harmony default export */ const UI_Select = Select; // CONCATENATED MODULE: ./components/screens/MyGData/PersonalData/SidePanel/CollapsableInput/fileInput.tsx
-
+      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
+      var assets = __webpack_require__(47721);
+      // EXTERNAL MODULE: ./components/UI/Select/index.tsx
+      var Select = __webpack_require__(7473); // CONCATENATED MODULE: ./components/screens/MyGData/PersonalData/SidePanel/CollapsableInput/fileInput.tsx
       /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
 
       function FileInput({ onChange, noOfFiles }) {
@@ -707,7 +628,7 @@
                       !isAddingFieldEnabled &&
                       type !== 'file' &&
                       isSelectInput &&
-                      /*#__PURE__*/ jsx_runtime_.jsx(UI_Select, {
+                      /*#__PURE__*/ jsx_runtime_.jsx(Select /* default */.Z, {
                         options: selectOptions,
                         className: 'w-auto ',
                         value: value?.toString(),
@@ -777,7 +698,7 @@
       }
       /* harmony default export */ const SidePanel_CollapsableInput = CollapsableInput; // CONCATENATED MODULE: ./components/screens/MyGData/PersonalData/SidePanel/index.tsx
 
-      function SidePanel({ savePersonalData, isLoading, saveDataTemporarily }) {
+      function SidePanel({ savePersonalData, isLoading }) {
         const [list, setList] = (0, react_.useState)({
           emotionList: {
             initialKey: '',
@@ -788,6 +709,7 @@
         });
         const [noOfFiles, setNoOfFiles] = (0, react_.useState)(0);
         const { weather } = (0, hooks /* useWeatherState */.I)();
+        const [selectedAction, setSelectedAction] = (0, react_.useState)('Save');
         const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
           initialValues: {
@@ -796,12 +718,26 @@
             low_temperature: weather ? weather.lowestTemperature : 0,
           },
           validationSchema: schema /* PersonalDataSchema */.wD,
-          onSubmit: async (results, onSubmit) => {
+          onSubmit: async (results, { resetForm, setSubmitting }) => {
             savePersonalData(results);
-            onSubmit.setSubmitting(false);
-            onSubmit.resetForm();
+            if (selectedAction === 'SaveEnter') {
+              resetForm({});
+              setList({
+                emotionList: {
+                  initialKey: '',
+                },
+                socialLifeList: {
+                  initialKey: '',
+                },
+              });
+              setNoOfFiles(0);
+            }
+            setSubmitting(false);
           },
         });
+        const handleEventListener = (0, react_.useCallback)((action) => {
+          setSelectedAction(action);
+        }, []);
         const handleProfileChange = (event) => {
           const { files } = event.target;
           if (files) {
@@ -989,16 +925,19 @@
               error: false,
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Button /* default */.Z, {
-              type: 'button',
+              type: 'submit',
+              value: 'Save',
               className: 'bg-blue dark:bg-darkBlue w-full disabled:bg-disabledBlue',
               title: 'Save',
-              onClick: () => saveDataTemporarily(values),
-              isLoading: false,
+              isLoading: isLoading,
+              onClick: () => handleEventListener('Save'),
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Button /* default */.Z, {
               type: 'submit',
+              value: 'SaveEnter',
               className: 'bg-[#F5B11A] w-full disabled:bg-[#f5b01aa7] dark:bg-darkTable',
-              title: 'Save & enter new data',
+              title: 'Save & Enter New Data',
+              onClick: () => handleEventListener('SaveEnter'),
               isLoading: isLoading,
             }),
           ],
@@ -1009,8 +948,7 @@
       /* __next_internal_client_entry_do_not_use__ default auto */
 
       function Main() {
-        const { savePersonalData, isLoading, personalData, savePersonalDataTemporarily } = (0,
-        useMyGData /* useMyGData */.T)();
+        const { savePersonalData, isLoading, personalData } = (0, useMyGData /* useMyGData */.T)();
         const tableData = (0, react_.useMemo)(
           () =>
             Object.entries(personalData).map(([key, value]) => ({
@@ -1025,7 +963,6 @@
             /*#__PURE__*/ jsx_runtime_.jsx(PersonalData_SidePanel, {
               savePersonalData: savePersonalData,
               isLoading: isLoading,
-              saveDataTemporarily: savePersonalDataTemporarily,
             }),
             /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
               className: `overflow-x-auto w-full h-full mobile:min-h-[350px] max-w-[${constants /* maxWidth */.kk}]`,
@@ -1090,7 +1027,7 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 960, 702, 782, 732, 807, 54], () =>
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 960, 262, 782, 807, 732, 54, 473], () =>
     __webpack_exec__(8526),
   );
   module.exports = __webpack_exports__;

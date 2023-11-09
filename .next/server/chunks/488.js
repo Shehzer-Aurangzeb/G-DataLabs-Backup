@@ -14,7 +14,7 @@ exports.modules = {
     /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
       react__WEBPACK_IMPORTED_MODULE_1__,
     );
-    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(98739);
+    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47721);
     /* harmony import */ var _components_UI_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17223);
     /* __next_internal_client_entry_do_not_use__ default auto */
 

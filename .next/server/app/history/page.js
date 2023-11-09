@@ -431,8 +431,8 @@
       var hooks = __webpack_require__(81178);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
       var NoDataMessage = __webpack_require__(79054);
-      // EXTERNAL MODULE: ./constants/assets.ts + 27 modules
-      var assets = __webpack_require__(98739);
+      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
+      var assets = __webpack_require__(47721);
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./node_modules/uuid/dist/esm-node/v4.js + 3 modules
@@ -741,6 +741,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 54], () => __webpack_exec__(87681));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 54], () => __webpack_exec__(87681));
   module.exports = __webpack_exports__;
 })();
