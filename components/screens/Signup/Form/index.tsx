@@ -2,8 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { SignupFormSchema } from '@/schema';
-import { PATHS, SIGNUPFORMINITIALVALUES } from '@/constants';
+import { ACCOUNTTYPE, ACCOUNTTYPESOPTIONS, PATHS, SIGNUPFORMINITIALVALUES } from '@/constants';
 import Input from '@/components/UI/Input';
+import Select from '@/components/UI/Select';
 import Button from '@/components/UI/Button';
 import Checkbox from '@/components/UI/Checkbox';
 import { SignupCredentials } from '@/types';
@@ -14,7 +15,7 @@ type TProps = {
 };
 
 function SignupForm({ isLoading, registerUser }: TProps) {
-  const { handleSubmit, handleChange, values, touched, errors } = useFormik({
+  const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = useFormik({
     initialValues: SIGNUPFORMINITIALVALUES,
     validationSchema: SignupFormSchema,
 
@@ -24,6 +25,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
         first_name: results.firstName,
         last_name: results.lastName,
         password: results.password,
+        is_company: results.accountType === ACCOUNTTYPE.COMPANY,
       };
       registerUser(payload);
       onSubmit.setSubmitting(false);
@@ -31,6 +33,17 @@ function SignupForm({ isLoading, registerUser }: TProps) {
   });
   return (
     <form className="flex flex-row flex-wrap gap-5 items-center" noValidate onSubmit={handleSubmit}>
+      <div className="flex flex-col gap-y-3 relative w-full">
+        <span className="block text-base font-bold font-sans text-black dark:text-white">Account Type</span>
+        <Select
+          value={values.accountType}
+          options={ACCOUNTTYPESOPTIONS}
+          className="w-auto max-w-[450px]"
+          onClick={(item: string) => {
+            setFieldValue('accountType', item);
+          }}
+        />
+      </div>
       <Input
         label="First Name"
         placeholder="First Name"
@@ -69,12 +82,14 @@ function SignupForm({ isLoading, registerUser }: TProps) {
         value={values.password}
         className="w-full max-w-[450px]"
       />
-      <div className="flex flex-col gap-y-5">
+
+      <div className="flex flex-col gap-y-5 w-full">
         <Checkbox
           checked={values.termsConditions}
           onChange={handleChange}
           name="termsConditions"
           id="termsConditions"
+          className="w-fit"
           error={errors.termsConditions}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
@@ -91,6 +106,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           onChange={handleChange}
           name="privacyPolicy"
           id="privacyPolicy"
+          className="w-fit"
           error={errors.privacyPolicy}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
@@ -107,6 +123,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           onChange={handleChange}
           name="cookiePolicy"
           id="cookiePolicy"
+          className="w-fit"
           error={errors.cookiePolicy}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
@@ -125,14 +142,13 @@ function SignupForm({ isLoading, registerUser }: TProps) {
             Click here to Login
           </Link>
         </p>
-
-        <Button
-          type="submit"
-          className="bg-blue w-full disabled:bg-disabledBlue"
-          title="Sign up"
-          isLoading={isLoading}
-        />
       </div>
+      <Button
+        type="submit"
+        className="bg-blue w-full disabled:bg-disabledBlue max-w-[450px]"
+        title="Sign up"
+        isLoading={isLoading}
+      />
     </form>
   );
 }

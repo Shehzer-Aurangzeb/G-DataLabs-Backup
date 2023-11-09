@@ -11,6 +11,7 @@ export type UserType = {
   accountNo?: string;
   accountTitle?: string;
   bankName?: string;
+  accountType?: string;
 };
 
 export type UserSliceType = {

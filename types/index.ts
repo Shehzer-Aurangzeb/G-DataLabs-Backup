@@ -61,6 +61,7 @@ export enum TableName {
   GData = 'My G-Data',
   RData = 'Rewards Data',
   CData = 'Consent Data',
+  CompData = 'Company Data',
 }
 export type PersonalDataType = {
   consents_to_sell: boolean;
@@ -139,3 +140,12 @@ export type DropDownOption = {
   label: string;
   value: string;
 };
+
+export type UpdateCompanyConsentPayload = {
+  demanded_reward_value: number;
+  usage: string;
+  consents_to_buy: boolean;
+  personal_data_field: {
+    field_name: string;
+  };
+}[];

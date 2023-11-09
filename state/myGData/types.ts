@@ -16,10 +16,16 @@ export type MyGDataSliceType = {
   gData: Data;
   rData: Data;
   cData: CData;
+  compData: CData;
   screenData: ScreenDataType[];
 };
 
 export type UpdateConsentRewardType = {
   demanded_reward_value?: Number;
+  consents_to_sell?: boolean;
+};
+
+export type UpdateConsentCompanyType = {
+  value?: string;
   consents_to_sell?: boolean;
 };

@@ -49,7 +49,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     const timeout = setTimeout(() => {
       if (!recordID) return;
       updateConsentRewards({ id: Number(recordID), payload: PDefinedValue[recordID] });
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, [PDefinedValue, recordID, updateConsentRewards]);
@@ -95,13 +95,19 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                   {cellIndex === 2 && (
                     <Input
                       name={row.values.id}
+                      id={row.values.id}
                       readOnly={false}
                       value={PDefinedValue[row.values.id].demanded_reward_value?.toString()}
                       onChange={handleChange}
                     />
                   )}
                   {cellIndex === 3 && (
-                    <Input name={`OtherCompValue-${row.values.id}`} readOnly value={row.values.OtherCompValue} />
+                    <Input
+                      name={`OtherCompValue-${row.values.id}`}
+                      id={`OtherCompValue-${row.values.id}`}
+                      readOnly
+                      value={row.values.OtherCompValue}
+                    />
                   )}
                 </td>
               ))}

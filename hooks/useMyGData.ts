@@ -10,14 +10,14 @@ import { useLoading } from '@/state/loading/hooks';
 import { usePersonalData } from '@/state/myGData/hooks';
 import { PersonalDataSchemaType } from '@/schema';
 import { createTableData, createPayload } from '@/lib';
-import { TableName } from '@/types';
+import { TableName, UpdateCompanyConsentPayload } from '@/types';
 import { UpdateConsentRewardType } from '@/state/myGData/types';
 import { useApp } from '@/context/AppProvider';
 
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
-  const { personalData, setPersonalData, gData, rData, cData, screenData } = usePersonalData();
-  const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData } = useApp();
+  const { personalData, setPersonalData, gData, rData, cData, screenData, compData } = usePersonalData();
+  const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData, getAllCompanyConsentData } = useApp();
 
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
@@ -56,7 +56,6 @@ export const useMyGData = () => {
         await api.patch(`api/user_consents_rewards/${id}/`, payload);
         await getAllConsentData();
         await updateMyGData();
-
         toast.success('Consent updated');
       } catch (e) {
         // console.log('e :>> ', e);
@@ -67,6 +66,22 @@ export const useMyGData = () => {
     },
     [setIsLoading, getAllConsentData, updateMyGData],
   );
+  const updateCompanyConsentRewards = useCallback(
+    async (payload: UpdateCompanyConsentPayload) => {
+      try {
+        setIsLoading(true);
+        await api.post('api/company_consents_rewards', payload);
+        toast.success('Consent updated');
+        getAllCompanyConsentData();
+      } catch (e) {
+        // console.log('e :>> ', e);
+        toast.error('Some problem updating consent');
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [setIsLoading, getAllCompanyConsentData],
+  );
   const savePersonalDataTemporarily = useCallback(
     (data: PersonalDataSchemaType) => {
       // const newData = createTableData({ tableName: TableName.PData, data });
@@ -76,8 +91,6 @@ export const useMyGData = () => {
       for (const photo of data.photos) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          console.log('phot:>> ');
-
           photos.push({
             file_url: e.target && e.target.result !== null ? e.target.result : '',
           });
@@ -105,10 +118,12 @@ export const useMyGData = () => {
     personalData,
     updateConsentRewards,
     savePersonalDataTemporarily,
+    updateCompanyConsentRewards,
     gData,
     rData,
     cData,
     screenData,
     gTableColumns,
+    compData,
   };
 };

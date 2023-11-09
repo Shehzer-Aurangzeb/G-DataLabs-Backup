@@ -12,7 +12,7 @@ import { useLoading } from '@/state/loading/hooks';
 import { useUser } from '@/state/user/hooks';
 import { UserType } from '@/state/user/types';
 import { SignupCredentials, UpdateUserPayloadType, UserCredentials } from 'types';
-import { PATHS } from '@/constants';
+import { ACCOUNTTYPE, PATHS } from '@/constants';
 import { generateAvatar } from '@/lib';
 import { useChats } from '@/state/chats/hooks';
 import { ConfirmPasswordFormSchemaType, ResetPasswordFormSchemaType } from '@/schema';
@@ -29,7 +29,7 @@ export const useAuth = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    const { email, first_name, last_name, phone_number, total_rewards, username, id } = data.data;
+    const { email, first_name, last_name, phone_number, total_rewards, username, id, is_company } = data.data;
     let { profile_picture_url } = data.data;
     if (!profile_picture_url) {
       profile_picture_url = generateAvatar(first_name);
@@ -44,6 +44,7 @@ export const useAuth = () => {
       phoneNumber: phone_number,
       totalRewards: total_rewards,
       key: '',
+      accountType: is_company ? ACCOUNTTYPE.COMPANY : ACCOUNTTYPE.PERSONAL,
     };
 
     return userInfo;

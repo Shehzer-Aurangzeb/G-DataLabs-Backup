@@ -54,7 +54,7 @@ function Input({
           <Image
             src={showPassword ? showpassword : hidepassword}
             alt={showPassword ? 'hide-password-icon' : 'show-password-icon'}
-            className="h-5 w-5 dark:filter dark:brightness-0 cursor-pointer absolute top-[50%] right-[10px] transform translate-y-[-50%]"
+            className="h-5 w-5 dark:invert-[1] cursor-pointer absolute top-[50%] right-[10px] transform translate-y-[-50%]"
             onClick={togglePasswordVisibility}
           />
         </div>

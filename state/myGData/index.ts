@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CONSENTTABLEDATA } from '@/constants';
+import { COMPANYTABLEDATA, CONSENTTABLEDATA } from '@/constants';
 import { CData, Data, MyGDataSliceType, ScreenDataType } from './types';
 
 const initialState: MyGDataSliceType = {
@@ -7,6 +7,7 @@ const initialState: MyGDataSliceType = {
   gData: {},
   rData: {},
   cData: CONSENTTABLEDATA,
+  compData: COMPANYTABLEDATA,
   screenData: [],
 };
 
@@ -56,6 +57,18 @@ const personalDataSlice = createSlice({
         ...action.payload,
       },
     }),
+    setCompDataAction: (
+      state,
+      action: {
+        payload: CData;
+      },
+    ) => ({
+      ...state,
+      compData: {
+        ...state.compData,
+        ...action.payload,
+      },
+    }),
     setScreenDataAction: (
       state,
       action: {
@@ -68,7 +81,13 @@ const personalDataSlice = createSlice({
   },
 });
 
-export const { setPersonalDataAction, setGDataAction, setRDataAction, setCDataAction, setScreenDataAction } =
-  personalDataSlice.actions;
+export const {
+  setPersonalDataAction,
+  setGDataAction,
+  setRDataAction,
+  setCDataAction,
+  setScreenDataAction,
+  setCompDataAction,
+} = personalDataSlice.actions;
 
 export default personalDataSlice.reducer;

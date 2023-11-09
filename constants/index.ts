@@ -19,6 +19,7 @@ export const PATHS = {
   ACCOUNT: '/account',
   PERSONAL: '/my_g-data/personal-data',
   CONSENT: '/my_g-data/consent',
+  COMPANY: '/my_g-data/company',
   REWARDS: '/my_g-data/rewards',
   SCREEN: '/my_g-data/screen-data',
   SIGNUP: '/signup',
@@ -59,6 +60,7 @@ export const APPITEMS: TNAVITEMS[] = [
         icon: '',
         to: PATHS.CONSENT,
       },
+
       {
         title: 'Rewards',
         icon: '',
@@ -86,8 +88,8 @@ export const APPITEMS: TNAVITEMS[] = [
 ];
 
 export const SIDEBARLINKSCOLORS = {
-  DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98'],
-  LIGHT: ['#EE3E2E', '#3B7BBE', '#EFDCB1', '#DDAF40'],
+  DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98', '#EA6D24'],
+  LIGHT: ['#EE3E2E', '#3B7BBE', '#EFDCB1', '#DDAF40', '#E9CB84'],
 };
 export const AUTHITEMS: TNAVITEMS[] = [
   {
@@ -132,6 +134,15 @@ export const PROMPTRESPONSEOPTIONS: TPROPTION[] = [
     darkColor: '#907CB4',
   },
 ];
+
+export enum ACCOUNTTYPE {
+  PERSONAL = 'Personal',
+  COMPANY = 'Company',
+}
+export const ACCOUNTTYPESOPTIONS: DropDownOption[] = [
+  { label: ACCOUNTTYPE.PERSONAL, value: ACCOUNTTYPE.PERSONAL },
+  { label: ACCOUNTTYPE.COMPANY, value: ACCOUNTTYPE.COMPANY },
+];
 export const PERSONALINFOINITIALVALUES: PersonalInfoSchemaType = {
   firstName: '',
   lastName: '',
@@ -159,6 +170,7 @@ export const SIGNUPFORMINITIALVALUES: SignupFormSchemaType = {
   privacyPolicy: false,
   termsConditions: false,
   cookiePolicy: false,
+  accountType: ACCOUNTTYPESOPTIONS[0].label,
 };
 export const PERSONALDATAINITIALVALUES: PersonalDataSchemaType = {
   date: '',
@@ -196,6 +208,32 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
   {
     Header: 'id',
     accessor: 'id' as keyof Columns, // accessor is the "key" in the data
+  },
+];
+export const COMPANYTABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Personal Data and Webcam',
+    accessor: 'PDataAndWeb' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Definition',
+    accessor: 'Definition' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Use',
+    accessor: 'Use' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Pricing',
+    accessor: 'Pricing' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Consent',
+    accessor: 'Consent' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Field Name',
+    accessor: 'fieldName' as keyof Columns, // accessor is the "key" in the data
   },
 ];
 export const REWARDSTABLECOLUMNS: Column<Columns>[] = [
@@ -369,91 +407,91 @@ export const DESCRIPTIONOFVARIABLES: { [key: string]: string } = {
 };
 export const CONSENTTABLEDATA = {
   'EMOTIONAL OVERALL': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'an overall assessment of the days feelings',
     Companies: '',
     Use: '',
     id: null,
   },
   WEATHER: {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'list of the weather of the day',
     Companies: '',
     Use: '',
     id: null,
   },
   'RELATIVE FINANCE STATUS': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'relative financial status ',
     Companies: '',
     Use: '',
     id: null,
   },
   'EXERCISE TIME': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'total amount of exercise during the day',
     Companies: '',
     Use: '',
     id: null,
   },
   'ANY SOCIAL LIFE': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'whether or not any social life occurred',
     Companies: '',
     Use: '',
     id: null,
   },
   'SOCIAL LIFE LIST': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'list of social activities',
     Companies: '',
     Use: '',
     id: null,
   },
   'HEALTH OVERALL': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'an assessment of the days health',
     Companies: '',
     Use: '',
     id: null,
   },
   WEIGHT: {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'measure of weight in pounds',
     Companies: '',
     Use: '',
     id: null,
   },
   'FAMILY STATUS': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'status of close friends and family',
     Companies: '',
     Use: '',
     id: null,
   },
   'DEVICE SCREEN TIME': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'amount of time spent on personal devices',
     Companies: '',
     Use: '',
     id: null,
   },
   'WORK LIFE BALANCE': {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'overall focus of the day in a range between 0(work)-10(relaxation)',
     Companies: '',
     Use: '',
     id: null,
   },
   JOURNALING: {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'any points throughout the day worthy of note',
     Companies: '',
     Use: '',
     id: null,
   },
   DATE: {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'the current day’s date',
     Companies: '',
     Use: '',
@@ -474,7 +512,7 @@ export const CONSENTTABLEDATA = {
     id: null,
   },
   Photos: {
-    Consent: 'TRUE',
+    Consent: 'FALSE',
     Definition: 'any personal images that describe the day',
     Companies: '',
     Use: '',
@@ -486,6 +524,127 @@ export const CONSENTTABLEDATA = {
     Companies: '',
     Use: '',
     id: null,
+  },
+};
+export const COMPANYTABLEDATA = {
+  'EMOTIONAL OVERALL': {
+    Consent: 'FALSE',
+    Definition: 'an overall assessment of the days feelings',
+    Pricing: '',
+    Use: '',
+    fieldName: 'EMOTIONAL OVERALL',
+  },
+  WEATHER: {
+    Consent: 'FALSE',
+    Definition: 'list of the weather of the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'WEATHER',
+  },
+  'RELATIVE FINANCE STATUS': {
+    Consent: 'FALSE',
+    Definition: 'relative financial status ',
+    Pricing: '',
+    Use: '',
+    fieldName: 'RELATIVE FINANCE STATUS',
+  },
+  'EXERCISE TIME': {
+    Consent: 'FALSE',
+    Definition: 'total amount of exercise during the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'EXERCISE TIME',
+  },
+  'ANY SOCIAL LIFE': {
+    Consent: 'FALSE',
+    Definition: 'whether or not any social life occurred',
+    Pricing: '',
+    Use: '',
+    fieldName: 'ANY SOCIAL LIFE',
+  },
+  'SOCIAL LIFE LIST': {
+    Consent: 'FALSE',
+    Definition: 'list of social activities',
+    Pricing: '',
+    Use: '',
+    fieldName: 'SOCIAL LIFE LIST',
+  },
+  'HEALTH OVERALL': {
+    Consent: 'FALSE',
+    Definition: 'an assessment of the days health',
+    Pricing: '',
+    Use: '',
+    fieldName: 'HEALTH OVERALL',
+  },
+  WEIGHT: {
+    Consent: 'FALSE',
+    Definition: 'measure of weight in pounds',
+    Pricing: '',
+    Use: '',
+    fieldName: 'WEIGHT',
+  },
+  'FAMILY STATUS': {
+    Consent: 'FALSE',
+    Definition: 'status of close friends and family',
+    Pricing: '',
+    Use: '',
+    fieldName: 'FAMILY STATUS',
+  },
+  'DEVICE SCREEN TIME': {
+    Consent: 'FALSE',
+    Definition: 'amount of time spent on personal devices',
+    Pricing: '',
+    Use: '',
+    fieldName: 'DEVICE SCREEN TIME',
+  },
+  'WORK LIFE BALANCE': {
+    Consent: 'FALSE',
+    Definition: 'overall focus of the day in a range between 0(work)-10(relaxation)',
+    Pricing: '',
+    Use: '',
+    fieldName: 'WORK LIFE BALANCE',
+  },
+  JOURNALING: {
+    Consent: 'FALSE',
+    Definition: 'any points throughout the day worthy of note',
+    Pricing: '',
+    Use: '',
+    fieldName: 'JOURNALING',
+  },
+  DATE: {
+    Consent: 'FALSE',
+    Definition: 'the current day’s date',
+    Pricing: '',
+    Use: '',
+    fieldName: 'DATE',
+  },
+  'EMOTIONAL LIST': {
+    Consent: 'FALSE',
+    Definition: 'list of emotions experienced throughout the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'EMOTIONAL LIST',
+  },
+  'HIGH TEMPERATURE': {
+    Consent: 'FALSE',
+    Definition: 'highest temperature of the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'HIGH TEMPERATURE',
+  },
+  Photos: {
+    Consent: 'FALSE',
+    Definition: 'any personal images that describe the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'Photos',
+  },
+  'LOW TEMPERATURE': {
+    Consent: 'FALSE',
+    Definition: 'lowest temperature of the day',
+    Pricing: '',
+    Use: '',
+    fieldName: 'LOW TEMPERATURE',
   },
 };
 

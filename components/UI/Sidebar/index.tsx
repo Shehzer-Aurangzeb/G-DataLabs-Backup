@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { APPITEMS, AUTHITEMS } from '@/constants';
+import { ACCOUNTTYPE, APPITEMS, AUTHITEMS, PATHS } from '@/constants';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { sidebar } from '@/constants/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/state/sidebar/hooks';
+import { NAVITEMS } from '@/types';
 import Logo from './Logo';
 import Items from './Items';
 import Switch from './Switch';
@@ -24,7 +25,27 @@ function Sidebar() {
     setIsOpen(false);
   };
   useOutsideClick(containerRef, handleOutsideClick);
-
+  const navItems: NAVITEMS[] = useMemo(() => {
+    if (!isAuthenticated || !user) return AUTHITEMS;
+    if (user.accountType === ACCOUNTTYPE.COMPANY)
+      return APPITEMS.map((item) => {
+        if (item.to === PATHS.MYGDATA && item.nestedItems) {
+          return {
+            ...item,
+            nestedItems: [
+              ...item.nestedItems,
+              {
+                title: 'Company',
+                icon: '',
+                to: PATHS.COMPANY,
+              },
+            ],
+          };
+        }
+        return item;
+      });
+    return APPITEMS;
+  }, [isAuthenticated, user]);
   useEffect(() => {
     setIsOpen(false);
   }, [pathname, setIsOpen]);
@@ -43,7 +64,7 @@ function Sidebar() {
 
       <aside
         ref={containerRef}
-        className={`h-[calc(100vh_-_2.5rem)] flex flex-col max-w-[360px] mobile:max-w-full items-start justify-between overflow-y-auto ${
+        className={`h-[calc(100vh_-_2.5rem)] flex flex-col gap-y-4 max-w-[360px] mobile:max-w-full items-start justify-between overflow-y-auto ${
           width < 1280
             ? `fixed z-20 transition-all duration-300 bg-main dark:bg-[#9f9f9e] ${isOpen ? 'w-full  pl-5' : 'w-0 p-0'}`
             : ' pl-5 w-[25%] bg-transparent'
@@ -59,7 +80,7 @@ function Sidebar() {
             src={sidebar}
           />
         )}
-        <Items items={isAuthenticated ? APPITEMS : AUTHITEMS} />
+        <Items items={navItems} />
         <div className="max-w-sidebarItem w-full">
           {isAuthenticated && user && <Profile logoutUser={logoutUser} user={user} />}
           <Switch />

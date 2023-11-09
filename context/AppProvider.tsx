@@ -11,12 +11,14 @@ import { Columns, TableName } from '@/types';
 import { useWeather } from '@/hooks/useWeather';
 import { useChatBot } from '@/hooks/useChatBot';
 import { useAuth } from '@/hooks/useAuth';
+import { ACCOUNTTYPE } from '@/constants';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
   getAllConsentData: () => Promise<void>;
   updateMyGData: () => Promise<void>;
   getAllPersonalData: () => Promise<void>;
+  getAllCompanyConsentData: () => Promise<void>;
 };
 interface IProps {
   children: React.ReactNode;
@@ -27,10 +29,11 @@ const AppContext = createContext<AppContextType>({
   getAllConsentData: async () => {},
   updateMyGData: async () => {},
   getAllPersonalData: async () => {},
+  getAllCompanyConsentData: async () => {},
 });
 
 function AppProvider({ children }: IProps) {
-  const { setPersonalData, setGData, setRData, setCData, setScreenData } = usePersonalData();
+  const { setPersonalData, setGData, setRData, setCData, setScreenData, setCompData } = usePersonalData();
   const { fetchChatHistory, fetchRecentChats } = useChatBot();
   const [gTableColumns, setGTableColumns] = useState<Column<Columns>[]>([]);
   const { user } = useUser();
@@ -72,6 +75,24 @@ function AppProvider({ children }: IProps) {
       }
     }
   }, [setRData, setCData, logoutUser, user]);
+  const getAllCompanyConsentData = useCallback(async () => {
+    try {
+      if (!user || !user.accountType || user.accountType === ACCOUNTTYPE.PERSONAL) return;
+      const { data } = await api.get('api/company_consents_rewards');
+      console.log('data :>> ', data);
+      const compData = createTableData({ tableName: TableName.CompData, data: data.data });
+      console.log('comp :>> ', compData);
+      setCompData(compData);
+    } catch (e) {
+      if (
+        e instanceof AxiosError &&
+        (e.response?.status === 401 || e.response?.data.msg === 'Token has expired') &&
+        user
+      ) {
+        logoutUser();
+      }
+    }
+  }, [setCompData, logoutUser, user]);
 
   const getLastFivePersonalData = useCallback(async () => {
     try {
@@ -115,6 +136,7 @@ function AppProvider({ children }: IProps) {
     fetchRecentChats();
     getAllConsentData();
     getAllScreenData();
+    getAllCompanyConsentData();
   }, [
     getAllPersonalData,
     getLastFivePersonalData,
@@ -122,12 +144,19 @@ function AppProvider({ children }: IProps) {
     fetchChatHistory,
     getAllScreenData,
     fetchRecentChats,
+    getAllCompanyConsentData,
   ]);
 
   // values
   const value = useMemo(
-    () => ({ gTableColumns, getAllConsentData, updateMyGData: getLastFivePersonalData, getAllPersonalData }),
-    [gTableColumns, getAllConsentData, getLastFivePersonalData, getAllPersonalData],
+    () => ({
+      gTableColumns,
+      getAllConsentData,
+      updateMyGData: getLastFivePersonalData,
+      getAllPersonalData,
+      getAllCompanyConsentData,
+    }),
+    [gTableColumns, getAllConsentData, getLastFivePersonalData, getAllPersonalData, getAllCompanyConsentData],
   );
 
   //* initialize the app.
