@@ -412,12 +412,12 @@
 
     /***/ 47774: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 70295));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99983));
 
       /***/
     },
 
-    /***/ 70295: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 99983: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -443,48 +443,8 @@
       var Actions = __webpack_require__(23488);
       // EXTERNAL MODULE: ./lib/index.ts
       var lib = __webpack_require__(14088);
-      // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
-      var StyledImage = __webpack_require__(29884);
-      // EXTERNAL MODULE: ./constants/assets.ts + 27 modules
-      var assets = __webpack_require__(98739); // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
-      /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
-
-      function Input({ readOnly, name, onChange, value }) {
-        return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-          className: 'flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto',
-          children: [
-            /*#__PURE__*/ jsx_runtime_.jsx('span', {
-              className: `absolute top-[23%] ${
-                readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
-              } text-white font-sans text-xl font-medium`,
-              children: '$',
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx('input', {
-              autoComplete: 'off',
-              onChange: onChange,
-              name: name,
-              readOnly: readOnly,
-              id: name,
-              type: 'number',
-              value: value,
-              className:
-                'bg-chat dark:bg-darkChat py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]',
-            }),
-            !readOnly &&
-              /*#__PURE__*/ jsx_runtime_.jsx('label', {
-                htmlFor: name,
-                className: 'cursor-pointer',
-                children: /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
-                  src: assets /* edit */.eP,
-                  alt: 'edit-icon',
-                  className: 'w-[24px] h-[24px]',
-                }),
-              }),
-          ],
-        });
-      }
-      /* harmony default export */ const Rewards_Input = Input; // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Table/index.tsx
-
+      // EXTERNAL MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
+      var Input = __webpack_require__(42405); // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Table/index.tsx
       function Table({ columns, data, updateConsentRewards }) {
         const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = (0, react_table.useTable)({
           columns,
@@ -522,7 +482,7 @@
               id: Number(recordID),
               payload: PDefinedValue[recordID],
             });
-          }, 500);
+          }, 1000);
           return () => clearTimeout(timeout);
         }, [PDefinedValue, recordID, updateConsentRewards]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
@@ -567,15 +527,17 @@
                               onClick: () => handleConsetUpdate(row.values.id),
                             }),
                           cellIndex === 2 &&
-                            /*#__PURE__*/ jsx_runtime_.jsx(Rewards_Input, {
+                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: row.values.id,
+                              id: row.values.id,
                               readOnly: false,
                               value: PDefinedValue[row.values.id].demanded_reward_value?.toString(),
                               onChange: handleChange,
                             }),
                           cellIndex === 3 &&
-                            /*#__PURE__*/ jsx_runtime_.jsx(Rewards_Input, {
+                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: `OtherCompValue-${row.values.id}`,
+                              id: `OtherCompValue-${row.values.id}`,
                               readOnly: true,
                               value: row.values.OtherCompValue,
                             }),
@@ -667,6 +629,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488], () => __webpack_exec__(28468));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 807, 54, 488, 405], () => __webpack_exec__(28468));
   module.exports = __webpack_exports__;
 })();

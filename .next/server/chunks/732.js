@@ -83,6 +83,7 @@ exports.modules = {
       password: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)()
         .min(5, 'Password must be 5 characters long')
         .required('Password is required'),
+      accountType: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)().required('Account type is required'),
       termsConditions: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .boolean */.O7)()
         .test('is-true', 'You must accept the terms and conditions.', (value) => value === true)
         .required('Please accept the Terms and Conditions in order to proceed'),

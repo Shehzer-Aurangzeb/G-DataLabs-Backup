@@ -15,7 +15,7 @@ exports.modules = {
       react__WEBPACK_IMPORTED_MODULE_1__,
     );
     /* harmony import */ var _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29884);
-    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(98739);
+    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47721);
 
     function NoData({ message = undefined, icon = undefined, isParentFixed }) {
       const messageContainerRef = (0, react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);

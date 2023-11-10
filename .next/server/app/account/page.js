@@ -654,8 +654,8 @@
 
       // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
       var StyledImage = __webpack_require__(29884);
-      // EXTERNAL MODULE: ./constants/assets.ts + 27 modules
-      var assets = __webpack_require__(98739); // CONCATENATED MODULE: ./components/screens/Account/PersonalInformation/Form/UploadPicture/index.tsx
+      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
+      var assets = __webpack_require__(47721); // CONCATENATED MODULE: ./components/screens/Account/PersonalInformation/Form/UploadPicture/index.tsx
       /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
 
       function UploadPicture({ handleChange, profile }) {
@@ -674,7 +674,7 @@
                 /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
                   src: profile.length === 0 ? assets /* default_profile */.oB : profile,
                   alt: 'profile',
-                  className: 'w-[50px] h-[50px] dark:invert',
+                  className: 'w-[50px] h-[50px]',
                   rounded: true,
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
@@ -1056,7 +1056,7 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 596, 702, 782, 732, 628], () =>
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 596, 262, 782, 732, 628], () =>
     __webpack_exec__(98700),
   );
   module.exports = __webpack_exports__;

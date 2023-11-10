@@ -436,6 +436,8 @@
       var constants = __webpack_require__(70880);
       // EXTERNAL MODULE: ./components/UI/Input/index.tsx
       var Input = __webpack_require__(53628);
+      // EXTERNAL MODULE: ./components/UI/Select/index.tsx
+      var Select = __webpack_require__(7473);
       // EXTERNAL MODULE: ./components/UI/Button/index.tsx
       var Button = __webpack_require__(67782);
       // EXTERNAL MODULE: ./components/UI/Checkbox/styles.module.css
@@ -478,7 +480,7 @@
       /* harmony default export */ const UI_Checkbox = Checkbox; // CONCATENATED MODULE: ./components/screens/Signup/Form/index.tsx
 
       function SignupForm({ isLoading, registerUser }) {
-        const { handleSubmit, handleChange, values, touched, errors } = (0,
+        const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
           initialValues: constants /* SIGNUPFORMINITIALVALUES */.vK,
           validationSchema: schema /* SignupFormSchema */.fb,
@@ -488,6 +490,7 @@
               first_name: results.firstName,
               last_name: results.lastName,
               password: results.password,
+              is_company: results.accountType === constants /* ACCOUNTTYPE */.Z8.COMPANY,
             };
             registerUser(payload);
             onSubmit.setSubmitting(false);
@@ -498,6 +501,23 @@
           noValidate: true,
           onSubmit: handleSubmit,
           children: [
+            /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
+              className: 'flex flex-col gap-y-3 relative w-full',
+              children: [
+                /*#__PURE__*/ jsx_runtime_.jsx('span', {
+                  className: 'block text-base font-bold font-sans text-black dark:text-white',
+                  children: 'Account Type',
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx(Select /* default */.Z, {
+                  value: values.accountType,
+                  options: constants /* ACCOUNTTYPESOPTIONS */.pY,
+                  className: 'w-auto max-w-[450px]',
+                  onClick: (item) => {
+                    setFieldValue('accountType', item);
+                  },
+                }),
+              ],
+            }),
             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
               label: 'First Name',
               placeholder: 'First Name',
@@ -537,13 +557,14 @@
               className: 'w-full max-w-[450px]',
             }),
             /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-              className: 'flex flex-col gap-y-5',
+              className: 'flex flex-col gap-y-5 w-full',
               children: [
                 /*#__PURE__*/ jsx_runtime_.jsx(UI_Checkbox, {
                   checked: values.termsConditions,
                   onChange: handleChange,
                   name: 'termsConditions',
                   id: 'termsConditions',
+                  className: 'w-fit',
                   error: errors.termsConditions,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
@@ -563,6 +584,7 @@
                   onChange: handleChange,
                   name: 'privacyPolicy',
                   id: 'privacyPolicy',
+                  className: 'w-fit',
                   error: errors.privacyPolicy,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
@@ -582,6 +604,7 @@
                   onChange: handleChange,
                   name: 'cookiePolicy',
                   id: 'cookiePolicy',
+                  className: 'w-fit',
                   error: errors.cookiePolicy,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
@@ -608,13 +631,13 @@
                     }),
                   ],
                 }),
-                /*#__PURE__*/ jsx_runtime_.jsx(Button /* default */.Z, {
-                  type: 'submit',
-                  className: 'bg-blue w-full disabled:bg-disabledBlue',
-                  title: 'Sign up',
-                  isLoading: isLoading,
-                }),
               ],
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(Button /* default */.Z, {
+              type: 'submit',
+              className: 'bg-blue w-full disabled:bg-disabledBlue max-w-[450px]',
+              title: 'Sign up',
+              isLoading: isLoading,
             }),
           ],
         });
@@ -698,6 +721,8 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 702, 782, 732, 628], () => __webpack_exec__(63143));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 262, 782, 732, 628, 473], () =>
+    __webpack_exec__(63143),
+  );
   module.exports = __webpack_exports__;
 })();

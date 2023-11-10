@@ -18,7 +18,7 @@ exports.modules = {
     /* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
       next_image__WEBPACK_IMPORTED_MODULE_2__,
     );
-    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(98739);
+    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47721);
 
     function Input({
       label,
@@ -77,7 +77,7 @@ exports.modules = {
                         : _constants_assets__WEBPACK_IMPORTED_MODULE_3__ /* .hidepassword */.th,
                       alt: showPassword ? 'hide-password-icon' : 'show-password-icon',
                       className:
-                        'h-5 w-5 dark:filter dark:brightness-0 cursor-pointer absolute top-[50%] right-[10px] transform translate-y-[-50%]',
+                        'h-5 w-5 dark:invert-[1] cursor-pointer absolute top-[50%] right-[10px] transform translate-y-[-50%]',
                       onClick: togglePasswordVisibility,
                     },
                   ),
