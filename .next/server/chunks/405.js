@@ -18,19 +18,30 @@ exports.modules = {
     /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47721);
     /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
 
-    function Input({ readOnly, name, onChange, value, type, pattern, className }) {
+    function Input({
+      readOnly,
+      name,
+      onChange,
+      value,
+      type,
+      pattern,
+      className,
+      currency = '$',
+      isMonetaryInput = false,
+    }) {
       return /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('div', {
         className: [
           'flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto',
           className,
         ].join(' '),
         children: [
-          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('span', {
-            className: `absolute top-[23%] ${
-              readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
-            } text-white font-sans text-xl font-medium`,
-            children: '$',
-          }),
+          isMonetaryInput &&
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('span', {
+              className: `absolute top-[23%] ${
+                readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
+              } text-white font-sans text-xl font-medium`,
+              children: currency,
+            }),
           /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('input', {
             autoComplete: 'off',
             pattern: pattern,

@@ -638,19 +638,29 @@
                             'border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center',
                           children:
                             cell.column.Header === 'Image'
-                              ? cell.value.length > 0
-                                ? cell.value.map((image) =>
-                                    /*#__PURE__*/ jsx_runtime_.jsx(
-                                      StyledImage /* default */.Z,
-                                      {
-                                        src: image,
-                                        alt: 'response-image',
-                                        className: 'my-3 w-[120px] h-[120px]',
-                                      },
-                                      (0, v4 /* default */.Z)(),
-                                    ),
-                                  )
-                                : '-'
+                              ? cell.value.length > 0 &&
+                                cell.value.map((image) =>
+                                  /*#__PURE__*/ jsx_runtime_.jsx(
+                                    StyledImage /* default */.Z,
+                                    {
+                                      src: image,
+                                      alt: 'response-image',
+                                      className: 'my-3 w-[120px] h-[120px]',
+                                    },
+                                    (0, v4 /* default */.Z)(),
+                                  ),
+                                )
+                              : cell.column.Header === 'Feedback'
+                              ? cell.value &&
+                                /*#__PURE__*/ jsx_runtime_.jsx(
+                                  StyledImage /* default */.Z,
+                                  {
+                                    src: cell.value === 'true' ? assets /* like */.vL : assets /* dislike */.DV,
+                                    alt: 'feedback-image',
+                                    className: 'my-3  h-[20px] w-[20px] mx-auto',
+                                  },
+                                  (0, v4 /* default */.Z)(),
+                                )
                               : cell.render('Cell'),
                         }),
                       ),
@@ -741,6 +751,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 54], () => __webpack_exec__(87681));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 54], () => __webpack_exec__(87681));
   module.exports = __webpack_exports__;
 })();

@@ -477,8 +477,10 @@
                       'td',
                       {
                         ...cell.getCellProps(),
-                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
-                  ${cellIndex === row.cells.length - 1 && 'hidden'}`,
+                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
+                  ${cellIndex === row.cells.length - 1 && 'hidden'}
+                  ${(cellIndex === 1 || cellIndex === 2) && 'min-w-[450px]'}
+                  `,
                         children:
                           cellIndex === row.cells.length - 2
                             ? /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
@@ -580,6 +582,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 807, 54, 488], () => __webpack_exec__(58891));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488], () => __webpack_exec__(58891));
   module.exports = __webpack_exports__;
 })();

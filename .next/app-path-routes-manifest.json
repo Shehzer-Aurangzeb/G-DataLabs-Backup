@@ -1,16 +1,16 @@
 {
   "/page": "/",
-  "/login/page": "/login",
-  "/history/page": "/history",
   "/account/page": "/account",
+  "/history/page": "/history",
+  "/login/page": "/login",
   "/my_g-data/page": "/my_g-data",
   "/our_g-data/page": "/our_g-data",
-  "/signup/page": "/signup",
   "/reset_password/page": "/reset_password",
+  "/signup/page": "/signup",
   "/my_g-data/company/page": "/my_g-data/company",
+  "/my_g-data/personal-data/page": "/my_g-data/personal-data",
   "/my_g-data/consent/page": "/my_g-data/consent",
   "/my_g-data/screen-data/page": "/my_g-data/screen-data",
-  "/my_g-data/personal-data/page": "/my_g-data/personal-data",
-  "/reset_password/confirm/page": "/reset_password/confirm",
-  "/my_g-data/rewards/page": "/my_g-data/rewards"
+  "/my_g-data/rewards/page": "/my_g-data/rewards",
+  "/reset_password/confirm/page": "/reset_password/confirm"
 }

@@ -482,9 +482,13 @@
               id: Number(recordID),
               payload: PDefinedValue[recordID],
             });
-          }, 1000);
+            setRecordID('');
+          }, 2000);
           return () => clearTimeout(timeout);
         }, [PDefinedValue, recordID, updateConsentRewards]);
+        (0, react_.useEffect)(() => {
+          setPDefinedValue((0, lib /* createRewardsState */.O5)(data));
+        }, [data]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
           ...getTableProps(),
           className: 'w-full',
@@ -520,25 +524,27 @@
                           cellIndex === row.cells.length - 1 && 'hidden'
                         }`,
                         children: [
-                          cellIndex === 0 && cell.render('Cell'),
-                          cellIndex === 1 &&
+                          (cellIndex === 0 || cellIndex === 1) && cell.render('Cell'),
+                          cellIndex === 2 &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
                               isAllowed: row.values.Consent !== 'FALSE',
                               onClick: () => handleConsetUpdate(row.values.id),
                             }),
-                          cellIndex === 2 &&
+                          cellIndex === 3 &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: row.values.id,
                               id: row.values.id,
                               readOnly: false,
+                              isMonetaryInput: true,
                               value: PDefinedValue[row.values.id].demanded_reward_value?.toString(),
                               onChange: handleChange,
                             }),
-                          cellIndex === 3 &&
+                          cellIndex === 4 &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: `OtherCompValue-${row.values.id}`,
                               id: `OtherCompValue-${row.values.id}`,
                               readOnly: true,
+                              isMonetaryInput: true,
                               value: row.values.OtherCompValue,
                             }),
                         ],
@@ -562,6 +568,7 @@
           () =>
             Object.entries(rData).map(([key, value]) => ({
               PDataAndScreen: key,
+              Unit: constants /* DESCRIPTIONANDUNITOFVARIABLES */.Gj[key.toLowerCase().replaceAll(' ', '_')].unit,
               ...value,
             })),
           [rData],
@@ -629,6 +636,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 807, 54, 488, 405], () => __webpack_exec__(28468));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488, 405], () => __webpack_exec__(28468));
   module.exports = __webpack_exports__;
 })();

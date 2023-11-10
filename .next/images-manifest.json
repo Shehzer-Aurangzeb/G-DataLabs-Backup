@@ -26,6 +26,11 @@
       },
       {
         "protocol": "https",
+        "hostname": "^(?:^(?:api\\.g\\-datalabs\\.com)$)$",
+        "pathname": "^(?:(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/?)$"
+      },
+      {
+        "protocol": "https",
         "hostname": "^(?:^(?:storage\\.googleapis\\.com)$)$",
         "pathname": "^(?:(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/?)$"
       }
