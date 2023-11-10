@@ -26,6 +26,8 @@ export type UpdateConsentRewardType = {
 };
 
 export type UpdateConsentCompanyType = {
-  value?: string;
-  consents_to_sell?: boolean;
+  use: string;
+  threshold: string;
+  pricing: string;
+  consents_to_buy: boolean;
 };

@@ -15,7 +15,7 @@ import {
 import { THistory, Chat, ChatHistory, TGroupedChatHistory } from '@/state/chats/types';
 import { PersonalDataSchemaType } from '@/schema';
 import { Data, ScreenDataType, UpdateConsentCompanyType, UpdateConsentRewardType } from '@/state/myGData/types';
-import { DESCRIPTIONOFVARIABLES } from '@/constants';
+import { DESCRIPTIONANDUNITOFVARIABLES } from '@/constants';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
   if (!categorizedMessagesMap[groupName]) {
@@ -86,14 +86,17 @@ export const createChat = (arg: {
   images: { url: string }[];
   isBotResponse: boolean;
   isLoading: boolean;
+  choice?: boolean | null;
+  messageId?: number;
 }) => {
-  const { isBotResponse, isLoading, text } = arg;
+  const { isBotResponse, isLoading, text, choice, messageId } = arg;
   const images = arg.images.map((img) => img.url);
 
   return {
-    messageID: uuidv4(),
+    messageID: messageId ?? uuidv4(),
     isBotResponse,
     isLoading,
+    choice,
     content: {
       text,
       images,
@@ -154,7 +157,8 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
-        Definition: DESCRIPTIONOFVARIABLES[d.field_name.toLowerCase()],
+        Definition: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].definition,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
         Companies: '',
         Use: '',
         id: d.id,
@@ -163,14 +167,15 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.CompData) {
     for (const d of data) {
-      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
-      result[fieldName] = {
-        ...result[fieldName],
+      result[d.personal_data_field.field_name] = {
+        ...result[d.personal_data_field.field_name],
         Consent: d.consents_to_buy.toString().toUpperCase(),
-        Definition: DESCRIPTIONOFVARIABLES[d.field_name.toLowerCase()],
+        Definition:
+          DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(' ', '_').toLowerCase()].definition,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(' ', '_').toLowerCase()].unit,
         Use: d.usage,
         Pricing: d.demanded_reward_value,
-        fieldName,
+        fieldName: d.personal_data_field.field_name,
       };
     }
   }
@@ -202,20 +207,14 @@ export const createTableColumns = (data: GDataType[]) => {
 //* comapny table state
 export const createCompanyState = (data: any) => {
   const result: {
-    Use: { [key: string]: UpdateConsentCompanyType };
-    Pricing: { [key: string]: UpdateConsentCompanyType };
-  } = {
-    Use: {},
-    Pricing: {},
-  };
+    [key: string]: UpdateConsentCompanyType;
+  } = {};
   for (const d of data) {
-    result.Use[d.fieldName] = {
-      consents_to_sell: d.Consent === 'TRUE',
-      value: d.Use,
-    };
-    result.Pricing[d.fieldName] = {
-      consents_to_sell: d.Consent === 'TRUE',
-      value: d.Pricing,
+    result[d.fieldName] = {
+      consents_to_buy: d.Consent === 'TRUE',
+      use: d.Use,
+      pricing: d.Pricing,
+      threshold: d.Threshold,
     };
   }
   return result;
@@ -294,6 +293,8 @@ export const createRecentChatHistory = (payload: RecentChatHistoryResponseType[]
     for (const chat of descOrderedChats) {
       const response = createChat({
         text: chat.answer,
+        choice: chat.choice,
+        messageId: chat.id,
         images:
           chat.images != null ? JSON.parse(chat.images.replace(/'/g, '"')).map((img: string) => ({ url: img })) : [],
         isBotResponse: true,

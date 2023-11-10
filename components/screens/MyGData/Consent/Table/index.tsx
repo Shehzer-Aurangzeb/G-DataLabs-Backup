@@ -42,8 +42,10 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
-                  ${cellIndex === row.cells.length - 1 && 'hidden'}`}
+                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
+                  ${cellIndex === row.cells.length - 1 && 'hidden'}
+                  ${(cellIndex === 1 || cellIndex === 2) && 'min-w-[450px]'}
+                  `}
                 >
                   {cellIndex === row.cells.length - 2 ? (
                     <Actions

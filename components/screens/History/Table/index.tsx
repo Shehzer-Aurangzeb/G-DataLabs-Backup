@@ -2,6 +2,7 @@ import React from 'react';
 import { Column, useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
 import Image from '@/components/UI/StyledImage';
+import { like, dislike } from '@/constants/assets';
 import { Columns } from '@/types';
 import arrowUp from '@/public/assets/icons/arrow_upward.png';
 import arrowdown from '@/public/assets/icons/arrow_down.png';
@@ -89,16 +90,24 @@ function Table({ columns, data }: IProps) {
                     className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center"
                   >
                     {cell.column.Header === 'Image'
-                      ? cell.value.length > 0
-                        ? cell.value.map((image: string) => (
-                            <Image
-                              src={image}
-                              key={uuidv4()}
-                              alt={'response-image'}
-                              className="my-3 w-[120px] h-[120px]"
-                            />
-                          ))
-                        : '-'
+                      ? cell.value.length > 0 &&
+                        cell.value.map((image: string) => (
+                          <Image
+                            src={image}
+                            key={uuidv4()}
+                            alt={'response-image'}
+                            className="my-3 w-[120px] h-[120px]"
+                          />
+                        ))
+                      : cell.column.Header === 'Feedback'
+                      ? cell.value && (
+                          <Image
+                            src={cell.value === 'true' ? like : dislike}
+                            key={uuidv4()}
+                            alt={'feedback-image'}
+                            className="my-3  h-[20px] w-[20px] mx-auto"
+                          />
+                        )
                       : cell.render('Cell')}
                   </td>
                 ))}

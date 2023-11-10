@@ -65,6 +65,20 @@ export const useChatBot = () => {
     [setActiveChatID],
   );
 
+  const provideResponseFeedback = useCallback(
+    async (payload: { responseId: number; feedback: boolean }) => {
+      const { responseId, feedback } = payload;
+      try {
+        const { data } = await api.post(`choice/${responseId}`, { data: feedback });
+        if (!data.response) return;
+        fetchRecentChats();
+        fetchChatHistory();
+      } catch (e) {
+        // console.log('e :>> ', e);
+      }
+    },
+    [fetchRecentChats, fetchChatHistory],
+  );
   const fetchBotResponse = useCallback(async () => {
     try {
       const userMessage = createChat({ isBotResponse: false, isLoading: false, text: userPrompt.data, images: [] });
@@ -125,5 +139,6 @@ export const useChatBot = () => {
     openPreviousChats,
     fetchChatHistory,
     fetchRecentChats,
+    provideResponseFeedback,
   };
 };

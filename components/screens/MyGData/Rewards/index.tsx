@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { REWARDSTABLECOLUMNS, maxWidth } from '@/constants';
+import { DESCRIPTIONANDUNITOFVARIABLES, REWARDSTABLECOLUMNS, maxWidth } from '@/constants';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';
@@ -12,6 +12,7 @@ function Main() {
     () =>
       Object.entries(rData).map(([key, value]) => ({
         PDataAndScreen: key,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[key.toLowerCase().replaceAll(' ', '_')].unit,
         ...value,
       })),
     [rData],

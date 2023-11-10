@@ -121,7 +121,7 @@ export type RecentChatHistoryResponseType = {
     {
       answer: string;
       chat_id: number;
-      choice: null;
+      choice: boolean | null;
       id: number;
       images: string;
       question: string;
@@ -142,9 +142,10 @@ export type DropDownOption = {
 };
 
 export type UpdateCompanyConsentPayload = {
-  demanded_reward_value: number;
-  usage: string;
-  consents_to_buy: boolean;
+  demanded_reward_value?: number;
+  threshold?: number;
+  usage?: string;
+  consents_to_buy?: boolean;
   personal_data_field: {
     field_name: string;
   };

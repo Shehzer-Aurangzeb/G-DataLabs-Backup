@@ -79,9 +79,7 @@ function AppProvider({ children }: IProps) {
     try {
       if (!user || !user.accountType || user.accountType === ACCOUNTTYPE.PERSONAL) return;
       const { data } = await api.get('api/company_consents_rewards');
-      console.log('data :>> ', data);
       const compData = createTableData({ tableName: TableName.CompData, data: data.data });
-      console.log('comp :>> ', compData);
       setCompData(compData);
     } catch (e) {
       if (

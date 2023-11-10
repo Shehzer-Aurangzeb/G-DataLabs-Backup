@@ -14,13 +14,28 @@ type TProps = {
   chats: Chat[];
   user: UserType | undefined;
   isAuthenticated: boolean;
+  giveFeedback: (payload: { responseId: number; feedback: boolean }) => Promise<void>;
 };
 
-function MainContent({ user, userPrompt, sendPrompt, setUserPrompt, isLoading, chats, isAuthenticated }: TProps) {
+function MainContent({
+  user,
+  userPrompt,
+  sendPrompt,
+  setUserPrompt,
+  isLoading,
+  chats,
+  isAuthenticated,
+  giveFeedback,
+}: TProps) {
   return (
     <Container type="main">
       {chats && (
-        <ActiveChat chats={chats} userProfile={user ? user.image : default_profile} isLoggedIn={isAuthenticated} />
+        <ActiveChat
+          chats={chats}
+          userProfile={user ? user.image : default_profile}
+          isLoggedIn={isAuthenticated}
+          giveFeedback={giveFeedback}
+        />
       )}
       <PromptInputBox
         userPrompt={userPrompt}

@@ -16,8 +16,8 @@ import { useApp } from '@/context/AppProvider';
 
 export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
-  const { personalData, setPersonalData, gData, rData, cData, screenData, compData } = usePersonalData();
-  const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData, getAllCompanyConsentData } = useApp();
+  const { personalData, setPersonalData, gData, rData, cData, screenData, compData, setCompData } = usePersonalData();
+  const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData } = useApp();
 
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
@@ -70,17 +70,17 @@ export const useMyGData = () => {
     async (payload: UpdateCompanyConsentPayload) => {
       try {
         setIsLoading(true);
-        await api.post('api/company_consents_rewards', payload);
+        const { data } = await api.post('api/company_consents_rewards', payload);
+        const companyData = createTableData({ tableName: TableName.CompData, data: data.data });
+        setCompData(companyData);
         toast.success('Consent updated');
-        getAllCompanyConsentData();
       } catch (e) {
-        // console.log('e :>> ', e);
         toast.error('Some problem updating consent');
       } finally {
         setIsLoading(false);
       }
     },
-    [setIsLoading, getAllCompanyConsentData],
+    [setIsLoading, setCompData],
   );
   const savePersonalDataTemporarily = useCallback(
     (data: PersonalDataSchemaType) => {

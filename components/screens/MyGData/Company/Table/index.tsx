@@ -4,6 +4,7 @@ import { Columns, UpdateCompanyConsentPayload } from '@/types';
 import Actions from '@/components/screens/MyGData/Actions';
 import Input from '@/components/screens/MyGData/Rewards/Input';
 import { createCompanyState } from '@/lib';
+import { UpdateConsentCompanyType } from '@/state/myGData/types';
 
 interface IProps {
   data: any;
@@ -17,35 +18,31 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     data,
   });
 
-  const [values, setValues] = useState(createCompanyState(data));
+  const [values, setValues] = useState<{
+    [key: string]: UpdateConsentCompanyType;
+  }>(createCompanyState(data));
+
   const [recordID, setRecordID] = useState('');
 
-  console.log('values :>> ', values);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: 'Use' | 'Pricing') => {
-    const { value, id } = e.target;
-    const recordId = id.split('-')[1];
-    if (name === 'Pricing' && /^\d*\.?\d*$/.test(value) === false) return;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: 'use' | 'pricing' | 'threshold') => {
+    const { value, id, type } = e.target;
+    const fieldName = id.split('-')[1];
+    if (type === 'number' && /^\d*\.?\d*$/.test(value) === false) return;
     setValues((prev) => ({
       ...prev,
-      [name]: {
-        ...prev[name],
-        [recordId]: {
-          ...prev[name][recordId],
-          value: Number(Number(value).toFixed(3)),
-        },
+      [fieldName]: {
+        ...prev[fieldName],
+        [field]: value,
       },
     }));
-    setRecordID(recordId);
+    setRecordID(fieldName);
   };
 
   const handleConsetUpdate = useCallback(
     (name: string) => {
-      const recordConsent = values.Use[name].consents_to_sell;
+      const recordConsent = values[name].consents_to_buy;
       updateConsentRewards([
         {
-          demanded_reward_value: Number(values.Pricing[name].value),
-          usage: values.Use[name].value ?? '',
           consents_to_buy: !recordConsent,
           personal_data_field: {
             field_name: name,
@@ -60,18 +57,23 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
       if (!recordID) return;
       updateConsentRewards([
         {
-          demanded_reward_value: Number(values.Pricing[recordID].value),
-          usage: values.Use[recordID].value ?? '',
-          consents_to_buy: !values.Use[recordID].consents_to_sell,
+          demanded_reward_value: Number(values[recordID].pricing),
+          usage: values[recordID].use,
+          threshold: Number(values[recordID].threshold),
           personal_data_field: {
             field_name: recordID,
           },
         },
       ]);
-    }, 1000);
+      setRecordID('');
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, [values, recordID, updateConsentRewards]);
+  useEffect(() => {
+    setValues(createCompanyState(data));
+  }, [data]);
+
   return (
     <table {...getTableProps()} className="w-full">
       <thead>
@@ -99,38 +101,49 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
-                  ${cellIndex === row.cells.length - 1 && 'hidden'}`}
+                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center 
+                  ${cellIndex === row.cells.length - 1 && 'hidden'}
+                  ${(cellIndex === 1 || cellIndex === 2) && 'min-w-[450px]'}
+                  `}
                 >
-                  {cellIndex === 2 && (
-                    <Input
-                      name={`Use-${row.values.fieldName}`}
-                      type="text"
-                      value={values.Use[row.values.fieldName] ? values.Use[row.values.fieldName].value : ''}
-                      onChange={(e) => handleChange(e, 'Use')}
-                      className="min-w-[160px]"
-                    />
-                  )}
-                  {cellIndex === 3 && (
-                    <Input
-                      name={`Pricing-${row.values.fieldName}`}
-                      type="text"
-                      pattern="\d*\.?\d*"
-                      value={values.Pricing[row.values.fieldName] ? values.Pricing[row.values.fieldName].value : ''}
-                      onChange={(e) => handleChange(e, 'Pricing')}
-                      className="min-w-[160px]"
-                    />
-                  )}
-
-                  {cellIndex === row.cells.length - 2 ? (
+                  {(cellIndex === 0 || cellIndex === 1 || cellIndex === 2) && cell.render('Cell')}
+                  {cellIndex === row.cells.length - 2 && (
                     <Actions
                       isAllowed={row.values.Consent !== 'FALSE'}
                       onClick={() => {
                         handleConsetUpdate(row.values.fieldName);
                       }}
                     />
-                  ) : (
-                    cell.render('Cell')
+                  )}
+                  {cellIndex === 3 && (
+                    <Input
+                      name={`Use-${row.values.fieldName}`}
+                      type="text"
+                      value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
+                      onChange={(e) => handleChange(e, 'use')}
+                      className="min-w-[160px]"
+                    />
+                  )}
+                  {cellIndex === 4 && (
+                    <Input
+                      name={`Pricing-${row.values.fieldName}`}
+                      type="text"
+                      isMonetaryInput
+                      pattern="\d*\.?\d*"
+                      value={values[row.values.fieldName] ? values[row.values.fieldName].pricing : ''}
+                      onChange={(e) => handleChange(e, 'pricing')}
+                      className="min-w-[160px]"
+                    />
+                  )}
+                  {cellIndex === 5 && (
+                    <Input
+                      name={`Threshold-${row.values.fieldName}`}
+                      type="text"
+                      pattern="\d*\.?\d*"
+                      value={values[row.values.fieldName] ? values[row.values.fieldName].threshold : ''}
+                      onChange={(e) => handleChange(e, 'threshold')}
+                      className="min-w-[160px]"
+                    />
                   )}
                 </td>
               ))}

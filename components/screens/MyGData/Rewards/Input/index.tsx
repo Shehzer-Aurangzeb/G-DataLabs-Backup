@@ -8,8 +8,20 @@ import { edit } from '@/constants/assets';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
+  isMonetaryInput?: boolean;
+  currency?: string;
 }
-function Input({ readOnly, name, onChange, value, type, pattern, className }: IProps) {
+function Input({
+  readOnly,
+  name,
+  onChange,
+  value,
+  type,
+  pattern,
+  className,
+  currency = '$',
+  isMonetaryInput = false,
+}: IProps) {
   return (
     <div
       className={[
@@ -17,13 +29,15 @@ function Input({ readOnly, name, onChange, value, type, pattern, className }: IP
         className,
       ].join(' ')}
     >
-      <span
-        className={`absolute top-[23%] ${
-          readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
-        } text-white font-sans text-xl font-medium`}
-      >
-        $
-      </span>
+      {isMonetaryInput && (
+        <span
+          className={`absolute top-[23%] ${
+            readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
+          } text-white font-sans text-xl font-medium`}
+        >
+          {currency}
+        </span>
+      )}
       <input
         autoComplete="off"
         pattern={pattern}

@@ -17,9 +17,10 @@ type TProps = {
   chats: TMessage[];
   userProfile: string | StaticImageData;
   isLoggedIn: boolean;
+  giveFeedback: (payload: { responseId: number; feedback: boolean }) => Promise<void>;
 };
 
-function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
+function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
 
@@ -72,7 +73,14 @@ function ActiveChat({ chats, userProfile, isLoggedIn }: TProps) {
               ))}
             </div>
           )}
-          {isLoggedIn && msg.isBotResponse && <ResponseFeedback show={!msg.isLoading} />}
+          {isLoggedIn && msg.isBotResponse && (
+            <ResponseFeedback
+              show={!msg.isLoading}
+              choice={msg.choice}
+              messageId={Number(msg.messageID)}
+              giveFeedback={giveFeedback}
+            />
+          )}
         </Chat>
       ))}
     </div>

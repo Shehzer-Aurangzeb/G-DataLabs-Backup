@@ -49,11 +49,15 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     const timeout = setTimeout(() => {
       if (!recordID) return;
       updateConsentRewards({ id: Number(recordID), payload: PDefinedValue[recordID] });
-    }, 1000);
+      setRecordID('');
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, [PDefinedValue, recordID, updateConsentRewards]);
 
+  useEffect(() => {
+    setPDefinedValue(createRewardsState(data));
+  }, [data]);
   return (
     <table {...getTableProps()} className="w-full">
       <thead>
@@ -85,27 +89,29 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                     cellIndex === row.cells.length - 1 && 'hidden'
                   }`}
                 >
-                  {cellIndex === 0 && cell.render('Cell')}
-                  {cellIndex === 1 && (
+                  {(cellIndex === 0 || cellIndex === 1) && cell.render('Cell')}
+                  {cellIndex === 2 && (
                     <Actions
                       isAllowed={row.values.Consent !== 'FALSE'}
                       onClick={() => handleConsetUpdate(row.values.id)}
                     />
                   )}
-                  {cellIndex === 2 && (
+                  {cellIndex === 3 && (
                     <Input
                       name={row.values.id}
                       id={row.values.id}
                       readOnly={false}
+                      isMonetaryInput
                       value={PDefinedValue[row.values.id].demanded_reward_value?.toString()}
                       onChange={handleChange}
                     />
                   )}
-                  {cellIndex === 3 && (
+                  {cellIndex === 4 && (
                     <Input
                       name={`OtherCompValue-${row.values.id}`}
                       id={`OtherCompValue-${row.values.id}`}
                       readOnly
+                      isMonetaryInput
                       value={row.values.OtherCompValue}
                     />
                   )}
