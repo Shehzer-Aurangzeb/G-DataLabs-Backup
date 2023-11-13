@@ -736,6 +736,7 @@
                       strings: [msg.content.text],
                       typeSpeed: 30,
                       showCursor: false,
+                      className: 'whitespace-pre-line',
                     }),
                   msg.content.images.length > 0 &&
                     /*#__PURE__*/ jsx_runtime_.jsx('div', {

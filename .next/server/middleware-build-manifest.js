@@ -2,22 +2,22 @@ self.__BUILD_MANIFEST = {
   polyfillFiles: ['static/chunks/polyfills-78c92fac7aa8fdd8.js'],
   devFiles: [],
   ampDevFiles: [],
-  lowPriorityFiles: ['static/TFDDCifAHAvq2aivej39b/_buildManifest.js', 'static/TFDDCifAHAvq2aivej39b/_ssgManifest.js'],
+  lowPriorityFiles: ['static/HPoxTfh4yc-NlZOn5ba8C/_buildManifest.js', 'static/HPoxTfh4yc-NlZOn5ba8C/_ssgManifest.js'],
   rootMainFiles: [
-    'static/chunks/webpack-63d3f9e4a03baf7e.js',
+    'static/chunks/webpack-1e40fb37f9fdb37c.js',
     'static/chunks/fd9d1056-c6dd9cd3ed20402a.js',
     'static/chunks/596-c94f2d9d3531a30a.js',
     'static/chunks/main-app-c01fa7fc263a38f5.js',
   ],
   pages: {
     '/_app': [
-      'static/chunks/webpack-63d3f9e4a03baf7e.js',
+      'static/chunks/webpack-1e40fb37f9fdb37c.js',
       'static/chunks/framework-8883d1e9be70c3da.js',
       'static/chunks/main-cb45cc2f2e0f8964.js',
       'static/chunks/pages/_app-52924524f99094ab.js',
     ],
     '/_error': [
-      'static/chunks/webpack-63d3f9e4a03baf7e.js',
+      'static/chunks/webpack-1e40fb37f9fdb37c.js',
       'static/chunks/framework-8883d1e9be70c3da.js',
       'static/chunks/main-cb45cc2f2e0f8964.js',
       'static/chunks/pages/_error-f97029588ae2a47b.js',
