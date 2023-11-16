@@ -452,30 +452,24 @@
         });
         const [values, setValues] = (0, react_.useState)((0, lib /* createCompanyState */.DQ)(data));
         const [recordID, setRecordID] = (0, react_.useState)('');
-        console.log('values :>> ', values);
-        const handleChange = (e, name) => {
-          const { value, id } = e.target;
-          const recordId = id.split('-')[1];
-          if (name === 'Pricing' && /^\d*\.?\d*$/.test(value) === false) return;
+        const handleChange = (e, field) => {
+          const { value, id, type } = e.target;
+          const fieldName = id.split('-')[1];
+          if (type === 'number' && /^\d*\.?\d*$/.test(value) === false) return;
           setValues((prev) => ({
             ...prev,
-            [name]: {
-              ...prev[name],
-              [recordId]: {
-                ...prev[name][recordId],
-                value: Number(Number(value).toFixed(3)),
-              },
+            [fieldName]: {
+              ...prev[fieldName],
+              [field]: value,
             },
           }));
-          setRecordID(recordId);
+          setRecordID(fieldName);
         };
         const handleConsetUpdate = (0, react_.useCallback)(
           (name) => {
-            const recordConsent = values.Use[name].consents_to_sell;
+            const recordConsent = values[name].consents_to_buy;
             updateConsentRewards([
               {
-                demanded_reward_value: Number(values.Pricing[name].value),
-                usage: values.Use[name].value ?? '',
                 consents_to_buy: !recordConsent,
                 personal_data_field: {
                   field_name: name,
@@ -490,17 +484,21 @@
             if (!recordID) return;
             updateConsentRewards([
               {
-                demanded_reward_value: Number(values.Pricing[recordID].value),
-                usage: values.Use[recordID].value ?? '',
-                consents_to_buy: !values.Use[recordID].consents_to_sell,
+                demanded_reward_value: Number(values[recordID].pricing),
+                usage: values[recordID].use,
+                threshold: Number(values[recordID].threshold),
                 personal_data_field: {
                   field_name: recordID,
                 },
               },
             ]);
-          }, 1000);
+            setRecordID('');
+          }, 2000);
           return () => clearTimeout(timeout);
         }, [values, recordID, updateConsentRewards]);
+        (0, react_.useEffect)(() => {
+          setValues((0, lib /* createCompanyState */.DQ)(data));
+        }, [data]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
           ...getTableProps(),
           className: 'w-full',
@@ -532,36 +530,46 @@
                       'td',
                       {
                         ...cell.getCellProps(),
-                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap
-                  ${cellIndex === row.cells.length - 1 && 'hidden'}`,
+                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center 
+                  ${cellIndex === row.cells.length - 1 && 'hidden'}
+                  ${(cellIndex === 1 || cellIndex === 2) && 'min-w-[450px]'}
+                  `,
                         children: [
-                          cellIndex === 2 &&
-                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
-                              name: `Use-${row.values.fieldName}`,
-                              type: 'text',
-                              value: values.Use[row.values.fieldName] ? values.Use[row.values.fieldName].value : '',
-                              onChange: (e) => handleChange(e, 'Use'),
-                              className: 'min-w-[160px]',
+                          (cellIndex === 0 || cellIndex === 1 || cellIndex === 2) && cell.render('Cell'),
+                          cellIndex === row.cells.length - 2 &&
+                            /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
+                              isAllowed: row.values.Consent !== 'FALSE',
+                              onClick: () => {
+                                handleConsetUpdate(row.values.fieldName);
+                              },
                             }),
                           cellIndex === 3 &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
-                              name: `Pricing-${row.values.fieldName}`,
+                              name: `Use-${row.values.fieldName}`,
                               type: 'text',
-                              pattern: '\\d*\\.?\\d*',
-                              value: values.Pricing[row.values.fieldName]
-                                ? values.Pricing[row.values.fieldName].value
-                                : '',
-                              onChange: (e) => handleChange(e, 'Pricing'),
+                              value: values[row.values.fieldName] ? values[row.values.fieldName].use : '',
+                              onChange: (e) => handleChange(e, 'use'),
                               className: 'min-w-[160px]',
                             }),
-                          cellIndex === row.cells.length - 2
-                            ? /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
-                                isAllowed: row.values.Consent !== 'FALSE',
-                                onClick: () => {
-                                  handleConsetUpdate(row.values.fieldName);
-                                },
-                              })
-                            : cell.render('Cell'),
+                          cellIndex === 4 &&
+                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
+                              name: `Pricing-${row.values.fieldName}`,
+                              type: 'text',
+                              isMonetaryInput: true,
+                              pattern: '\\d*\\.?\\d*',
+                              value: values[row.values.fieldName] ? values[row.values.fieldName].pricing : '',
+                              onChange: (e) => handleChange(e, 'pricing'),
+                              className: 'min-w-[160px]',
+                            }),
+                          cellIndex === 5 &&
+                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
+                              name: `Threshold-${row.values.fieldName}`,
+                              type: 'text',
+                              pattern: '\\d*\\.?\\d*',
+                              value: values[row.values.fieldName] ? values[row.values.fieldName].threshold : '',
+                              onChange: (e) => handleChange(e, 'threshold'),
+                              className: 'min-w-[160px]',
+                            }),
                         ],
                       },
                       cell.id,
@@ -649,6 +657,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 262, 807, 54, 488, 405], () => __webpack_exec__(11958));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488, 405], () => __webpack_exec__(11958));
   module.exports = __webpack_exports__;
 })();

@@ -23,21 +23,8 @@ exports.modules = {
         .required('Last Name is required'),
       email: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)().email().required('Email is required'),
       password: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)(),
-      username: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)(),
-      phone: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .mixed */.nK)().test(
-        'is-phone-number',
-        'Invalid phone number',
-        (value) => {
-          // Allow either a number or null
-          if (value === null) {
-            return true;
-          }
-          if (typeof value === 'number' || typeof value === 'string') {
-            return true;
-          }
-          return false;
-        },
-      ),
+      username: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)().nullable(),
+      phone: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .number */.Rx)().nullable(),
       totalRewards: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .number */.Rx)(),
       accountNo: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)(),
       accountTitle: (0, yup__WEBPACK_IMPORTED_MODULE_0__ /* .string */.Z_)(),

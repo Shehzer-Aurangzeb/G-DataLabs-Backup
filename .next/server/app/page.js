@@ -621,7 +621,7 @@
       };
       // EXTERNAL MODULE: ./components/UI/IconButton/index.tsx
       var IconButton = __webpack_require__(17223); // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/FeedbackAction/index.tsx
-      function FeedbackAction({ show }) {
+      function FeedbackAction({ show, choice, messageId, giveFeedback }) {
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
           className: `flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 ${
             show ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0'
@@ -631,7 +631,11 @@
               src: assets /* like */.vL,
               className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
               onClick: () => {
-                // console.log('like');
+                if (choice) return;
+                giveFeedback({
+                  responseId: messageId,
+                  feedback: true,
+                });
               },
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
@@ -639,7 +643,11 @@
               className:
                 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1]',
               onClick: () => {
-                // console.log('dislike');
+                if (!choice) return;
+                giveFeedback({
+                  responseId: messageId,
+                  feedback: false,
+                });
               },
             }),
           ],
@@ -685,7 +693,7 @@
       }
       /* harmony default export */ const ActiveChat_Chat = Chat; // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/index.tsx
 
-      function ActiveChat({ chats, userProfile, isLoggedIn }) {
+      function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }) {
         const messagesRef = (0, react_.useRef)(null);
         const { theme } = (0, ThemeProvider /* useTheme */.F)();
         const profile = (0, react_.useCallback)(
@@ -728,6 +736,7 @@
                       strings: [msg.content.text],
                       typeSpeed: 30,
                       showCursor: false,
+                      className: 'whitespace-pre-line',
                     }),
                   msg.content.images.length > 0 &&
                     /*#__PURE__*/ jsx_runtime_.jsx('div', {
@@ -750,6 +759,9 @@
                     msg.isBotResponse &&
                     /*#__PURE__*/ jsx_runtime_.jsx(ActiveChat_FeedbackAction, {
                       show: !msg.isLoading,
+                      choice: msg.choice,
+                      messageId: Number(msg.messageID),
+                      giveFeedback: giveFeedback,
                     }),
                 ],
               },
@@ -760,7 +772,16 @@
       }
       /* harmony default export */ const MainContent_ActiveChat = /*#__PURE__*/ (0, react_.memo)(ActiveChat); // CONCATENATED MODULE: ./components/screens/Home/MainContent/index.tsx
 
-      function MainContent({ user, userPrompt, sendPrompt, setUserPrompt, isLoading, chats, isAuthenticated }) {
+      function MainContent({
+        user,
+        userPrompt,
+        sendPrompt,
+        setUserPrompt,
+        isLoading,
+        chats,
+        isAuthenticated,
+        giveFeedback,
+      }) {
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)(Containers, {
           type: 'main',
           children: [
@@ -769,6 +790,7 @@
                 chats: chats,
                 userProfile: user ? user.image : assets /* default_profile */.oB,
                 isLoggedIn: isAuthenticated,
+                giveFeedback: giveFeedback,
               }),
             /*#__PURE__*/ jsx_runtime_.jsx(MainContent_PromptInputBox, {
               userPrompt: userPrompt,
@@ -874,6 +896,7 @@
           recentChatHistory,
           openPreviousChats,
           startNewChat,
+          provideResponseFeedback,
         } = (0, useChatBot /* useChatBot */.L)();
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
           children: [
@@ -885,6 +908,7 @@
               userPrompt: userPrompt,
               setUserPrompt: setUserPrompt,
               isAuthenticated: isAuthenticated,
+              giveFeedback: provideResponseFeedback,
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Home_SidePanel, {
               isAuthenticated: isAuthenticated,
@@ -954,6 +978,6 @@
   var __webpack_require__ = require('../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 262, 782, 54], () => __webpack_exec__(90009));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 702, 782, 54], () => __webpack_exec__(90009));
   module.exports = __webpack_exports__;
 })();

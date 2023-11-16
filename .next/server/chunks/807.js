@@ -26,9 +26,9 @@ exports.modules = {
 
     const useMyGData = () => {
       const { isLoading, setIsLoading } = (0, _state_loading_hooks__WEBPACK_IMPORTED_MODULE_4__ /* .useLoading */.r)();
-      const { personalData, setPersonalData, gData, rData, cData, screenData, compData } = (0,
+      const { personalData, setPersonalData, gData, rData, cData, screenData, compData, setCompData } = (0,
       _state_myGData_hooks__WEBPACK_IMPORTED_MODULE_5__ /* .usePersonalData */.h)();
-      const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData, getAllCompanyConsentData } = (0,
+      const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData } = (0,
       _context_AppProvider__WEBPACK_IMPORTED_MODULE_8__ /* .useApp */.q)();
       const savePersonalData = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(
         async (personal_data) => {
@@ -86,18 +86,21 @@ exports.modules = {
         async (payload) => {
           try {
             setIsLoading(true);
-            await _config__WEBPACK_IMPORTED_MODULE_3__ /* .api */.h
+            const { data } = await _config__WEBPACK_IMPORTED_MODULE_3__ /* .api */.h
               .post('api/company_consents_rewards', payload);
+            const companyData = (0, _lib__WEBPACK_IMPORTED_MODULE_6__ /* .createTableData */.uR)({
+              tableName: _types__WEBPACK_IMPORTED_MODULE_7__ /* .TableName */.me.CompData,
+              data: data.data,
+            });
+            setCompData(companyData);
             react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success('Consent updated');
-            getAllCompanyConsentData();
           } catch (e) {
-            // console.log('e :>> ', e);
             react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.error('Some problem updating consent');
           } finally {
             setIsLoading(false);
           }
         },
-        [setIsLoading, getAllCompanyConsentData],
+        [setIsLoading, setCompData],
       );
       const savePersonalDataTemporarily = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(
         (data) => {

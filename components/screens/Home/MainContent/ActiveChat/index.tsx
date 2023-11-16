@@ -57,7 +57,7 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
           {msg.content.text !== null &&
             msg.content.text.length > 0 &&
             msg.messageID === chats[chats.length - 1].messageID && (
-              <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} />
+              <Typed strings={[msg.content.text]} typeSpeed={30} showCursor={false} className="whitespace-pre-line" />
               // eslint-disable-next-line @typescript-eslint/indent
             )}
 
