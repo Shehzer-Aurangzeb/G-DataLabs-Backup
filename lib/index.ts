@@ -16,6 +16,7 @@ import { THistory, Chat, ChatHistory, TGroupedChatHistory } from '@/state/chats/
 import { PersonalDataSchemaType } from '@/schema';
 import { Data, ScreenDataType, UpdateConsentCompanyType, UpdateConsentRewardType } from '@/state/myGData/types';
 import { DESCRIPTIONANDUNITOFVARIABLES } from '@/constants';
+import { createCompanyToFieldMapping } from './consent';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
   if (!categorizedMessagesMap[groupName]) {
@@ -123,7 +124,6 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   if (tableName === TableName.GData) {
     for (const d of data) {
       const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
-
       for (const value of d.values) {
         const date = dayjs(value.created_at).format('YYYY-MM-DD');
         result[fieldName] = {
@@ -159,8 +159,10 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
         Consent: d.consents_to_sell.toString().toUpperCase(),
         Definition: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].definition,
         Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
-        Companies: '',
-        Use: '',
+        Companies: d.company_consent.map((comp: any) => ({ label: comp.company_name, value: comp.company_name })),
+        Use: createCompanyToFieldMapping({ fieldName: 'usage', data: d.company_consent }),
+        Threshold: createCompanyToFieldMapping({ fieldName: 'threshold', data: d.company_consent }),
+        Pricing: createCompanyToFieldMapping({ fieldName: 'demanded_reward_value', data: d.company_consent }),
         id: d.id,
       };
     }

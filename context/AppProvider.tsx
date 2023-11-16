@@ -12,6 +12,7 @@ import { useWeather } from '@/hooks/useWeather';
 import { useChatBot } from '@/hooks/useChatBot';
 import { useAuth } from '@/hooks/useAuth';
 import { ACCOUNTTYPE } from '@/constants';
+import { CONSENTAPIRESPONSEDATA } from '@/temp';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
@@ -62,7 +63,7 @@ function AppProvider({ children }: IProps) {
     try {
       const { data } = await api.get('api/user_consents_rewards');
       const rData = createTableData({ tableName: TableName.RData, data: data.data });
-      const consentTableData = createTableData({ tableName: TableName.CData, data: data.data });
+      const consentTableData = createTableData({ tableName: TableName.CData, data: CONSENTAPIRESPONSEDATA });
       setRData(rData);
       setCData(consentTableData);
     } catch (e) {
@@ -73,6 +74,7 @@ function AppProvider({ children }: IProps) {
       ) {
         logoutUser();
       }
+      console.log('e', e);
     }
   }, [setRData, setCData, logoutUser, user]);
   const getAllCompanyConsentData = useCallback(async () => {
