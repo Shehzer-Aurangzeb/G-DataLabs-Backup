@@ -2,9 +2,11 @@
 
 import React, { useEffect, useMemo, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { ACCOUNTTYPE, APPITEMS, AUTHITEMS, PATHS } from '@/constants';
+import { ACCOUNTTYPE } from '@/constants/auth';
+import { PATHS } from '@/constants/navigation';
+import { APPITEMS, AUTHITEMS } from '@/constants/sidebar';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { sidebar } from '@/constants/assets';
+import { sidebar } from '@/public/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/state/sidebar/hooks';

@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { CONSENTTABLECOLUMNS, maxWidth } from '@/constants';
+import { maxWidth } from '@/constants';
+import { CONSENTTABLECOLUMNS } from '@/constants/consent';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';

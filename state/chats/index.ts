@@ -28,13 +28,19 @@ const chatSlice = createSlice({
     updateChatAction: (
       state,
       action: {
-        payload: Chat;
+        payload: {
+          chat: Chat;
+          newMessageID: string;
+        };
       },
     ) => ({
       ...state,
       chats: state.chats.map((chat) => {
-        if (chat.messageID === action.payload.messageID) {
-          return action.payload;
+        if (chat.messageID === action.payload.chat.messageID) {
+          return {
+            ...action.payload.chat,
+            messageID: action.payload.newMessageID,
+          };
         }
         return chat;
       }),

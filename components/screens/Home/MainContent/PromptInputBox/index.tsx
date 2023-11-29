@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Image from 'components/UI/StyledImage';
-import { send } from '@/constants/assets';
+import { send } from '@/public/assets';
 import { useAutosizeTextArea } from '@/hooks/useAutoSizeTextArea';
 import PromptResponseTypes from '@/components/screens/Home/MainContent/PromptInputBox/PromptResponseTypes';
 import { TPROPTION } from '@/types';
@@ -28,6 +28,15 @@ function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TP
       choice: userPrompt.choice,
     });
   };
+  const handleKeyPressed = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { key } = e;
+    // if there is no prompt default behaviour should be return
+    if (userPrompt.data.trim().length === 0) return;
+    if (key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // to prevent default behaviour of creating a new line
+      sendPrompt();
+    }
+  };
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(textAreaRef.current, userPrompt?.data ?? '');
   return (
@@ -37,6 +46,7 @@ function PromptInputBox({ userPrompt, setUserPrompt, sendPrompt, isLoading }: TP
           className="resize-none w-full bg-transparent overflow-hidden focus:outline-none pr-12 max-h-[200px] overflow-y-auto h-[24px] dark:text-main"
           value={userPrompt?.data}
           ref={textAreaRef}
+          onKeyDown={handleKeyPressed}
           name="prompt"
           onChange={handlePromptChange}
         />

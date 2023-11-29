@@ -1,5 +1,5 @@
 import React from 'react';
-import { PAGEOPTION } from '@/constants';
+import { PAGEOPTION } from '@/constants/history';
 
 interface IProps {
   pageSize: string | number | readonly string[] | undefined;

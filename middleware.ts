@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { COOKIES } from './types';
-import { ACCOUNTTYPE, PATHS } from './constants';
+import { PATHS } from './constants/navigation';
+import { ACCOUNTTYPE } from './constants/auth';
 
 export default async function middleware(request: NextRequest) {
   const cookie = request.cookies.get(COOKIES.TOKEN);

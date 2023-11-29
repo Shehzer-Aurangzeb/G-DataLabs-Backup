@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { PERSONALDATATABLECOLUMNS, maxWidth } from '@/constants';
+import { maxWidth } from '@/constants';
+import { PERSONALDATATABLECOLUMNS } from '@/constants/personal_data';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';

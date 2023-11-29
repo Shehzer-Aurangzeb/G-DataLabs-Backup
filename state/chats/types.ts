@@ -8,7 +8,7 @@ export type Chat = {
   isBotResponse: boolean;
   messageID: string;
   isLoading: boolean;
-  choice?: boolean | null;
+  choice?: string | null;
   content: {
     text: string;
     images: string[];

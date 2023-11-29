@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { NAVITEMS, Theme } from '@/types';
 import Image from '@/components/UI/StyledImage';
 import { useTheme } from '@/context/ThemeProvider';
-import { SIDEBARLINKSCOLORS } from '@/constants';
+import { SIDEBARLINKSCOLORS } from '@/constants/sidebar';
 
 interface IProps {
   items: NAVITEMS[];

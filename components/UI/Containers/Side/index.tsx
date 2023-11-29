@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { sidebar_dark } from '@/constants/assets';
+import { sidebar_dark } from '@/public/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import IconButton from 'components/UI/IconButton';
 

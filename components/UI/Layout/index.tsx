@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { PATHS } from '@/constants';
+import { PATHS } from '@/constants/navigation';
 import NoSidebarLayout from './NoSidebar';
 import MainLayout from './Main';
 

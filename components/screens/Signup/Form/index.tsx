@@ -2,7 +2,8 @@ import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { SignupFormSchema } from '@/schema';
-import { ACCOUNTTYPE, ACCOUNTTYPESOPTIONS, PATHS, SIGNUPFORMINITIALVALUES } from '@/constants';
+import { ACCOUNTTYPE, ACCOUNTTYPESOPTIONS, SIGNUPFORMINITIALVALUES } from '@/constants/auth';
+import { PATHS } from '@/constants/navigation';
 import Input from '@/components/UI/Input';
 import Select from '@/components/UI/Select';
 import Button from '@/components/UI/Button';
@@ -39,6 +40,7 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           value={values.accountType}
           options={ACCOUNTTYPESOPTIONS}
           className="w-auto max-w-[450px]"
+          increasePadding="py-[22px]"
           onClick={(item: string) => {
             setFieldValue('accountType', item);
           }}
@@ -90,12 +92,12 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           name="termsConditions"
           id="termsConditions"
           className="w-fit"
-          error={errors.termsConditions}
+          error={touched.termsConditions && errors.termsConditions}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
-              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+              <Link href={PATHS.TERMS} className="text-blue underline ml-1">
                 Terms and Conditions
               </Link>
             </p>
@@ -107,12 +109,12 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           name="privacyPolicy"
           id="privacyPolicy"
           className="w-fit"
-          error={errors.privacyPolicy}
+          error={touched.privacyPolicy && errors.privacyPolicy}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
-              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+              <Link href={PATHS.PRIVACY} className="text-blue underline ml-1">
                 Privacy Policy
               </Link>
             </p>
@@ -124,12 +126,12 @@ function SignupForm({ isLoading, registerUser }: TProps) {
           name="cookiePolicy"
           id="cookiePolicy"
           className="w-fit"
-          error={errors.cookiePolicy}
+          error={touched.cookiePolicy && errors.cookiePolicy}
           label={
             <p className="text-primary dark:text-main font-sans font-semibold text-base">
               {' '}
               I accept the
-              <Link href={PATHS.LOGIN} className="text-blue underline ml-1">
+              <Link href={PATHS.COOKIEPOLICY} className="text-blue underline ml-1">
                 Cookie Policy
               </Link>
             </p>

@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { logo, logo_dark } from '@/constants/assets';
-import { PATHS } from '@/constants';
+import { logo, logo_dark } from '@/public/assets';
+import { PATHS } from '@/constants/navigation';
 import { useTheme } from '@/context/ThemeProvider';
 import { Theme } from '@/types';
 

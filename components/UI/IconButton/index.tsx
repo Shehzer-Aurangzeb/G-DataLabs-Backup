@@ -12,13 +12,13 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   src: StaticImageData;
 }
-function IconButton({ onClick, type = 'button', isLoading = false, src, className = '' }: IProps) {
+function IconButton({ onClick, type = 'button', isLoading = false, src, className = '', disabled }: IProps) {
   return (
     <button
       className={['disabled:cursor-not-allowed', className].join(' ')}
       onClick={onClick}
       type={type}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
     >
       {isLoading ? (
         <Loader

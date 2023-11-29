@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { arrow } from '@/constants/assets';
+import { arrow } from '@/public/assets';
 import { capitalize } from '@/lib';
 import { DropDownOption } from '@/types';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
@@ -13,9 +13,10 @@ type TProps = {
   className?: string;
   style?: React.CSSProperties;
   value: string;
+  increasePadding?: string;
 };
 
-function Select({ className, options, style, value, onClick }: TProps) {
+function Select({ className, options, style, value, onClick, increasePadding }: TProps) {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
   const toggleDropdown = () => {
@@ -32,7 +33,7 @@ function Select({ className, options, style, value, onClick }: TProps) {
       ref={selectRef}
       style={style}
       className={[
-        `relative bg-chat py-[10px] dark:bg-darkChat dark:text-main px-4 ${
+        `relative bg-chat dark:bg-darkChat dark:text-main ${increasePadding ?? 'py-[10px]'} px-4 ${
           isOpen ? 'rounded-md rounded-b-none' : 'rounded-md'
         } w-full`,
         className,
@@ -63,7 +64,9 @@ function Select({ className, options, style, value, onClick }: TProps) {
               <li key={uuidv4()}>
                 <div
                   tabIndex={0}
-                  className="cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 py-[10px]"
+                  className={`cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 ${
+                    increasePadding ?? 'py-[10px]'
+                  }`}
                   role="button"
                   onClick={() => {
                     onClick(item.value);

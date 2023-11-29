@@ -2,7 +2,7 @@ import React, { Fragment, memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TGroupedChatHistory, THistory } from '@/state/chats/types';
 import Image from '@/components/UI/StyledImage';
-import { chat } from '@/constants/assets';
+import { chat } from '@/public/assets';
 
 interface IProps {
   groupedChatHistory: TGroupedChatHistory;

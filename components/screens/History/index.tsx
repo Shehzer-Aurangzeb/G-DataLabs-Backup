@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import { HISTORYDATATABLECOLUMNS, maxWidth } from '@/constants';
+import { maxWidth } from '@/constants';
+import { HISTORYDATATABLECOLUMNS } from '@/constants/history';
 import { useChats } from '@/state/chats/hooks';
 import NoData from '@/components/UI/NoDataMessage';
-import { no_chats } from '@/constants/assets';
+import { no_chats } from '@/public/assets';
 import Table from './Table';
 
 function Main() {

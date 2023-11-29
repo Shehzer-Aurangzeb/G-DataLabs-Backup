@@ -8,7 +8,7 @@ import { PersonalInfoSchema } from '@/schema';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import { UserType } from '@/state/user/types';
-import { PERSONALINFOINITIALVALUES } from '@/constants';
+import { PERSONALINFOINITIALVALUES } from '@/constants/account';
 import { UpdateUserPayloadType } from '@/types';
 import { usePlaidAuth } from '@/hooks/usePlaidAuth';
 import BankInformation from './BankInformation';

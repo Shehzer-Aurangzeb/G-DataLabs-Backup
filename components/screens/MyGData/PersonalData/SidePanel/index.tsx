@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
-import { PERSONALDATAINITIALVALUES, SOCIALLIFEOPTIONS } from '@/constants';
+import { PERSONALDATAINITIALVALUES, SOCIALLIFEOPTIONS } from '@/constants/personal_data';
 import { PersonalDataSchema, PersonalDataSchemaType } from '@/schema';
 import Button from '@/components/UI/Button';
 import { useWeatherState } from '@/state/weather/hooks';

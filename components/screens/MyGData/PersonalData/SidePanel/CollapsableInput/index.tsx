@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { arrow, plus } from '@/constants/assets';
+import { arrow, plus } from '@/public/assets';
 import { DropDownOption } from '@/types';
 import Select from '@/components/UI/Select';
 import FileInput from './fileInput';

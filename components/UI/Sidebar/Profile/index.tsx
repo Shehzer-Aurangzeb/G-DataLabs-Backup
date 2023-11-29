@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
-import { logout } from '@/constants/assets';
+import { logout } from '@/public/assets';
 import { UserType } from '@/state/user/types';
 import { capitalize } from '@/lib';
 

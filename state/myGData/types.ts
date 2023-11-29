@@ -14,7 +14,7 @@ export type ScreenDataType = {
 export type MyGDataSliceType = {
   personalData: Data;
   gData: Data;
-  rData: Data;
+  rData: CData;
   cData: CData;
   compData: CData;
   screenData: ScreenDataType[];

@@ -59,12 +59,12 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
         {rows.map((row: any) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} className="even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
               {row.cells.map((cell: any) => (
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
+                  className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
                   ${cell.column.id === 'id' && 'hidden'}
                   ${(cell.column.id === 'Definition' || cell.column.id === 'Unit') && 'min-w-[450px]'}
                   ${(cell.column.id === 'Companies' || cell.column.id === 'Use') && 'min-w-[200px]'}

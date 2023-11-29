@@ -8,6 +8,7 @@ import { useLoading } from '@/state/loading/hooks';
 import { useChats } from '@/state/chats/hooks';
 import { createChat, createHistoryTableData, createRecentChatHistory, groupMessagesByDate } from '@/lib';
 import { useUser } from '@/state/user/hooks';
+import { findActiveChats } from '@/lib/chats';
 
 export const useChatBot = () => {
   const { isLoading, setIsLoading } = useLoading();
@@ -33,11 +34,17 @@ export const useChatBot = () => {
       const { data } = await api.get('api/chat/');
       const recentchatHistory = createRecentChatHistory(data.data);
       const groupedMessages = groupMessagesByDate(recentchatHistory);
-      if (groupedMessages) setRecentChatHistory(groupedMessages);
+      if (!groupedMessages) return;
+      setRecentChatHistory(groupedMessages);
+      if (!activeChatID) return;
+      // update the opened chat if any
+      const activeChats = findActiveChats(groupedMessages, activeChatID);
+      if (!activeChats) return;
+      openPreviousChats(activeChats);
     } catch (e) {
       // console.log('e :>> ', e);
     }
-  }, [setRecentChatHistory]);
+  }, [setRecentChatHistory, openPreviousChats, activeChatID]);
 
   const fetchChatHistory = useCallback(async () => {
     try {
@@ -71,6 +78,7 @@ export const useChatBot = () => {
       try {
         const { data } = await api.post(`choice/${responseId}`, { data: feedback });
         if (!data.response) return;
+        if (data.response === 'success') toast.success('Feedback provided');
         fetchRecentChats();
         fetchChatHistory();
       } catch (e) {
@@ -95,16 +103,18 @@ export const useChatBot = () => {
       let text = '';
       // @ts-ignore
       if (data.images) images = data.images.map(({ url }) => url);
-      if (data.response) text = data.response;
-
-      updateChat({
-        ...botResponseLoading,
-        isLoading: false,
-        content: {
-          text,
-          images,
+      if (data.response.length) text = data.response;
+      updateChat(
+        {
+          ...botResponseLoading,
+          isLoading: false,
+          content: {
+            text,
+            images,
+          },
         },
-      });
+        data.id,
+      );
       if (user) {
         fetchRecentChats();
         fetchChatHistory();

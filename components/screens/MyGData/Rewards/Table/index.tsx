@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Column, useTable } from 'react-table';
 import { Columns } from '@/types';
 import Actions from '@/components/screens/MyGData/Actions';
-import { createRewardsState } from '@/lib';
+import { createRewardsTableState } from '@/lib/rewards';
 import { UpdateConsentRewardType } from '@/state/myGData/types';
 import Input from '../Input';
 
@@ -17,47 +17,44 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     columns,
     data,
   });
-  const [PDefinedValue, setPDefinedValue] = useState(createRewardsState(data));
-  const [recordID, setRecordID] = useState('');
+  const [PDefinedValue, setPDefinedValue] = useState(createRewardsTableState(data));
+  const [recordName, setRecordName] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, id } = e.target;
+    const { value, name } = e.target;
+    if (!/^\d*\.?\d*$/.test(value)) return;
+    const fieldName = name.split('-')[0];
     setPDefinedValue((prev) => ({
       ...prev,
-      [id]: {
-        ...prev[id],
-        demanded_reward_value: Number(Number(value).toFixed(3)),
+      [fieldName]: {
+        ...prev[fieldName],
+        demanded_reward_value: value,
       },
     }));
-    setRecordID(id);
+    setRecordName(fieldName);
   };
 
-  const handleConsetUpdate = useCallback(
-    (Id: string) => {
-      const recordConsent = PDefinedValue[Id];
-      updateConsentRewards({
-        id: Number(Id),
-        payload: {
-          consents_to_sell: !recordConsent.consents_to_sell,
-        },
-      });
-    },
-    [updateConsentRewards, PDefinedValue],
-  );
-
+  // debouncing
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (!recordID) return;
-      updateConsentRewards({ id: Number(recordID), payload: PDefinedValue[recordID] });
-      setRecordID('');
+      if (!recordName) return;
+      updateConsentRewards({
+        id: Number(PDefinedValue[recordName].id),
+        payload: {
+          demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+          consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+        },
+      });
+      setRecordName('');
     }, 2000);
 
     return () => clearTimeout(timeout);
-  }, [PDefinedValue, recordID, updateConsentRewards]);
+  }, [PDefinedValue, recordName, updateConsentRewards]);
 
   useEffect(() => {
-    setPDefinedValue(createRewardsState(data));
+    setPDefinedValue(createRewardsTableState(data));
   }, [data]);
+
   return (
     <table {...getTableProps()} className="w-full">
       <thead>
@@ -80,33 +77,45 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
         {rows.map((row: any) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} className="even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
               {row.cells.map((cell: any, cellIndex: number) => (
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className={`border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
-                    cellIndex === row.cells.length - 1 && 'hidden'
-                  }`}
+                  className={`border border-[#ced4da] py-6 px-7 mobile:p-3 dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
+                    cell.column.id === 'id' && 'hidden'
+                  } 
+                
+                  `}
                 >
                   {(cellIndex === 0 || cellIndex === 1) && cell.render('Cell')}
-                  {cellIndex === 2 && (
+                  {cell.column.id === 'Consent' && (
                     <Actions
                       isAllowed={row.values.Consent !== 'FALSE'}
-                      onClick={() => handleConsetUpdate(row.values.id)}
+                      isDisabled={row.values.id === null}
+                      onClick={() =>
+                        updateConsentRewards({
+                          id: row.values.id,
+                          payload: {
+                            consents_to_sell: row.values.Consent !== 'TRUE',
+                          },
+                        })
+                      }
                     />
                   )}
-                  {cellIndex === 3 && (
+                  {cell.column.id === 'PDefinedValue' && (
                     <Input
-                      name={row.values.id}
+                      name={`${row.values.PDataAndScreen}-${row.values.id}`}
                       id={row.values.id}
-                      readOnly={false}
+                      type="text"
+                      pattern="\d*\.?\d*"
+                      readOnly={row.values.id === null}
                       isMonetaryInput
-                      value={PDefinedValue[row.values.id].demanded_reward_value?.toString()}
+                      value={PDefinedValue[row.values.PDataAndScreen].demanded_reward_value}
                       onChange={handleChange}
                     />
                   )}
-                  {cellIndex === 4 && (
+                  {cell.column.id === 'OtherCompValue' && (
                     <Input
                       name={`OtherCompValue-${row.values.id}`}
                       id={`OtherCompValue-${row.values.id}`}

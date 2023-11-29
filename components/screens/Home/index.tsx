@@ -19,6 +19,7 @@ export default function Main() {
     startNewChat,
     provideResponseFeedback,
   } = useChatBot();
+
   return (
     <>
       <MainContent

@@ -14,7 +14,7 @@ import {
 } from '@/types';
 import { THistory, Chat, ChatHistory, TGroupedChatHistory } from '@/state/chats/types';
 import { PersonalDataSchemaType } from '@/schema';
-import { Data, ScreenDataType, UpdateConsentCompanyType, UpdateConsentRewardType } from '@/state/myGData/types';
+import { Data, ScreenDataType, UpdateConsentCompanyType } from '@/state/myGData/types';
 import { DESCRIPTIONANDUNITOFVARIABLES } from '@/constants';
 import { createCompanyToFieldMapping } from './consent';
 
@@ -145,6 +145,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
         PDefinedValue: d.demanded_reward_value,
         OtherCompValue: '0.0',
         id: d.id,
@@ -217,18 +218,6 @@ export const createCompanyState = (data: any) => {
       use: d.Use,
       pricing: d.Pricing,
       threshold: d.Threshold,
-    };
-  }
-  return result;
-};
-
-//* rewards table
-export const createRewardsState = (data: any) => {
-  const result: { [key: string]: UpdateConsentRewardType } = {};
-  for (const d of data) {
-    result[d.id] = {
-      consents_to_sell: d.Consent === 'TRUE',
-      demanded_reward_value: Number(d.PDefinedValue),
     };
   }
   return result;

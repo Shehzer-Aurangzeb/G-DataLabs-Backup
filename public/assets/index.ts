@@ -24,12 +24,14 @@ import plus from '@/public/assets/icons/plus__icon.svg';
 import default_profile from '@/public/assets/images/default-profile.png';
 import no_data from '@/public/assets/images/no-data.png';
 import no_chats from '@/public/assets/images/no-chats.png';
-import like from '@/public/assets/icons/like__icon.svg';
-import dislike from '@/public/assets/icons/dislike__icon.svg';
+import like_outlined from '@/public/assets/icons/like_outlined__icon.png';
+import like_filled from '@/public/assets/icons/like_filled__icon.png';
 import showpassword from '@/public/assets/icons/showpassword__icon.png';
 import hidepassword from '@/public/assets/icons/hidepassword__icon.png';
 import logo_dark from '@/public/assets/images/logo-dark.png';
 import logo from '@/public/assets/images/logo.png';
+import copy from '@/public/assets/icons/copy__icon.png';
+import check from '@/public/assets/icons/check__icon.svg';
 
 export {
   logo_dark,
@@ -60,8 +62,10 @@ export {
   default_profile,
   no_data,
   no_chats,
-  like,
-  dislike,
+  like_outlined,
+  like_filled,
   showpassword,
   hidepassword,
+  copy,
+  check,
 };

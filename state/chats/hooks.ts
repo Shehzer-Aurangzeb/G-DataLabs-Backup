@@ -30,8 +30,13 @@ export const useChats = () => {
     dispatch(deleteChatsActions());
   }, [dispatch]);
   const updateChat = useCallback(
-    (payload: Chat) => {
-      dispatch(updateChatAction(payload));
+    (payload: Chat, newMessageID: string) => {
+      dispatch(
+        updateChatAction({
+          chat: payload,
+          newMessageID,
+        }),
+      );
     },
     [dispatch],
   );

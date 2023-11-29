@@ -7,14 +7,14 @@ import logo_dark from '@/public/assets/images/logo-dark.png';
 import logo_dark_gif from '@/public/assets/images/logo_dark.gif';
 import logo_gif from '@/public/assets/images/logo.gif';
 import Image from '@/components/UI/StyledImage';
-import { Chat as TMessage } from '@/state/chats/types';
+import { Chat as TChat } from '@/state/chats/types';
 import { useTheme } from '@/context/ThemeProvider';
 import { Theme } from '@/types';
-import ResponseFeedback from './FeedbackAction';
+import ChatActions from './ChatActions';
 import Chat from './Chat';
 
 type TProps = {
-  chats: TMessage[];
+  chats: TChat[];
   userProfile: string | StaticImageData;
   isLoggedIn: boolean;
   giveFeedback: (payload: { responseId: number; feedback: boolean }) => Promise<void>;
@@ -44,7 +44,7 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
   }, [chats]);
 
   return (
-    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 " ref={messagesRef}>
+    <div className="px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_190px)] mobile:px-2 " ref={messagesRef}>
       {chats.map((msg) => (
         <Chat
           key={msg.messageID}
@@ -53,7 +53,10 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
         >
           {msg.content.text !== null &&
             msg.content.text.length > 0 &&
-            msg.messageID !== chats[chats.length - 1].messageID && <div>{msg.content.text}</div>}
+            msg.messageID !== chats[chats.length - 1].messageID && (
+              <div className="whitespace-pre-line">{msg.content.text}</div>
+              // eslint-disable-next-line @typescript-eslint/indent
+            )}
           {msg.content.text !== null &&
             msg.content.text.length > 0 &&
             msg.messageID === chats[chats.length - 1].messageID && (
@@ -74,11 +77,12 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
             </div>
           )}
           {isLoggedIn && msg.isBotResponse && (
-            <ResponseFeedback
+            <ChatActions
               show={!msg.isLoading}
               choice={msg.choice}
               messageId={Number(msg.messageID)}
               giveFeedback={giveFeedback}
+              messageContent={msg.content.text}
             />
           )}
         </Chat>

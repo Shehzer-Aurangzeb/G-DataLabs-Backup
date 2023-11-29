@@ -2,7 +2,8 @@
 
 import React, { useMemo } from 'react';
 import { useMyGData } from '@/hooks/useMyGData';
-import { MYGDATATABLECOLUMNS, maxWidth } from '@/constants';
+import { maxWidth } from '@/constants';
+import { MYGDATATABLECOLUMNS } from '@/constants/my_g_data';
 import ScreenData from './ScreenData';
 import Table from './Table';
 

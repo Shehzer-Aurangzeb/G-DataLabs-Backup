@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImageData } from 'next/image';
 import Image from '@/components/UI/StyledImage';
-import { no_data } from '@/constants/assets';
+import { no_data } from '@/public/assets';
 
 type TProps = {
   message?: string;

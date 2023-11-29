@@ -37,12 +37,12 @@ function Table({ columns, data }: IProps) {
         {rows.map((row: any) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} className="even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
               {row.cells.map((cell: any) => (
                 <td
                   key={cell.id}
                   {...cell.getCellProps()}
-                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center "
+                  className="border border-[#ced4da] py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center "
                 >
                   {cell.column.id === 'Consent' ||
                   cell.column.id === 'Consent Value' ||

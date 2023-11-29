@@ -11,7 +11,7 @@ import { Columns, TableName } from '@/types';
 import { useWeather } from '@/hooks/useWeather';
 import { useChatBot } from '@/hooks/useChatBot';
 import { useAuth } from '@/hooks/useAuth';
-import { ACCOUNTTYPE } from '@/constants';
+import { ACCOUNTTYPE } from '@/constants/auth';
 import { CONSENTAPIRESPONSEDATA } from '@/temp';
 
 type AppContextType = {
@@ -67,16 +67,9 @@ function AppProvider({ children }: IProps) {
       setRData(rData);
       setCData(consentTableData);
     } catch (e) {
-      if (
-        e instanceof AxiosError &&
-        (e.response?.status === 401 || e.response?.data.msg === 'Token has expired') &&
-        user
-      ) {
-        logoutUser();
-      }
-      console.log('e', e);
+      // console.log('e', e);
     }
-  }, [setRData, setCData, logoutUser, user]);
+  }, [setRData, setCData]);
   const getAllCompanyConsentData = useCallback(async () => {
     try {
       if (!user || !user.accountType || user.accountType === ACCOUNTTYPE.PERSONAL) return;
@@ -84,15 +77,9 @@ function AppProvider({ children }: IProps) {
       const compData = createTableData({ tableName: TableName.CompData, data: data.data });
       setCompData(compData);
     } catch (e) {
-      if (
-        e instanceof AxiosError &&
-        (e.response?.status === 401 || e.response?.data.msg === 'Token has expired') &&
-        user
-      ) {
-        logoutUser();
-      }
+      // console.log('e', e)
     }
-  }, [setCompData, logoutUser, user]);
+  }, [setCompData, user]);
 
   const getLastFivePersonalData = useCallback(async () => {
     try {
@@ -103,15 +90,9 @@ function AppProvider({ children }: IProps) {
       setGTableColumns(gDataTableColumns);
       setGData(gData);
     } catch (e) {
-      if (
-        e instanceof AxiosError &&
-        (e.response?.status === 401 || e.response?.data.msg === 'Token has expired') &&
-        user
-      ) {
-        logoutUser();
-      }
+      // console.log('e', e);
     }
-  }, [setGData, logoutUser, user]);
+  }, [setGData]);
 
   const getAllScreenData = useCallback(async () => {
     try {
@@ -119,15 +100,9 @@ function AppProvider({ children }: IProps) {
       const screenData = createScreenData(data.data);
       setScreenData(screenData);
     } catch (e) {
-      if (
-        e instanceof AxiosError &&
-        (e.response?.status === 401 || e.response?.data.msg === 'Token has expired') &&
-        user
-      ) {
-        logoutUser();
-      }
+      // console.log('e', e);
     }
-  }, [setScreenData, logoutUser, user]);
+  }, [setScreenData]);
 
   const initApp = useCallback(() => {
     getAllPersonalData();
