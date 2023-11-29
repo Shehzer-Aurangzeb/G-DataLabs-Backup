@@ -434,8 +434,10 @@
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link);
       // EXTERNAL MODULE: ./schema/index.ts
       var schema = __webpack_require__(86732);
-      // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/navigation.ts
+      var navigation = __webpack_require__(15615);
+      // EXTERNAL MODULE: ./constants/auth.ts
+      var auth = __webpack_require__(86835);
       // EXTERNAL MODULE: ./components/UI/Input/index.tsx
       var Input = __webpack_require__(53628);
       // EXTERNAL MODULE: ./components/UI/Button/index.tsx
@@ -443,7 +445,7 @@
       function ResetPasswordForm({ isLoading, resetPassword }) {
         const { handleSubmit, handleChange, values, touched, errors } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
-          initialValues: constants /* RESETPASSWORDFORMINITIALVALUES */.E0,
+          initialValues: auth /* RESETPASSWORDFORMINITIALVALUES */.E0,
           validationSchema: schema /* ResetPasswordFormSchema */.gf,
           onSubmit: async (results, onSubmit) => {
             resetPassword(results);
@@ -466,7 +468,7 @@
               className: 'w-full',
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-              href: constants /* PATHS */.yy.LOGIN,
+              href: navigation /* PATHS */.y.LOGIN,
               className: 'font-sans font-semibold text-base text-blue underline text-center',
               children: 'Go back to Login',
             }),
@@ -549,6 +551,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 702, 782, 732, 628], () => __webpack_exec__(73802));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 253, 782, 732, 628], () => __webpack_exec__(73802));
   module.exports = __webpack_exports__;
 })();

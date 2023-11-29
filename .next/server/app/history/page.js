@@ -406,12 +406,12 @@
 
     /***/ 41372: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 52591));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 60195));
 
       /***/
     },
 
-    /***/ 52591: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 60195: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -426,13 +426,33 @@
       // EXTERNAL MODULE: external "next/dist/compiled/react"
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      var constants = __webpack_require__(70880); // CONCATENATED MODULE: ./constants/history.ts
+      const PAGEOPTION = [10, 20, 30, 40];
+      const HISTORYDATATABLECOLUMNS = [
+        {
+          Header: 'Questions',
+          accessor: 'question',
+        },
+        {
+          Header: 'Answers',
+          accessor: 'answer',
+        },
+        {
+          Header: 'Image',
+          accessor: 'images',
+        },
+        {
+          Header: 'Feedback',
+          accessor: 'choice',
+        },
+      ];
+
       // EXTERNAL MODULE: ./state/chats/hooks.ts
       var hooks = __webpack_require__(81178);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
       var NoDataMessage = __webpack_require__(79054);
-      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
-      var assets = __webpack_require__(47721);
+      // EXTERNAL MODULE: ./public/assets/index.ts + 32 modules
+      var assets = __webpack_require__(83726);
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./node_modules/uuid/dist/esm-node/v4.js + 3 modules
@@ -456,7 +476,7 @@
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAPElEQVR42mMAA0YYieAqAiFciAmITYEQyEKoMAJCuAo2BikGDSCUZmCHyTsw5AOhA5gHJcKAEMkeJgQJANF4A78xyTg3AAAAAElFTkSuQmCC',
         blurWidth: 8,
         blurHeight: 8,
-      }; // CONCATENATED MODULE: ./components/screens/History/Table/GlobalFilter.tsx
+      }; // CONCATENATED MODULE: ./components/screens/History/Table/Filter/index.tsx
       function GlobalFilter({ filter, setFilter }) {
         return /*#__PURE__*/ jsx_runtime_.jsx('div', {
           className:
@@ -474,7 +494,7 @@
           }),
         });
       }
-      /* harmony default export */ const Table_GlobalFilter = GlobalFilter; // CONCATENATED MODULE: ./components/screens/History/Table/Pagination.tsx
+      /* harmony default export */ const Filter = GlobalFilter; // CONCATENATED MODULE: ./components/screens/History/Table/Pagination/index.tsx
 
       function Pagination({ pageIndex, previousPage, canPreviousPage, nextPage, canNextPage }) {
         return /* eslint-disable */ /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
@@ -501,7 +521,7 @@
           ],
         });
       }
-      /* harmony default export */ const Table_Pagination = Pagination; // CONCATENATED MODULE: ./components/screens/History/Table/SelectEntries.tsx
+      /* harmony default export */ const Table_Pagination = Pagination; // CONCATENATED MODULE: ./components/screens/History/Table/NoOfEntries/index.tsx
 
       function SelectEntries({ pageSize, setPageSize }) {
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
@@ -518,7 +538,7 @@
                 setPageSize(newSize);
               },
               className: 'py-2 px-3 rounded-md text-lg focus:outline-none dark:bg-dark dark:text-main',
-              children: constants /* PAGEOPTION */.KR.map((size) =>
+              children: PAGEOPTION.map((size) =>
                 /*#__PURE__*/ jsx_runtime_.jsx(
                   'option',
                   {
@@ -538,7 +558,7 @@
           ],
         });
       }
-      /* harmony default export */ const Table_SelectEntries = SelectEntries; // CONCATENATED MODULE: ./components/screens/History/Table/index.tsx
+      /* harmony default export */ const NoOfEntries = SelectEntries; // CONCATENATED MODULE: ./components/screens/History/Table/index.tsx
 
       function Table({ columns, data }) {
         const {
@@ -574,13 +594,13 @@
             /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
               className: 'flex justify-between items-center mobile:flex-col-reverse',
               children: [
-                /*#__PURE__*/ jsx_runtime_.jsx(Table_SelectEntries, {
+                /*#__PURE__*/ jsx_runtime_.jsx(NoOfEntries, {
                   pageSize: pageSize,
                   setPageSize: setPageSize,
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx('div', {
                   className: 'my-3 mr-2',
-                  children: /*#__PURE__*/ jsx_runtime_.jsx(Table_GlobalFilter, {
+                  children: /*#__PURE__*/ jsx_runtime_.jsx(Filter, {
                     filter: globalFilter,
                     setFilter: setGlobalFilter,
                   }),
@@ -631,11 +651,12 @@
                     prepareRow(row);
                     return /* eslint-disable */ /*#__PURE__*/ jsx_runtime_.jsx('tr', {
                       ...row.getRowProps(),
+                      className: 'even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat',
                       children: row.cells.map((cell) =>
                         /*#__PURE__*/ jsx_runtime_.jsx('td', {
                           ...cell.getCellProps(),
                           className:
-                            'border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center',
+                            'border border-[#ced4da] py-6 px-7 mobile:p-3 text-black font-sans font-normal text-base mobile:text-sm text-center',
                           children:
                             cell.column.Header === 'Image'
                               ? cell.value.length > 0 &&
@@ -655,9 +676,11 @@
                                 /*#__PURE__*/ jsx_runtime_.jsx(
                                   StyledImage /* default */.Z,
                                   {
-                                    src: cell.value === 'true' ? assets /* like */.vL : assets /* dislike */.DV,
+                                    src: assets /* like_filled */.wb,
                                     alt: 'feedback-image',
-                                    className: 'my-3  h-[20px] w-[20px] mx-auto',
+                                    className: `my-3 h-[20px] w-[20px] mx-auto ${
+                                      cell.value === 'true' ? 'rotate-0' : 'rotate-180'
+                                    }`,
                                   },
                                   (0, v4 /* default */.Z)(),
                                 )
@@ -691,7 +714,7 @@
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(History_Table, {
               data: chatHistory,
-              columns: constants /* HISTORYDATATABLECOLUMNS */.Ac,
+              columns: HISTORYDATATABLECOLUMNS,
             }),
             chatHistory.length === 0 &&
               /*#__PURE__*/ jsx_runtime_.jsx(NoDataMessage /* default */.Z, {
@@ -751,6 +774,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 54], () => __webpack_exec__(87681));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 253, 54], () => __webpack_exec__(87681));
   module.exports = __webpack_exports__;
 })();

@@ -16,8 +16,8 @@
       crossorigin=""
       type="font/woff2"
     />
-    <link rel="stylesheet" href="/_next/static/css/c8eaf6efd73cf764.css" data-precedence="next" />
-    <link rel="preload" href="/_next/static/chunks/webpack-1e40fb37f9fdb37c.js" as="script" />
+    <link rel="stylesheet" href="/_next/static/css/b482a0b2c234c6ad.css" data-precedence="next" />
+    <link rel="preload" href="/_next/static/chunks/webpack-6ee6c73cc4c32418.js" as="script" />
     <link rel="preload" href="/_next/static/chunks/fd9d1056-c6dd9cd3ed20402a.js" as="script" />
     <link rel="preload" href="/_next/static/chunks/596-c94f2d9d3531a30a.js" as="script" />
     <link rel="preload" href="/_next/static/chunks/main-app-c01fa7fc263a38f5.js" as="script" />
@@ -345,6 +345,20 @@
                   role="columnheader"
                   class="border-table dark:border-white border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap false"
                 >
+                  Price Offering
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                  class="border-table dark:border-white border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap false"
+                >
+                  Threshold
+                </th>
+                <th
+                  colspan="1"
+                  role="columnheader"
+                  class="border-table dark:border-white border py-3 px-7 mobile:px-3 mobile:py-2 bg-table dark:bg-darkTable text-xl mobile:text-sm text-white font-medium font-sans whitespace-nowrap false"
+                >
                   Consent
                 </th>
                 <th
@@ -357,41 +371,70 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   EMOTIONAL OVERALL
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   an overall assessment of the days feelings
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per daily emotional index
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -416,6 +459,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -442,44 +486,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   WEATHER
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   list of the weather of the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per daily weather record
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -504,6 +577,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -530,44 +604,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   RELATIVE FINANCE STATUS
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   relative financial status
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per daily financial status index
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -592,6 +695,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -618,44 +722,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   EXERCISE TIME
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   total amount of exercise during the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of exercise duration
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -680,6 +813,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -706,44 +840,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   ANY SOCIAL LIFE
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   whether or not any social life occurred
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of daily social interaction
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -768,6 +931,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -794,44 +958,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   SOCIAL LIFE LIST
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   list of social activities
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per itemized list of daily social activities
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -856,6 +1049,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -882,44 +1076,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   HEALTH OVERALL
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   an assessment of the days health
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per daily comprehensive health report
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -944,6 +1167,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -970,44 +1194,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   WEIGHT
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   measure of weight in pounds
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per individual daily weight measurement
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1032,6 +1285,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1058,44 +1312,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   FAMILY STATUS
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   status of close friends and family
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of family emotional status
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1120,6 +1403,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1146,44 +1430,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   DEVICE SCREEN TIME
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   amount of time spent on personal devices
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of screen time logged
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1208,6 +1521,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1234,44 +1548,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   WORK LIFE BALANCE
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   overall focus of the day in a range between 0(work)-10(relaxation)
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per work-life balance assessment
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1296,6 +1639,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1322,42 +1666,71 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   JOURNALING
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   any points throughout the day worthy of note
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1382,6 +1755,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1408,42 +1782,71 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   DATE
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   the current day’s date
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1468,6 +1871,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1494,44 +1898,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   EMOTIONAL LIST
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   list of emotions experienced throughout the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per list of daily emotions
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1556,6 +1989,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1582,44 +2016,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   HIGH TEMPERATURE
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   highest temperature of the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of environment high temperature
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1644,6 +2107,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1670,44 +2134,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Photos
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   any personal images that describe the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per personal digital image of at least 256x256 pixels
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1732,6 +2225,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1758,44 +2252,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   LOW TEMPERATURE
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   lowest temperature of the day
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per record of environment low temperature
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1820,6 +2343,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1846,44 +2370,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Screen Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   video recording of on-screen device activity
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Screen Recording: Price per second of device screen recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1908,6 +2461,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1934,44 +2488,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Camera Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   video recording from device webcam where face and or body are clearly visible
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per second of device webcam recording where faceody are clearly visible
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -1996,6 +2579,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2022,45 +2606,74 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Screen + Camera Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   simultaneous combination of video recording of on-screen device activity and video recording from
                   device webcam where face and or body are clearly visible
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per second of device screen + webcam recording where faceody are clearly visible
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2085,6 +2698,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2111,44 +2725,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Microphone Audio Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   audio recording from device microphone with clearly audible feedback
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per second of device microphone recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2173,6 +2816,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2199,44 +2843,73 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   System Audio Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   audio recording from device system audio with clearly audible feedback
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per second of device system audio recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2261,6 +2934,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2287,45 +2961,74 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
-              <tr role="row">
+              <tr role="row" class="even:bg-[#d4d4d4] dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   Mic + System Recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   simultaneous combination of audio recording from device microphone and audio recording from device
                   system audio with clearly audible feedback
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px]"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false min-w-[450px] false"
                 >
                   Price per second of device microphone and system audio recording
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
                 ></td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
-                ></td>
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false min-w-[200px]"
+                >
+                  <p></p>
+                </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <div
+                    class="flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[160px] mx-auto min-w-[160px]"
+                  >
+                    <span
+                      class="absolute top-[23%] left-[41px] mobile:left-[37px] text-white font-sans text-xl font-medium"
+                      >$</span
+                    ><input
+                      autocomplete="off"
+                      readonly=""
+                      id="price-offer-null"
+                      type="number"
+                      class="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
+                      name="price-offer-null"
+                    />
+                  </div>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
+                >
+                  <p></p>
+                </td>
+                <td
+                  role="cell"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center false false false"
                 >
                   <div class="flex flex-row gap-x-4 mobile:gap-x-2 w-full justify-center items-center">
                     <button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2350,6 +3053,7 @@
                     ><button
                       class="disabled:cursor-not-allowed relative h-[35px] w-[35px] mobile:w-[25px] mobile:h-[25px] cursor-default"
                       type="button"
+                      disabled=""
                     >
                       <div class="relative h-full w-full">
                         <img
@@ -2376,7 +3080,7 @@
                 </td>
                 <td
                   role="cell"
-                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false"
+                  class="border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center hidden false false"
                 ></td>
               </tr>
             </tbody>
@@ -2385,7 +3089,7 @@
       </div>
       <!--/$-->
     </div>
-    <script src="/_next/static/chunks/webpack-1e40fb37f9fdb37c.js" async=""></script>
+    <script src="/_next/static/chunks/webpack-6ee6c73cc4c32418.js" async=""></script>
     <script src="/_next/static/chunks/fd9d1056-c6dd9cd3ed20402a.js" async=""></script>
     <script src="/_next/static/chunks/596-c94f2d9d3531a30a.js" async=""></script>
     <script src="/_next/static/chunks/main-app-c01fa7fc263a38f5.js" async=""></script>
@@ -2395,55 +3099,55 @@
     <script>
       self.__next_f.push([
         1,
-        '1:HL["/_next/static/media/3e3cf2ee9aa3f174-s.p.woff2",{"as":"font","type":"font/woff2"}]\n2:HL["/_next/static/media/beb742c171df2176-s.p.woff2",{"as":"font","type":"font/woff2"}]\n3:HL["/_next/static/css/c8eaf6efd73cf764.css",{"as":"style"}]\n0:"$L4"\n',
+        '1:HL["/_next/static/media/3e3cf2ee9aa3f174-s.p.woff2",{"as":"font","type":"font/woff2"}]\n2:HL["/_next/static/media/beb742c171df2176-s.p.woff2",{"as":"font","type":"font/woff2"}]\n3:HL["/_next/static/css/b482a0b2c234c6ad.css",{"as":"style"}]\n0:"$L4"\n',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        '5:I{"id":7948,"chunks":["272:static/chunks/webpack-1e40fb37f9fdb37c.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async":false}\n7:I{"id":6628,"chunks":["272:static/chunks/webpack-1e40fb37f9fdb37c.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"","async":false}\n8:I{"id":306,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/c',
+        '5:I{"id":7948,"chunks":["272:static/chunks/webpack-6ee6c73cc4c32418.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async":false}\n7:I{"id":6628,"chunks":["272:static/chunks/webpack-6ee6c73cc4c32418.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"","async":false}\n8:I{"id":306,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/c',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        'hunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","707:static/chunks/707-f542272dc8925fad.js","100:static/chunks/100-f9fa72ef01c89e32.js","185:static/chunks/app/layout-bd745df314c86ced.js"],"name":"","async":false}\n9:I{"id":171,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","707:static/chunks/707-f542272dc8925fad.js","100:static/chunks/100-f9fa72ef0',
+        'hunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","254:static/chunks/254-0795761d01dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c64bf.js","185:static/chunks/app/layout-1f3bfa52fd09a8d9.js"],"name":"","async":false}\n9:I{"id":171,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","254:static/chunks/254-0795761d0',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        '1c89e32.js","185:static/chunks/app/layout-bd745df314c86ced.js"],"name":"ToastContainer","async":false}\na:I{"id":171,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","707:static/chunks/707-f542272dc8925fad.js","100:static/chunks/100-f9fa72ef01c89e32.js","185:static/chunks/app/layout-bd745df314c86ced.js"],"name":"Bounce","async":false}\nb:I{"id":4193,"chunks":["986:static/chunk',
+        '1dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c64bf.js","185:static/chunks/app/layout-1f3bfa52fd09a8d9.js"],"name":"ToastContainer","async":false}\na:I{"id":171,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","254:static/chunks/254-0795761d01dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c6',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        's/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","707:static/chunks/707-f542272dc8925fad.js","100:static/chunks/100-f9fa72ef01c89e32.js","185:static/chunks/app/layout-bd745df314c86ced.js"],"name":"","async":false}\nc:I{"id":7767,"chunks":["272:static/chunks/webpack-1e40fb37f9fdb37c.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async"',
+        '4bf.js","185:static/chunks/app/layout-1f3bfa52fd09a8d9.js"],"name":"Bounce","async":false}\nb:I{"id":7389,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","396:static/chunks/396-c88bf5972f2e44e1.js","254:static/chunks/254-0795761d01dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c64bf.js","185:static/chunks/app/layout-1f3bfa52fd09a8d9.js"],"name":"","async":false}\nc:I{"id":7767,',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        ':false}\nd:I{"id":724,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","555:static/chunks/app/loading-c65083bb577a909b.js"],"name":"","async":false}\ne:I{"id":8390,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","10:static/chunks/10-2e3bd391aabe8b2c.js","707:static/chunks/707-f542272dc8925fad.js","100:static/chunks/100-f9fa72ef01c89e32.js","509:static/chunks/509-90a86518cf8c19f8.js","112:static/chunks/app/my_g-dat',
+        '"chunks":["272:static/chunks/webpack-6ee6c73cc4c32418.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async":false}\nd:I{"id":724,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","385:static/chunks/385-ec09402ca4b103c0.js","555:static/chunks/app/loading-b97385777b011edb.js"],"name":"","async":false}\ne:I{"id":8390,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab2',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        'a/consent/page-7ecd1f757b3f1cf5.js"],"name":"","async":false}\nf:I{"id":7920,"chunks":["272:static/chunks/webpack-1e40fb37f9fdb37c.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async":false}\n11:I{"id":2710,"chunks":["986:static/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","10:static/chunks/10-2e3bd391aabe8b2c.js","707:static/chunks/707-f542272dc8925fad.js","100:static',
+        '07e07f32c6.js","10:static/chunks/10-2e3bd391aabe8b2c.js","254:static/chunks/254-0795761d01dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c64bf.js","112:static/chunks/app/my_g-data/consent/page-19035954d572cf81.js"],"name":"","async":false}\nf:I{"id":7920,"chunks":["272:static/chunks/webpack-6ee6c73cc4c32418.js","971:static/chunks/fd9d1056-c6dd9cd3ed20402a.js","596:static/chunks/596-c94f2d9d3531a30a.js"],"name":"default","async":false}\n11:I{"id":2710,"chunks":["986:st',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        '/chunks/100-f9fa72ef01c89e32.js","509:static/chunks/509-90a86518cf8c19f8.js","112:static/chunks/app/my_g-data/consent/page-7ecd1f757b3f1cf5.js"],"name":"","async":false}\n',
+        'atic/chunks/986-91cb7551333f13ed.js","139:static/chunks/139-2748a2ec67034905.js","16:static/chunks/16-d1dab207e07f32c6.js","10:static/chunks/10-2e3bd391aabe8b2c.js","254:static/chunks/254-0795761d01dfafbd.js","100:static/chunks/100-b6af6ba10da7033a.js","136:static/chunks/136-522794d8ac5c64bf.js","112:static/chunks/app/my_g-data/consent/page-19035954d572cf81.js"],"name":"","async":false}\n',
       ]);
     </script>
     <script>
       self.__next_f.push([
         1,
-        '4:[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c8eaf6efd73cf764.css","precedence":"next"}]],["$","$L5",null,{"buildId":"HPoxTfh4yc-NlZOn5ba8C","assetPrefix":"","initialCanonicalUrl":"/my_g-data/consent","initialTree":["",{"children":["my_g-data",{"children":["consent",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"initialHead":"$L6","globalErrorComponent":"$7","children":[null,["$","html",null,{"lang":"en","className":"__variable_6ff133 __variable_bdd8fd","children":["$","body",null,{"className":"bg-main dark:bg-darkMain","children":["$","$L8",null,{"children":[["$","$L9",null,{"position":"top-right","limit":1,"autoClose":1500,"hideProgressBar":true,"newestOnTop":true,"closeOnClick":true,"rtl":false,"pauseOnFocusLoss":false,"draggable":false,"pauseOnHover":true,"transition":"$a","theme":"colored"}],["$","$Lb",null,{"children":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","loading":[[["$","div",null,{"className":"bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden px-10 pt-10 dark:bg-main","style":"$undefined","children":["$","$Ld",null,{"width":"90%","height":80,"borderRadius":6,"baseColor":"#D9D9D9","count":4,"className":"mb-4"}]}],false],[false,["$","$Le",null,{"className":"px-10 pt-10 dark:bg-main","children":[["$","$Ld",null,{"width":150,"className":"my-10"}],["$","$Ld",null,{"width":100}],["$","$Ld",null,{"width":"90%","height":80,"borderRadius":6,"baseColor":"#D9D9D9","count":6,"className":"my-4"}]]}]]],"loadingStyles":[],"hasLoading":true,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":"$undefined","childProp":{"current":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children","my_g-data","children"],"error":"$undefined","errorStyles":"$undefined","loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children","my_g-data","children","consent","children"],"error":"$undefined","errorStyles":"$undefined","loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$L10",[["$","div",null,{"className":"bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden p-12 mobile:p-2 rounded-r-lg dark:bg-main","style":"$undefined","children":["$","$L11",null,{}]}],false],null],"segment":"__PAGE__"},"styles":[]}],"segment":"consent"},"styles":[]}],"segment":"my_g-data"},"styles":[]}]}]]}]}]}],null]}]]\n',
+        '4:[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/b482a0b2c234c6ad.css","precedence":"next"}]],["$","$L5",null,{"buildId":"uGXGxOAXfxnodrjyPQ2Gm","assetPrefix":"","initialCanonicalUrl":"/my_g-data/consent","initialTree":["",{"children":["my_g-data",{"children":["consent",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"initialHead":"$L6","globalErrorComponent":"$7","children":[null,["$","html",null,{"lang":"en","className":"__variable_6ff133 __variable_bdd8fd","children":["$","body",null,{"className":"bg-main dark:bg-darkMain","children":["$","$L8",null,{"children":[["$","$L9",null,{"position":"top-right","limit":1,"autoClose":1500,"hideProgressBar":true,"newestOnTop":true,"closeOnClick":true,"rtl":false,"pauseOnFocusLoss":false,"draggable":false,"pauseOnHover":true,"transition":"$a","theme":"colored"}],["$","$Lb",null,{"children":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","loading":[[["$","div",null,{"className":"bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden px-10 pt-10 dark:bg-main","style":"$undefined","children":["$","$Ld",null,{"width":"90%","height":80,"borderRadius":6,"baseColor":"#D9D9D9","count":4,"className":"mb-4"}]}],false],[false,["$","$Le",null,{"className":"px-10 pt-10 dark:bg-main","children":[["$","$Ld",null,{"width":150,"className":"my-10"}],["$","$Ld",null,{"width":100}],["$","$Ld",null,{"width":"90%","height":80,"borderRadius":6,"baseColor":"#D9D9D9","count":6,"className":"my-4"}]]}]]],"loadingStyles":[],"hasLoading":true,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":"$undefined","childProp":{"current":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children","my_g-data","children"],"error":"$undefined","errorStyles":"$undefined","loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$","$Lc",null,{"parallelRouterKey":"children","segmentPath":["children","my_g-data","children","consent","children"],"error":"$undefined","errorStyles":"$undefined","loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"template":["$","$Lf",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$L10",[["$","div",null,{"className":"bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden p-12 mobile:p-2 rounded-r-lg dark:bg-main","style":"$undefined","children":["$","$L11",null,{}]}],false],null],"segment":"__PAGE__"},"styles":[]}],"segment":"consent"},"styles":[]}],"segment":"my_g-data"},"styles":[]}]}]]}]}]}],null]}]]\n',
       ]);
     </script>
     <script>

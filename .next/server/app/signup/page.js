@@ -432,8 +432,10 @@
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link);
       // EXTERNAL MODULE: ./schema/index.ts
       var schema = __webpack_require__(86732);
-      // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/auth.ts
+      var auth = __webpack_require__(86835);
+      // EXTERNAL MODULE: ./constants/navigation.ts
+      var navigation = __webpack_require__(15615);
       // EXTERNAL MODULE: ./components/UI/Input/index.tsx
       var Input = __webpack_require__(53628);
       // EXTERNAL MODULE: ./components/UI/Select/index.tsx
@@ -482,7 +484,7 @@
       function SignupForm({ isLoading, registerUser }) {
         const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
-          initialValues: constants /* SIGNUPFORMINITIALVALUES */.vK,
+          initialValues: auth /* SIGNUPFORMINITIALVALUES */.vK,
           validationSchema: schema /* SignupFormSchema */.fb,
           onSubmit: async (results, onSubmit) => {
             const payload = {
@@ -490,7 +492,7 @@
               first_name: results.firstName,
               last_name: results.lastName,
               password: results.password,
-              is_company: results.accountType === constants /* ACCOUNTTYPE */.Z8.COMPANY,
+              is_company: results.accountType === auth /* ACCOUNTTYPE */.Z8.COMPANY,
             };
             registerUser(payload);
             onSubmit.setSubmitting(false);
@@ -510,8 +512,9 @@
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx(Select /* default */.Z, {
                   value: values.accountType,
-                  options: constants /* ACCOUNTTYPESOPTIONS */.pY,
+                  options: auth /* ACCOUNTTYPESOPTIONS */.pY,
                   className: 'w-auto max-w-[450px]',
+                  increasePadding: 'py-[22px]',
                   onClick: (item) => {
                     setFieldValue('accountType', item);
                   },
@@ -565,14 +568,14 @@
                   name: 'termsConditions',
                   id: 'termsConditions',
                   className: 'w-fit',
-                  error: errors.termsConditions,
+                  error: touched.termsConditions && errors.termsConditions,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
                     children: [
                       ' ',
                       'I accept the',
                       /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-                        href: constants /* PATHS */.yy.LOGIN,
+                        href: navigation /* PATHS */.y.TERMS,
                         className: 'text-blue underline ml-1',
                         children: 'Terms and Conditions',
                       }),
@@ -585,14 +588,14 @@
                   name: 'privacyPolicy',
                   id: 'privacyPolicy',
                   className: 'w-fit',
-                  error: errors.privacyPolicy,
+                  error: touched.privacyPolicy && errors.privacyPolicy,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
                     children: [
                       ' ',
                       'I accept the',
                       /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-                        href: constants /* PATHS */.yy.LOGIN,
+                        href: navigation /* PATHS */.y.PRIVACY,
                         className: 'text-blue underline ml-1',
                         children: 'Privacy Policy',
                       }),
@@ -605,14 +608,14 @@
                   name: 'cookiePolicy',
                   id: 'cookiePolicy',
                   className: 'w-fit',
-                  error: errors.cookiePolicy,
+                  error: touched.cookiePolicy && errors.cookiePolicy,
                   label: /*#__PURE__*/ (0, jsx_runtime_.jsxs)('p', {
                     className: 'text-primary dark:text-main font-sans font-semibold text-base',
                     children: [
                       ' ',
                       'I accept the',
                       /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-                        href: constants /* PATHS */.yy.LOGIN,
+                        href: navigation /* PATHS */.y.COOKIEPOLICY,
                         className: 'text-blue underline ml-1',
                         children: 'Cookie Policy',
                       }),
@@ -625,7 +628,7 @@
                     ' ',
                     'Already have an account?',
                     /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-                      href: constants /* PATHS */.yy.LOGIN,
+                      href: navigation /* PATHS */.y.LOGIN,
                       className: 'text-blue underline ml-1',
                       children: 'Click here to Login',
                     }),
@@ -721,7 +724,7 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 702, 782, 732, 628, 473], () =>
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 253, 782, 732, 628, 473], () =>
     __webpack_exec__(63143),
   );
   module.exports = __webpack_exports__;

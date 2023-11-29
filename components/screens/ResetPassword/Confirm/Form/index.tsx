@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { ConfirmPasswordFormSchema, ConfirmPasswordFormSchemaType } from '@/schema';
-import { CONFIRMPASSWORDFORMINITIALVALUES } from '@/constants';
+import { CONFIRMPASSWORDFORMINITIALVALUES } from '@/constants/auth';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 

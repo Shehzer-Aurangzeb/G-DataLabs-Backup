@@ -2,7 +2,8 @@ import React from 'react';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { ResetPasswordFormSchema, ResetPasswordFormSchemaType } from '@/schema';
-import { RESETPASSWORDFORMINITIALVALUES, PATHS } from '@/constants';
+import { PATHS } from '@/constants/navigation';
+import { RESETPASSWORDFORMINITIALVALUES } from '@/constants/auth';
 import Input from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 

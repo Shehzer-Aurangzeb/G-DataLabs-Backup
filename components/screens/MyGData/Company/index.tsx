@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { COMPANYTABLECOLUMNS, maxWidth } from '@/constants';
+import { maxWidth } from '@/constants';
+import { COMPANYTABLECOLUMNS } from '@/constants/company';
 import { useMyGData } from '@/hooks/useMyGData';
 import NoData from '@/components/UI/NoDataMessage';
 import Table from './Table';

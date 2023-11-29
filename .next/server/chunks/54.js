@@ -15,7 +15,7 @@ exports.modules = {
       react__WEBPACK_IMPORTED_MODULE_1__,
     );
     /* harmony import */ var _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29884);
-    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47721);
+    /* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(83726);
 
     function NoData({ message = undefined, icon = undefined, isParentFixed }) {
       const messageContainerRef = (0, react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
@@ -35,7 +35,7 @@ exports.modules = {
           /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
             _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
             {
-              src: icon ?? _constants_assets__WEBPACK_IMPORTED_MODULE_3__ /* .no_data */.HB,
+              src: icon ?? _public_assets__WEBPACK_IMPORTED_MODULE_3__ /* .no_data */.HB,
               alt: 'no-data',
               className: 'w-14 h-14 object-contain dark:filter-invert(1) dark:brightness-200',
             },

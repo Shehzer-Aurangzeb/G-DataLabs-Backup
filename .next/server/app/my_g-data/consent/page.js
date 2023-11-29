@@ -433,6 +433,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./constants/index.ts
       var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/consent.ts
+      var consent = __webpack_require__(2180);
       // EXTERNAL MODULE: ./hooks/useMyGData.ts
       var useMyGData = __webpack_require__(65807);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
@@ -440,12 +442,43 @@
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./components/screens/MyGData/Actions/index.tsx
-      var Actions = __webpack_require__(23488); // CONCATENATED MODULE: ./components/screens/MyGData/Consent/Table/index.tsx
+      var Actions = __webpack_require__(23488);
+      // EXTERNAL MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
+      var Input = __webpack_require__(42405);
+      // EXTERNAL MODULE: ./components/UI/Select/index.tsx
+      var Select = __webpack_require__(7473);
+      // EXTERNAL MODULE: ./lib/consent.ts
+      var lib_consent = __webpack_require__(73057); // CONCATENATED MODULE: ./components/screens/MyGData/Consent/Table/index.tsx
+      /* eslint-disable no-nested-ternary */
+
       function Table({ columns, data, updateConsentRewards }) {
         const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = (0, react_table.useTable)({
           columns,
           data,
         });
+        const [mappedValues, setMappedValues] = (0, react_.useState)(
+          (0, lib_consent /* createConsentTableState */.F3)(data),
+        );
+        const [selectedCompany, setSelectedCompany] = (0, react_.useState)(
+          (0, lib_consent /* createFieldToCompanyMapping */.im)(data),
+        );
+        const handleChange = (0, react_.useCallback)((field, item) => {
+          setSelectedCompany((prev) => ({
+            ...prev,
+            [field]: item,
+          }));
+        }, []);
+        const getCellValue = (0, react_.useCallback)(
+          (field, cellName) => {
+            if (!mappedValues[field]) return '';
+            return mappedValues[field][cellName][selectedCompany[field]];
+          },
+          [mappedValues, selectedCompany],
+        );
+        (0, react_.useEffect)(() => {
+          setSelectedCompany((0, lib_consent /* createFieldToCompanyMapping */.im)(data));
+          setMappedValues((0, lib_consent /* createConsentTableState */.F3)(data));
+        }, [data]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
           ...getTableProps(),
           className: 'w-full',
@@ -472,17 +505,19 @@
                 prepareRow(row);
                 return /*#__PURE__*/ jsx_runtime_.jsx('tr', {
                   ...row.getRowProps(),
-                  children: row.cells.map((cell, cellIndex) =>
+                  className: 'even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat',
+                  children: row.cells.map((cell) =>
                     /*#__PURE__*/ jsx_runtime_.jsx(
                       'td',
                       {
                         ...cell.getCellProps(),
-                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
-                  ${cellIndex === row.cells.length - 1 && 'hidden'}
-                  ${(cellIndex === 1 || cellIndex === 2) && 'min-w-[450px]'}
+                        className: `border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
+                  ${cell.column.id === 'id' && 'hidden'}
+                  ${(cell.column.id === 'Definition' || cell.column.id === 'Unit') && 'min-w-[450px]'}
+                  ${(cell.column.id === 'Companies' || cell.column.id === 'Use') && 'min-w-[200px]'}
                   `,
                         children:
-                          cellIndex === row.cells.length - 2
+                          cell.column.id === 'Consent'
                             ? /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
                                 isAllowed: row.values.Consent !== 'FALSE',
                                 isDisabled: row.values.id === null,
@@ -494,6 +529,28 @@
                                     },
                                   });
                                 },
+                              })
+                            : cell.column.id === 'Companies' && row.values.Companies.length > 0
+                            ? /*#__PURE__*/ jsx_runtime_.jsx(Select /* default */.Z, {
+                                options: row.values.Companies,
+                                onClick: (item) => {
+                                  handleChange(row.values.PDataAndWeb, item);
+                                },
+                                className: 'w-full',
+                                value: selectedCompany[row.values.PDataAndWeb],
+                              })
+                            : cell.column.id === 'Use' || cell.column.id === 'Threshold'
+                            ? /*#__PURE__*/ jsx_runtime_.jsx('p', {
+                                children: getCellValue(row.values.PDataAndWeb, cell.column.id.toLowerCase()),
+                              })
+                            : cell.column.id === 'Pricing'
+                            ? /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
+                                name: `price-offer-${row.values.id}`,
+                                id: `price-offer-${row.values.id}`,
+                                className: 'min-w-[160px]',
+                                readOnly: true,
+                                isMonetaryInput: true,
+                                value: getCellValue(row.values.PDataAndWeb, 'pricing'),
                               })
                             : cell.render('Cell'),
                       },
@@ -525,7 +582,7 @@
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(Consent_Table, {
               data: tableData,
-              columns: constants /* CONSENTTABLECOLUMNS */.JU,
+              columns: consent /* CONSENTTABLECOLUMNS */.J,
               updateConsentRewards: updateConsentRewards,
             }),
             tableData.length === 0 && /*#__PURE__*/ jsx_runtime_.jsx(NoDataMessage /* default */.Z, {}),
@@ -582,6 +639,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488], () => __webpack_exec__(58891));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 253, 807, 54, 203, 473], () => __webpack_exec__(58891));
   module.exports = __webpack_exports__;
 })();
