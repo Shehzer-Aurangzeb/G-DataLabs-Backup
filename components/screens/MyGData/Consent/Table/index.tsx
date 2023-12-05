@@ -6,7 +6,7 @@ import Actions from '@/components/screens/MyGData/Actions';
 import Input from '@/components/screens/MyGData/Rewards/Input';
 import { UpdateConsentRewardType } from '@/state/myGData/types';
 import Select from '@/components/UI/Select';
-import { createConsentTableState, createFieldToCompanyMapping } from '@/lib/consent';
+import { TConsentTableState, createConsentTableState, createFieldToCompanyMapping } from '@/lib/consent';
 
 interface IProps {
   data: any;
@@ -19,8 +19,8 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     columns,
     data,
   });
-  const [mappedValues, setMappedValues] = useState(createConsentTableState(data));
-  const [selectedCompany, setSelectedCompany] = useState(createFieldToCompanyMapping(data));
+  const [mappedValues, setMappedValues] = useState<TConsentTableState>({});
+  const [selectedCompany, setSelectedCompany] = useState<{ [key: string]: string }>({});
 
   const handleChange = useCallback((field: string, item: string) => {
     setSelectedCompany((prev) => ({ ...prev, [field]: item }));
@@ -90,7 +90,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                         handleChange(row.values.PDataAndWeb, item);
                       }}
                       className="w-full"
-                      value={selectedCompany[row.values.PDataAndWeb]}
+                      value={selectedCompany[row.values.PDataAndWeb] ?? ''}
                     />
                   ) : cell.column.id === 'Use' || cell.column.id === 'Threshold' ? (
                     <p>{getCellValue(row.values.PDataAndWeb, cell.column.id.toLowerCase())}</p>

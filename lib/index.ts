@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-restricted-syntax */
 import dayjs from 'dayjs';
@@ -16,7 +17,7 @@ import { THistory, Chat, ChatHistory, TGroupedChatHistory } from '@/state/chats/
 import { PersonalDataSchemaType } from '@/schema';
 import { Data, ScreenDataType, UpdateConsentCompanyType } from '@/state/myGData/types';
 import { DESCRIPTIONANDUNITOFVARIABLES } from '@/constants';
-import { createCompanyToFieldMapping } from './consent';
+import { createCompaniesDropdown, createCompanyToFieldMapping } from './consent';
 
 const addToGroup = (categorizedMessagesMap: TGroupedChatHistory, groupName: string, message: THistory) => {
   if (!categorizedMessagesMap[groupName]) {
@@ -141,7 +142,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.RData) {
     for (const d of data) {
-      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
+      const fieldName = capitalize(d.field_name.toLowerCase().replaceAll('_', ' '));
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
@@ -154,13 +155,13 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
   }
   if (tableName === TableName.CData) {
     for (const d of data) {
-      const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
+      const fieldName = capitalize(d.field_name.toLowerCase().replaceAll('_', ' '));
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
         Definition: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].definition,
         Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
-        Companies: d.company_consent.map((comp: any) => ({ label: comp.company_name, value: comp.company_name })),
+        Companies: createCompaniesDropdown(d.company_consent),
         Use: createCompanyToFieldMapping({ fieldName: 'usage', data: d.company_consent }),
         Threshold: createCompanyToFieldMapping({ fieldName: 'threshold', data: d.company_consent }),
         Pricing: createCompanyToFieldMapping({ fieldName: 'demanded_reward_value', data: d.company_consent }),

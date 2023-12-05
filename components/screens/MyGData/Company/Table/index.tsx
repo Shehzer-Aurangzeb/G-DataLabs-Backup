@@ -20,7 +20,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
 
   const [values, setValues] = useState<{
     [key: string]: UpdateConsentCompanyType;
-  }>(createCompanyState(data));
+  }>({});
 
   const [recordID, setRecordID] = useState('');
 

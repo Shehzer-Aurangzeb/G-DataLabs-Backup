@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { arrow, plus } from '@/public/assets';
-import { DropDownOption } from '@/types';
+import { TDropdownOption } from '@/types';
 import Select from '@/components/UI/Select';
 import FileInput from './fileInput';
 
@@ -15,7 +15,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   handleFileChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   noOfFiles?: number;
   isSelectInput?: boolean;
-  selectOptions?: DropDownOption[];
+  selectOptions?: TDropdownOption[];
   onSelectOption?: (item: string) => void;
 }
 

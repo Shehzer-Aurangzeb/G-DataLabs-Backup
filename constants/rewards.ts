@@ -30,98 +30,98 @@ export const REWARDSTABLECOLUMNS: Column<Columns>[] = [
 ];
 
 export const REWARDSTABLEDATA = {
-  'EMOTIONAL OVERALL': {
+  'Emotional Overall': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.emotional_overall.unit,
   },
-  'RELATIVE FINANCE STATUS': {
+  'Relative Finance Status': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     Unit: DESCRIPTIONANDUNITOFVARIABLES.relative_finance_status.unit,
     OtherCompValue: '0.0',
     id: null,
   },
-  'EXERCISE TIME': {
+  'Exercise Time': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     Unit: DESCRIPTIONANDUNITOFVARIABLES.exercise_time.unit,
     OtherCompValue: '0.0',
     id: null,
   },
-  'ANY SOCIAL LIFE': {
+  'Any Social Life': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.any_social_life.unit,
   },
-  'SOCIAL LIFE LIST': {
+  'Social Life List': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.social_life_list.unit,
   },
-  'HEALTH OVERALL': {
+  'Health Overall': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.health_overall.unit,
   },
-  WEIGHT: {
+  Weight: {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.weight.unit,
   },
-  'FAMILY STATUS': {
+  'Family Status': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.family_status.unit,
   },
-  'DEVICE SCREEN TIME': {
+  'Device Screen Time': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.device_screen_time.unit,
   },
-  'WORK LIFE BALANCE': {
+  'Work Life Balance': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.work_life_balance.unit,
   },
-  JOURNALING: {
+  Journaling: {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.journaling.unit,
   },
-  DATE: {
+  Date: {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.date.unit,
   },
-  'EMOTIONAL LIST': {
+  'Emotional List': {
     Consent: 'FALSE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.emotional_list.unit,
   },
-  'HIGH TEMPERATURE': {
+  'High Temperature': {
     Consent: 'FALSE',
     PDefinedValue: '1.20',
     OtherCompValue: '0.0',
@@ -135,14 +135,14 @@ export const REWARDSTABLEDATA = {
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.photos.unit,
   },
-  'LOW TEMPERATURE': {
+  'Low Temperature': {
     Consent: 'FALSE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.low_temperature.unit,
   },
-  WEATHER: {
+  Weather: {
     Consent: 'FALSE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
@@ -163,7 +163,7 @@ export const REWARDSTABLEDATA = {
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.camera_recording.unit,
   },
-  'Screen + Camera Recording': {
+  'Screen Camera Recording': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',
@@ -184,7 +184,7 @@ export const REWARDSTABLEDATA = {
     id: null,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.system_audio_recording.unit,
   },
-  'Mic + System Recording': {
+  'Mic System Recording': {
     Consent: 'TRUE',
     PDefinedValue: '0.00',
     OtherCompValue: '0.0',

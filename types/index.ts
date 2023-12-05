@@ -136,7 +136,7 @@ export type RecentChatHistoryResponseType = {
   user_id: number;
 };
 
-export type DropDownOption = {
+export type TDropdownOption = {
   label: string;
   value: string;
 };

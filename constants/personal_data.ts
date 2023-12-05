@@ -1,8 +1,8 @@
 import { Column } from 'react-table';
 import { PersonalDataSchemaType } from '@/schema';
-import { Columns, DropDownOption } from '@/types';
+import { Columns, TDropdownOption } from '@/types';
 
-export const SOCIALLIFEOPTIONS: DropDownOption[] = [
+export const SOCIALLIFEOPTIONS: TDropdownOption[] = [
   { label: 'Yes', value: 'yes' },
   { label: 'No', value: 'no' },
 ];

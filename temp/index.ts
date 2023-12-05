@@ -13,7 +13,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'WEATHER', user_id: 49 },
         personal_data_field_id: 3,
-        company_name: 'Company A',
+        first_name: 'Company A',
         id: 11,
         created_at: '2023-11-10T12:23:09.297764',
         consents_to_buy: true,
@@ -24,7 +24,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'WEATHER', user_id: 49 },
         personal_data_field_id: 3,
-        company_name: 'Company B',
+        first_name: 'Company B',
         id: 46,
         created_at: '2023-11-10T17:06:09.481592',
         consents_to_buy: false,
@@ -35,7 +35,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'WEATHER', user_id: 49 },
         personal_data_field_id: 3,
-        company_name: 'Company C',
+        first_name: 'Company C',
         id: 51,
         created_at: '2023-11-10T17:07:49.655299',
         consents_to_buy: true,
@@ -46,7 +46,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'WEATHER', user_id: 49 },
         personal_data_field_id: 3,
-        company_name: 'Company D',
+        first_name: 'Company D',
         id: 52,
         created_at: '2023-11-10T17:08:33.754377',
         consents_to_buy: true,
@@ -166,7 +166,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'EMOTIONAL_LIST', user_id: 48 },
         personal_data_field_id: 1,
-        company_name: 'Company A',
+        first_name: 'Company A',
         id: 1,
         created_at: '2023-11-09T16:21:17.184971',
         consents_to_buy: false,
@@ -177,10 +177,10 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'EMOTIONAL_LIST', user_id: 48 },
         personal_data_field_id: 1,
-        company_name: 'Company B',
+        first_name: 'Company B',
         id: 2,
         created_at: '2023-11-09T17:01:12.310386',
-        consents_to_buy: false,
+        consents_to_buy: true,
         usage: 'Second Usage B',
         demanded_reward_value: '5.00',
         threshold: 6,
@@ -188,7 +188,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'EMOTIONAL_LIST', user_id: 48 },
         personal_data_field_id: 1,
-        company_name: 'Company C',
+        first_name: 'Company C',
         id: 3,
         created_at: '2023-11-09T17:01:35.905119',
         consents_to_buy: false,
@@ -199,7 +199,7 @@ export const CONSENTAPIRESPONSEDATA = [
       {
         personal_data_field: { field_name: 'EMOTIONAL_LIST', user_id: 48 },
         personal_data_field_id: 1,
-        company_name: 'Company D',
+        first_name: 'Company D',
         id: 4,
         created_at: '2023-11-09T17:04:03.445213',
         consents_to_buy: false,

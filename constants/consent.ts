@@ -41,7 +41,7 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
   },
 ];
 export const CONSENTTABLEDATA = {
-  'EMOTIONAL OVERALL': {
+  'Emotional Overall': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.emotional_overall.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.emotional_overall.unit,
@@ -51,7 +51,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  WEATHER: {
+  Weather: {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.weather.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.weather.unit,
@@ -61,7 +61,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'RELATIVE FINANCE STATUS': {
+  'Relative Finance Status': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.relative_finance_status.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.relative_finance_status.unit,
@@ -71,7 +71,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'EXERCISE TIME': {
+  'Exercise Time': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.exercise_time.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.exercise_time.unit,
@@ -81,7 +81,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'ANY SOCIAL LIFE': {
+  'Any Social Life': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.any_social_life.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.any_social_life.unit,
@@ -91,7 +91,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'SOCIAL LIFE LIST': {
+  'Social Life List': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.social_life_list.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.social_life_list.unit,
@@ -101,7 +101,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'HEALTH OVERALL': {
+  'Health Overall': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.health_overall.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.health_overall.unit,
@@ -111,7 +111,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  WEIGHT: {
+  Weight: {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.weight.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.weight.unit,
@@ -121,7 +121,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'FAMILY STATUS': {
+  'Family Status': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.family_status.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.family_status.unit,
@@ -131,7 +131,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'DEVICE SCREEN TIME': {
+  'Device Screen Time': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.device_screen_time.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.device_screen_time.unit,
@@ -141,7 +141,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'WORK LIFE BALANCE': {
+  'Work Life Balance': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.work_life_balance.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.work_life_balance.unit,
@@ -151,7 +151,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  JOURNALING: {
+  Journaling: {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.journaling.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.journaling.unit,
@@ -161,7 +161,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  DATE: {
+  Date: {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.date.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.date.unit,
@@ -171,7 +171,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'EMOTIONAL LIST': {
+  'Emotional List': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.emotional_list.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.emotional_list.unit,
@@ -181,7 +181,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'HIGH TEMPERATURE': {
+  'High Temperature': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.high_temperature.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.high_temperature.unit,
@@ -201,7 +201,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'LOW TEMPERATURE': {
+  'Low Temperature': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.low_temperature.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.low_temperature.unit,
@@ -231,7 +231,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'Screen + Camera Recording': {
+  'Screen Camera Recording': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.screen_camera_recording.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.screen_camera_recording.unit,
@@ -261,7 +261,7 @@ export const CONSENTTABLEDATA = {
     Pricing: '',
     id: null,
   },
-  'Mic + System Recording': {
+  'Mic System Recording': {
     Consent: 'FALSE',
     Definition: DESCRIPTIONANDUNITOFVARIABLES.mic_system_recording.definition,
     Unit: DESCRIPTIONANDUNITOFVARIABLES.mic_system_recording.unit,

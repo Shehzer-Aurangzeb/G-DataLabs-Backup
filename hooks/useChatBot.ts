@@ -103,7 +103,7 @@ export const useChatBot = () => {
       let text = '';
       // @ts-ignore
       if (data.images) images = data.images.map(({ url }) => url);
-      if (data.response.length) text = data.response;
+      if (data.response?.length) text = data.response;
       updateChat(
         {
           ...botResponseLoading,
@@ -120,6 +120,7 @@ export const useChatBot = () => {
         fetchChatHistory();
       }
     } catch (e) {
+      console.log('e', e);
       if (e instanceof AxiosError) toast.error(e.response?.data.error);
       else toast.error('Something went wrong');
     } finally {

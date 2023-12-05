@@ -4,13 +4,13 @@ import {
   ResetPasswordFormSchemaType,
   SignupFormSchemaType,
 } from '@/schema';
-import { DropDownOption } from '@/types';
+import { TDropdownOption } from '@/types';
 
 export enum ACCOUNTTYPE {
   PERSONAL = 'Personal',
   COMPANY = 'Company',
 }
-export const ACCOUNTTYPESOPTIONS: DropDownOption[] = [
+export const ACCOUNTTYPESOPTIONS: TDropdownOption[] = [
   { label: ACCOUNTTYPE.PERSONAL, value: ACCOUNTTYPE.PERSONAL },
   { label: ACCOUNTTYPE.COMPANY, value: ACCOUNTTYPE.COMPANY },
 ];

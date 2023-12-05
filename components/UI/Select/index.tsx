@@ -3,12 +3,12 @@ import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { arrow } from '@/public/assets';
 import { capitalize } from '@/lib';
-import { DropDownOption } from '@/types';
+import { TDropdownOption } from '@/types';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import Image from '../StyledImage';
 
 type TProps = {
-  options: DropDownOption[];
+  options: TDropdownOption[];
   onClick: (x: string) => void;
   className?: string;
   style?: React.CSSProperties;

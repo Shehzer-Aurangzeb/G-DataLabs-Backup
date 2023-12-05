@@ -17,7 +17,13 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     columns,
     data,
   });
-  const [PDefinedValue, setPDefinedValue] = useState(createRewardsTableState(data));
+  const [PDefinedValue, setPDefinedValue] = useState<{
+    [key: string]: {
+      consents_to_sell: boolean;
+      demanded_reward_value: string;
+      id: string;
+    };
+  }>({});
   const [recordName, setRecordName] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -111,7 +117,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       pattern="\d*\.?\d*"
                       readOnly={row.values.id === null}
                       isMonetaryInput
-                      value={PDefinedValue[row.values.PDataAndScreen].demanded_reward_value}
+                      value={PDefinedValue[row.values.PDataAndScreen]?.demanded_reward_value}
                       onChange={handleChange}
                     />
                   )}
