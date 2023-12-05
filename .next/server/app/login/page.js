@@ -434,8 +434,10 @@
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link);
       // EXTERNAL MODULE: ./schema/index.ts
       var schema = __webpack_require__(86732);
-      // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/auth.ts
+      var auth = __webpack_require__(86835);
+      // EXTERNAL MODULE: ./constants/navigation.ts
+      var navigation = __webpack_require__(15615);
       // EXTERNAL MODULE: ./components/UI/Input/index.tsx
       var Input = __webpack_require__(53628);
       // EXTERNAL MODULE: ./components/UI/Button/index.tsx
@@ -443,7 +445,7 @@
       function LoginForm({ isLoading, loginUser }) {
         const { handleSubmit, handleChange, values, touched, errors } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
-          initialValues: constants /* LOGINFORMINITIALVALUES */.D$,
+          initialValues: auth /* LOGINFORMINITIALVALUES */.D$,
           validationSchema: schema /* LoginFormSchema */.y1,
           onSubmit: async (results, onSubmit) => {
             // console.log('values', results);
@@ -482,7 +484,7 @@
                 ' ',
                 "Don't have an account?",
                 /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-                  href: constants /* PATHS */.yy.SIGNUP,
+                  href: navigation /* PATHS */.y.SIGNUP,
                   className: 'text-blue underline ml-1',
                   children: 'Click here to Sign up',
                 }),
@@ -495,7 +497,7 @@
               isLoading: isLoading,
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(link_default(), {
-              href: constants /* PATHS */.yy.RESETPASSWORD,
+              href: navigation /* PATHS */.y.RESETPASSWORD,
               className: 'text-blue underline text-center font-sans font-semibold text-base',
               children: 'Forgot Password?',
             }),
@@ -572,6 +574,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 702, 782, 732, 628], () => __webpack_exec__(39471));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 253, 782, 732, 628], () => __webpack_exec__(39471));
   module.exports = __webpack_exports__;
 })();

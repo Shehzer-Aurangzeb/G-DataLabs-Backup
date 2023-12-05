@@ -406,12 +406,12 @@
 
     /***/ 51529: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 51234));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 16100));
 
       /***/
     },
 
-    /***/ 51234: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 16100: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -428,7 +428,42 @@
       // EXTERNAL MODULE: ./hooks/useMyGData.ts
       var useMyGData = __webpack_require__(65807);
       // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      var constants = __webpack_require__(70880); // CONCATENATED MODULE: ./constants/my_g_data.ts
+      const MYGDATATABLECOLUMNS = [
+        {
+          Header: 'Consents',
+          accessor: 'consents',
+        },
+        {
+          Header: '08-13-2023',
+          accessor: 'date1',
+        },
+        {
+          Header: '08-14-2023',
+          accessor: 'date2',
+        },
+        {
+          Header: '08-15-2023',
+          accessor: 'date3',
+        },
+        {
+          Header: '08-16-2023',
+          accessor: 'date4',
+        },
+        {
+          Header: '08-17-2023',
+          accessor: 'date5',
+        },
+        {
+          Header: 'Consent Value',
+          accessor: 'consentValue',
+        },
+        {
+          Header: 'Rewards',
+          accessor: 'rewards',
+        },
+      ];
+
       // EXTERNAL MODULE: ./components/screens/MyGData/ScreenData/index.tsx + 1 modules
       var ScreenData = __webpack_require__(11623);
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
@@ -442,9 +477,6 @@
           columns,
           data,
         });
-        const printCell = (cell) => {
-          console.log('cell :>> ', cell);
-        };
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
           ...getTableProps(),
           className: 'w-full',
@@ -474,36 +506,29 @@
                 prepareRow(row);
                 return /*#__PURE__*/ jsx_runtime_.jsx('tr', {
                   ...row.getRowProps(),
+                  className: 'even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat',
                   children: row.cells.map((cell) =>
                     /*#__PURE__*/ jsx_runtime_.jsx(
                       'td',
                       {
                         ...cell.getCellProps(),
                         className:
-                          'border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center ',
+                          'border border-[#ced4da] py-6 px-7 mobile:p-3 text-black dark:text-main font-sans font-normal text-base mobile:text-sm text-center ',
                         children:
                           cell.column.id === 'Consent' ||
                           cell.column.id === 'Consent Value' ||
                           cell.column.id === 'Rewards' ||
                           row.values.Consent !== 'Photos'
                             ? cell.render('Cell')
-                            : /*#__PURE__*/ (0, jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-                                children: [
-                                  row.values[cell.column.id] &&
-                                    row.values[cell.column.id].length > 0 &&
-                                    row.values[cell.column.id].map(({ file_url }) =>
-                                      /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
-                                        src: file_url,
-                                        alt: 'photo',
-                                        className: 'min-w-[300px] h-[250px] max-w-[300px]',
-                                      }),
-                                    ),
-                                  printCell(row.values[cell.column.id]),
-                                  /*#__PURE__*/ jsx_runtime_.jsx('p', {
-                                    children: cell.id,
-                                  }),
-                                ],
-                              }),
+                            : row.values[cell.column.id] &&
+                              row.values[cell.column.id].length > 0 &&
+                              row.values[cell.column.id].map(({ file_url }) =>
+                                /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
+                                  src: file_url,
+                                  alt: 'photo',
+                                  className: 'min-w-[300px] h-[250px] max-w-[300px]',
+                                }),
+                              ),
                       },
                       cell.id,
                     ),
@@ -535,7 +560,7 @@
               className: `overflow-x-auto w-full max-w-[${constants /* maxWidth */.kk}] min-h-[50%]`,
               children: /*#__PURE__*/ jsx_runtime_.jsx(MyGData_Table, {
                 data: tableData,
-                columns: gTableColumns.length > 0 ? gTableColumns : constants /* MYGDATATABLECOLUMNS */.TB,
+                columns: gTableColumns.length > 0 ? gTableColumns : MYGDATATABLECOLUMNS,
               }),
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(ScreenData['default'], {}),
@@ -592,6 +617,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 623], () => __webpack_exec__(212));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 253, 807, 623], () => __webpack_exec__(212));
   module.exports = __webpack_exports__;
 })();

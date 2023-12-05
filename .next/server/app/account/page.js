@@ -411,7 +411,7 @@
     /***/ 18752: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 77166));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 41608));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 66220));
 
       /***/
     },
@@ -507,7 +507,7 @@
       /***/
     },
 
-    /***/ 41608: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 66220: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -532,7 +532,15 @@
       // EXTERNAL MODULE: ./components/UI/Input/index.tsx
       var Input = __webpack_require__(53628);
       // EXTERNAL MODULE: ./components/UI/Button/index.tsx
-      var Button = __webpack_require__(67782);
+      var Button = __webpack_require__(67782); // CONCATENATED MODULE: ./constants/account.ts
+      const PERSONALINFOINITIALVALUES = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        username: '',
+      };
+
       // EXTERNAL MODULE: ./node_modules/react-plaid-link/dist/index.js
       var dist = __webpack_require__(69596);
       // EXTERNAL MODULE: ./config/index.ts
@@ -654,8 +662,8 @@
 
       // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
       var StyledImage = __webpack_require__(29884);
-      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
-      var assets = __webpack_require__(47721); // CONCATENATED MODULE: ./components/screens/Account/PersonalInformation/Form/UploadPicture/index.tsx
+      // EXTERNAL MODULE: ./public/assets/index.ts + 32 modules
+      var assets = __webpack_require__(83726); // CONCATENATED MODULE: ./components/screens/Account/PersonalInformation/Form/UploadPicture/index.tsx
       /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
 
       function UploadPicture({ handleChange, profile }) {
@@ -721,7 +729,7 @@
         const { handleSubmit, handleChange, values, touched, errors } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
           initialValues: {
-            ...constants /* PERSONALINFOINITIALVALUES */.KV,
+            ...PERSONALINFOINITIALVALUES,
             ...user,
             phone: user.phoneNumber,
           },
@@ -1056,7 +1064,7 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 596, 702, 782, 732, 628], () =>
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 596, 253, 782, 732, 628], () =>
     __webpack_exec__(98700),
   );
   module.exports = __webpack_exports__;

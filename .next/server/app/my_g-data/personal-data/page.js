@@ -412,12 +412,12 @@
 
     /***/ 85223: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 33991));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 98038));
 
       /***/
     },
 
-    /***/ 33991: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 98038: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -432,7 +432,99 @@
       // EXTERNAL MODULE: external "next/dist/compiled/react"
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./constants/index.ts
-      var constants = __webpack_require__(70880);
+      var constants = __webpack_require__(70880); // CONCATENATED MODULE: ./constants/personal_data.ts
+      const SOCIALLIFEOPTIONS = [
+        {
+          label: 'Yes',
+          value: 'yes',
+        },
+        {
+          label: 'No',
+          value: 'no',
+        },
+      ];
+      const PERSONALDATAINITIALVALUES = {
+        date: '',
+        high_temperature: 0,
+        low_temperature: 0,
+        emotional_list: [],
+        emotional_overall: '',
+        weather: '',
+        relative_finance_status: '',
+        exercise_time: 0,
+        any_social_life: SOCIALLIFEOPTIONS[0].value,
+      };
+      const PERSONALDATATABLECOLUMNS = [
+        {
+          Header: 'Date',
+          accessor: 'date',
+        },
+        {
+          Header: 'High Temperature',
+          accessor: 'high_temperature',
+        },
+        {
+          Header: 'Low Temperature',
+          accessor: 'low_temperature',
+        },
+        {
+          Header: 'Weather Type',
+          accessor: 'weather',
+        },
+        {
+          Header: 'Emotional List',
+          accessor: 'emotional_list',
+        },
+        {
+          Header: 'Emotional Overall',
+          accessor: 'emotional_overall',
+        },
+        {
+          Header: 'Relative Finance Status',
+          accessor: 'relative_finance_status',
+        },
+        {
+          Header: 'Exercise Total Time',
+          accessor: 'exercise_time',
+        },
+        {
+          Header: 'Photos',
+          accessor: 'photos',
+        },
+        {
+          Header: 'Health Overall',
+          accessor: 'health_overall',
+        },
+        {
+          Header: 'Any Social Life',
+          accessor: 'any_social_life',
+        },
+        {
+          Header: 'Social Life List',
+          accessor: 'social_life_list',
+        },
+        {
+          Header: 'Weight',
+          accessor: 'weight',
+        },
+        {
+          Header: 'Family Status',
+          accessor: 'family_status',
+        },
+        {
+          Header: 'Device Screen Time',
+          accessor: 'device_screen_time',
+        },
+        {
+          Header: 'Work Life Balance',
+          accessor: 'work_life_balance',
+        },
+        {
+          Header: 'Journaling',
+          accessor: 'journaling',
+        },
+      ];
+
       // EXTERNAL MODULE: ./hooks/useMyGData.ts
       var useMyGData = __webpack_require__(65807);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
@@ -474,6 +566,7 @@
                   {
                     ...row.getRowProps(),
                     key: row.id,
+                    className: 'even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat',
                   },
                   row.cells.map((cell) =>
                     /*#__PURE__*/ (0, jsx_runtime_.jsxs)(
@@ -481,7 +574,7 @@
                       {
                         ...cell.getCellProps(),
                         className:
-                          'border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat text-black font-sans font-normal text-base mobile:text-sm text-center min-w-[200px] dark:text-main',
+                          'border border-[#ced4da] py-6 px-7 mobile:p-3 text-black font-sans font-normal text-base mobile:text-sm text-center min-w-[200px] dark:text-main',
                         children: [
                           cell.column.id === 'photos' &&
                             row.values.photos &&
@@ -528,8 +621,8 @@
       // EXTERNAL MODULE: ./node_modules/next/image.js
       var next_image = __webpack_require__(52451);
       var image_default = /*#__PURE__*/ __webpack_require__.n(next_image);
-      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
-      var assets = __webpack_require__(47721);
+      // EXTERNAL MODULE: ./public/assets/index.ts + 32 modules
+      var assets = __webpack_require__(83726);
       // EXTERNAL MODULE: ./components/UI/Select/index.tsx
       var Select = __webpack_require__(7473); // CONCATENATED MODULE: ./components/screens/MyGData/PersonalData/SidePanel/CollapsableInput/fileInput.tsx
       /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
@@ -713,7 +806,7 @@
         const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0,
         formik_cjs_production_min /* useFormik */.TA)({
           initialValues: {
-            ...constants /* PERSONALDATAINITIALVALUES */.sw,
+            ...PERSONALDATAINITIALVALUES,
             high_temperature: weather ? weather.highestTemperature : 0,
             low_temperature: weather ? weather.lowestTemperature : 0,
           },
@@ -850,7 +943,7 @@
               onSelectOption: (item) => {
                 setFieldValue('any_social_life', item);
               },
-              selectOptions: constants /* SOCIALLIFEOPTIONS */.XZ,
+              selectOptions: SOCIALLIFEOPTIONS,
               title: 'Any Social Life?',
               error: touched.any_social_life && errors.any_social_life,
             }),
@@ -969,7 +1062,7 @@
               children: [
                 /*#__PURE__*/ jsx_runtime_.jsx(PersonalData_Table, {
                   data: tableData,
-                  columns: constants /* PERSONALDATATABLECOLUMNS */.qQ,
+                  columns: PERSONALDATATABLECOLUMNS,
                 }),
                 tableData.length === 0 && /*#__PURE__*/ jsx_runtime_.jsx(NoDataMessage /* default */.Z, {}),
               ],
@@ -1027,7 +1120,7 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 960, 702, 782, 807, 732, 54, 473], () =>
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 460, 960, 253, 782, 807, 732, 54, 473], () =>
     __webpack_exec__(8526),
   );
   module.exports = __webpack_exports__;

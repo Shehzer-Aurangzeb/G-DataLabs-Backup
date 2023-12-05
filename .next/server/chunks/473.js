@@ -15,13 +15,13 @@ exports.modules = {
       react__WEBPACK_IMPORTED_MODULE_1__,
     );
     /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(80311);
-    /* harmony import */ var _constants_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47721);
+    /* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(83726);
     /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14088);
     /* harmony import */ var _hooks_useOutsideClick__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(95951);
     /* harmony import */ var _StyledImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29884);
     /* eslint-disable jsx-a11y/label-has-associated-control */
 
-    function Select({ className, options, style, value, onClick }) {
+    function Select({ className, options, style, value, onClick, increasePadding }) {
       const [isOpen, setIsOpen] = (0, react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
       const selectRef = (0, react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
       const toggleDropdown = () => {
@@ -35,7 +35,7 @@ exports.modules = {
         ref: selectRef,
         style: style,
         className: [
-          `relative bg-chat py-[10px] dark:bg-darkChat dark:text-main px-4 ${
+          `relative bg-chat dark:bg-darkChat dark:text-main ${increasePadding ?? 'py-[10px]'} px-4 ${
             isOpen ? 'rounded-md rounded-b-none' : 'rounded-md'
           } w-full`,
           className,
@@ -56,7 +56,7 @@ exports.modules = {
               /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
                 _StyledImage__WEBPACK_IMPORTED_MODULE_5__ /* ["default"] */.Z,
                 {
-                  src: _constants_assets__WEBPACK_IMPORTED_MODULE_2__ /* .arrow */.x7,
+                  src: _public_assets__WEBPACK_IMPORTED_MODULE_2__ /* .arrow */.x7,
                   alt: 'dropdown-icon',
                   className: `w-6 h-6 transition-all ease-in duration-250 dark:invert ${
                     isOpen ? 'rotate-180 ' : 'rotate-0'
@@ -76,8 +76,9 @@ exports.modules = {
                     {
                       children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('div', {
                         tabIndex: 0,
-                        className:
-                          'cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 py-[10px]',
+                        className: `cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 ${
+                          increasePadding ?? 'py-[10px]'
+                        }`,
                         role: 'button',
                         onClick: () => {
                           onClick(item.value);

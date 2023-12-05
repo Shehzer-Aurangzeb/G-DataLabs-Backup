@@ -412,12 +412,12 @@
 
     /***/ 47774: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99983));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 71912));
 
       /***/
     },
 
-    /***/ 99983: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 71912: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -433,6 +433,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./constants/index.ts
       var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/rewards.ts
+      var rewards = __webpack_require__(75155);
       // EXTERNAL MODULE: ./hooks/useMyGData.ts
       var useMyGData = __webpack_require__(65807);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
@@ -440,9 +442,20 @@
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./components/screens/MyGData/Actions/index.tsx
-      var Actions = __webpack_require__(23488);
-      // EXTERNAL MODULE: ./lib/index.ts
-      var lib = __webpack_require__(14088);
+      var Actions = __webpack_require__(23488); // CONCATENATED MODULE: ./lib/rewards.ts
+      /* eslint-disable no-restricted-syntax */ //* rewards table
+      const createRewardsTableState = (data) => {
+        const result = {};
+        for (const d of data) {
+          result[d.PDataAndScreen] = {
+            consents_to_sell: d.Consent === 'TRUE',
+            demanded_reward_value: d.PDefinedValue,
+            id: d.id,
+          };
+        }
+        return result;
+      };
+
       // EXTERNAL MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
       var Input = __webpack_require__(42405); // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Table/index.tsx
       function Table({ columns, data, updateConsentRewards }) {
@@ -450,44 +463,38 @@
           columns,
           data,
         });
-        const [PDefinedValue, setPDefinedValue] = (0, react_.useState)((0, lib /* createRewardsState */.O5)(data));
-        const [recordID, setRecordID] = (0, react_.useState)('');
+        const [PDefinedValue, setPDefinedValue] = (0, react_.useState)(createRewardsTableState(data));
+        const [recordName, setRecordName] = (0, react_.useState)('');
         const handleChange = (e) => {
-          const { value, id } = e.target;
+          const { value, name } = e.target;
+          if (!/^\d*\.?\d*$/.test(value)) return;
+          const fieldName = name.split('-')[0];
           setPDefinedValue((prev) => ({
             ...prev,
-            [id]: {
-              ...prev[id],
-              demanded_reward_value: Number(Number(value).toFixed(3)),
+            [fieldName]: {
+              ...prev[fieldName],
+              demanded_reward_value: value,
             },
           }));
-          setRecordID(id);
+          setRecordName(fieldName);
         };
-        const handleConsetUpdate = (0, react_.useCallback)(
-          (Id) => {
-            const recordConsent = PDefinedValue[Id];
-            updateConsentRewards({
-              id: Number(Id),
-              payload: {
-                consents_to_sell: !recordConsent.consents_to_sell,
-              },
-            });
-          },
-          [updateConsentRewards, PDefinedValue],
-        );
+        // debouncing
         (0, react_.useEffect)(() => {
           const timeout = setTimeout(() => {
-            if (!recordID) return;
+            if (!recordName) return;
             updateConsentRewards({
-              id: Number(recordID),
-              payload: PDefinedValue[recordID],
+              id: Number(PDefinedValue[recordName].id),
+              payload: {
+                demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+                consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+              },
             });
-            setRecordID('');
+            setRecordName('');
           }, 2000);
           return () => clearTimeout(timeout);
-        }, [PDefinedValue, recordID, updateConsentRewards]);
+        }, [PDefinedValue, recordName, updateConsentRewards]);
         (0, react_.useEffect)(() => {
-          setPDefinedValue((0, lib /* createRewardsState */.O5)(data));
+          setPDefinedValue(createRewardsTableState(data));
         }, [data]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('table', {
           ...getTableProps(),
@@ -515,31 +522,43 @@
                 prepareRow(row);
                 return /*#__PURE__*/ jsx_runtime_.jsx('tr', {
                   ...row.getRowProps(),
+                  className: 'even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat',
                   children: row.cells.map((cell, cellIndex) =>
                     /*#__PURE__*/ (0, jsx_runtime_.jsxs)(
                       'td',
                       {
                         ...cell.getCellProps(),
-                        className: `border border-[#ced4da] py-6 px-7 mobile:p-3 bg-active dark:bg-darkChat dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
-                          cellIndex === row.cells.length - 1 && 'hidden'
-                        }`,
+                        className: `border border-[#ced4da] py-6 px-7 mobile:p-3 dark:text-main text-black font-sans font-normal text-base mobile:text-sm text-center whitespace-nowrap ${
+                          cell.column.id === 'id' && 'hidden'
+                        } 
+                
+                  `,
                         children: [
                           (cellIndex === 0 || cellIndex === 1) && cell.render('Cell'),
-                          cellIndex === 2 &&
+                          cell.column.id === 'Consent' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
                               isAllowed: row.values.Consent !== 'FALSE',
-                              onClick: () => handleConsetUpdate(row.values.id),
+                              isDisabled: row.values.id === null,
+                              onClick: () =>
+                                updateConsentRewards({
+                                  id: row.values.id,
+                                  payload: {
+                                    consents_to_sell: row.values.Consent !== 'TRUE',
+                                  },
+                                }),
                             }),
-                          cellIndex === 3 &&
+                          cell.column.id === 'PDefinedValue' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
-                              name: row.values.id,
+                              name: `${row.values.PDataAndScreen}-${row.values.id}`,
                               id: row.values.id,
-                              readOnly: false,
+                              type: 'text',
+                              pattern: '\\d*\\.?\\d*',
+                              readOnly: row.values.id === null,
                               isMonetaryInput: true,
-                              value: PDefinedValue[row.values.id].demanded_reward_value?.toString(),
+                              value: PDefinedValue[row.values.PDataAndScreen].demanded_reward_value,
                               onChange: handleChange,
                             }),
-                          cellIndex === 4 &&
+                          cell.column.id === 'OtherCompValue' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: `OtherCompValue-${row.values.id}`,
                               id: `OtherCompValue-${row.values.id}`,
@@ -568,7 +587,6 @@
           () =>
             Object.entries(rData).map(([key, value]) => ({
               PDataAndScreen: key,
-              Unit: constants /* DESCRIPTIONANDUNITOFVARIABLES */.Gj[key.toLowerCase().replaceAll(' ', '_')].unit,
               ...value,
             })),
           [rData],
@@ -576,12 +594,11 @@
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
           className: `overflow-x-auto w-full h-full max-w-[${constants /* maxWidth */.kk}]`,
           children: [
-            Object.keys(rData).length > 0 &&
-              /*#__PURE__*/ jsx_runtime_.jsx(Rewards_Table, {
-                data: tableData,
-                columns: constants /* REWARDSTABLECOLUMNS */.f6,
-                updateConsentRewards: updateConsentRewards,
-              }),
+            /*#__PURE__*/ jsx_runtime_.jsx(Rewards_Table, {
+              data: tableData,
+              columns: rewards /* REWARDSTABLECOLUMNS */.f,
+              updateConsentRewards: updateConsentRewards,
+            }),
             tableData.length === 0 && /*#__PURE__*/ jsx_runtime_.jsx(NoDataMessage /* default */.Z, {}),
           ],
         });
@@ -636,6 +653,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488, 405], () => __webpack_exec__(28468));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 253, 807, 54, 203], () => __webpack_exec__(28468));
   module.exports = __webpack_exports__;
 })();

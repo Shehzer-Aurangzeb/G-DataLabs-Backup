@@ -433,6 +433,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./constants/index.ts
       var constants = __webpack_require__(70880);
+      // EXTERNAL MODULE: ./constants/company.ts
+      var company = __webpack_require__(96107);
       // EXTERNAL MODULE: ./hooks/useMyGData.ts
       var useMyGData = __webpack_require__(65807);
       // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
@@ -600,7 +602,7 @@
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(Company_Table, {
               data: tableData,
-              columns: constants /* COMPANYTABLECOLUMNS */.rf,
+              columns: company /* COMPANYTABLECOLUMNS */.r,
               updateConsentRewards: updateCompanyConsentRewards,
             }),
             tableData.length === 0 && /*#__PURE__*/ jsx_runtime_.jsx(NoDataMessage /* default */.Z, {}),
@@ -657,6 +659,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 488, 405], () => __webpack_exec__(11958));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 253, 807, 54, 203], () => __webpack_exec__(11958));
   module.exports = __webpack_exports__;
 })();

@@ -397,12 +397,12 @@
     },
 
     /***/ 67805: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 12140));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 50573));
 
       /***/
     },
 
-    /***/ 12140: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 50573: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -418,8 +418,11 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./hooks/useAuth.ts
       var useAuth = __webpack_require__(64260);
-      // EXTERNAL MODULE: ./hooks/useChatBot.ts
-      var useChatBot = __webpack_require__(62073); // CONCATENATED MODULE: ./components/UI/Containers/Main/index.tsx
+      // EXTERNAL MODULE: ./hooks/useChatBot.ts + 1 modules
+      var useChatBot = __webpack_require__(99048);
+      // EXTERNAL MODULE: ./node_modules/next/link.js
+      var next_link = __webpack_require__(11440);
+      var link_default = /*#__PURE__*/ __webpack_require__.n(next_link); // CONCATENATED MODULE: ./components/UI/Containers/Main/index.tsx
       function Main({ children, className = ' ', style }) {
         return /*#__PURE__*/ jsx_runtime_.jsx('div', {
           className: [
@@ -455,8 +458,8 @@
 
       // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
       var StyledImage = __webpack_require__(29884);
-      // EXTERNAL MODULE: ./constants/assets.ts + 30 modules
-      var assets = __webpack_require__(47721); // CONCATENATED MODULE: ./hooks/useAutoSizeTextArea.ts
+      // EXTERNAL MODULE: ./public/assets/index.ts + 32 modules
+      var assets = __webpack_require__(83726); // CONCATENATED MODULE: ./hooks/useAutoSizeTextArea.ts
       /* __next_internal_client_entry_do_not_use__ useAutosizeTextArea auto */
       // Updates the height of a <textarea> when the value changes.
       const useAutosizeTextArea = (textAreaRef, value) => {
@@ -553,6 +556,15 @@
             choice: userPrompt.choice,
           });
         };
+        const handleKeyPressed = (e) => {
+          const { key } = e;
+          // if there is no prompt default behaviour should be return
+          if (userPrompt.data.trim().length === 0) return;
+          if (key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // to prevent default behaviour of creating a new line
+            sendPrompt();
+          }
+        };
         const textAreaRef = (0, react_.useRef)(null);
         useAutosizeTextArea(textAreaRef.current, userPrompt?.data ?? '');
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
@@ -567,6 +579,7 @@
                     'resize-none w-full bg-transparent overflow-hidden focus:outline-none pr-12 max-h-[200px] overflow-y-auto h-[24px] dark:text-main',
                   value: userPrompt?.data,
                   ref: textAreaRef,
+                  onKeyDown: handleKeyPressed,
                   name: 'prompt',
                   onChange: handlePromptChange,
                 }),
@@ -620,18 +633,31 @@
         blurHeight: 0,
       };
       // EXTERNAL MODULE: ./components/UI/IconButton/index.tsx
-      var IconButton = __webpack_require__(17223); // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/FeedbackAction/index.tsx
-      function FeedbackAction({ show, choice, messageId, giveFeedback }) {
+      var IconButton = __webpack_require__(17223); // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/ChatActions/index.tsx
+      function ChatActions({ show, choice, messageId, giveFeedback, messageContent }) {
+        const [messageCopied, setMessageCopied] = (0, react_.useState)(false);
+        (0, react_.useEffect)(() => {
+          if (!messageCopied) return;
+          const timer = setTimeout(() => {
+            setMessageCopied(false);
+          }, 2000);
+          // eslint-disable-next-line consistent-return
+          return () => clearTimeout(timer);
+        }, [messageCopied]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
           className: `flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 ${
             show ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0'
           }`,
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
-              src: assets /* like */.vL,
+              src:
+                choice === null || choice === undefined || choice === 'false'
+                  ? assets /* like_outlined */.jA
+                  : assets /* like_filled */.wb,
               className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
+              disabled: choice === 'true',
               onClick: () => {
-                if (choice) return;
+                if (choice === 'true') return;
                 giveFeedback({
                   responseId: messageId,
                   feedback: true,
@@ -639,21 +665,34 @@
               },
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
-              src: assets /* dislike */.DV,
+              src:
+                choice === null || choice === undefined || choice === 'true'
+                  ? assets /* like_outlined */.jA
+                  : assets /* like_filled */.wb,
               className:
-                'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1]',
+                'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180 ',
+              disabled: choice === 'false',
               onClick: () => {
-                if (!choice) return;
+                if (choice === 'false') return;
                 giveFeedback({
                   responseId: messageId,
                   feedback: false,
                 });
               },
             }),
+            /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
+              src: messageCopied ? assets /* check */.BF : assets /* copy */.JG,
+              className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
+              disabled: messageCopied,
+              onClick: () => {
+                navigator.clipboard.writeText(messageContent);
+                setMessageCopied(true);
+              },
+            }),
           ],
         });
       }
-      /* harmony default export */ const ActiveChat_FeedbackAction = FeedbackAction;
+      /* harmony default export */ const ActiveChat_ChatActions = ChatActions;
 
       // EXTERNAL MODULE: ./components/screens/Home/MainContent/ActiveChat/Loader/styles.module.css
       var styles_module = __webpack_require__(47722);
@@ -677,7 +716,7 @@
       function Chat({ isLoading = false, children, profile }) {
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
           className:
-            'bg-chat flex flex-row gap-x-8 items-center justify-start py-5 pl-8 pr-[72px] font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base relative dark:bg-darkChat dark:text-main',
+            'bg-chat flex flex-row gap-x-8 items-center justify-start py-5 pl-8 pr-[120px] font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base relative dark:bg-darkChat dark:text-main',
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
               src: profile,
@@ -714,7 +753,7 @@
           });
         }, [chats]);
         return /*#__PURE__*/ jsx_runtime_.jsx('div', {
-          className: 'px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_150px)] mobile:px-2 ',
+          className: 'px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_190px)] mobile:px-2 ',
           ref: messagesRef,
           children: chats.map((msg) =>
             /*#__PURE__*/ (0, jsx_runtime_.jsxs)(
@@ -727,6 +766,7 @@
                     msg.content.text.length > 0 &&
                     msg.messageID !== chats[chats.length - 1].messageID &&
                     /*#__PURE__*/ jsx_runtime_.jsx('div', {
+                      className: 'whitespace-pre-line',
                       children: msg.content.text,
                     }),
                   msg.content.text !== null &&
@@ -757,11 +797,12 @@
                     }),
                   isLoggedIn &&
                     msg.isBotResponse &&
-                    /*#__PURE__*/ jsx_runtime_.jsx(ActiveChat_FeedbackAction, {
+                    /*#__PURE__*/ jsx_runtime_.jsx(ActiveChat_ChatActions, {
                       show: !msg.isLoading,
                       choice: msg.choice,
                       messageId: Number(msg.messageID),
                       giveFeedback: giveFeedback,
+                      messageContent: msg.content.text,
                     }),
                 ],
               },
@@ -785,6 +826,27 @@
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)(Containers, {
           type: 'main',
           children: [
+            /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
+              className: 'absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main',
+              children: [
+                /*#__PURE__*/ jsx_runtime_.jsx('span', {
+                  className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 ',
+                  children: 'Powered By',
+                }),
+                /*#__PURE__*/ (0, jsx_runtime_.jsxs)(link_default(), {
+                  href: 'https://platform.openai.com/docs/models/gpt-3-5',
+                  className: 'dark:text-white text-primary font-medium',
+                  target: '_blank',
+                  children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx('span', {
+                      className: 'font-bold',
+                      children: 'ChatGPT',
+                    }),
+                    ' 3.5-turbo-16k',
+                  ],
+                }),
+              ],
+            }),
             chats &&
               /*#__PURE__*/ jsx_runtime_.jsx(MainContent_ActiveChat, {
                 chats: chats,
@@ -978,6 +1040,6 @@
   var __webpack_require__ = require('../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 702, 782, 54], () => __webpack_exec__(90009));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 91, 253, 782, 54], () => __webpack_exec__(90009));
   module.exports = __webpack_exports__;
 })();
