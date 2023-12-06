@@ -662,11 +662,7 @@
                   { data: c } = await r.h.post('get-answer-images', l),
                   i = [],
                   d = '';
-                c.images &&
-                  (i = c.images.map((e) => {
-                    let { url: t } = e;
-                    return t;
-                  })),
+                c.images && (i = c.images.map((e) => e)),
                   (null === (e = c.response) || void 0 === e ? void 0 : e.length) && (d = c.response),
                   h({ ...n, isLoading: !1, content: { text: d, images: i } }, c.id),
                   _ && (C(), N());

@@ -102,7 +102,7 @@ export const useChatBot = () => {
       let images = [];
       let text = '';
       // @ts-ignore
-      if (data.images) images = data.images.map(({ url }) => url);
+      if (data.images) images = data.images.map((url) => url);
       if (data.response?.length) text = data.response;
       updateChat(
         {
