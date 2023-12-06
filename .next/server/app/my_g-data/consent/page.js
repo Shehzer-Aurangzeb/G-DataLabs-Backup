@@ -456,12 +456,8 @@
           columns,
           data,
         });
-        const [mappedValues, setMappedValues] = (0, react_.useState)(
-          (0, lib_consent /* createConsentTableState */.F3)(data),
-        );
-        const [selectedCompany, setSelectedCompany] = (0, react_.useState)(
-          (0, lib_consent /* createFieldToCompanyMapping */.im)(data),
-        );
+        const [mappedValues, setMappedValues] = (0, react_.useState)({});
+        const [selectedCompany, setSelectedCompany] = (0, react_.useState)({});
         const handleChange = (0, react_.useCallback)((field, item) => {
           setSelectedCompany((prev) => ({
             ...prev,
@@ -537,7 +533,7 @@
                                   handleChange(row.values.PDataAndWeb, item);
                                 },
                                 className: 'w-full',
-                                value: selectedCompany[row.values.PDataAndWeb],
+                                value: selectedCompany[row.values.PDataAndWeb] ?? '',
                               })
                             : cell.column.id === 'Use' || cell.column.id === 'Threshold'
                             ? /*#__PURE__*/ jsx_runtime_.jsx('p', {

@@ -46,7 +46,7 @@ exports.modules = {
     );
     /* harmony import */ var _state_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55867);
     /* harmony import */ var _context_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(79323);
-    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(36001);
+    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(66233);
     // Providers.jsx
     /* __next_internal_client_entry_do_not_use__ default auto */
 
@@ -1162,7 +1162,7 @@ exports.modules = {
       },
     ];
     const CONSENTTABLEDATA = {
-      'EMOTIONAL OVERALL': {
+      'Emotional Overall': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_overall.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_overall.unit,
@@ -1172,7 +1172,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      WEATHER: {
+      Weather: {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.weather.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.weather.unit,
@@ -1182,7 +1182,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'RELATIVE FINANCE STATUS': {
+      'Relative Finance Status': {
         Consent: 'FALSE',
         Definition:
           ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.relative_finance_status.definition,
@@ -1193,7 +1193,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'EXERCISE TIME': {
+      'Exercise Time': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.exercise_time.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.exercise_time.unit,
@@ -1203,7 +1203,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'ANY SOCIAL LIFE': {
+      'Any Social Life': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.any_social_life.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.any_social_life.unit,
@@ -1213,7 +1213,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'SOCIAL LIFE LIST': {
+      'Social Life List': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.social_life_list.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.social_life_list.unit,
@@ -1223,7 +1223,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'HEALTH OVERALL': {
+      'Health Overall': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.health_overall.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.health_overall.unit,
@@ -1233,7 +1233,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      WEIGHT: {
+      Weight: {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.weight.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.weight.unit,
@@ -1243,7 +1243,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'FAMILY STATUS': {
+      'Family Status': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.family_status.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.family_status.unit,
@@ -1253,7 +1253,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'DEVICE SCREEN TIME': {
+      'Device Screen Time': {
         Consent: 'FALSE',
         Definition:
           ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.device_screen_time.definition,
@@ -1264,7 +1264,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'WORK LIFE BALANCE': {
+      'Work Life Balance': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.work_life_balance.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.work_life_balance.unit,
@@ -1274,7 +1274,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      JOURNALING: {
+      Journaling: {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.journaling.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.journaling.unit,
@@ -1284,7 +1284,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      DATE: {
+      Date: {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.date.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.date.unit,
@@ -1294,7 +1294,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'EMOTIONAL LIST': {
+      'Emotional List': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_list.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_list.unit,
@@ -1304,7 +1304,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'HIGH TEMPERATURE': {
+      'High Temperature': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.high_temperature.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.high_temperature.unit,
@@ -1324,7 +1324,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'LOW TEMPERATURE': {
+      'Low Temperature': {
         Consent: 'FALSE',
         Definition: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.low_temperature.definition,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.low_temperature.unit,
@@ -1354,7 +1354,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'Screen + Camera Recording': {
+      'Screen Camera Recording': {
         Consent: 'FALSE',
         Definition:
           ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.screen_camera_recording.definition,
@@ -1387,7 +1387,7 @@ exports.modules = {
         Pricing: '',
         id: null,
       },
-      'Mic + System Recording': {
+      'Mic System Recording': {
         Consent: 'FALSE',
         Definition:
           ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.mic_system_recording.definition,
@@ -1603,98 +1603,98 @@ exports.modules = {
       },
     ];
     const REWARDSTABLEDATA = {
-      'EMOTIONAL OVERALL': {
+      'Emotional Overall': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_overall.unit,
       },
-      'RELATIVE FINANCE STATUS': {
+      'Relative Finance Status': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.relative_finance_status.unit,
         OtherCompValue: '0.0',
         id: null,
       },
-      'EXERCISE TIME': {
+      'Exercise Time': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.exercise_time.unit,
         OtherCompValue: '0.0',
         id: null,
       },
-      'ANY SOCIAL LIFE': {
+      'Any Social Life': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.any_social_life.unit,
       },
-      'SOCIAL LIFE LIST': {
+      'Social Life List': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.social_life_list.unit,
       },
-      'HEALTH OVERALL': {
+      'Health Overall': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.health_overall.unit,
       },
-      WEIGHT: {
+      Weight: {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.weight.unit,
       },
-      'FAMILY STATUS': {
+      'Family Status': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.family_status.unit,
       },
-      'DEVICE SCREEN TIME': {
+      'Device Screen Time': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.device_screen_time.unit,
       },
-      'WORK LIFE BALANCE': {
+      'Work Life Balance': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.work_life_balance.unit,
       },
-      JOURNALING: {
+      Journaling: {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.journaling.unit,
       },
-      DATE: {
+      Date: {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.date.unit,
       },
-      'EMOTIONAL LIST': {
+      'Emotional List': {
         Consent: 'FALSE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.emotional_list.unit,
       },
-      'HIGH TEMPERATURE': {
+      'High Temperature': {
         Consent: 'FALSE',
         PDefinedValue: '1.20',
         OtherCompValue: '0.0',
@@ -1708,14 +1708,14 @@ exports.modules = {
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.photos.unit,
       },
-      'LOW TEMPERATURE': {
+      'Low Temperature': {
         Consent: 'FALSE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.low_temperature.unit,
       },
-      WEATHER: {
+      Weather: {
         Consent: 'FALSE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
@@ -1736,7 +1736,7 @@ exports.modules = {
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.camera_recording.unit,
       },
-      'Screen + Camera Recording': {
+      'Screen Camera Recording': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
@@ -1757,7 +1757,7 @@ exports.modules = {
         id: null,
         Unit: ___WEBPACK_IMPORTED_MODULE_0__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj.system_audio_recording.unit,
       },
-      'Mic + System Recording': {
+      'Mic System Recording': {
         Consent: 'TRUE',
         PDefinedValue: '0.00',
         OtherCompValue: '0.0',
@@ -1769,7 +1769,7 @@ exports.modules = {
     /***/
   },
 
-  /***/ 36001: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+  /***/ 66233: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
     'use strict';
 
     // EXPORTS
@@ -1856,277 +1856,7 @@ exports.modules = {
     // EXTERNAL MODULE: ./hooks/useAuth.ts
     var useAuth = __webpack_require__(64260);
     // EXTERNAL MODULE: ./constants/auth.ts
-    var auth = __webpack_require__(86835); // CONCATENATED MODULE: ./temp/index.ts
-    const CONSENTAPIRESPONSEDATA = [
-      {
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.325110',
-        demanded_reward_value: '0.00',
-        field_name: 'EMOTIONAL_OVERALL',
-        id: 55,
-        user_id: 30,
-        company_consent: [],
-      },
-      {
-        company_consent: [
-          {
-            personal_data_field: {
-              field_name: 'WEATHER',
-              user_id: 49,
-            },
-            personal_data_field_id: 3,
-            company_name: 'Company A',
-            id: 11,
-            created_at: '2023-11-10T12:23:09.297764',
-            consents_to_buy: true,
-            usage: 'First Usage A',
-            demanded_reward_value: '3.00',
-            threshold: 10,
-          },
-          {
-            personal_data_field: {
-              field_name: 'WEATHER',
-              user_id: 49,
-            },
-            personal_data_field_id: 3,
-            company_name: 'Company B',
-            id: 46,
-            created_at: '2023-11-10T17:06:09.481592',
-            consents_to_buy: false,
-            usage: 'First Usage B',
-            demanded_reward_value: '2.00',
-            threshold: 4,
-          },
-          {
-            personal_data_field: {
-              field_name: 'WEATHER',
-              user_id: 49,
-            },
-            personal_data_field_id: 3,
-            company_name: 'Company C',
-            id: 51,
-            created_at: '2023-11-10T17:07:49.655299',
-            consents_to_buy: true,
-            usage: 'First Usage C',
-            demanded_reward_value: '1.0',
-            threshold: 0,
-          },
-          {
-            personal_data_field: {
-              field_name: 'WEATHER',
-              user_id: 49,
-            },
-            personal_data_field_id: 3,
-            company_name: 'Company D',
-            id: 52,
-            created_at: '2023-11-10T17:08:33.754377',
-            consents_to_buy: true,
-            usage: 'First Usage D',
-            demanded_reward_value: '4.00',
-            threshold: 3,
-          },
-        ],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.335924',
-        demanded_reward_value: '13.5',
-        field_name: 'WEATHER',
-        id: 56,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.347184',
-        demanded_reward_value: '0.00',
-        field_name: 'RELATIVE_FINANCE_STATUS',
-        id: 57,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.358968',
-        demanded_reward_value: '0.00',
-        field_name: 'EXERCISE_TIME',
-        id: 58,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.370271',
-        demanded_reward_value: '0.00',
-        field_name: 'ANY_SOCIAL_LIFE',
-        id: 59,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.381704',
-        demanded_reward_value: '0.00',
-        field_name: 'SOCIAL_LIFE_LIST',
-        id: 60,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.393055',
-        demanded_reward_value: '0.00',
-        field_name: 'HEALTH_OVERALL',
-        id: 61,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.404670',
-        demanded_reward_value: '0.00',
-        field_name: 'WEIGHT',
-        id: 62,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.416126',
-        demanded_reward_value: '0.00',
-        field_name: 'FAMILY_STATUS',
-        id: 63,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.427394',
-        demanded_reward_value: '0.00',
-        field_name: 'DEVICE_SCREEN_TIME',
-        id: 64,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.439248',
-        demanded_reward_value: '0.00',
-        field_name: 'WORK_LIFE_BALANCE',
-        id: 65,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:11.451311',
-        demanded_reward_value: '0.00',
-        field_name: 'JOURNALING',
-        id: 66,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:31:52.698932',
-        demanded_reward_value: '0.00',
-        field_name: 'DATE',
-        id: 67,
-        user_id: 30,
-      },
-      {
-        company_consent: [
-          {
-            personal_data_field: {
-              field_name: 'EMOTIONAL_LIST',
-              user_id: 48,
-            },
-            personal_data_field_id: 1,
-            company_name: 'Company A',
-            id: 1,
-            created_at: '2023-11-09T16:21:17.184971',
-            consents_to_buy: false,
-            usage: 'Second Usage A',
-            demanded_reward_value: '0.00',
-            threshold: 8,
-          },
-          {
-            personal_data_field: {
-              field_name: 'EMOTIONAL_LIST',
-              user_id: 48,
-            },
-            personal_data_field_id: 1,
-            company_name: 'Company B',
-            id: 2,
-            created_at: '2023-11-09T17:01:12.310386',
-            consents_to_buy: false,
-            usage: 'Second Usage B',
-            demanded_reward_value: '5.00',
-            threshold: 6,
-          },
-          {
-            personal_data_field: {
-              field_name: 'EMOTIONAL_LIST',
-              user_id: 48,
-            },
-            personal_data_field_id: 1,
-            company_name: 'Company C',
-            id: 3,
-            created_at: '2023-11-09T17:01:35.905119',
-            consents_to_buy: false,
-            usage: 'Second Usage C',
-            demanded_reward_value: '20.00',
-            threshold: 4,
-          },
-          {
-            personal_data_field: {
-              field_name: 'EMOTIONAL_LIST',
-              user_id: 48,
-            },
-            personal_data_field_id: 1,
-            company_name: 'Company D',
-            id: 4,
-            created_at: '2023-11-09T17:04:03.445213',
-            consents_to_buy: false,
-            usage: 'Second Usage D',
-            demanded_reward_value: '10.00',
-            threshold: 1,
-          },
-        ],
-        consents_to_sell: false,
-        created_at: '2023-09-18T09:22:11.312609',
-        demanded_reward_value: '0.00',
-        field_name: 'EMOTIONAL_LIST',
-        id: 54,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: false,
-        created_at: '2023-09-18T09:22:11.281524',
-        demanded_reward_value: '1.20',
-        field_name: 'HIGH_TEMPERATURE',
-        id: 52,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: true,
-        created_at: '2023-09-18T09:22:10.205447',
-        demanded_reward_value: '0.00',
-        field_name: 'photos',
-        id: 51,
-        user_id: 30,
-      },
-      {
-        company_consent: [],
-        consents_to_sell: false,
-        created_at: '2023-09-18T09:22:11.299465',
-        demanded_reward_value: '0.00',
-        field_name: 'LOW_TEMPERATURE',
-        id: 53,
-        user_id: 30,
-      },
-    ]; // CONCATENATED MODULE: ./context/AppProvider.tsx
-
+    var auth = __webpack_require__(86835); // CONCATENATED MODULE: ./context/AppProvider.tsx
     /* __next_internal_client_entry_do_not_use__ useApp,default auto */
 
     const AppContext = /*#__PURE__*/ (0, react_.createContext)({
@@ -2173,11 +1903,11 @@ exports.modules = {
             tableName: types /* TableName */.me.RData,
             data: data.data,
           });
+          setRData(rData);
           const consentTableData = (0, lib /* createTableData */.uR)({
             tableName: types /* TableName */.me.CData,
-            data: CONSENTAPIRESPONSEDATA,
+            data: data.data,
           });
-          setRData(rData);
           setCData(consentTableData);
         } catch (e) {
           // console.log('e', e);
@@ -2689,7 +2419,7 @@ exports.modules = {
           let text = '';
           // @ts-ignore
           if (data.images) images = data.images.map(({ url }) => url);
-          if (data.response.length) text = data.response;
+          if (data.response?.length) text = data.response;
           updateChat(
             {
               ...botResponseLoading,
@@ -2706,6 +2436,7 @@ exports.modules = {
             fetchChatHistory();
           }
         } catch (e) {
+          console.log('e', e);
           if (e instanceof axios /* AxiosError */.d7) react_toastify_esm.toast.error(e.response?.data.error);
           else react_toastify_esm.toast.error('Something went wrong');
         } finally {
@@ -2813,6 +2544,7 @@ exports.modules = {
     /* harmony export */ __webpack_require__.d(__webpack_exports__, {
       /* harmony export */ F3: () => /* binding */ createConsentTableState,
       /* harmony export */ XL: () => /* binding */ createCompanyToFieldMapping,
+      /* harmony export */ fy: () => /* binding */ createCompaniesDropdown,
       /* harmony export */ im: () => /* binding */ createFieldToCompanyMapping,
       /* harmony export */
     });
@@ -2837,7 +2569,19 @@ exports.modules = {
     const createCompanyToFieldMapping = ({ fieldName, data }) => {
       const result = {};
       for (const d of data) {
-        result[d.company_name] = d[fieldName].toString();
+        result[d.first_name] = d[fieldName]?.toString();
+      }
+      return result;
+    };
+    const createCompaniesDropdown = (data) => {
+      const result = [];
+      for (const d of data) {
+        if (d.consents_to_buy && d.first_name) {
+          result.push({
+            label: d.first_name,
+            value: d.first_name,
+          });
+        }
       }
       return result;
     };
@@ -2914,7 +2658,7 @@ exports.modules = {
     /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11923);
     /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(70880);
     /* harmony import */ var _consent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(73057);
-    /* eslint-disable @typescript-eslint/naming-convention */ /* eslint-disable no-restricted-syntax */
+    /* eslint-disable consistent-return */ /* eslint-disable @typescript-eslint/naming-convention */ /* eslint-disable no-restricted-syntax */
 
     const addToGroup = (categorizedMessagesMap, groupName, message) => {
       if (!categorizedMessagesMap[groupName]) {
@@ -3023,7 +2767,7 @@ exports.modules = {
       }
       if (tableName === _types__WEBPACK_IMPORTED_MODULE_1__ /* .TableName */.me.RData) {
         for (const d of data) {
-          const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
+          const fieldName = capitalize(d.field_name.toLowerCase().replaceAll('_', ' '));
           result[fieldName] = {
             ...result[fieldName],
             Consent: d.consents_to_sell.toString().toUpperCase(),
@@ -3038,7 +2782,7 @@ exports.modules = {
       }
       if (tableName === _types__WEBPACK_IMPORTED_MODULE_1__ /* .TableName */.me.CData) {
         for (const d of data) {
-          const fieldName = capitalize(d.field_name.replaceAll('_', ' '));
+          const fieldName = capitalize(d.field_name.toLowerCase().replaceAll('_', ' '));
           result[fieldName] = {
             ...result[fieldName],
             Consent: d.consents_to_sell.toString().toUpperCase(),
@@ -3049,10 +2793,7 @@ exports.modules = {
             Unit: _constants__WEBPACK_IMPORTED_MODULE_2__ /* .DESCRIPTIONANDUNITOFVARIABLES */.Gj[
               d.field_name.toLowerCase()
             ].unit,
-            Companies: d.company_consent.map((comp) => ({
-              label: comp.company_name,
-              value: comp.company_name,
-            })),
+            Companies: (0, _consent__WEBPACK_IMPORTED_MODULE_4__ /* .createCompaniesDropdown */.fy)(d.company_consent),
             Use: (0, _consent__WEBPACK_IMPORTED_MODULE_4__ /* .createCompanyToFieldMapping */.XL)({
               fieldName: 'usage',
               data: d.company_consent,

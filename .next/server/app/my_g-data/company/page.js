@@ -452,7 +452,7 @@
           columns,
           data,
         });
-        const [values, setValues] = (0, react_.useState)((0, lib /* createCompanyState */.DQ)(data));
+        const [values, setValues] = (0, react_.useState)({});
         const [recordID, setRecordID] = (0, react_.useState)('');
         const handleChange = (e, field) => {
           const { value, id, type } = e.target;

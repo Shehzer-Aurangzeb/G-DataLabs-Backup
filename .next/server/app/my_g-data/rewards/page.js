@@ -463,7 +463,7 @@
           columns,
           data,
         });
-        const [PDefinedValue, setPDefinedValue] = (0, react_.useState)(createRewardsTableState(data));
+        const [PDefinedValue, setPDefinedValue] = (0, react_.useState)({});
         const [recordName, setRecordName] = (0, react_.useState)('');
         const handleChange = (e) => {
           const { value, name } = e.target;
@@ -555,7 +555,7 @@
                               pattern: '\\d*\\.?\\d*',
                               readOnly: row.values.id === null,
                               isMonetaryInput: true,
-                              value: PDefinedValue[row.values.PDataAndScreen].demanded_reward_value,
+                              value: PDefinedValue[row.values.PDataAndScreen]?.demanded_reward_value,
                               onChange: handleChange,
                             }),
                           cell.column.id === 'OtherCompValue' &&

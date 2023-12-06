@@ -33,6 +33,11 @@
         "protocol": "https",
         "hostname": "^(?:^(?:storage\\.googleapis\\.com)$)$",
         "pathname": "^(?:(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/?)$"
+      },
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:fastly\\.picsum\\.photos)$)$",
+        "pathname": "^(?:(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/?)$"
       }
     ],
     "unoptimized": false,

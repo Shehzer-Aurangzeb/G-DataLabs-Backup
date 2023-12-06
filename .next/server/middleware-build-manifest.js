@@ -2,7 +2,7 @@ self.__BUILD_MANIFEST = {
   polyfillFiles: ['static/chunks/polyfills-78c92fac7aa8fdd8.js'],
   devFiles: [],
   ampDevFiles: [],
-  lowPriorityFiles: ['static/uGXGxOAXfxnodrjyPQ2Gm/_buildManifest.js', 'static/uGXGxOAXfxnodrjyPQ2Gm/_ssgManifest.js'],
+  lowPriorityFiles: ['static/LOjbnn2ODQYGk9YVfLHRH/_buildManifest.js', 'static/LOjbnn2ODQYGk9YVfLHRH/_ssgManifest.js'],
   rootMainFiles: [
     'static/chunks/webpack-6ee6c73cc4c32418.js',
     'static/chunks/fd9d1056-c6dd9cd3ed20402a.js',
