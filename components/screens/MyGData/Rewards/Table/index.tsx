@@ -4,7 +4,7 @@ import { Columns } from '@/types';
 import Actions from '@/components/screens/MyGData/Actions';
 import { createRewardsTableState } from '@/lib/rewards';
 import { UpdateConsentRewardType } from '@/state/myGData/types';
-import Input from '../Input';
+import Input from '../../components/Input';
 
 interface IProps {
   data: any;

@@ -5,7 +5,7 @@ import { useMyGData } from '@/hooks/useMyGData';
 import { maxWidth } from '@/constants';
 import { MYGDATATABLECOLUMNS } from '@/constants/my_g_data';
 import ScreenData from './ScreenData';
-import Table from './Table';
+import Table from './components/Table';
 
 function Main() {
   const { gData, gTableColumns } = useMyGData();

@@ -31,13 +31,13 @@ function MainContent({
   return (
     <Container type="main">
       <div className="absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main">
-        <span className="text-[#333333aa] dark:text-[#c4c4c4] mr-2 ">Powered By</span>
+        <span className="text-[#333333aa] dark:text-[#c4c4c4] mr-2 mobile:text-sm">Powered By</span>
         <Link
           href="https://platform.openai.com/docs/models/gpt-3-5"
-          className="dark:text-white text-primary font-medium"
+          className="dark:text-white text-primary font-medium mobile:text-sm"
           target="_blank"
         >
-          <span className="font-bold">ChatGPT</span> 3.5-turbo-16k
+          <span className="font-bold mobile:text-sm">ChatGPT</span> 3.5-turbo-16k
         </Link>
       </div>
       {chats && (

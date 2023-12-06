@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typed from 'react-typed';
 import { StaticImageData } from 'next/image';
@@ -10,6 +10,7 @@ import Image from '@/components/UI/StyledImage';
 import { Chat as TChat } from '@/state/chats/types';
 import { useTheme } from '@/context/ThemeProvider';
 import { Theme } from '@/types';
+import { createChatsFeedbackState } from '@/lib/chats';
 import ChatActions from './ChatActions';
 import Chat from './Chat';
 
@@ -23,7 +24,7 @@ type TProps = {
 function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
   const messagesRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
-
+  const [chatsFeedbacks, setChatsFeedback] = useState<{ [key: number]: null | undefined | string }>({});
   const profile = useCallback(
     (isLoading: boolean) => {
       if (isLoading && theme === Theme.LIGHT) return logo_gif;
@@ -34,6 +35,26 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
     },
     [theme],
   );
+
+  const provideFeedback = useCallback(
+    async (payload: { responseId: number; feedback: boolean }) => {
+      const { responseId, feedback } = payload;
+      setChatsFeedback((prev) => ({
+        ...prev,
+        [responseId]: feedback.toString(),
+      }));
+      try {
+        await giveFeedback(payload);
+      } catch (e) {
+        // reset if fails
+        setChatsFeedback((prev) => ({
+          ...prev,
+          [responseId]: String(!feedback),
+        }));
+      }
+    },
+    [setChatsFeedback, giveFeedback],
+  );
   //* scroll to bottom whenever new message is added
   useEffect(() => {
     if (!messagesRef.current) return;
@@ -41,6 +62,8 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
       top: messagesRef.current.scrollHeight,
       behavior: 'smooth',
     });
+    const chatsFeedback = createChatsFeedbackState(chats);
+    setChatsFeedback(chatsFeedback);
   }, [chats]);
 
   return (
@@ -79,9 +102,9 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }: TProps) {
           {isLoggedIn && msg.isBotResponse && (
             <ChatActions
               show={!msg.isLoading}
-              choice={msg.choice}
+              choice={chatsFeedbacks[Number(msg.messageID)]}
               messageId={Number(msg.messageID)}
-              giveFeedback={giveFeedback}
+              provideFeedback={provideFeedback}
               messageContent={msg.content.text}
             />
           )}

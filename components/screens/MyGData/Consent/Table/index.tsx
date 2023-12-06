@@ -3,7 +3,7 @@ import { Column, useTable } from 'react-table';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Columns } from '@/types';
 import Actions from '@/components/screens/MyGData/Actions';
-import Input from '@/components/screens/MyGData/Rewards/Input';
+import Input from '@/components/screens/MyGData/components/Input';
 import { UpdateConsentRewardType } from '@/state/myGData/types';
 import Select from '@/components/UI/Select';
 import { TConsentTableState, createConsentTableState, createFieldToCompanyMapping } from '@/lib/consent';

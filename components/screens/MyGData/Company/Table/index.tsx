@@ -2,7 +2,8 @@ import { Column, useTable } from 'react-table';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Columns, UpdateCompanyConsentPayload } from '@/types';
 import Actions from '@/components/screens/MyGData/Actions';
-import Input from '@/components/screens/MyGData/Rewards/Input';
+import Input from '@/components/screens/MyGData/components/Input';
+import Textarea from '@/components/screens/MyGData/components/Textarea';
 import { createCompanyState } from '@/lib';
 import { UpdateConsentCompanyType } from '@/state/myGData/types';
 
@@ -24,7 +25,10 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
 
   const [recordID, setRecordID] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: 'use' | 'pricing' | 'threshold') => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
+    field: 'use' | 'pricing' | 'threshold',
+  ) => {
     const { value, id, type } = e.target;
     const fieldName = id.split('-')[1];
     if (type === 'number' && /^\d*\.?\d*$/.test(value) === false) return;
@@ -107,7 +111,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                   `}
                 >
                   {(cellIndex === 0 || cellIndex === 1 || cellIndex === 2) && cell.render('Cell')}
-                  {cellIndex === row.cells.length - 2 && (
+                  {cell.column.id === 'Consent' && (
                     <Actions
                       isAllowed={row.values.Consent !== 'FALSE'}
                       onClick={() => {
@@ -115,18 +119,27 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       }}
                     />
                   )}
-                  {cellIndex === 3 && (
-                    <Input
+                  {cell.column.id === 'Use' && (
+                    // <Input
+                    //   name={`Use-${row.values.fieldName}`}
+                    //   readOnly={row.values.Consent === 'FALSE'}
+                    //   type="text"
+                    //   value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
+                    //   onChange={(e) => handleChange(e, 'use')}
+                    //   className="min-w-[160px]"
+                    // />
+                    <Textarea
                       name={`Use-${row.values.fieldName}`}
-                      type="text"
+                      readOnly={row.values.Consent === 'FALSE'}
                       value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
                       onChange={(e) => handleChange(e, 'use')}
-                      className="min-w-[160px]"
+                      className="min-w-[200px]"
                     />
                   )}
-                  {cellIndex === 4 && (
+                  {cell.column.id === 'Pricing' && (
                     <Input
                       name={`Pricing-${row.values.fieldName}`}
+                      readOnly={row.values.Consent === 'FALSE'}
                       type="text"
                       isMonetaryInput
                       pattern="\d*\.?\d*"
@@ -135,9 +148,10 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       className="min-w-[160px]"
                     />
                   )}
-                  {cellIndex === 5 && (
+                  {cell.column.id === 'Threshold' && (
                     <Input
                       name={`Threshold-${row.values.fieldName}`}
+                      readOnly={row.values.Consent === 'FALSE'}
                       type="text"
                       pattern="\d*\.?\d*"
                       value={values[row.values.fieldName] ? values[row.values.fieldName].threshold : ''}

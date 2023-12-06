@@ -30,11 +30,7 @@ function Input({
       ].join(' ')}
     >
       {isMonetaryInput && (
-        <span
-          className={`absolute top-[23%] ${
-            readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
-          } text-white font-sans text-xl font-medium`}
-        >
+        <span className="absolute top-[23%] left-[19px] mobile:left-[15px] text-white font-sans text-xl font-medium">
           {currency}
         </span>
       )}
@@ -49,11 +45,10 @@ function Input({
         value={value}
         className="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
       />
-      {!readOnly && (
-        <label htmlFor={name} className="cursor-pointer">
-          <Image src={edit} alt="edit-icon" className="w-[24px] h-[24px] dark:invert" />
-        </label>
-      )}
+
+      <label htmlFor={name} className={`cursor-pointer ${readOnly && 'opacity-0 invisible'}`}>
+        <Image src={edit} alt="edit-icon" className="w-[24px] h-[24px] dark:invert" />
+      </label>
     </div>
   );
 }

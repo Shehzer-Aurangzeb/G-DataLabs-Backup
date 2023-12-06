@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import IconButton from '@/components/UI/IconButton';
 import { copy, like_outlined, check, like_filled } from '@/public/assets';
+import Tooltip from './Tooltip';
 
 type TProps = {
   show: boolean;
   messageId: number;
   choice: string | null | undefined;
-  giveFeedback: (payload: { responseId: number; feedback: boolean }) => Promise<void>;
+  provideFeedback: (payload: { responseId: number; feedback: boolean }) => Promise<void>;
   messageContent: string;
 };
 
-function ChatActions({ show, choice, messageId, giveFeedback, messageContent }: TProps) {
+function ChatActions({ show, choice, messageId, provideFeedback, messageContent }: TProps) {
   const [messageCopied, setMessageCopied] = useState(false);
   useEffect(() => {
     if (!messageCopied) return;
@@ -23,7 +24,7 @@ function ChatActions({ show, choice, messageId, giveFeedback, messageContent }: 
   }, [messageCopied]);
   return (
     <div
-      className={`flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 ${
+      className={`flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 mobile:left-[85px] mobile:bottom-2 mobile:top-[unset] ${
         show ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0'
       }`}
     >
@@ -33,7 +34,7 @@ function ChatActions({ show, choice, messageId, giveFeedback, messageContent }: 
         disabled={choice === 'true'}
         onClick={() => {
           if (choice === 'true') return;
-          giveFeedback({ responseId: messageId, feedback: true });
+          provideFeedback({ responseId: messageId, feedback: true });
         }}
       />
       <IconButton
@@ -42,7 +43,7 @@ function ChatActions({ show, choice, messageId, giveFeedback, messageContent }: 
         disabled={choice === 'false'}
         onClick={() => {
           if (choice === 'false') return;
-          giveFeedback({ responseId: messageId, feedback: false });
+          provideFeedback({ responseId: messageId, feedback: false });
         }}
       />
       <IconButton
@@ -53,7 +54,9 @@ function ChatActions({ show, choice, messageId, giveFeedback, messageContent }: 
           navigator.clipboard.writeText(messageContent);
           setMessageCopied(true);
         }}
-      />
+      >
+        <Tooltip message="Copied" show={messageCopied} />
+      </IconButton>
     </div>
   );
 }

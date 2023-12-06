@@ -8,7 +8,6 @@ import { useLoading } from '@/state/loading/hooks';
 import { useChats } from '@/state/chats/hooks';
 import { createChat, createHistoryTableData, createRecentChatHistory, groupMessagesByDate } from '@/lib';
 import { useUser } from '@/state/user/hooks';
-import { findActiveChats } from '@/lib/chats';
 
 export const useChatBot = () => {
   const { isLoading, setIsLoading } = useLoading();
@@ -36,15 +35,10 @@ export const useChatBot = () => {
       const groupedMessages = groupMessagesByDate(recentchatHistory);
       if (!groupedMessages) return;
       setRecentChatHistory(groupedMessages);
-      if (!activeChatID) return;
-      // update the opened chat if any
-      const activeChats = findActiveChats(groupedMessages, activeChatID);
-      if (!activeChats) return;
-      openPreviousChats(activeChats);
     } catch (e) {
       // console.log('e :>> ', e);
     }
-  }, [setRecentChatHistory, openPreviousChats, activeChatID]);
+  }, [setRecentChatHistory]);
 
   const fetchChatHistory = useCallback(async () => {
     try {
@@ -120,7 +114,7 @@ export const useChatBot = () => {
         fetchChatHistory();
       }
     } catch (e) {
-      console.log('e', e);
+      // console.log('e', e);
       if (e instanceof AxiosError) toast.error(e.response?.data.error);
       else toast.error('Something went wrong');
     } finally {
