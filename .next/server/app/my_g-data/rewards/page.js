@@ -456,8 +456,8 @@
         return result;
       };
 
-      // EXTERNAL MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
-      var Input = __webpack_require__(42405); // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Table/index.tsx
+      // EXTERNAL MODULE: ./components/screens/MyGData/components/Input/index.tsx
+      var Input = __webpack_require__(25390); // CONCATENATED MODULE: ./components/screens/MyGData/Rewards/Table/index.tsx
       function Table({ columns, data, updateConsentRewards }) {
         const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = (0, react_table.useTable)({
           columns,
@@ -653,6 +653,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 203], () => __webpack_exec__(28468));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 94], () => __webpack_exec__(28468));
   module.exports = __webpack_exports__;
 })();

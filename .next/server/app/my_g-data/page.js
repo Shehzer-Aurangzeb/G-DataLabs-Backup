@@ -406,12 +406,12 @@
 
     /***/ 51529: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 16100));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 83265));
 
       /***/
     },
 
-    /***/ 16100: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 83265: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -469,7 +469,7 @@
       // EXTERNAL MODULE: ./node_modules/react-table/index.js
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
-      var StyledImage = __webpack_require__(29884); // CONCATENATED MODULE: ./components/screens/MyGData/Table/index.tsx
+      var StyledImage = __webpack_require__(29884); // CONCATENATED MODULE: ./components/screens/MyGData/components/Table/index.tsx
       /* eslint-disable no-nested-ternary */ /* eslint-disable @typescript-eslint/indent */
 
       function Table({ columns, data }) {
@@ -539,7 +539,7 @@
           ],
         });
       }
-      /* harmony default export */ const MyGData_Table = Table; // CONCATENATED MODULE: ./components/screens/MyGData/index.tsx
+      /* harmony default export */ const components_Table = Table; // CONCATENATED MODULE: ./components/screens/MyGData/index.tsx
 
       /* __next_internal_client_entry_do_not_use__ default auto */
 
@@ -558,7 +558,7 @@
           children: [
             /*#__PURE__*/ jsx_runtime_.jsx('div', {
               className: `overflow-x-auto w-full max-w-[${constants /* maxWidth */.kk}] min-h-[50%]`,
-              children: /*#__PURE__*/ jsx_runtime_.jsx(MyGData_Table, {
+              children: /*#__PURE__*/ jsx_runtime_.jsx(components_Table, {
                 data: tableData,
                 columns: gTableColumns.length > 0 ? gTableColumns : MYGDATATABLECOLUMNS,
               }),

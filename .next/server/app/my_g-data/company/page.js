@@ -412,12 +412,12 @@
 
     /***/ 80278: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 12441));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 49048));
 
       /***/
     },
 
-    /***/ 12441: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 49048: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -443,8 +443,46 @@
       var react_table = __webpack_require__(30960);
       // EXTERNAL MODULE: ./components/screens/MyGData/Actions/index.tsx
       var Actions = __webpack_require__(23488);
-      // EXTERNAL MODULE: ./components/screens/MyGData/Rewards/Input/index.tsx
-      var Input = __webpack_require__(42405);
+      // EXTERNAL MODULE: ./components/screens/MyGData/components/Input/index.tsx
+      var Input = __webpack_require__(25390);
+      // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
+      var StyledImage = __webpack_require__(29884);
+      // EXTERNAL MODULE: ./public/assets/index.ts + 32 modules
+      var assets = __webpack_require__(83726); // CONCATENATED MODULE: ./components/screens/MyGData/components/Textarea/index.tsx
+      /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */
+
+      function Textarea({ readOnly, name, onChange, value, className }) {
+        return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
+          className: [
+            'flex flex-row gap-x-5 items-center justify-center w-full relative max-w-[200px] mx-auto',
+            className,
+          ].join(' '),
+          children: [
+            /*#__PURE__*/ jsx_runtime_.jsx('textarea', {
+              autoComplete: 'off',
+              onChange: onChange,
+              name: name,
+              readOnly: readOnly,
+              id: name,
+              value: value,
+              cols: 5,
+              className:
+                'bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[140px] resize-none',
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx('label', {
+              htmlFor: name,
+              className: `cursor-pointer ${readOnly && 'opacity-0 invisible'}`,
+              children: /*#__PURE__*/ jsx_runtime_.jsx(StyledImage /* default */.Z, {
+                src: assets /* edit */.eP,
+                alt: 'edit-icon',
+                className: 'w-[24px] h-[24px] dark:invert',
+              }),
+            }),
+          ],
+        });
+      }
+      /* harmony default export */ const components_Textarea = Textarea;
+
       // EXTERNAL MODULE: ./lib/index.ts
       var lib = __webpack_require__(14088); // CONCATENATED MODULE: ./components/screens/MyGData/Company/Table/index.tsx
       function Table({ columns, data, updateConsentRewards }) {
@@ -538,24 +576,32 @@
                   `,
                         children: [
                           (cellIndex === 0 || cellIndex === 1 || cellIndex === 2) && cell.render('Cell'),
-                          cellIndex === row.cells.length - 2 &&
+                          cell.column.id === 'Consent' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Actions /* default */.Z, {
                               isAllowed: row.values.Consent !== 'FALSE',
                               onClick: () => {
                                 handleConsetUpdate(row.values.fieldName);
                               },
                             }),
-                          cellIndex === 3 &&
-                            /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
+                          cell.column.id === 'Use' && // <Input
+                            //   name={`Use-${row.values.fieldName}`}
+                            //   readOnly={row.values.Consent === 'FALSE'}
+                            //   type="text"
+                            //   value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
+                            //   onChange={(e) => handleChange(e, 'use')}
+                            //   className="min-w-[160px]"
+                            // />
+                            /*#__PURE__*/ jsx_runtime_.jsx(components_Textarea, {
                               name: `Use-${row.values.fieldName}`,
-                              type: 'text',
+                              readOnly: row.values.Consent === 'FALSE',
                               value: values[row.values.fieldName] ? values[row.values.fieldName].use : '',
                               onChange: (e) => handleChange(e, 'use'),
-                              className: 'min-w-[160px]',
+                              className: 'min-w-[200px]',
                             }),
-                          cellIndex === 4 &&
+                          cell.column.id === 'Pricing' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: `Pricing-${row.values.fieldName}`,
+                              readOnly: row.values.Consent === 'FALSE',
                               type: 'text',
                               isMonetaryInput: true,
                               pattern: '\\d*\\.?\\d*',
@@ -563,9 +609,10 @@
                               onChange: (e) => handleChange(e, 'pricing'),
                               className: 'min-w-[160px]',
                             }),
-                          cellIndex === 5 &&
+                          cell.column.id === 'Threshold' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
                               name: `Threshold-${row.values.fieldName}`,
+                              readOnly: row.values.Consent === 'FALSE',
                               type: 'text',
                               pattern: '\\d*\\.?\\d*',
                               value: values[row.values.fieldName] ? values[row.values.fieldName].threshold : '',
@@ -659,6 +706,6 @@
   var __webpack_require__ = require('../../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 203], () => __webpack_exec__(11958));
+  var __webpack_exports__ = __webpack_require__.X(0, [808, 960, 702, 807, 54, 94], () => __webpack_exec__(11958));
   module.exports = __webpack_exports__;
 })();

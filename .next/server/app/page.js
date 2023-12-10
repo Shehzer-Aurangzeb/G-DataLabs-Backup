@@ -397,12 +397,12 @@
     },
 
     /***/ 67805: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 50573));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 36056));
 
       /***/
     },
 
-    /***/ 50573: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 36056: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -418,8 +418,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./hooks/useAuth.ts
       var useAuth = __webpack_require__(64260);
-      // EXTERNAL MODULE: ./hooks/useChatBot.ts + 1 modules
-      var useChatBot = __webpack_require__(99048);
+      // EXTERNAL MODULE: ./hooks/useChatBot.ts
+      var useChatBot = __webpack_require__(62073);
       // EXTERNAL MODULE: ./node_modules/next/link.js
       var next_link = __webpack_require__(11440);
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link); // CONCATENATED MODULE: ./components/UI/Containers/Main/index.tsx
@@ -631,10 +631,35 @@
         width: 700,
         blurWidth: 0,
         blurHeight: 0,
+      }; // CONCATENATED MODULE: ./lib/chats.ts
+      /* eslint-disable no-continue */ /* eslint-disable no-restricted-syntax */ const createChatsFeedbackState = (
+        chats,
+      ) => {
+        const results = {};
+        for (const chat of chats) {
+          if (chat.isBotResponse) {
+            results[Number(chat.messageID)] = chat.choice;
+          }
+        }
+        return results;
       };
+
       // EXTERNAL MODULE: ./components/UI/IconButton/index.tsx
-      var IconButton = __webpack_require__(17223); // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/ChatActions/index.tsx
-      function ChatActions({ show, choice, messageId, giveFeedback, messageContent }) {
+      var IconButton = __webpack_require__(17223); // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/ChatActions/Tooltip/index.tsx
+      function Tooltip({ message, show }) {
+        return /*#__PURE__*/ jsx_runtime_.jsx('div', {
+          className: `absolute top-[-25px] left-0 bg-main dark:bg-bgMain px-2 py-1 rounded-md ${
+            show ? 'opacity-1 visible' : 'opacity-0 invisible'
+          }`,
+          children: /*#__PURE__*/ jsx_runtime_.jsx('p', {
+            className: 'dark:text-primary text-main text-base font-semibold font-raleway',
+            children: message,
+          }),
+        });
+      }
+      /* harmony default export */ const ChatActions_Tooltip = Tooltip; // CONCATENATED MODULE: ./components/screens/Home/MainContent/ActiveChat/ChatActions/index.tsx
+
+      function ChatActions({ show, choice, messageId, provideFeedback, messageContent }) {
         const [messageCopied, setMessageCopied] = (0, react_.useState)(false);
         (0, react_.useEffect)(() => {
           if (!messageCopied) return;
@@ -645,7 +670,7 @@
           return () => clearTimeout(timer);
         }, [messageCopied]);
         return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-          className: `flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 ${
+          className: `flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 mobile:left-[85px] mobile:bottom-2 mobile:top-[unset] ${
             show ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0'
           }`,
           children: [
@@ -658,7 +683,7 @@
               disabled: choice === 'true',
               onClick: () => {
                 if (choice === 'true') return;
-                giveFeedback({
+                provideFeedback({
                   responseId: messageId,
                   feedback: true,
                 });
@@ -674,7 +699,7 @@
               disabled: choice === 'false',
               onClick: () => {
                 if (choice === 'false') return;
-                giveFeedback({
+                provideFeedback({
                   responseId: messageId,
                   feedback: false,
                 });
@@ -688,6 +713,10 @@
                 navigator.clipboard.writeText(messageContent);
                 setMessageCopied(true);
               },
+              children: /*#__PURE__*/ jsx_runtime_.jsx(ChatActions_Tooltip, {
+                message: 'Copied',
+                show: messageCopied,
+              }),
             }),
           ],
         });
@@ -735,6 +764,7 @@
       function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }) {
         const messagesRef = (0, react_.useRef)(null);
         const { theme } = (0, ThemeProvider /* useTheme */.F)();
+        const [chatsFeedbacks, setChatsFeedback] = (0, react_.useState)({});
         const profile = (0, react_.useCallback)(
           (isLoading) => {
             if (isLoading && theme === types /* Theme */.Q2.LIGHT) return images_logo;
@@ -744,6 +774,25 @@
           },
           [theme],
         );
+        const provideFeedback = (0, react_.useCallback)(
+          async (payload) => {
+            const { responseId, feedback } = payload;
+            setChatsFeedback((prev) => ({
+              ...prev,
+              [responseId]: feedback.toString(),
+            }));
+            try {
+              await giveFeedback(payload);
+            } catch (e) {
+              // reset if fails
+              setChatsFeedback((prev) => ({
+                ...prev,
+                [responseId]: String(!feedback),
+              }));
+            }
+          },
+          [setChatsFeedback, giveFeedback],
+        );
         //* scroll to bottom whenever new message is added
         (0, react_.useEffect)(() => {
           if (!messagesRef.current) return;
@@ -751,6 +800,8 @@
             top: messagesRef.current.scrollHeight,
             behavior: 'smooth',
           });
+          const chatsFeedback = createChatsFeedbackState(chats);
+          setChatsFeedback(chatsFeedback);
         }, [chats]);
         return /*#__PURE__*/ jsx_runtime_.jsx('div', {
           className: 'px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_190px)] mobile:px-2 ',
@@ -799,9 +850,9 @@
                     msg.isBotResponse &&
                     /*#__PURE__*/ jsx_runtime_.jsx(ActiveChat_ChatActions, {
                       show: !msg.isLoading,
-                      choice: msg.choice,
+                      choice: chatsFeedbacks[Number(msg.messageID)],
                       messageId: Number(msg.messageID),
-                      giveFeedback: giveFeedback,
+                      provideFeedback: provideFeedback,
                       messageContent: msg.content.text,
                     }),
                 ],
@@ -830,16 +881,16 @@
               className: 'absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main',
               children: [
                 /*#__PURE__*/ jsx_runtime_.jsx('span', {
-                  className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 ',
+                  className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 mobile:text-sm',
                   children: 'Powered By',
                 }),
                 /*#__PURE__*/ (0, jsx_runtime_.jsxs)(link_default(), {
                   href: 'https://platform.openai.com/docs/models/gpt-3-5',
-                  className: 'dark:text-white text-primary font-medium',
+                  className: 'dark:text-white text-primary font-medium mobile:text-sm',
                   target: '_blank',
                   children: [
                     /*#__PURE__*/ jsx_runtime_.jsx('span', {
-                      className: 'font-bold',
+                      className: 'font-bold mobile:text-sm',
                       children: 'ChatGPT',
                     }),
                     ' 3.5-turbo-16k',

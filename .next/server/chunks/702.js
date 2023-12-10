@@ -46,7 +46,7 @@ exports.modules = {
     );
     /* harmony import */ var _state_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55867);
     /* harmony import */ var _context_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(79323);
-    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(66233);
+    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(36001);
     // Providers.jsx
     /* __next_internal_client_entry_do_not_use__ default auto */
 
@@ -173,30 +173,33 @@ exports.modules = {
     /* harmony import */ var _components_UI_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(65726);
     /* eslint-disable react/button-has-type */ /* __next_internal_client_entry_do_not_use__ default auto */
 
-    function IconButton({ onClick, type = 'button', isLoading = false, src, className = '', disabled }) {
-      return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('button', {
+    function IconButton({ children, onClick, type = 'button', isLoading = false, src, className = '', disabled }) {
+      return /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('button', {
         className: ['disabled:cursor-not-allowed', className].join(' '),
         onClick: onClick,
         type: type,
         disabled: isLoading || disabled,
-        children: isLoading
-          ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
-              _components_UI_Loader__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z,
-              {
-                style: {
-                  color: '#fff',
-                  margin: '0 auto',
+        children: [
+          isLoading
+            ? /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+                _components_UI_Loader__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z,
+                {
+                  style: {
+                    color: '#fff',
+                    margin: '0 auto',
+                  },
                 },
-              },
-            )
-          : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
-              _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
-              {
-                src: src,
-                alt: 'icon',
-                className: 'h-full w-full',
-              },
-            ),
+              )
+            : /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+                _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
+                {
+                  src: src,
+                  alt: 'icon',
+                  className: 'h-full w-full',
+                },
+              ),
+          children,
+        ],
       });
     }
     /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = IconButton;
@@ -1769,7 +1772,7 @@ exports.modules = {
     /***/
   },
 
-  /***/ 66233: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+  /***/ 36001: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
     'use strict';
 
     // EXPORTS
@@ -1851,12 +1854,282 @@ exports.modules = {
       };
     };
 
-    // EXTERNAL MODULE: ./hooks/useChatBot.ts + 1 modules
-    var useChatBot = __webpack_require__(99048);
+    // EXTERNAL MODULE: ./hooks/useChatBot.ts
+    var useChatBot = __webpack_require__(62073);
     // EXTERNAL MODULE: ./hooks/useAuth.ts
     var useAuth = __webpack_require__(64260);
     // EXTERNAL MODULE: ./constants/auth.ts
-    var auth = __webpack_require__(86835); // CONCATENATED MODULE: ./context/AppProvider.tsx
+    var auth = __webpack_require__(86835); // CONCATENATED MODULE: ./temp/index.ts
+    const CONSENTAPIRESPONSEDATA = [
+      {
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.325110',
+        demanded_reward_value: '0.00',
+        field_name: 'EMOTIONAL_OVERALL',
+        id: 55,
+        user_id: 30,
+        company_consent: [],
+      },
+      {
+        company_consent: [
+          {
+            personal_data_field: {
+              field_name: 'WEATHER',
+              user_id: 49,
+            },
+            personal_data_field_id: 3,
+            first_name: 'Company A',
+            id: 11,
+            created_at: '2023-11-10T12:23:09.297764',
+            consents_to_buy: true,
+            usage: 'First Usage A',
+            demanded_reward_value: '3.00',
+            threshold: 10,
+          },
+          {
+            personal_data_field: {
+              field_name: 'WEATHER',
+              user_id: 49,
+            },
+            personal_data_field_id: 3,
+            first_name: 'Company B',
+            id: 46,
+            created_at: '2023-11-10T17:06:09.481592',
+            consents_to_buy: false,
+            usage: 'First Usage B',
+            demanded_reward_value: '2.00',
+            threshold: 4,
+          },
+          {
+            personal_data_field: {
+              field_name: 'WEATHER',
+              user_id: 49,
+            },
+            personal_data_field_id: 3,
+            first_name: 'Company C',
+            id: 51,
+            created_at: '2023-11-10T17:07:49.655299',
+            consents_to_buy: true,
+            usage: 'First Usage C',
+            demanded_reward_value: '1.0',
+            threshold: 0,
+          },
+          {
+            personal_data_field: {
+              field_name: 'WEATHER',
+              user_id: 49,
+            },
+            personal_data_field_id: 3,
+            first_name: 'Company D',
+            id: 52,
+            created_at: '2023-11-10T17:08:33.754377',
+            consents_to_buy: true,
+            usage: 'First Usage D',
+            demanded_reward_value: '4.00',
+            threshold: 3,
+          },
+        ],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.335924',
+        demanded_reward_value: '13.5',
+        field_name: 'WEATHER',
+        id: 56,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.347184',
+        demanded_reward_value: '0.00',
+        field_name: 'RELATIVE_FINANCE_STATUS',
+        id: 57,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.358968',
+        demanded_reward_value: '0.00',
+        field_name: 'EXERCISE_TIME',
+        id: 58,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.370271',
+        demanded_reward_value: '0.00',
+        field_name: 'ANY_SOCIAL_LIFE',
+        id: 59,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.381704',
+        demanded_reward_value: '0.00',
+        field_name: 'SOCIAL_LIFE_LIST',
+        id: 60,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.393055',
+        demanded_reward_value: '0.00',
+        field_name: 'HEALTH_OVERALL',
+        id: 61,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.404670',
+        demanded_reward_value: '0.00',
+        field_name: 'WEIGHT',
+        id: 62,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.416126',
+        demanded_reward_value: '0.00',
+        field_name: 'FAMILY_STATUS',
+        id: 63,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.427394',
+        demanded_reward_value: '0.00',
+        field_name: 'DEVICE_SCREEN_TIME',
+        id: 64,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.439248',
+        demanded_reward_value: '0.00',
+        field_name: 'WORK_LIFE_BALANCE',
+        id: 65,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:11.451311',
+        demanded_reward_value: '0.00',
+        field_name: 'JOURNALING',
+        id: 66,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:31:52.698932',
+        demanded_reward_value: '0.00',
+        field_name: 'DATE',
+        id: 67,
+        user_id: 30,
+      },
+      {
+        company_consent: [
+          {
+            personal_data_field: {
+              field_name: 'EMOTIONAL_LIST',
+              user_id: 48,
+            },
+            personal_data_field_id: 1,
+            first_name: 'Company A',
+            id: 1,
+            created_at: '2023-11-09T16:21:17.184971',
+            consents_to_buy: false,
+            usage: 'Second Usage A',
+            demanded_reward_value: '0.00',
+            threshold: 8,
+          },
+          {
+            personal_data_field: {
+              field_name: 'EMOTIONAL_LIST',
+              user_id: 48,
+            },
+            personal_data_field_id: 1,
+            first_name: 'Company B',
+            id: 2,
+            created_at: '2023-11-09T17:01:12.310386',
+            consents_to_buy: true,
+            usage: 'Second Usage B',
+            demanded_reward_value: '5.00',
+            threshold: 6,
+          },
+          {
+            personal_data_field: {
+              field_name: 'EMOTIONAL_LIST',
+              user_id: 48,
+            },
+            personal_data_field_id: 1,
+            first_name: 'Company C',
+            id: 3,
+            created_at: '2023-11-09T17:01:35.905119',
+            consents_to_buy: false,
+            usage: 'Second Usage C',
+            demanded_reward_value: '20.00',
+            threshold: 4,
+          },
+          {
+            personal_data_field: {
+              field_name: 'EMOTIONAL_LIST',
+              user_id: 48,
+            },
+            personal_data_field_id: 1,
+            first_name: 'Company D',
+            id: 4,
+            created_at: '2023-11-09T17:04:03.445213',
+            consents_to_buy: false,
+            usage: 'Second Usage D',
+            demanded_reward_value: '10.00',
+            threshold: 1,
+          },
+        ],
+        consents_to_sell: false,
+        created_at: '2023-09-18T09:22:11.312609',
+        demanded_reward_value: '0.00',
+        field_name: 'EMOTIONAL_LIST',
+        id: 54,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: false,
+        created_at: '2023-09-18T09:22:11.281524',
+        demanded_reward_value: '1.20',
+        field_name: 'HIGH_TEMPERATURE',
+        id: 52,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: true,
+        created_at: '2023-09-18T09:22:10.205447',
+        demanded_reward_value: '0.00',
+        field_name: 'photos',
+        id: 51,
+        user_id: 30,
+      },
+      {
+        company_consent: [],
+        consents_to_sell: false,
+        created_at: '2023-09-18T09:22:11.299465',
+        demanded_reward_value: '0.00',
+        field_name: 'LOW_TEMPERATURE',
+        id: 53,
+        user_id: 30,
+      },
+    ]; // CONCATENATED MODULE: ./context/AppProvider.tsx
+
     /* __next_internal_client_entry_do_not_use__ useApp,default auto */
 
     const AppContext = /*#__PURE__*/ (0, react_.createContext)({
@@ -1906,7 +2179,7 @@ exports.modules = {
           setRData(rData);
           const consentTableData = (0, lib /* createTableData */.uR)({
             tableName: types /* TableName */.me.CData,
-            data: data.data,
+            data: CONSENTAPIRESPONSEDATA,
           });
           setCData(consentTableData);
         } catch (e) {
@@ -2265,51 +2538,27 @@ exports.modules = {
     /***/
   },
 
-  /***/ 99048: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+  /***/ 62073: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
     'use strict';
-
-    // EXPORTS
-    __webpack_require__.d(__webpack_exports__, {
-      L: () => /* binding */ useChatBot,
+    /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+      /* harmony export */ L: () => /* binding */ useChatBot,
+      /* harmony export */
     });
-
-    // EXTERNAL MODULE: external "next/dist/compiled/react"
-    var react_ = __webpack_require__(18038);
-    // EXTERNAL MODULE: ./node_modules/react-toastify/dist/react-toastify.esm.mjs
-    var react_toastify_esm = __webpack_require__(34751);
-    // EXTERNAL MODULE: ./node_modules/axios/index.js
-    var axios = __webpack_require__(64722);
-    // EXTERNAL MODULE: ./config/index.ts
-    var config = __webpack_require__(52122);
-    // EXTERNAL MODULE: ./state/loading/hooks.ts
-    var hooks = __webpack_require__(90634);
-    // EXTERNAL MODULE: ./state/chats/hooks.ts
-    var chats_hooks = __webpack_require__(81178);
-    // EXTERNAL MODULE: ./lib/index.ts
-    var lib = __webpack_require__(14088);
-    // EXTERNAL MODULE: ./state/user/hooks.ts
-    var user_hooks = __webpack_require__(25861); // CONCATENATED MODULE: ./lib/chats.ts
-    /* eslint-disable no-continue */ /* eslint-disable no-restricted-syntax */ const findActiveChats = (
-      recentChatHistory,
-      targetID,
-    ) => {
-      let chatHistory;
-      for (const [, value] of Object.entries(recentChatHistory)) {
-        for (const chats of value) {
-          if (chats.id !== targetID) continue;
-          else {
-            chatHistory = chats;
-            break;
-          }
-        }
-      }
-      return chatHistory;
-    }; // CONCATENATED MODULE: ./hooks/useChatBot.ts
-
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18038);
+    /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+      react__WEBPACK_IMPORTED_MODULE_0__,
+    );
+    /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34751);
+    /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(64722);
+    /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(52122);
+    /* harmony import */ var _state_loading_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(90634);
+    /* harmony import */ var _state_chats_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(81178);
+    /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14088);
+    /* harmony import */ var _state_user_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(25861);
     /* __next_internal_client_entry_do_not_use__ useChatBot auto */
 
     const useChatBot = () => {
-      const { isLoading, setIsLoading } = (0, hooks /* useLoading */.r)();
+      const { isLoading, setIsLoading } = (0, _state_loading_hooks__WEBPACK_IMPORTED_MODULE_3__ /* .useLoading */.r)();
       const {
         chats,
         userPrompt,
@@ -2324,39 +2573,38 @@ exports.modules = {
         setActiveChatID,
         setChatHistory,
         setRecentChatHistory,
-      } = (0, chats_hooks /* useChats */.P)();
-      const { user } = (0, user_hooks /* useUser */.a)();
-      const fetchRecentChats = (0, react_.useCallback)(async () => {
+      } = (0, _state_chats_hooks__WEBPACK_IMPORTED_MODULE_4__ /* .useChats */.P)();
+      const { user } = (0, _state_user_hooks__WEBPACK_IMPORTED_MODULE_6__ /* .useUser */.a)();
+      const fetchRecentChats = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
         try {
-          const { data } = await config /* api */.h
+          const { data } = await _config__WEBPACK_IMPORTED_MODULE_2__ /* .api */.h
             .get('api/chat/');
-          const recentchatHistory = (0, lib /* createRecentChatHistory */.Cf)(data.data);
-          const groupedMessages = (0, lib /* groupMessagesByDate */.py)(recentchatHistory);
+          const recentchatHistory = (0, _lib__WEBPACK_IMPORTED_MODULE_5__ /* .createRecentChatHistory */.Cf)(data.data);
+          const groupedMessages = (0, _lib__WEBPACK_IMPORTED_MODULE_5__ /* .groupMessagesByDate */.py)(
+            recentchatHistory,
+          );
           if (!groupedMessages) return;
           setRecentChatHistory(groupedMessages);
-          if (!activeChatID) return;
-          // update the opened chat if any
-          const activeChats = findActiveChats(groupedMessages, activeChatID);
-          if (!activeChats) return;
-          openPreviousChats(activeChats);
         } catch (e) {
           // console.log('e :>> ', e);
         }
-      }, [setRecentChatHistory, openPreviousChats, activeChatID]);
-      const fetchChatHistory = (0, react_.useCallback)(async () => {
+      }, [setRecentChatHistory]);
+      const fetchChatHistory = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
         try {
-          const { data } = await config /* api */.h
+          const { data } = await _config__WEBPACK_IMPORTED_MODULE_2__ /* .api */.h
             .get('api/history/');
-          const chatHistoryTableData = (0, lib /* createHistoryTableData */.ef)(data.data);
+          const chatHistoryTableData = (0, _lib__WEBPACK_IMPORTED_MODULE_5__ /* .createHistoryTableData */.ef)(
+            data.data,
+          );
           setChatHistory(chatHistoryTableData);
         } catch (e) {
           // console.log('e :>> ', e);
         }
       }, [setChatHistory]);
-      const fetchNewChatID = (0, react_.useCallback)(
+      const fetchNewChatID = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(
         async (chatName) => {
           try {
-            const { data } = await config /* api */.h
+            const { data } = await _config__WEBPACK_IMPORTED_MODULE_2__ /* .api */.h
               .post('api/chat/', {
                 name: chatName,
               });
@@ -2369,16 +2617,17 @@ exports.modules = {
         },
         [setActiveChatID],
       );
-      const provideResponseFeedback = (0, react_.useCallback)(
+      const provideResponseFeedback = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(
         async (payload) => {
           const { responseId, feedback } = payload;
           try {
-            const { data } = await config /* api */.h
+            const { data } = await _config__WEBPACK_IMPORTED_MODULE_2__ /* .api */.h
               .post(`choice/${responseId}`, {
                 data: feedback,
               });
             if (!data.response) return;
-            if (data.response === 'success') react_toastify_esm.toast.success('Feedback provided');
+            if (data.response === 'success')
+              react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success('Feedback provided');
             fetchRecentChats();
             fetchChatHistory();
           } catch (e) {
@@ -2387,15 +2636,15 @@ exports.modules = {
         },
         [fetchRecentChats, fetchChatHistory],
       );
-      const fetchBotResponse = (0, react_.useCallback)(async () => {
+      const fetchBotResponse = (0, react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
         try {
-          const userMessage = (0, lib /* createChat */.P4)({
+          const userMessage = (0, _lib__WEBPACK_IMPORTED_MODULE_5__ /* .createChat */.P4)({
             isBotResponse: false,
             isLoading: false,
             text: userPrompt.data,
             images: [],
           });
-          const botResponseLoading = (0, lib /* createChat */.P4)({
+          const botResponseLoading = (0, _lib__WEBPACK_IMPORTED_MODULE_5__ /* .createChat */.P4)({
             isBotResponse: true,
             isLoading: true,
             text: '',
@@ -2413,7 +2662,7 @@ exports.modules = {
                 chat_id: chatID,
               }
             : userPrompt;
-          const { data } = await config /* api */.h
+          const { data } = await _config__WEBPACK_IMPORTED_MODULE_2__ /* .api */.h
             .post('get-answer-images', payload);
           let images = [];
           let text = '';
@@ -2436,9 +2685,10 @@ exports.modules = {
             fetchChatHistory();
           }
         } catch (e) {
-          console.log('e', e);
-          if (e instanceof axios /* AxiosError */.d7) react_toastify_esm.toast.error(e.response?.data.error);
-          else react_toastify_esm.toast.error('Something went wrong');
+          // console.log('e', e);
+          if (e instanceof axios__WEBPACK_IMPORTED_MODULE_7__ /* .AxiosError */.d7)
+            react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.error(e.response?.data.error);
+          else react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.error('Something went wrong');
         } finally {
           setIsLoading(false);
         }
