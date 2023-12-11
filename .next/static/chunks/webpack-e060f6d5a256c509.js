@@ -103,7 +103,7 @@
     }),
     (d.u = function (e) {}),
     (d.miniCssF = function (e) {
-      return 'static/css/' + { 185: '09e8b1202beb7a1f', 931: 'c6f4242de7d90750', 966: '35f3fe2b3802c0da' }[e] + '.css';
+      return 'static/css/' + { 185: 'cb8da6214d47e87b', 931: 'c6f4242de7d90750', 966: '35f3fe2b3802c0da' }[e] + '.css';
     }),
     (d.g = (function () {
       if ('object' == typeof globalThis) return globalThis;

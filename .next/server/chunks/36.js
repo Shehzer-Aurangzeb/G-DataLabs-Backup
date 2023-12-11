@@ -1,10 +1,10 @@
-exports.id = 702;
-exports.ids = [702];
+exports.id = 36;
+exports.ids = [36];
 exports.modules = {
-  /***/ 84357: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+  /***/ 73507: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
     Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 92709));
-    Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 89311));
     Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 34751));
+    Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 89311));
 
     /***/
   },
