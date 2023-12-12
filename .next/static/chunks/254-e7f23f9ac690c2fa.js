@@ -8,15 +8,26 @@
       var r = n(3427),
         o = n(4246);
       i.Z = function (e) {
-        let { onClick: i, type: n = 'button', isLoading: a = !1, src: s, className: c = '', disabled: d } = e;
-        return (0, t.jsx)('button', {
-          className: ['disabled:cursor-not-allowed', c].join(' '),
-          onClick: i,
-          type: n,
-          disabled: a || d,
-          children: a
-            ? (0, t.jsx)(o.Z, { style: { color: '#fff', margin: '0 auto' } })
-            : (0, t.jsx)(r.Z, { src: s, alt: 'icon', className: 'h-full w-full' }),
+        let {
+          children: i,
+          onClick: n,
+          type: a = 'button',
+          isLoading: s = !1,
+          src: c,
+          className: d = '',
+          disabled: l,
+        } = e;
+        return (0, t.jsxs)('button', {
+          className: ['disabled:cursor-not-allowed', d].join(' '),
+          onClick: n,
+          type: a,
+          disabled: s || l,
+          children: [
+            s
+              ? (0, t.jsx)(o.Z, { style: { color: '#fff', margin: '0 auto' } })
+              : (0, t.jsx)(r.Z, { src: c, alt: 'icon', className: 'h-full w-full' }),
+            i,
+          ],
         });
       };
     },

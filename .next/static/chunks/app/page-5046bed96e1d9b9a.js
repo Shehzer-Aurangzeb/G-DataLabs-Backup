@@ -2,7 +2,7 @@
   [931],
   {
     5188: function (e, t, n) {
-      Promise.resolve().then(n.bind(n, 882));
+      Promise.resolve().then(n.bind(n, 3066));
     },
     446: function (e, t, n) {
       'use strict';
@@ -125,18 +125,18 @@
         );
       };
     },
-    882: function (e, t, n) {
+    3066: function (e, t, n) {
       'use strict';
       n.r(t),
         n.d(t, {
           default: function () {
-            return D;
+            return Z;
           },
         });
       var r = n(7437),
         o = n(2265),
         s = n(346),
-        a = n(4683),
+        a = n(7999),
         i = n(1396),
         l = n.n(i),
         c = function (e) {
@@ -283,10 +283,27 @@
         C = n(4929),
         S = n(5217),
         O = { src: '/_next/static/media/logo_dark.43253b55.gif', height: 700, width: 700, blurWidth: 0, blurHeight: 0 },
-        P = { src: '/_next/static/media/logo.542952fc.gif', height: 700, width: 700, blurWidth: 0, blurHeight: 0 },
-        T = n(1839),
-        N = function (e) {
-          let { show: t, choice: n, messageId: s, giveFeedback: a, messageContent: i } = e,
+        P = { src: '/_next/static/media/logo.542952fc.gif', height: 700, width: 700, blurWidth: 0, blurHeight: 0 };
+      let T = (e) => {
+        let t = {};
+        for (let n of e) n.isBotResponse && (t[Number(n.messageID)] = n.choice);
+        return t;
+      };
+      var N = n(1839),
+        E = function (e) {
+          let { message: t, show: n } = e;
+          return (0, r.jsx)('div', {
+            className: 'absolute top-[-25px] left-0 bg-main dark:bg-bgMain px-2 py-1 rounded-md '.concat(
+              n ? 'opacity-1 visible' : 'opacity-0 invisible',
+            ),
+            children: (0, r.jsx)('p', {
+              className: 'dark:text-primary text-main text-base font-semibold font-raleway',
+              children: t,
+            }),
+          });
+        },
+        _ = function (e) {
+          let { show: t, choice: n, messageId: s, provideFeedback: a, messageContent: i } = e,
             [l, c] = (0, o.useState)(!1);
           return (
             (0, o.useEffect)(() => {
@@ -297,11 +314,12 @@
               return () => clearTimeout(e);
             }, [l]),
             (0, r.jsxs)('div', {
-              className: 'flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 '.concat(
-                t ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0',
-              ),
+              className:
+                'flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 mobile:left-[85px] mobile:bottom-2 mobile:top-[unset] '.concat(
+                  t ? 'translate-y-0 opacity-1' : '-translate-y-20 opacity-0',
+                ),
               children: [
-                (0, r.jsx)(T.Z, {
+                (0, r.jsx)(N.Z, {
                   src: null == n || 'false' === n ? d.jA : d.wb,
                   className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
                   disabled: 'true' === n,
@@ -309,7 +327,7 @@
                     'true' !== n && a({ responseId: s, feedback: !0 });
                   },
                 }),
-                (0, r.jsx)(T.Z, {
+                (0, r.jsx)(N.Z, {
                   src: null == n || 'true' === n ? d.jA : d.wb,
                   className:
                     'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180 ',
@@ -318,61 +336,78 @@
                     'false' !== n && a({ responseId: s, feedback: !1 });
                   },
                 }),
-                (0, r.jsx)(T.Z, {
+                (0, r.jsx)(N.Z, {
                   src: l ? d.BF : d.JG,
                   className: 'relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]',
                   disabled: l,
                   onClick: () => {
                     navigator.clipboard.writeText(i), c(!0);
                   },
+                  children: (0, r.jsx)(E, { message: 'Copied', show: l }),
                 }),
               ],
             })
           );
         },
-        E = n(2985),
-        _ = n.n(E),
-        I = function () {
+        I = n(2985),
+        R = n.n(I),
+        L = function () {
           return (0, r.jsxs)('div', {
-            className: _().loader,
+            className: R().loader,
             children: [
-              (0, r.jsx)('span', { className: _().typewriter, children: '...' }),
-              (0, r.jsx)('span', { className: _().blink }),
+              (0, r.jsx)('span', { className: R().typewriter, children: '...' }),
+              (0, r.jsx)('span', { className: R().blink }),
             ],
           });
         },
-        R = function (e) {
+        A = function (e) {
           let { isLoading: t = !1, children: n, profile: o } = e;
           return (0, r.jsxs)('div', {
             className:
               'bg-chat flex flex-row gap-x-8 items-center justify-start py-5 pl-8 pr-[120px] font-raleway text-primary text-xl font-semibold mb-4 mobile:px-2 mobile:text-base relative dark:bg-darkChat dark:text-main',
             children: [
               (0, r.jsx)(f.Z, { src: o, alt: 'profile', className: 'w-12 h-12 self-start min-w-[3rem]', rounded: !0 }),
-              (0, r.jsxs)('div', { children: [t && (0, r.jsx)(I, {}), n] }),
+              (0, r.jsxs)('div', { children: [t && (0, r.jsx)(L, {}), n] }),
             ],
           });
         },
-        L = (0, o.memo)(function (e) {
+        M = (0, o.memo)(function (e) {
           let { chats: t, userProfile: n, isLoggedIn: s, giveFeedback: a } = e,
             i = (0, o.useRef)(null),
             { theme: l } = (0, b.F)(),
-            c = (0, o.useCallback)(
+            [c, u] = (0, o.useState)({}),
+            p = (0, o.useCallback)(
               (e) => (e && l === m.Q2.LIGHT ? P : e && l === m.Q2.DARK ? O : e || l !== m.Q2.DARK ? C.Z : S.Z),
               [l],
+            ),
+            d = (0, o.useCallback)(
+              async (e) => {
+                let { responseId: t, feedback: n } = e;
+                u((e) => ({ ...e, [t]: n.toString() }));
+                try {
+                  await a(e);
+                } catch (e) {
+                  u((e) => ({ ...e, [t]: String(!n) }));
+                }
+              },
+              [u, a],
             );
           return (
             (0, o.useEffect)(() => {
-              i.current && i.current.scrollBy({ top: i.current.scrollHeight, behavior: 'smooth' });
+              if (!i.current) return;
+              i.current.scrollBy({ top: i.current.scrollHeight, behavior: 'smooth' });
+              let e = T(t);
+              u(e);
             }, [t]),
             (0, r.jsx)('div', {
               className: 'px-10 pt-10 pb-12 overflow-y-auto h-[calc(100%_-_190px)] mobile:px-2 ',
               ref: i,
               children: t.map((e) =>
                 (0, r.jsxs)(
-                  R,
+                  A,
                   {
                     isLoading: e.isLoading,
-                    profile: e.isBotResponse ? c(e.isLoading) : n,
+                    profile: e.isBotResponse ? p(e.isLoading) : n,
                     children: [
                       null !== e.content.text &&
                         e.content.text.length > 0 &&
@@ -406,11 +441,11 @@
                         }),
                       s &&
                         e.isBotResponse &&
-                        (0, r.jsx)(N, {
+                        (0, r.jsx)(_, {
                           show: !e.isLoading,
-                          choice: e.choice,
+                          choice: c[Number(e.messageID)],
                           messageId: Number(e.messageID),
-                          giveFeedback: a,
+                          provideFeedback: d,
                           messageContent: e.content.text,
                         }),
                     ],
@@ -421,7 +456,7 @@
             })
           );
         }),
-        A = function (e) {
+        $ = function (e) {
           let {
             user: t,
             userPrompt: n,
@@ -439,25 +474,28 @@
                 className: 'absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main',
                 children: [
                   (0, r.jsx)('span', {
-                    className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 ',
+                    className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 mobile:text-sm',
                     children: 'Powered By',
                   }),
                   (0, r.jsxs)(l(), {
                     href: 'https://platform.openai.com/docs/models/gpt-3-5',
-                    className: 'dark:text-white text-primary font-medium',
+                    className: 'dark:text-white text-primary font-medium mobile:text-sm',
                     target: '_blank',
-                    children: [(0, r.jsx)('span', { className: 'font-bold', children: 'ChatGPT' }), ' 3.5-turbo-16k'],
+                    children: [
+                      (0, r.jsx)('span', { className: 'font-bold mobile:text-sm', children: 'ChatGPT' }),
+                      ' 3.5-turbo-16k',
+                    ],
                   }),
                 ],
               }),
-              i && (0, r.jsx)(L, { chats: i, userProfile: t ? t.image : d.oB, isLoggedIn: c, giveFeedback: u }),
+              i && (0, r.jsx)(M, { chats: i, userProfile: t ? t.image : d.oB, isLoggedIn: c, giveFeedback: u }),
               (0, r.jsx)(x, { userPrompt: n, setUserPrompt: s, sendPrompt: o, isLoading: a }),
             ],
           });
         },
-        $ = n(446),
-        M = n(4118),
-        B = (0, o.memo)(function (e) {
+        B = n(446),
+        D = n(4118),
+        F = (0, o.memo)(function (e) {
           let { groupedChatHistory: t, openPreviousChats: n } = e;
           return (0, r.jsx)('div', {
             className: 'mt-8 flex flex-col gap-y-4 flex-1',
@@ -502,7 +540,7 @@
             }),
           });
         }),
-        F = (0, o.memo)(function (e) {
+        H = (0, o.memo)(function (e) {
           let { isAuthenticated: t, recentChatHistory: n, openPreviousChats: o, newChat: s } = e;
           return (0, r.jsxs)(p, {
             type: 'side',
@@ -513,9 +551,9 @@
                 children: 'Recent Chat History',
               }),
               Object.keys(n).length > 0
-                ? (0, r.jsx)(B, { groupedChatHistory: n, openPreviousChats: o })
-                : (0, r.jsx)(M.Z, { icon: d.PA, message: 'No recent chats to display', isParentFixed: !0 }),
-              (0, r.jsx)($.Z, {
+                ? (0, r.jsx)(F, { groupedChatHistory: n, openPreviousChats: o })
+                : (0, r.jsx)(D.Z, { icon: d.PA, message: 'No recent chats to display', isParentFixed: !0 }),
+              (0, r.jsx)(B.Z, {
                 title: 'New Chat',
                 onClick: s,
                 className: 'bg-blue w-full mt-9 disabled:bg-disabledBlue ',
@@ -525,7 +563,7 @@
             ],
           });
         });
-      function D() {
+      function Z() {
         let { user: e, isAuthenticated: t } = (0, s.a)(),
           {
             userPrompt: n,
@@ -540,7 +578,7 @@
           } = (0, a.L)();
         return (0, r.jsxs)(r.Fragment, {
           children: [
-            (0, r.jsx)(A, {
+            (0, r.jsx)($, {
               user: e,
               chats: i,
               sendPrompt: l,
@@ -550,7 +588,7 @@
               isAuthenticated: t,
               giveFeedback: d,
             }),
-            (0, r.jsx)(F, { isAuthenticated: t, recentChatHistory: u, openPreviousChats: p, newChat: f }),
+            (0, r.jsx)(H, { isAuthenticated: t, recentChatHistory: u, openPreviousChats: p, newChat: f }),
           ],
         });
       }
@@ -596,11 +634,11 @@
         );
       };
     },
-    4683: function (e, t, n) {
+    7999: function (e, t, n) {
       'use strict';
       n.d(t, {
         L: function () {
-          return f;
+          return p;
         },
       });
       var r = n(2265),
@@ -611,113 +649,100 @@
         l = n(7152),
         c = n(1515),
         u = n(6118);
-      let p = (e, t) => {
-          let n;
-          for (let [, r] of Object.entries(e))
-            for (let e of r)
-              if (e.id === t) {
-                n = e;
-                break;
-              }
-          return n;
-        },
-        f = () => {
-          let { isLoading: e, setIsLoading: t } = (0, i.r)(),
-            {
-              chats: n,
-              userPrompt: f,
-              setUserPrompt: d,
-              setChats: y,
-              resetUserPrompt: h,
-              updateChat: m,
-              recentChatHistory: b,
-              startNewChat: g,
-              openPreviousChats: v,
-              activeChatID: x,
-              setActiveChatID: w,
-              setChatHistory: k,
-              setRecentChatHistory: j,
-            } = (0, l.P)(),
-            { user: C } = (0, u.a)(),
-            S = (0, r.useCallback)(async () => {
-              try {
-                let { data: e } = await a.h.get('api/chat/'),
-                  t = (0, c.Cf)(e.data),
-                  n = (0, c.py)(t);
-                if (!n || (j(n), !x)) return;
-                let r = p(n, x);
-                if (!r) return;
-                v(r);
-              } catch (e) {}
-            }, [j, v, x]),
-            O = (0, r.useCallback)(async () => {
-              try {
-                let { data: e } = await a.h.get('api/history/'),
-                  t = (0, c.ef)(e.data);
-                k(t);
-              } catch (e) {}
-            }, [k]),
-            P = (0, r.useCallback)(
-              async (e) => {
-                try {
-                  let { data: t } = await a.h.post('api/chat/', { name: e });
-                  return t.data.id && w(t.data.id), t.data.id;
-                } catch (e) {
-                  return e;
-                }
-              },
-              [w],
-            ),
-            T = (0, r.useCallback)(
-              async (e) => {
-                let { responseId: t, feedback: n } = e;
-                try {
-                  let { data: e } = await a.h.post('choice/'.concat(t), { data: n });
-                  if (!e.response) return;
-                  'success' === e.response && o.toast.success('Feedback provided'), S(), O();
-                } catch (e) {}
-              },
-              [S, O],
-            ),
-            N = (0, r.useCallback)(async () => {
-              var e, n;
-              try {
-                let n = (0, c.P4)({ isBotResponse: !1, isLoading: !1, text: f.data, images: [] }),
-                  r = (0, c.P4)({ isBotResponse: !0, isLoading: !0, text: '', images: [] });
-                y(n), y(r), t(!0), h();
-                let o = x;
-                C && !o && (o = await P(f.data));
-                let s = C ? { ...f, chat_id: o } : f,
-                  { data: i } = await a.h.post('get-answer-images', s),
-                  l = [],
-                  u = '';
-                i.images && (l = i.images.map((e) => e)),
-                  (null === (e = i.response) || void 0 === e ? void 0 : e.length) && (u = i.response),
-                  m({ ...r, isLoading: !1, content: { text: u, images: l } }, i.id),
-                  C && (S(), O());
-              } catch (e) {
-                console.log('e', e),
-                  e instanceof s.d7
-                    ? o.toast.error(null === (n = e.response) || void 0 === n ? void 0 : n.data.error)
-                    : o.toast.error('Something went wrong');
-              } finally {
-                t(!1);
-              }
-            }, [t, f, y, h, m, C, x, P, O, S]);
-          return {
-            fetchBotResponse: N,
-            isLoading: e,
+      let p = () => {
+        let { isLoading: e, setIsLoading: t } = (0, i.r)(),
+          {
             chats: n,
-            userPrompt: f,
-            setUserPrompt: d,
-            recentChatHistory: b,
-            startNewChat: g,
-            openPreviousChats: v,
-            fetchChatHistory: O,
-            fetchRecentChats: S,
-            provideResponseFeedback: T,
-          };
+            userPrompt: p,
+            setUserPrompt: f,
+            setChats: d,
+            resetUserPrompt: y,
+            updateChat: h,
+            recentChatHistory: m,
+            startNewChat: b,
+            openPreviousChats: g,
+            activeChatID: v,
+            setActiveChatID: x,
+            setChatHistory: w,
+            setRecentChatHistory: k,
+          } = (0, l.P)(),
+          { user: j } = (0, u.a)(),
+          C = (0, r.useCallback)(async () => {
+            try {
+              let { data: e } = await a.h.get('api/chat/'),
+                t = (0, c.Cf)(e.data),
+                n = (0, c.py)(t);
+              if (!n) return;
+              k(n);
+            } catch (e) {}
+          }, [k]),
+          S = (0, r.useCallback)(async () => {
+            try {
+              let { data: e } = await a.h.get('api/history/'),
+                t = (0, c.ef)(e.data);
+              w(t);
+            } catch (e) {}
+          }, [w]),
+          O = (0, r.useCallback)(
+            async (e) => {
+              try {
+                let { data: t } = await a.h.post('api/chat/', { name: e });
+                return t.data.id && x(t.data.id), t.data.id;
+              } catch (e) {
+                return e;
+              }
+            },
+            [x],
+          ),
+          P = (0, r.useCallback)(
+            async (e) => {
+              let { responseId: t, feedback: n } = e;
+              try {
+                let { data: e } = await a.h.post('choice/'.concat(t), { data: n });
+                if (!e.response) return;
+                'success' === e.response && o.toast.success('Feedback provided'), C(), S();
+              } catch (e) {}
+            },
+            [C, S],
+          ),
+          T = (0, r.useCallback)(async () => {
+            var e, n;
+            try {
+              let n = (0, c.P4)({ isBotResponse: !1, isLoading: !1, text: p.data, images: [] }),
+                r = (0, c.P4)({ isBotResponse: !0, isLoading: !0, text: '', images: [] });
+              d(n), d(r), t(!0), y();
+              let o = v;
+              j && !o && (o = await O(p.data));
+              let s = j ? { ...p, chat_id: o } : p,
+                { data: i } = await a.h.post('get-answer-images', s),
+                l = [],
+                u = '';
+              i.images && (l = i.images.map((e) => e)),
+                (null === (e = i.response) || void 0 === e ? void 0 : e.length) && (u = i.response),
+                h({ ...r, isLoading: !1, content: { text: u, images: l } }, i.id),
+                j && (C(), S());
+            } catch (e) {
+              e instanceof s.d7
+                ? o.toast.error(null === (n = e.response) || void 0 === n ? void 0 : n.data.error)
+                : o.toast.error('Something went wrong');
+            } finally {
+              t(!1);
+            }
+          }, [t, p, d, y, h, j, v, O, S, C]);
+        return {
+          fetchBotResponse: T,
+          isLoading: e,
+          chats: n,
+          userPrompt: p,
+          setUserPrompt: f,
+          recentChatHistory: m,
+          startNewChat: b,
+          openPreviousChats: g,
+          fetchChatHistory: S,
+          fetchRecentChats: C,
+          provideResponseFeedback: P,
         };
+      };
     },
     1841: function () {},
     2985: function (e) {

@@ -69,15 +69,26 @@
       var A = i(3427),
         r = i(4246);
       e.Z = function (t) {
-        let { onClick: e, type: i = 'button', isLoading: a = !1, src: c, className: u = '', disabled: s } = t;
-        return (0, n.jsx)('button', {
-          className: ['disabled:cursor-not-allowed', u].join(' '),
-          onClick: e,
-          type: i,
-          disabled: a || s,
-          children: a
-            ? (0, n.jsx)(r.Z, { style: { color: '#fff', margin: '0 auto' } })
-            : (0, n.jsx)(A.Z, { src: c, alt: 'icon', className: 'h-full w-full' }),
+        let {
+          children: e,
+          onClick: i,
+          type: a = 'button',
+          isLoading: c = !1,
+          src: u,
+          className: s = '',
+          disabled: l,
+        } = t;
+        return (0, n.jsxs)('button', {
+          className: ['disabled:cursor-not-allowed', s].join(' '),
+          onClick: i,
+          type: a,
+          disabled: c || l,
+          children: [
+            c
+              ? (0, n.jsx)(r.Z, { style: { color: '#fff', margin: '0 auto' } })
+              : (0, n.jsx)(A.Z, { src: u, alt: 'icon', className: 'h-full w-full' }),
+            e,
+          ],
         });
       };
     },

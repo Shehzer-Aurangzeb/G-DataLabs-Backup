@@ -4,6 +4,64 @@
     1733: function (e, t, a) {
       Promise.resolve().then(a.bind(a, 8390)), Promise.resolve().then(a.bind(a, 2710));
     },
+    8390: function (e, t, a) {
+      'use strict';
+      a.r(t);
+      var n = a(7437),
+        l = a(2265),
+        s = a(9907),
+        r = a(1419),
+        o = a(1846),
+        i = a(1839);
+      t.default = function (e) {
+        let { children: t, className: a = '' } = e,
+          { width: c } = (0, s.i)(),
+          [d, u] = (0, l.useState)(!1),
+          p = (0, l.useRef)(null);
+        return (
+          (0, o.O)(p, () => {
+            u(!1);
+          }),
+          (0, n.jsxs)(n.Fragment, {
+            children: [
+              c < 1024 &&
+                (0, n.jsx)('div', {
+                  className: 'h-[calc(100vh_-_2.5rem)] bg-light dark:bg-main relative w-[50px]',
+                  children: (0, n.jsx)(i.Z, {
+                    className:
+                      'z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
+                    onClick: () => u(!d),
+                    type: 'button',
+                    src: r.tp,
+                  }),
+                }),
+              (0, n.jsxs)('div', {
+                ref: p,
+                className: [
+                  'bg-light h-[calc(100vh_-_2.5rem)] max-w-[340px] mobile:max-w-full rounded-r-lg overflow-y-auto '.concat(
+                    c < 1024
+                      ? 'fixed right-0 z-20 transition-all duration-300 '.concat(d ? 'w-full pl-5 pr-3' : 'w-0 p-0')
+                      : 'w-full pl-5 pr-3',
+                  ),
+                  a,
+                ].join(' '),
+                children: [
+                  c < 1024 &&
+                    (0, n.jsx)(i.Z, {
+                      className:
+                        'z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
+                      onClick: () => u(!d),
+                      type: 'button',
+                      src: r.tp,
+                    }),
+                  t,
+                ],
+              }),
+            ],
+          })
+        );
+      };
+    },
     4118: function (e, t, a) {
       'use strict';
       var n = a(7437),
@@ -11,18 +69,18 @@
         s = a(3427),
         r = a(1419);
       t.Z = function (e) {
-        let { message: t, icon: a, isParentFixed: i } = e,
-          o = (0, l.useRef)(null);
+        let { message: t, icon: a, isParentFixed: o } = e,
+          i = (0, l.useRef)(null);
         return (
           (0, l.useEffect)(() => {
-            i && o && o.current && o.current.parentElement && o.current.parentElement.classList.add('relative');
-          }, [i]),
+            o && i && i.current && i.current.parentElement && i.current.parentElement.classList.add('relative');
+          }, [o]),
           (0, n.jsxs)('div', {
             className: 'flex flex-col gap-y-3 dark:text-main '.concat(
-              !i && 'absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]',
+              !o && 'absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]',
               ' items-center',
             ),
-            ref: o,
+            ref: i,
             children: [
               (0, n.jsx)(s.Z, {
                 src: null != a ? a : r.HB,
@@ -44,52 +102,52 @@
         l = a(2265),
         s = a(1872),
         r = a(1419),
-        i = a(1515),
-        o = a(1846),
+        o = a(1515),
+        i = a(1846),
         c = a(3427);
       t.Z = function (e) {
-        let { className: t, options: a, style: d, value: u, onClick: x, increasePadding: m } = e,
-          [p, f] = (0, l.useState)(!1),
-          b = (0, l.useRef)(null),
-          h = () => {
-            f(!p);
+        let { className: t, options: a, style: d, value: u, onClick: p, increasePadding: m } = e,
+          [x, f] = (0, l.useState)(!1),
+          h = (0, l.useRef)(null),
+          b = () => {
+            f(!x);
           };
         return (
-          (0, o.O)(b, () => {
+          (0, i.O)(h, () => {
             f(!1);
           }),
           (0, n.jsxs)('div', {
-            ref: b,
+            ref: h,
             style: d,
             className: [
               'relative bg-chat dark:bg-darkChat dark:text-main '
                 .concat(null != m ? m : 'py-[10px]', ' px-4 ')
-                .concat(p ? 'rounded-md rounded-b-none' : 'rounded-md', ' w-full'),
+                .concat(x ? 'rounded-md rounded-b-none' : 'rounded-md', ' w-full'),
               t,
             ].join(' '),
             children: [
               (0, n.jsxs)('div', {
                 className: 'flex w-full justify-between items-center',
-                onClick: h,
-                onKeyDown: h,
+                onClick: b,
+                onKeyDown: b,
                 role: 'button',
                 tabIndex: 0,
                 children: [
                   (0, n.jsx)('label', {
                     className:
                       'text-primary dark:text-main  font-sans font-normal text-base max-w-[90%] overflow-hidden text-ellipsis whitespace-nowrap',
-                    children: (0, i.kC)(u),
+                    children: (0, o.kC)(u),
                   }),
                   (0, n.jsx)(c.Z, {
                     src: r.x7,
                     alt: 'dropdown-icon',
                     className: 'w-6 h-6 transition-all ease-in duration-250 dark:invert '.concat(
-                      p ? 'rotate-180 ' : 'rotate-0',
+                      x ? 'rotate-180 ' : 'rotate-0',
                     ),
                   }),
                 ],
               }),
-              p &&
+              x &&
                 (0, n.jsx)('ul', {
                   className: 'list-none rounded-b-md absolute bg-chat dark:bg-darkChat w-full top-[44px] left-0 z-10',
                   children: a
@@ -106,12 +164,12 @@
                               ),
                             role: 'button',
                             onClick: () => {
-                              x(e.value), h();
+                              p(e.value), b();
                             },
                             onKeyDown: () => {
-                              x(e.value), h();
+                              p(e.value), b();
                             },
-                            children: (0, i.kC)(e.value),
+                            children: (0, o.kC)(e.value),
                           }),
                         },
                         (0, s.Z)(),
@@ -166,38 +224,38 @@
         l = a(2265),
         s = a(9611),
         r = a(9787),
-        i = a(6571),
-        o = a(4118),
+        o = a(6571),
+        i = a(4118),
         c = a(4010),
         d = a(3739),
-        u = a(9699),
-        x = a(9109),
+        u = a(6413),
+        p = a(9109),
         m = a(3976),
-        p = function (e) {
+        x = function (e) {
           let { columns: t, data: a, updateConsentRewards: s } = e,
             {
               getTableProps: r,
-              getTableBodyProps: i,
-              headerGroups: o,
-              rows: p,
+              getTableBodyProps: o,
+              headerGroups: i,
+              rows: x,
               prepareRow: f,
             } = (0, c.useTable)({ columns: t, data: a }),
-            [b, h] = (0, l.useState)({}),
-            [v, w] = (0, l.useState)({}),
-            j = (0, l.useCallback)((e, t) => {
-              w((a) => ({ ...a, [e]: t }));
+            [h, b] = (0, l.useState)({}),
+            [w, v] = (0, l.useState)({}),
+            k = (0, l.useCallback)((e, t) => {
+              v((a) => ({ ...a, [e]: t }));
             }, []),
-            k = (0, l.useCallback)((e, t) => (b[e] ? b[e][t][v[e]] : ''), [b, v]);
+            j = (0, l.useCallback)((e, t) => (h[e] ? h[e][t][w[e]] : ''), [h, w]);
           return (
             (0, l.useEffect)(() => {
-              w((0, m.im)(a)), h((0, m.F3)(a));
+              v((0, m.im)(a)), b((0, m.F3)(a));
             }, [a]),
             (0, n.jsxs)('table', {
               ...r(),
               className: 'w-full',
               children: [
                 (0, n.jsx)('thead', {
-                  children: o.map((e) =>
+                  children: i.map((e) =>
                     (0, n.jsx)('tr', {
                       ...e.getHeaderGroupProps(),
                       children: e.headers.map((e) =>
@@ -214,8 +272,8 @@
                   ),
                 }),
                 (0, n.jsx)('tbody', {
-                  ...i(),
-                  children: p.map((e) => {
+                  ...o(),
+                  children: x.map((e) => {
                     var t;
                     return (
                       f(e),
@@ -251,16 +309,16 @@
                                       },
                                     })
                                   : 'Companies' === a.column.id && e.values.Companies.length > 0
-                                  ? (0, n.jsx)(x.Z, {
+                                  ? (0, n.jsx)(p.Z, {
                                       options: e.values.Companies,
                                       onClick: (t) => {
-                                        j(e.values.PDataAndWeb, t);
+                                        k(e.values.PDataAndWeb, t);
                                       },
                                       className: 'w-full',
-                                      value: null !== (t = v[e.values.PDataAndWeb]) && void 0 !== t ? t : '',
+                                      value: null !== (t = w[e.values.PDataAndWeb]) && void 0 !== t ? t : '',
                                     })
                                   : 'Use' === a.column.id || 'Threshold' === a.column.id
-                                  ? (0, n.jsx)('p', { children: k(e.values.PDataAndWeb, a.column.id.toLowerCase()) })
+                                  ? (0, n.jsx)('p', { children: j(e.values.PDataAndWeb, a.column.id.toLowerCase()) })
                                   : 'Pricing' === a.column.id
                                   ? (0, n.jsx)(u.Z, {
                                       name: 'price-offer-'.concat(e.values.id),
@@ -268,7 +326,7 @@
                                       className: 'min-w-[160px]',
                                       readOnly: !0,
                                       isMonetaryInput: !0,
-                                      value: k(e.values.PDataAndWeb, 'pricing'),
+                                      value: j(e.values.PDataAndWeb, 'pricing'),
                                     })
                                   : a.render('Cell'),
                             },
@@ -284,7 +342,7 @@
           );
         },
         f = function () {
-          let { cData: e, updateConsentRewards: t } = (0, i.T)(),
+          let { cData: e, updateConsentRewards: t } = (0, o.T)(),
             a = (0, l.useMemo)(
               () =>
                 Object.entries(e).map((e) => {
@@ -296,13 +354,13 @@
           return (0, n.jsxs)('div', {
             className: 'overflow-x-auto w-full h-full max-w-['.concat(s.kk, ']'),
             children: [
-              (0, n.jsx)(p, { data: a, columns: r.J, updateConsentRewards: t }),
-              0 === a.length && (0, n.jsx)(o.Z, {}),
+              (0, n.jsx)(x, { data: a, columns: r.J, updateConsentRewards: t }),
+              0 === a.length && (0, n.jsx)(i.Z, {}),
             ],
           });
         };
     },
-    9699: function (e, t, a) {
+    6413: function (e, t, a) {
       'use strict';
       var n = a(7437);
       a(2265);
@@ -313,12 +371,12 @@
           readOnly: t,
           name: a,
           onChange: r,
-          value: i,
-          type: o,
+          value: o,
+          type: i,
           pattern: c,
           className: d,
           currency: u = '$',
-          isMonetaryInput: x = !1,
+          isMonetaryInput: p = !1,
         } = e;
         return (0, n.jsxs)('div', {
           className: [
@@ -326,12 +384,9 @@
             d,
           ].join(' '),
           children: [
-            x &&
+            p &&
               (0, n.jsx)('span', {
-                className: 'absolute top-[23%] '.concat(
-                  t ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]',
-                  ' text-white font-sans text-xl font-medium',
-                ),
+                className: 'absolute top-[23%] left-[19px] mobile:left-[15px] text-white font-sans text-xl font-medium',
                 children: u,
               }),
             (0, n.jsx)('input', {
@@ -341,24 +396,140 @@
               name: a,
               readOnly: t,
               id: a,
-              type: o || 'number',
-              value: i,
+              type: i || 'number',
+              value: o,
               className:
                 'bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]',
             }),
-            !t &&
-              (0, n.jsx)('label', {
-                htmlFor: a,
-                className: 'cursor-pointer',
-                children: (0, n.jsx)(l.Z, { src: s.eP, alt: 'edit-icon', className: 'w-[24px] h-[24px] dark:invert' }),
-              }),
+            (0, n.jsx)('label', {
+              htmlFor: a,
+              className: 'cursor-pointer '.concat(t && 'opacity-0 invisible'),
+              children: (0, n.jsx)(l.Z, { src: s.eP, alt: 'edit-icon', className: 'w-[24px] h-[24px] dark:invert' }),
+            }),
           ],
         });
       };
     },
+    6571: function (e, t, a) {
+      'use strict';
+      a.d(t, {
+        T: function () {
+          return m;
+        },
+      });
+      var n = a(2265),
+        l = a(171),
+        s = a(4548),
+        r = a.n(s),
+        o = a(6171),
+        i = a(7445),
+        c = a(5888),
+        d = a(1515),
+        u = a(7350),
+        p = a(3136);
+      let m = () => {
+        let { isLoading: e, setIsLoading: t } = (0, i.r)(),
+          {
+            personalData: a,
+            setPersonalData: s,
+            gData: m,
+            rData: x,
+            cData: f,
+            screenData: h,
+            compData: b,
+            setCompData: w,
+          } = (0, c.h)(),
+          { getAllConsentData: v, gTableColumns: k, updateMyGData: j, getAllPersonalData: y } = (0, p.q)(),
+          g = (0, n.useCallback)(
+            async (e) => {
+              try {
+                if ((t(!0), e.photos)) {
+                  let t = new FormData();
+                  for (let a of (t.append('field_name', 'photos'), e.photos)) t.append('image_files', a);
+                  await o.h.post('api/personal_data_consents_rewards/file_upload', t);
+                }
+                delete e.photos;
+                let a = (0, d.Z4)(e),
+                  { data: n } = await o.h.post('api/personal_data_consents_rewards', a),
+                  l = (0, d.uR)({ tableName: u.me.PData, data: n.data });
+                s(l), await j(), await v(), await y();
+              } catch (e) {
+              } finally {
+                t(!1);
+              }
+            },
+            [t, s, j, v, y],
+          ),
+          C = (0, n.useCallback)(
+            async (e) => {
+              let { id: a, payload: n } = e;
+              try {
+                t(!0),
+                  await o.h.patch('api/user_consents_rewards/'.concat(a, '/'), n),
+                  await v(),
+                  await j(),
+                  l.toast.success('Consent updated');
+              } catch (e) {
+                l.toast.error('Some problem updating consent');
+              } finally {
+                t(!1);
+              }
+            },
+            [t, v, j],
+          ),
+          N = (0, n.useCallback)(
+            async (e) => {
+              try {
+                t(!0);
+                let { data: a } = await o.h.post('api/company_consents_rewards', e),
+                  n = (0, d.uR)({ tableName: u.me.CompData, data: a.data });
+                w(n), l.toast.success('Consent updated');
+              } catch (e) {
+                l.toast.error('Some problem updating consent');
+              } finally {
+                t(!1);
+              }
+            },
+            [t, w],
+          ),
+          _ = (0, n.useCallback)(
+            (e) => {
+              var t;
+              let n = null !== (t = e.date) && void 0 !== t ? t : r()().format('YYYY-MM-DD'),
+                l = [];
+              for (let t of e.photos) {
+                let e = new FileReader();
+                (e.onload = (e) => {
+                  l.push({ file_url: e.target && null !== e.target.result ? e.target.result : '' });
+                }),
+                  e.readAsDataURL(t);
+              }
+              setTimeout(() => {
+                let t = { ...a, [n]: { ...e, photos: [...l] } };
+                s(t);
+              }, 3e3);
+            },
+            [a, s],
+          );
+        return {
+          savePersonalData: g,
+          isLoading: e,
+          personalData: a,
+          updateConsentRewards: C,
+          savePersonalDataTemporarily: _,
+          updateCompanyConsentRewards: N,
+          gData: m,
+          rData: x,
+          cData: f,
+          screenData: h,
+          gTableColumns: k,
+          compData: b,
+        };
+      };
+    },
   },
   function (e) {
-    e.O(0, [986, 139, 16, 10, 254, 100, 509, 971, 596, 744], function () {
+    e.O(0, [986, 139, 16, 10, 254, 100, 136, 971, 596, 744], function () {
       return e((e.s = 1733));
     }),
       (_N_E = e.O());

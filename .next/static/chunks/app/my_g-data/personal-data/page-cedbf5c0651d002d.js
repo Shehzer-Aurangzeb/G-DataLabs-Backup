@@ -11,7 +11,7 @@
       var r = a(3427),
         i = a(4246);
       t.Z = function (e) {
-        let { onClick: t, type: a = 'button', title: s, isLoading: n = !1, icon: o, className: c = '', style: d } = e;
+        let { onClick: t, type: a = 'button', title: s, isLoading: n = !1, icon: o, className: c = '', style: u } = e;
         return (0, l.jsxs)('button', {
           className: [
             'text-xl text-center font-sans font-bold text-white py-3 rounded-md relative  disabled:cursor-not-allowed',
@@ -19,7 +19,7 @@
           ].join(' '),
           onClick: t,
           type: a,
-          style: d,
+          style: u,
           disabled: n,
           children: [
             o &&
@@ -31,6 +31,64 @@
             n ? (0, l.jsx)(i.Z, { style: { color: '#fff', margin: '0 auto' } }) : s,
           ],
         });
+      };
+    },
+    8390: function (e, t, a) {
+      'use strict';
+      a.r(t);
+      var l = a(7437),
+        r = a(2265),
+        i = a(9907),
+        s = a(1419),
+        n = a(1846),
+        o = a(1839);
+      t.default = function (e) {
+        let { children: t, className: a = '' } = e,
+          { width: c } = (0, i.i)(),
+          [u, d] = (0, r.useState)(!1),
+          m = (0, r.useRef)(null);
+        return (
+          (0, n.O)(m, () => {
+            d(!1);
+          }),
+          (0, l.jsxs)(l.Fragment, {
+            children: [
+              c < 1024 &&
+                (0, l.jsx)('div', {
+                  className: 'h-[calc(100vh_-_2.5rem)] bg-light dark:bg-main relative w-[50px]',
+                  children: (0, l.jsx)(o.Z, {
+                    className:
+                      'z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
+                    onClick: () => d(!u),
+                    type: 'button',
+                    src: s.tp,
+                  }),
+                }),
+              (0, l.jsxs)('div', {
+                ref: m,
+                className: [
+                  'bg-light h-[calc(100vh_-_2.5rem)] max-w-[340px] mobile:max-w-full rounded-r-lg overflow-y-auto '.concat(
+                    c < 1024
+                      ? 'fixed right-0 z-20 transition-all duration-300 '.concat(u ? 'w-full pl-5 pr-3' : 'w-0 p-0')
+                      : 'w-full pl-5 pr-3',
+                  ),
+                  a,
+                ].join(' '),
+                children: [
+                  c < 1024 &&
+                    (0, l.jsx)(o.Z, {
+                      className:
+                        'z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
+                      onClick: () => d(!u),
+                      type: 'button',
+                      src: s.tp,
+                    }),
+                  t,
+                ],
+              }),
+            ],
+          })
+        );
       };
     },
     4118: function (e, t, a) {
@@ -77,23 +135,23 @@
         o = a(1846),
         c = a(3427);
       t.Z = function (e) {
-        let { className: t, options: a, style: d, value: u, onClick: m, increasePadding: x } = e,
-          [p, f] = (0, r.useState)(!1),
+        let { className: t, options: a, style: u, value: d, onClick: m, increasePadding: p } = e,
+          [f, x] = (0, r.useState)(!1),
           h = (0, r.useRef)(null),
           _ = () => {
-            f(!p);
+            x(!f);
           };
         return (
           (0, o.O)(h, () => {
-            f(!1);
+            x(!1);
           }),
           (0, l.jsxs)('div', {
             ref: h,
-            style: d,
+            style: u,
             className: [
               'relative bg-chat dark:bg-darkChat dark:text-main '
-                .concat(null != x ? x : 'py-[10px]', ' px-4 ')
-                .concat(p ? 'rounded-md rounded-b-none' : 'rounded-md', ' w-full'),
+                .concat(null != p ? p : 'py-[10px]', ' px-4 ')
+                .concat(f ? 'rounded-md rounded-b-none' : 'rounded-md', ' w-full'),
               t,
             ].join(' '),
             children: [
@@ -107,22 +165,22 @@
                   (0, l.jsx)('label', {
                     className:
                       'text-primary dark:text-main  font-sans font-normal text-base max-w-[90%] overflow-hidden text-ellipsis whitespace-nowrap',
-                    children: (0, n.kC)(u),
+                    children: (0, n.kC)(d),
                   }),
                   (0, l.jsx)(c.Z, {
                     src: s.x7,
                     alt: 'dropdown-icon',
                     className: 'w-6 h-6 transition-all ease-in duration-250 dark:invert '.concat(
-                      p ? 'rotate-180 ' : 'rotate-0',
+                      f ? 'rotate-180 ' : 'rotate-0',
                     ),
                   }),
                 ],
               }),
-              p &&
+              f &&
                 (0, l.jsx)('ul', {
                   className: 'list-none rounded-b-md absolute bg-chat dark:bg-darkChat w-full top-[44px] left-0 z-10',
                   children: a
-                    .filter((e) => e.value !== u)
+                    .filter((e) => e.value !== d)
                     .map((e) =>
                       (0, l.jsx)(
                         'li',
@@ -131,7 +189,7 @@
                             tabIndex: 0,
                             className:
                               'cursor-pointer font-sans text-base font-normal text-primary dark:text-main  px-4 '.concat(
-                                null != x ? x : 'py-[10px]',
+                                null != p ? p : 'py-[10px]',
                               ),
                             role: 'button',
                             onClick: () => {
@@ -198,10 +256,10 @@
           { Header: 'Journaling', accessor: 'journaling' },
         ];
       var c = a(6571),
-        d = a(4118),
-        u = a(4010),
+        u = a(4118),
+        d = a(4010),
         m = a(3427),
-        x = function (e) {
+        p = function (e) {
           let { columns: t, data: a } = e,
             {
               getTableProps: i,
@@ -209,7 +267,7 @@
               headerGroups: n,
               rows: o,
               prepareRow: c,
-            } = (0, u.useTable)({ columns: t, data: a });
+            } = (0, d.useTable)({ columns: t, data: a });
           return (0, l.jsxs)('table', {
             ...i(),
             className: 'w-full',
@@ -281,14 +339,14 @@
             ],
           });
         },
-        p = a(6230),
-        f = a(1872),
+        f = a(6230),
+        x = a(1872),
         h = a(5979),
         _ = a(446),
         b = a(1799),
-        v = a(6691),
-        g = a.n(v),
-        w = a(1419),
+        w = a(6691),
+        v = a.n(w),
+        g = a(1419),
         y = a(9109),
         j = function (e) {
           let { onChange: t, noOfFiles: a } = e;
@@ -296,7 +354,7 @@
             className:
               'flex flex-row w-full max-w-[450px] items-center bg-chat dark:bg-darkChat gap-x-5 relative py-[9px] px-4 ',
             children: [
-              (0, l.jsx)(m.Z, { src: w.ws, alt: 'upload-icon', className: 'w-[36px] h-[36px] dark:invert' }),
+              (0, l.jsx)(m.Z, { src: g.ws, alt: 'upload-icon', className: 'w-[36px] h-[36px] dark:invert' }),
               (0, l.jsx)('p', {
                 className: 'text-black dark:text-main text-xl font-sans font-normal ',
                 children: a > 0 ? ''.concat(a, ' files selected') : 'Select files',
@@ -322,34 +380,34 @@
               type: n,
               placeholder: o,
               readOnly: c,
-              error: d,
-              isAddingFieldEnabled: u = !1,
+              error: u,
+              isAddingFieldEnabled: d = !1,
               fields: m,
-              addNewField: x,
-              handleFileChange: p,
-              noOfFiles: f,
+              addNewField: p,
+              handleFileChange: f,
+              noOfFiles: x,
               isSelectInput: h = !1,
               selectOptions: _,
               onSelectOption: b,
             } = e,
-            [v, k] = (0, r.useState)(!1);
+            [w, k] = (0, r.useState)(!1);
           return (0, l.jsxs)(l.Fragment, {
             children: [
               (0, l.jsxs)('div', {
                 className:
                   'flex flex-row items-start gap-x-2 pt-3 pl-2 pr-3 w-full tablet:gap-x-0 mobile:gap-x-1 '.concat(
-                    v ? 'pb-3' : 'pb-5',
+                    w ? 'pb-3' : 'pb-5',
                     ' rounded-xl bg-light dark:bg-main transition duration-300',
                   ),
                 children: [
-                  (0, l.jsx)(g(), {
-                    src: w.x7,
+                  (0, l.jsx)(v(), {
+                    src: g.x7,
                     alt: 'arrow-icon',
                     height: 24,
                     width: 24,
-                    className: 'transition duration-300 '.concat(v && 'rotate-180 ', ' dark:invert'),
+                    className: 'transition duration-300 '.concat(w && 'rotate-180 ', ' dark:invert'),
                     onClick: () => {
-                      k(!v);
+                      k(!w);
                     },
                   }),
                   (0, l.jsxs)('header', {
@@ -360,8 +418,8 @@
                         className: 'text-primary font-sans font-medium text-xl  dark:text-main',
                         children: s,
                       }),
-                      !v &&
-                        !u &&
+                      !w &&
+                        !d &&
                         'file' !== n &&
                         !h &&
                         (0, l.jsx)('input', {
@@ -376,8 +434,8 @@
                           className:
                             'bg-chat dark:bg-darkChat py-[10px] px-4 rounded-md text-primary dark:text-main w-full font-sans font-normal text-base placeholder:font-normal placeholder:font-sans placeholder:text-xl placeholder:text-placeholder focus:outline-none tablet:px-2 mobile:px-1',
                         }),
-                      !v &&
-                        !u &&
+                      !w &&
+                        !d &&
                         'file' !== n &&
                         h &&
                         (0, l.jsx)(y.Z, {
@@ -386,9 +444,9 @@
                           value: null == a ? void 0 : a.toString(),
                           onClick: b,
                         }),
-                      !v && !u && 'file' === n && !h && (0, l.jsx)(j, { onChange: p, noOfFiles: null != f ? f : 0 }),
-                      !v &&
-                        u &&
+                      !w && !d && 'file' === n && !h && (0, l.jsx)(j, { onChange: f, noOfFiles: null != x ? x : 0 }),
+                      !w &&
+                        d &&
                         !h &&
                         m &&
                         (0, l.jsxs)(l.Fragment, {
@@ -416,10 +474,10 @@
                               className:
                                 'flex flex-row items-center gap-x-2 outline-none bg-none dark:text-main focus:outline-none font-sans font-medium text-primary text-sm',
                               type: 'button',
-                              onClick: x,
+                              onClick: p,
                               children: [
-                                (0, l.jsx)(g(), {
-                                  src: w.PD,
+                                (0, l.jsx)(v(), {
+                                  src: g.PD,
                                   alt: 'plus-icon',
                                   height: 20,
                                   width: 22,
@@ -434,40 +492,40 @@
                   }),
                 ],
               }),
-              d && (0, l.jsx)('p', { className: 'font-sans text-sm text-error -mt-2', children: d }),
+              u && (0, l.jsx)('p', { className: 'font-sans text-sm text-error -mt-2', children: u }),
             ],
           });
         },
         N = function (e) {
           let { savePersonalData: t, isLoading: a } = e,
             [i, o] = (0, r.useState)({ emotionList: { initialKey: '' }, socialLifeList: { initialKey: '' } }),
-            [c, d] = (0, r.useState)(0),
-            { weather: u } = (0, b.I)(),
-            [m, x] = (0, r.useState)('Save'),
+            [c, u] = (0, r.useState)(0),
+            { weather: d } = (0, b.I)(),
+            [m, p] = (0, r.useState)('Save'),
             {
-              handleSubmit: v,
-              handleChange: g,
-              values: w,
+              handleSubmit: w,
+              handleChange: v,
+              values: g,
               touched: y,
               errors: j,
               setFieldValue: N,
-            } = (0, p.TA)({
+            } = (0, f.TA)({
               initialValues: {
                 ...n,
-                high_temperature: u ? u.highestTemperature : 0,
-                low_temperature: u ? u.lowestTemperature : 0,
+                high_temperature: d ? d.highestTemperature : 0,
+                low_temperature: d ? d.lowestTemperature : 0,
               },
               validationSchema: h.wD,
               onSubmit: async (e, a) => {
                 let { resetForm: l, setSubmitting: r } = a;
                 t(e),
                   'SaveEnter' === m &&
-                    (l({}), o({ emotionList: { initialKey: '' }, socialLifeList: { initialKey: '' } }), d(0)),
+                    (l({}), o({ emotionList: { initialKey: '' }, socialLifeList: { initialKey: '' } }), u(0)),
                   r(!1);
               },
             }),
             C = (0, r.useCallback)((e) => {
-              x(e);
+              p(e);
             }, []);
           return (
             (0, r.useEffect)(() => {
@@ -481,35 +539,35 @@
               className:
                 'flex flex-col gap-y-3 w-full overflow-y-auto max-w-[377px] bg-side dark:bg-dark rounded-md pl-4 pr-6 py-6 mobile:max-w-full mobile: dark:text-main',
               noValidate: !0,
-              onSubmit: v,
+              onSubmit: w,
               children: [
                 (0, l.jsx)(k, {
-                  value: w.date,
+                  value: g.date,
                   type: 'date',
-                  onChange: g,
+                  onChange: v,
                   title: 'Date',
                   name: 'date',
                   error: y.date && j.date,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.high_temperature,
+                  value: g.high_temperature,
                   type: 'number',
-                  onChange: g,
+                  onChange: v,
                   title: 'High Temperature (F)',
                   name: 'high_temperature',
                   error: y.high_temperature && j.high_temperature,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.low_temperature,
+                  value: g.low_temperature,
                   type: 'number',
-                  onChange: g,
+                  onChange: v,
                   title: 'Low Temperature (F)',
                   name: 'low_temperature',
                   error: y.low_temperature && j.low_temperature,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.weather,
-                  onChange: g,
+                  value: g.weather,
+                  onChange: v,
                   title: 'Weather Type',
                   name: 'weather',
                   error: y.weather && j.weather,
@@ -522,42 +580,42 @@
                   title: 'Emotion List',
                   fields: i.emotionList,
                   addNewField: () => {
-                    o((e) => ({ ...e, emotionList: { ...e.emotionList, [(0, f.Z)()]: '' } }));
+                    o((e) => ({ ...e, emotionList: { ...e.emotionList, [(0, x.Z)()]: '' } }));
                   },
                   isAddingFieldEnabled: !0,
                   error: y.emotional_list && j.emotional_list,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.emotional_overall,
-                  onChange: g,
+                  value: g.emotional_overall,
+                  onChange: v,
                   title: 'Emotion Overall',
                   name: 'emotional_overall',
                   error: y.emotional_overall && j.emotional_overall,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.relative_finance_status,
-                  onChange: g,
+                  value: g.relative_finance_status,
+                  onChange: v,
                   title: 'Relative Finance Status',
                   name: 'relative_finance_status',
                   error: y.relative_finance_status && j.relative_finance_status,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.exercise_time,
-                  onChange: g,
+                  value: g.exercise_time,
+                  onChange: v,
                   type: 'number',
                   title: 'Exercise Total Time (min)',
                   name: 'exercise_time',
                   error: y.exercise_time && j.exercise_time,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.health_overall,
-                  onChange: g,
+                  value: g.health_overall,
+                  onChange: v,
                   title: 'Health Overall',
                   name: 'health_overall',
                   error: y.health_overall && j.health_overall,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.any_social_life,
+                  value: g.any_social_life,
                   isSelectInput: !0,
                   onSelectOption: (e) => {
                     N('any_social_life', e);
@@ -574,44 +632,44 @@
                   title: 'Social Life Activities',
                   fields: i.socialLifeList,
                   addNewField: () => {
-                    o((e) => ({ ...e, socialLifeList: { ...e.socialLifeList, [(0, f.Z)()]: '' } }));
+                    o((e) => ({ ...e, socialLifeList: { ...e.socialLifeList, [(0, x.Z)()]: '' } }));
                   },
                   isAddingFieldEnabled: !0,
                   error: y.social_life_list && j.social_life_list,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.weight,
-                  onChange: g,
+                  value: g.weight,
+                  onChange: v,
                   type: 'number',
                   title: 'Weight (Pounds)',
                   name: 'weight',
                   error: y.weight && j.weight,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.family_status,
-                  onChange: g,
+                  value: g.family_status,
+                  onChange: v,
                   title: 'Family Status',
                   name: 'family_status',
                   error: y.family_status && j.family_status,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.device_screen_time,
-                  onChange: g,
+                  value: g.device_screen_time,
+                  onChange: v,
                   title: 'Device Screen Time',
                   name: 'device_screen_time',
                   error: y.device_screen_time && j.device_screen_time,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.work_life_balance,
-                  onChange: g,
+                  value: g.work_life_balance,
+                  onChange: v,
                   type: 'number',
                   title: 'Work Life Balance (0-10)',
                   name: 'work_life_balance',
                   error: y.work_life_balance && j.work_life_balance,
                 }),
                 (0, l.jsx)(k, {
-                  value: w.journaling,
-                  onChange: g,
+                  value: g.journaling,
+                  onChange: v,
                   title: 'Journaling',
                   name: 'journaling',
                   error: y.journaling && j.journaling,
@@ -619,7 +677,7 @@
                 (0, l.jsx)(k, {
                   handleFileChange: (e) => {
                     let { files: t } = e.target;
-                    t && (d(t.length), N('photos', t));
+                    t && (u(t.length), N('photos', t));
                   },
                   noOfFiles: c,
                   type: 'file',
@@ -663,11 +721,128 @@
               (0, l.jsx)(N, { savePersonalData: e, isLoading: t }),
               (0, l.jsxs)('div', {
                 className: 'overflow-x-auto w-full h-full mobile:min-h-[350px] max-w-['.concat(i.kk, ']'),
-                children: [(0, l.jsx)(x, { data: s, columns: o }), 0 === s.length && (0, l.jsx)(d.Z, {})],
+                children: [(0, l.jsx)(p, { data: s, columns: o }), 0 === s.length && (0, l.jsx)(u.Z, {})],
               }),
             ],
           });
         };
+    },
+    6571: function (e, t, a) {
+      'use strict';
+      a.d(t, {
+        T: function () {
+          return p;
+        },
+      });
+      var l = a(2265),
+        r = a(171),
+        i = a(4548),
+        s = a.n(i),
+        n = a(6171),
+        o = a(7445),
+        c = a(5888),
+        u = a(1515),
+        d = a(7350),
+        m = a(3136);
+      let p = () => {
+        let { isLoading: e, setIsLoading: t } = (0, o.r)(),
+          {
+            personalData: a,
+            setPersonalData: i,
+            gData: p,
+            rData: f,
+            cData: x,
+            screenData: h,
+            compData: _,
+            setCompData: b,
+          } = (0, c.h)(),
+          { getAllConsentData: w, gTableColumns: v, updateMyGData: g, getAllPersonalData: y } = (0, m.q)(),
+          j = (0, l.useCallback)(
+            async (e) => {
+              try {
+                if ((t(!0), e.photos)) {
+                  let t = new FormData();
+                  for (let a of (t.append('field_name', 'photos'), e.photos)) t.append('image_files', a);
+                  await n.h.post('api/personal_data_consents_rewards/file_upload', t);
+                }
+                delete e.photos;
+                let a = (0, u.Z4)(e),
+                  { data: l } = await n.h.post('api/personal_data_consents_rewards', a),
+                  r = (0, u.uR)({ tableName: d.me.PData, data: l.data });
+                i(r), await g(), await w(), await y();
+              } catch (e) {
+              } finally {
+                t(!1);
+              }
+            },
+            [t, i, g, w, y],
+          ),
+          k = (0, l.useCallback)(
+            async (e) => {
+              let { id: a, payload: l } = e;
+              try {
+                t(!0),
+                  await n.h.patch('api/user_consents_rewards/'.concat(a, '/'), l),
+                  await w(),
+                  await g(),
+                  r.toast.success('Consent updated');
+              } catch (e) {
+                r.toast.error('Some problem updating consent');
+              } finally {
+                t(!1);
+              }
+            },
+            [t, w, g],
+          ),
+          N = (0, l.useCallback)(
+            async (e) => {
+              try {
+                t(!0);
+                let { data: a } = await n.h.post('api/company_consents_rewards', e),
+                  l = (0, u.uR)({ tableName: d.me.CompData, data: a.data });
+                b(l), r.toast.success('Consent updated');
+              } catch (e) {
+                r.toast.error('Some problem updating consent');
+              } finally {
+                t(!1);
+              }
+            },
+            [t, b],
+          ),
+          C = (0, l.useCallback)(
+            (e) => {
+              var t;
+              let l = null !== (t = e.date) && void 0 !== t ? t : s()().format('YYYY-MM-DD'),
+                r = [];
+              for (let t of e.photos) {
+                let e = new FileReader();
+                (e.onload = (e) => {
+                  r.push({ file_url: e.target && null !== e.target.result ? e.target.result : '' });
+                }),
+                  e.readAsDataURL(t);
+              }
+              setTimeout(() => {
+                let t = { ...a, [l]: { ...e, photos: [...r] } };
+                i(t);
+              }, 3e3);
+            },
+            [a, i],
+          );
+        return {
+          savePersonalData: j,
+          isLoading: e,
+          personalData: a,
+          updateConsentRewards: k,
+          savePersonalDataTemporarily: C,
+          updateCompanyConsentRewards: N,
+          gData: p,
+          rData: f,
+          cData: x,
+          screenData: h,
+          gTableColumns: v,
+          compData: _,
+        };
+      };
     },
     5979: function (e, t, a) {
       'use strict';
@@ -756,7 +931,7 @@
     },
   },
   function (e) {
-    e.O(0, [986, 139, 16, 842, 10, 254, 100, 509, 971, 596, 744], function () {
+    e.O(0, [986, 139, 16, 842, 10, 254, 100, 136, 971, 596, 744], function () {
       return e((e.s = 1681));
     }),
       (_N_E = e.O());

@@ -1,6 +1,6 @@
 'use strict';
-exports.id = 203;
-exports.ids = [203];
+exports.id = 94;
+exports.ids = [94];
 exports.modules = {
   /***/ 23488: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
     /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -58,7 +58,7 @@ exports.modules = {
     /***/
   },
 
-  /***/ 42405: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+  /***/ 25390: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
     /* harmony export */ __webpack_require__.d(__webpack_exports__, {
       /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__,
       /* harmony export */
@@ -93,9 +93,7 @@ exports.modules = {
         children: [
           isMonetaryInput &&
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('span', {
-              className: `absolute top-[23%] ${
-                readOnly ? 'left-[41px] mobile:left-[37px]' : 'left-[19px] mobile:left-[15px]'
-              } text-white font-sans text-xl font-medium`,
+              className: 'absolute top-[23%] left-[19px] mobile:left-[15px] text-white font-sans text-xl font-medium',
               children: currency,
             }),
           /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('input', {
@@ -110,19 +108,18 @@ exports.modules = {
             className:
               'bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]',
           }),
-          !readOnly &&
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('label', {
-              htmlFor: name,
-              className: 'cursor-pointer',
-              children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
-                _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
-                {
-                  src: _public_assets__WEBPACK_IMPORTED_MODULE_3__ /* .edit */.eP,
-                  alt: 'edit-icon',
-                  className: 'w-[24px] h-[24px] dark:invert',
-                },
-              ),
-            }),
+          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('label', {
+            htmlFor: name,
+            className: `cursor-pointer ${readOnly && 'opacity-0 invisible'}`,
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+              _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
+              {
+                src: _public_assets__WEBPACK_IMPORTED_MODULE_3__ /* .edit */.eP,
+                alt: 'edit-icon',
+                className: 'w-[24px] h-[24px] dark:invert',
+              },
+            ),
+          }),
         ],
       });
     }

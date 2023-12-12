@@ -10,7 +10,6 @@ import { Theme } from '@/types';
 
 function Logo() {
   const { theme } = useTheme();
-
   return (
     <Link href={PATHS.HOME} className="flex flex-row gap-x-3 items-center">
       <div className="relative w-[50px] h-[50px] laptop:w-[40px] laptop:h-[40px]">
