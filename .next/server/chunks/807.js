@@ -21,7 +21,7 @@ exports.modules = {
     /* harmony import */ var _state_myGData_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(70918);
     /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(14088);
     /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(11923);
-    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(36001);
+    /* harmony import */ var _context_AppProvider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(66233);
     /* eslint-disable no-restricted-syntax */ /* __next_internal_client_entry_do_not_use__ useMyGData auto */
 
     const useMyGData = () => {
