@@ -12,7 +12,7 @@ import { useWeather } from '@/hooks/useWeather';
 import { useChatBot } from '@/hooks/useChatBot';
 import { useAuth } from '@/hooks/useAuth';
 import { ACCOUNTTYPE } from '@/constants/auth';
-import { CONSENTAPIRESPONSEDATA } from '@/temp';
+// import { CONSENTAPIRESPONSEDATA } from '@/temp';
 
 type AppContextType = {
   gTableColumns: Column<Columns>[];
@@ -64,7 +64,7 @@ function AppProvider({ children }: IProps) {
       const { data } = await api.get('api/user_consents_rewards');
       const rData = createTableData({ tableName: TableName.RData, data: data.data });
       setRData(rData);
-      const consentTableData = createTableData({ tableName: TableName.CData, data: CONSENTAPIRESPONSEDATA });
+      const consentTableData = createTableData({ tableName: TableName.CData, data: data.data });
       setCData(consentTableData);
     } catch (e) {
       // console.log('e', e);
@@ -73,8 +73,9 @@ function AppProvider({ children }: IProps) {
   const getAllCompanyConsentData = useCallback(async () => {
     try {
       if (!user || !user.accountType || user.accountType === ACCOUNTTYPE.PERSONAL) return;
-      const { data } = await api.get('api/company_consents_rewards');
+      const { data } = await api.get(`api/company_consents_rewards/${user.id}/`);
       const compData = createTableData({ tableName: TableName.CompData, data: data.data });
+      console.log('data', data.data);
       setCompData(compData);
     } catch (e) {
       // console.log('e', e)
