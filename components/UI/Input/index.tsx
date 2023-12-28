@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import { showpassword, hidepassword } from '@/public/assets';
+import { showpassword, hidepassword } from '@/public';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;

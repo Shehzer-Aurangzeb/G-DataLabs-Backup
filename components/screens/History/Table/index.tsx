@@ -2,7 +2,7 @@ import React from 'react';
 import { Column, useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
 import Image from '@/components/UI/StyledImage';
-import { like_filled } from '@/public/assets';
+import { like_filled } from '@/public';
 import { Columns } from '@/types';
 import arrowUp from '@/public/assets/icons/arrow_upward.png';
 import arrowdown from '@/public/assets/icons/arrow_down.png';

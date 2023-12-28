@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import IconButton from '@/components/UI/IconButton';
-import { copy, like_outlined, check, like_filled } from '@/public/assets';
+import { copy, like_outlined, check, like_filled } from '@/public';
 import Tooltip from './Tooltip';
 
 type TProps = {

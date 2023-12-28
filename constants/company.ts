@@ -25,7 +25,7 @@ export const COMPANYTABLECOLUMNS: Column<Columns>[] = [
   },
   {
     Header: 'Threshold',
-    accessor: 'threshold' as keyof Columns, // accessor is the "key" in the data
+    accessor: 'Threshold' as keyof Columns, // accessor is the "key" in the data
   },
   {
     Header: 'Consent',

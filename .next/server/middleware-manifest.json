@@ -1,8 +1,13 @@
 {
-  "sortedMiddleware": ["/"],
+  "sortedMiddleware": [
+    "/"
+  ],
   "middleware": {
     "/": {
-      "files": ["prerender-manifest.js", "server/edge-runtime-webpack.js", "server/middleware.js"],
+      "files": [
+        "server/edge-runtime-webpack.js",
+        "server/middleware.js"
+      ],
       "name": "middleware",
       "page": "/",
       "matchers": [

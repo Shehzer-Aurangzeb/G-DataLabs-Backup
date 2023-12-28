@@ -6,7 +6,7 @@ import { ACCOUNTTYPE } from '@/constants/auth';
 import { PATHS } from '@/constants/navigation';
 import { APPITEMS, AUTHITEMS } from '@/constants/sidebar';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { sidebar } from '@/public/assets';
+import { sidebar } from '@/public';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/state/sidebar/hooks';

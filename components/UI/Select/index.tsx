@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { arrow } from '@/public/assets';
+import { arrow } from '@/public';
 import { capitalize } from '@/lib';
 import { TDropdownOption } from '@/types';
 import { useOutsideClick } from '@/hooks/useOutsideClick';

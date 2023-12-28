@@ -98,7 +98,7 @@ export const DESCRIPTIONANDUNITOFVARIABLES: {
   },
   date: {
     definition: 'the current day’s date',
-    unit: '',
+    unit: 'Price per date-specific data entry',
   },
   screen_recording: {
     definition: 'video recording of on-screen device activity',

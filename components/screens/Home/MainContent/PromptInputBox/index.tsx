@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Image from 'components/UI/StyledImage';
-import { send } from '@/public/assets';
+import { send } from '@/public';
 import { useAutosizeTextArea } from '@/hooks/useAutoSizeTextArea';
 import PromptResponseTypes from '@/components/screens/Home/MainContent/PromptInputBox/PromptResponseTypes';
 import { TPROPTION } from '@/types';

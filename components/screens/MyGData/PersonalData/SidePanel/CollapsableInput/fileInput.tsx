@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
-import { upload } from '@/public/assets';
+import { upload } from '@/public';
 
 interface IProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

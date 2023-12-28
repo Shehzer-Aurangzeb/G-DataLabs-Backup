@@ -5,7 +5,7 @@ import { maxWidth } from '@/constants';
 import { HISTORYDATATABLECOLUMNS } from '@/constants/history';
 import { useChats } from '@/state/chats/hooks';
 import NoData from '@/components/UI/NoDataMessage';
-import { no_chats } from '@/public/assets';
+import { no_chats } from '@/public';
 import Table from './Table';
 
 function Main() {
