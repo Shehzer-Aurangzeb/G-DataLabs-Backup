@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Container from '@/components/UI/Containers';
 import PromptInputBox from '@/components/screens/Home/MainContent/PromptInputBox';
 import ActiveChat from '@/components/screens/Home/MainContent/ActiveChat';
-import { default_profile } from '@/public';
+import { default_profile } from '@/public/assets';
 import { Chat, UserPrompt } from '@/state/chats/types';
 import { UserType } from '@/state/user/types';
 

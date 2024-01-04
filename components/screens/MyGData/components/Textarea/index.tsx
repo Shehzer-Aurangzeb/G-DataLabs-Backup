@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Image from '@/components/UI/StyledImage';
-import { edit } from '@/public';
+import { edit } from '@/public/assets';
 
 interface IProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   className?: string;

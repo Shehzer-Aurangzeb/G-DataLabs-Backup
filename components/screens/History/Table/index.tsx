@@ -2,10 +2,8 @@ import React from 'react';
 import { Column, useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
 import Image from '@/components/UI/StyledImage';
-import { like_filled } from '@/public';
+import { like_filled } from '@/public/assets';
 import { Columns } from '@/types';
-import arrowUp from '@/public/assets/icons/arrow_upward.png';
-import arrowdown from '@/public/assets/icons/arrow_down.png';
 import GlobalFilter from './Filter';
 import Pagination from './Pagination';
 import SelectEntries from './NoOfEntries';
@@ -67,9 +65,9 @@ function Table({ columns, data }: IProps) {
                   {column.render('Header')}
                   <span className="ml-2 float-right" style={{ filter: 'brightness(0) invert(1)' }}>
                     {column.isSorted ? (
-                      <Image src={arrowdown} alt={'arrow_down'} className="w-5 h-5 mt-1" />
+                      <Image src="/icons/arrow_down.png" alt={'arrow_down'} className="w-5 h-5 mt-1" />
                     ) : (
-                      <Image src={arrowUp} alt={'arrow_up'} className="w-5 h-5 mt-1" />
+                      <Image src="/icons/arrow_upward.png" alt={'arrow_up'} className="w-5 h-5 mt-1" />
                     )}
                   </span>
                 </th>

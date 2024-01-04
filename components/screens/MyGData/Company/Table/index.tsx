@@ -120,14 +120,6 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                     />
                   )}
                   {cell.column.id === 'Use' && (
-                    // <Input
-                    //   name={`Use-${row.values.fieldName}`}
-                    //   readOnly={row.values.Consent === 'FALSE'}
-                    //   type="text"
-                    //   value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
-                    //   onChange={(e) => handleChange(e, 'use')}
-                    //   className="min-w-[160px]"
-                    // />
                     <Textarea
                       name={`Use-${row.values.fieldName}`}
                       readOnly={row.values.Consent === 'FALSE'}

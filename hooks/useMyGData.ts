@@ -75,6 +75,7 @@ export const useMyGData = () => {
         setCompData(companyData);
         toast.success('Consent updated');
       } catch (e) {
+        console.log('e :>> ', e);
         toast.error('Some problem updating consent');
       } finally {
         setIsLoading(false);

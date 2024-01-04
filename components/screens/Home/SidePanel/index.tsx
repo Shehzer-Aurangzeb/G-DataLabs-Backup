@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Container from '@/components/UI/Containers';
-import { add, no_chats } from '@/public';
+import { add, no_chats } from '@/public/assets';
 import Button from '@/components/UI/Button';
 import { TGroupedChatHistory, THistory } from '@/state/chats/types';
 import NoData from '@/components/UI/NoDataMessage';

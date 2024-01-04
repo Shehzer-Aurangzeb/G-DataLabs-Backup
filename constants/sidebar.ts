@@ -1,6 +1,16 @@
 import { NAVITEMS as TNAVITEMS } from '@/types';
 import { PATHS } from './navigation';
-import { home, history, account, logo_dark, logo, home_dark, history_dark, account_dark, logout } from '../public';
+import {
+  home,
+  history,
+  account,
+  logo_dark,
+  logo,
+  home_dark,
+  history_dark,
+  account_dark,
+  logout,
+} from '../public/assets';
 
 export const SIDEBARLINKSCOLORS = {
   DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98', '#EA6D24'],

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cross_disable, cross_active, check_active, check_disable } from '@/public';
+import { cross_disable, cross_active, check_active, check_disable } from '@/public/assets';
 import IconButton from '@/components/UI/IconButton';
 
 type TProps = {

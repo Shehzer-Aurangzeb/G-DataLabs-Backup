@@ -146,7 +146,7 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
-        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.replaceAll(/[\s+]+/g, '_').toLowerCase()].unit,
         PDefinedValue: d.demanded_reward_value,
         OtherCompValue: '0.0',
         id: d.id,
@@ -159,8 +159,8 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
       result[fieldName] = {
         ...result[fieldName],
         Consent: d.consents_to_sell.toString().toUpperCase(),
-        Definition: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].definition,
-        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.toLowerCase()].unit,
+        Definition: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.replaceAll(/[\s+]+/g, '_').toLowerCase()].definition,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.field_name.replaceAll(/[\s+]+/g, '_').toLowerCase()].unit,
         Companies: createCompaniesDropdown(d.company_consent),
         Use: createCompanyToFieldMapping({ fieldName: 'usage', data: d.company_consent }),
         Threshold: createCompanyToFieldMapping({ fieldName: 'threshold', data: d.company_consent }),
@@ -175,8 +175,10 @@ export const createTableData = (arg: { tableName: string; data: PersonalDataType
         ...result[d.personal_data_field.field_name],
         Consent: d.consents_to_buy.toString().toUpperCase(),
         Definition:
-          DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(' ', '_').toLowerCase()].definition,
-        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(' ', '_').toLowerCase()].unit,
+          DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(/[\s+]+/g, '_').toLowerCase()]
+            .definition,
+        Unit: DESCRIPTIONANDUNITOFVARIABLES[d.personal_data_field.field_name.replaceAll(/[\s+]+/g, '_').toLowerCase()]
+          .unit,
         Use: d.usage,
         Pricing: d.demanded_reward_value,
         fieldName: d.personal_data_field.field_name,

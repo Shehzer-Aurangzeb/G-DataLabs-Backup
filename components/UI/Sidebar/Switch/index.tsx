@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { bulb_active, bulb_inactive } from '@/public';
+import { bulb_active, bulb_inactive } from '@/public/assets';
 import { useTheme } from '@/context/ThemeProvider';
 import { Theme } from 'types';
 import Image from '@/components/UI/StyledImage';

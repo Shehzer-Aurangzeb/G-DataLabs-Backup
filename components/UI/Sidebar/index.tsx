@@ -6,7 +6,7 @@ import { ACCOUNTTYPE } from '@/constants/auth';
 import { PATHS } from '@/constants/navigation';
 import { APPITEMS, AUTHITEMS } from '@/constants/sidebar';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { sidebar } from '@/public';
+import { sidebar_icon_light } from '@/public/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAuth } from '@/hooks/useAuth';
 import { useSidebar } from '@/state/sidebar/hooks';
@@ -59,7 +59,7 @@ function Sidebar() {
             className="absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            src={sidebar}
+            src={sidebar_icon_light}
           />
         </div>
       )}
@@ -79,7 +79,7 @@ function Sidebar() {
             className="z-10 absolute top-3 right-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            src={sidebar}
+            src={sidebar_icon_light}
           />
         )}
         <Items items={navItems} />

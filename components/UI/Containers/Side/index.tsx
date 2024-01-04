@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { sidebar_dark } from '@/public';
+import { sidebar_icon_dark } from '@/public/assets';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import IconButton from 'components/UI/IconButton';
 
@@ -27,7 +27,7 @@ function Side({ children, className = '' }: IProps) {
             className="z-10 absolute top-3 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            src={sidebar_dark}
+            src={sidebar_icon_dark}
           />
         </div>
       )}
@@ -47,7 +47,7 @@ function Side({ children, className = '' }: IProps) {
             className="z-10 absolute top-3 left-1 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            src={sidebar_dark}
+            src={sidebar_icon_dark}
           />
         )}
         {children}
