@@ -412,22 +412,11 @@ const routeModule = new AppPageRouteModule({
 /***/ 14911:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 38890))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 30815))
 
 /***/ }),
 
-/***/ 48418:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23))
-
-/***/ }),
-
-/***/ 38890:
+/***/ 30815:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -491,8 +480,8 @@ function Container({ children, type, className = "", style }) {
 
 // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
 var StyledImage = __webpack_require__(29884);
-// EXTERNAL MODULE: ./public/assets.ts + 32 modules
-var assets = __webpack_require__(23109);
+// EXTERNAL MODULE: ./public/assets.ts + 28 modules
+var assets = __webpack_require__(9980);
 ;// CONCATENATED MODULE: ./hooks/useAutoSizeTextArea.ts
 /* __next_internal_client_entry_do_not_use__ useAutosizeTextArea auto */ 
 // Updates the height of a <textarea> when the value changes.
@@ -646,10 +635,10 @@ var v4 = __webpack_require__(80311);
 // EXTERNAL MODULE: ./node_modules/react-typed/dist/react-typed.js
 var react_typed = __webpack_require__(72091);
 var react_typed_default = /*#__PURE__*/__webpack_require__.n(react_typed);
-// EXTERNAL MODULE: ./public/images/logo.png
-var logo = __webpack_require__(29405);
-// EXTERNAL MODULE: ./public/images/logo-dark.png
-var logo_dark = __webpack_require__(48543);
+;// CONCATENATED MODULE: ./public/images/logo.png
+/* harmony default export */ const logo = ({"src":"/_next/static/media/logo.eaf39e0e.png","height":2335,"width":2145,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAMAAAAC2hU0AAAAV1BMVEVMaXHxyxPsxB7wUivdqSn2NCTz3Hf/50bivEDxxTdUYaDhtiTgtiTqWi2GY37ldDDrTDHCnTwpg8X6OCZNgKfdrSgqeMxvhoibeGs/g7YufcFZm7z/5m/yRFUMAAAAHXRSTlMAY1l0MZVgCBE2N00q0amyXW6TzsprVby8jNdNaVU66tAAAAAJcEhZcwAAITcAACE3ATNYn3oAAAA9SURBVHicFctHEoAgEADBIS6LAQWz/v+dFvduYBgBEt6jiahhrlbATet2CCYUc96KXdr15C5dfr8ediTKDzWxAe1DEp5JAAAAAElFTkSuQmCC","blurWidth":7,"blurHeight":8});
+;// CONCATENATED MODULE: ./public/images/logo-dark.png
+/* harmony default export */ const logo_dark = ({"src":"/_next/static/media/logo-dark.ecd0cb6d.png","height":2335,"width":2146,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAMAAAAC2hU0AAAAWlBMVEVMaXHY2Nfi596hv4seIyj/diKJgq+ypHDlJDRmWomAO3HuHi5vQWY5MTGVlI5eUS5LPTiFcTXFnD8vKiLPybr/tACQeLoQcqQYQVevn3vGt5fW1dLLy8//pACzsoT5AAAAHnRSTlMApFZifl85By4SY0w+obPPX7J0zeJdVWt0vtP5Oy1q15DUAAAACXBIWXMAACE3AAAhNwEzWJ96AAAAPUlEQVR4nBXKRxKAMAwAsU21DYTeCf//JoPOAloFMFTJRtPF3u0CcZhXL6Qybbd7SeNyPfWfZ/ZBwA4kyAc6IQIHk7wr0wAAAABJRU5ErkJggg==","blurWidth":7,"blurHeight":8});
 ;// CONCATENATED MODULE: ./public/images/logo_dark.gif
 /* harmony default export */ const images_logo_dark = ({"src":"/_next/static/media/logo_dark.43253b55.gif","height":700,"width":700,"blurWidth":0,"blurHeight":0});
 ;// CONCATENATED MODULE: ./public/images/logo.gif
@@ -686,7 +675,6 @@ function Tooltip({ message, show }) {
 
 
 
-
 function ChatActions({ show, choice, messageId, provideFeedback, messageContent }) {
     const [messageCopied, setMessageCopied] = (0,react_.useState)(false);
     (0,react_.useEffect)(()=>{
@@ -703,7 +691,7 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
         className: `flex gap-x-4 items-center transition duration-400 absolute top-[26px] right-5 mobile:left-[85px] mobile:bottom-2 mobile:top-[unset] ${show ? "translate-y-0 opacity-1" : "-translate-y-20 opacity-0"}`,
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton/* default */.Z, {
-                src: choice === null || choice === undefined || choice === "false" ? assets/* like_outlined */.jA : assets/* like_filled */.wb,
+                src: choice === null || choice === undefined || choice === "false" ? "/icons/like_outlined__icon.png" : "/icons/like_filled__icon.png",
                 className: "relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]",
                 disabled: choice === "true",
                 onClick: ()=>{
@@ -715,7 +703,7 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
                 }
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton/* default */.Z, {
-                src: choice === null || choice === undefined || choice === "true" ? assets/* like_outlined */.jA : assets/* like_filled */.wb,
+                src: choice === null || choice === undefined || choice === "true" ? "/icons/like_outlined__icon.png" : "/icons/like_filled__icon.png",
                 className: "relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180 ",
                 disabled: choice === "false",
                 onClick: ()=>{
@@ -727,7 +715,7 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
                 }
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(IconButton/* default */.Z, {
-                src: messageCopied ? assets/* check */.BF : assets/* copy */.JG,
+                src: messageCopied ? "/icons/check__icon.svg" : "/icons/copy__icon.png",
                 className: "relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]",
                 disabled: messageCopied,
                 onClick: ()=>{
@@ -815,8 +803,8 @@ function ActiveChat({ chats, userProfile, isLoggedIn, giveFeedback }) {
     const profile = (0,react_.useCallback)((isLoading)=>{
         if (isLoading && theme === types/* Theme */.Q2.LIGHT) return images_logo;
         if (isLoading && theme === types/* Theme */.Q2.DARK) return images_logo_dark;
-        if (!isLoading && theme === types/* Theme */.Q2.DARK) return logo_dark/* default */.Z;
-        return logo/* default */.Z;
+        if (!isLoading && theme === types/* Theme */.Q2.DARK) return logo_dark;
+        return logo;
     }, [
         theme
     ]);
@@ -1126,7 +1114,7 @@ function page_Home() {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [644,91,985,782,54], () => (__webpack_exec__(16892)));
+var __webpack_exports__ = __webpack_require__.X(0, [644,91,592,782,54], () => (__webpack_exec__(16892)));
 module.exports = __webpack_exports__;
 
 })();

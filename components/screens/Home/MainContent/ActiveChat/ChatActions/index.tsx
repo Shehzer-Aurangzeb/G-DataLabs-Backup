@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import IconButton from '@/components/UI/IconButton';
-import { copy, like_outlined, check, like_filled } from '@/public/assets';
 import Tooltip from './Tooltip';
 
 type TProps = {
@@ -29,7 +28,11 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
       }`}
     >
       <IconButton
-        src={choice === null || choice === undefined || choice === 'false' ? like_outlined : like_filled}
+        src={
+          choice === null || choice === undefined || choice === 'false'
+            ? '/icons/like_outlined__icon.png'
+            : '/icons/like_filled__icon.png'
+        }
         className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]"
         disabled={choice === 'true'}
         onClick={() => {
@@ -38,7 +41,11 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
         }}
       />
       <IconButton
-        src={choice === null || choice === undefined || choice === 'true' ? like_outlined : like_filled}
+        src={
+          choice === null || choice === undefined || choice === 'true'
+            ? '/icons/like_outlined__icon.png'
+            : '/icons/like_filled__icon.png'
+        }
         className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180 "
         disabled={choice === 'false'}
         onClick={() => {
@@ -47,7 +54,7 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
         }}
       />
       <IconButton
-        src={messageCopied ? check : copy}
+        src={messageCopied ? '/icons/check__icon.svg' : '/icons/copy__icon.png'}
         className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:invert-[1]"
         disabled={messageCopied}
         onClick={() => {

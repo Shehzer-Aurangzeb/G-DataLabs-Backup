@@ -426,17 +426,6 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
-/***/ 81817:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23))
-
-/***/ }),
-
 /***/ 55296:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -485,8 +474,8 @@ const HISTORYDATATABLECOLUMNS = [
 var hooks = __webpack_require__(81178);
 // EXTERNAL MODULE: ./components/UI/NoDataMessage/index.tsx
 var NoDataMessage = __webpack_require__(79054);
-// EXTERNAL MODULE: ./public/assets.ts + 32 modules
-var assets = __webpack_require__(23109);
+// EXTERNAL MODULE: ./public/assets.ts + 28 modules
+var assets = __webpack_require__(9980);
 // EXTERNAL MODULE: ./node_modules/react-table/index.js
 var react_table = __webpack_require__(30960);
 // EXTERNAL MODULE: ./node_modules/uuid/dist/esm-node/v4.js + 3 modules
@@ -584,7 +573,6 @@ function SelectEntries({ pageSize, setPageSize }) {
 
 
 
-
 function Table({ columns, data }) {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state, setGlobalFilter, nextPage, previousPage, canNextPage, canPreviousPage, setPageSize, page } = (0,react_table.useTable)({
         columns,
@@ -659,7 +647,7 @@ function Table({ columns, data }) {
                                                 alt: "response-image",
                                                 className: "my-3 w-[120px] h-[120px]"
                                             }, (0,v4/* default */.Z)())) : cell.column.Header === "Feedback" ? cell.value && /*#__PURE__*/ jsx_runtime_.jsx(StyledImage/* default */.Z, {
-                                            src: assets/* like_filled */.wb,
+                                            src: "/icons/like_filled__icon.png",
                                             alt: "feedback-image",
                                             className: `my-3 h-[20px] w-[20px] mx-auto ${cell.value === "true" ? "rotate-0" : "rotate-180"}`
                                         }, (0,v4/* default */.Z)()) : cell.render("Cell")
@@ -767,7 +755,7 @@ function page_History() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [644,960,985,54], () => (__webpack_exec__(42239)));
+var __webpack_exports__ = __webpack_require__.X(0, [644,960,592,54], () => (__webpack_exec__(42239)));
 module.exports = __webpack_exports__;
 
 })();

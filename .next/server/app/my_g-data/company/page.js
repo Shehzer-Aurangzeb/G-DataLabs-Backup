@@ -467,8 +467,8 @@ var Actions = __webpack_require__(23488);
 var Input = __webpack_require__(25390);
 // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
 var StyledImage = __webpack_require__(29884);
-// EXTERNAL MODULE: ./public/assets.ts + 32 modules
-var assets = __webpack_require__(23109);
+// EXTERNAL MODULE: ./public/assets.ts + 28 modules
+var assets = __webpack_require__(9980);
 ;// CONCATENATED MODULE: ./components/screens/MyGData/components/Textarea/index.tsx
 /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -734,7 +734,7 @@ function page_Company() {
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [644,960,985,459,54,94], () => (__webpack_exec__(82217)));
+var __webpack_exports__ = __webpack_require__.X(0, [644,960,592,807,54,94], () => (__webpack_exec__(82217)));
 module.exports = __webpack_exports__;
 
 })();

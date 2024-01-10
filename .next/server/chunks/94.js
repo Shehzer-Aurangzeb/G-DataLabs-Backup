@@ -13,7 +13,7 @@ exports.modules = {
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18038);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23109);
+/* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9980);
 /* harmony import */ var _components_UI_IconButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17223);
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -58,7 +58,7 @@ function Actions({ isAllowed, onClick, isDisabled }) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18038);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29884);
-/* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23109);
+/* harmony import */ var _public_assets__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9980);
 /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 

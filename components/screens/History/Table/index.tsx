@@ -2,7 +2,6 @@ import React from 'react';
 import { Column, useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
 import { v4 as uuidv4 } from 'uuid';
 import Image from '@/components/UI/StyledImage';
-import { like_filled } from '@/public/assets';
 import { Columns } from '@/types';
 import GlobalFilter from './Filter';
 import Pagination from './Pagination';
@@ -100,7 +99,7 @@ function Table({ columns, data }: IProps) {
                       : cell.column.Header === 'Feedback'
                       ? cell.value && (
                           <Image
-                            src={like_filled}
+                            src="/icons/like_filled__icon.png"
                             key={uuidv4()}
                             alt={'feedback-image'}
                             className={`my-3 h-[20px] w-[20px] mx-auto ${

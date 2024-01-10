@@ -662,8 +662,8 @@ function CardInformation({ values, touched, errors }) {
 
 // EXTERNAL MODULE: ./components/UI/StyledImage/index.tsx
 var StyledImage = __webpack_require__(29884);
-// EXTERNAL MODULE: ./public/assets.ts + 32 modules
-var assets = __webpack_require__(23109);
+// EXTERNAL MODULE: ./public/assets.ts + 28 modules
+var assets = __webpack_require__(9980);
 ;// CONCATENATED MODULE: ./components/screens/Account/PersonalInformation/Form/UploadPicture/index.tsx
 /* eslint-disable jsx-a11y/label-has-associated-control */ /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -1062,7 +1062,7 @@ function Account() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [644,652,10,985,782,732,596], () => (__webpack_exec__(32421)));
+var __webpack_exports__ = __webpack_require__.X(0, [644,652,596,592,782,732,628], () => (__webpack_exec__(32421)));
 module.exports = __webpack_exports__;
 
 })();

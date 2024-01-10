@@ -1,16 +1,6 @@
 import { NAVITEMS as TNAVITEMS } from '@/types';
 import { PATHS } from './navigation';
-import {
-  home,
-  history,
-  account,
-  logo_dark,
-  logo,
-  home_dark,
-  history_dark,
-  account_dark,
-  logout,
-} from '../public/assets';
+import { home, history, account, home_dark, history_dark, account_dark, logout } from '../public/assets';
 
 export const SIDEBARLINKSCOLORS = {
   DARK: ['#907CB4', '#F5B11A', '#A1BF8C', '#046C98', '#EA6D24'],
@@ -50,8 +40,8 @@ export const APPITEMS: TNAVITEMS[] = [
   },
   {
     title: 'My G-Data',
-    icon: logo,
-    icon_dark: logo_dark,
+    icon: '/images/logo.png',
+    icon_dark: '/images/logo-dark.png',
     to: PATHS.MYGDATA,
     nestedItems: [
       {
@@ -79,8 +69,8 @@ export const APPITEMS: TNAVITEMS[] = [
   },
   {
     title: 'Our G-Data',
-    icon: logo,
-    icon_dark: logo_dark,
+    icon: '/images/logo.png',
+    icon_dark: '/images/logo-dark.png',
     to: PATHS.OURGDATA,
   },
   {

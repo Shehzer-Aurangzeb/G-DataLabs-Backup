@@ -624,8 +624,8 @@ var hooks = __webpack_require__(6058);
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(52451);
 var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
-// EXTERNAL MODULE: ./public/assets.ts + 32 modules
-var assets = __webpack_require__(23109);
+// EXTERNAL MODULE: ./public/assets.ts + 28 modules
+var assets = __webpack_require__(9980);
 // EXTERNAL MODULE: ./components/UI/Select/index.tsx
 var Select = __webpack_require__(7473);
 ;// CONCATENATED MODULE: ./components/screens/MyGData/PersonalData/SidePanel/CollapsableInput/fileInput.tsx
@@ -1112,7 +1112,7 @@ function page_PersonalData() {
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [644,652,960,985,782,459,732,54,473], () => (__webpack_exec__(45785)));
+var __webpack_exports__ = __webpack_require__.X(0, [644,652,960,592,782,807,732,54,473], () => (__webpack_exec__(45785)));
 module.exports = __webpack_exports__;
 
 })();
