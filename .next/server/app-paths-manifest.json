@@ -1,16 +1,11 @@
 {
   "/page": "app/page.js",
-  "/account/page": "app/account/page.js",
-  "/history/page": "app/history/page.js",
-  "/login/page": "app/login/page.js",
   "/my_g-data/page": "app/my_g-data/page.js",
   "/our_g-data/page": "app/our_g-data/page.js",
-  "/reset_password/page": "app/reset_password/page.js",
-  "/signup/page": "app/signup/page.js",
-  "/my_g-data/screen-data/page": "app/my_g-data/screen-data/page.js",
-  "/reset_password/confirm/page": "app/reset_password/confirm/page.js",
-  "/my_g-data/consent/page": "app/my_g-data/consent/page.js",
+  "/account/page": "app/account/page.js",
   "/my_g-data/company/page": "app/my_g-data/company/page.js",
   "/my_g-data/personal-data/page": "app/my_g-data/personal-data/page.js",
-  "/my_g-data/rewards/page": "app/my_g-data/rewards/page.js"
+  "/my_g-data/rewards/page": "app/my_g-data/rewards/page.js",
+  "/my_g-data/consent/page": "app/my_g-data/consent/page.js",
+  "/my_g-data/screen-data/page": "app/my_g-data/screen-data/page.js"
 }

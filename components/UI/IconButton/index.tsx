@@ -3,7 +3,8 @@
 'use client';
 
 import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
+import Image from '@/components/UI/StyledImage';
 import Loader from '@/components/UI/Loader';
 
 interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -28,9 +29,7 @@ function IconButton({ children, onClick, type = 'button', isLoading = false, src
           }}
         />
       ) : (
-        <div className={['relative h-full w-full', className].join(' ')}>
-          <Image src={src} alt="button-icon" fill className="object-contain" />
-        </div>
+        <Image src={src} alt="button-icon" className=" h-full w-full" />
       )}
       {children}
     </button>

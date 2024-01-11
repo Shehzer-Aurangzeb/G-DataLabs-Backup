@@ -46,7 +46,7 @@ function ChatActions({ show, choice, messageId, provideFeedback, messageContent 
             ? '/icons/like_outlined__icon.png'
             : '/icons/like_filled__icon.png'
         }
-        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180 "
+        className="relative h-[20px] w-[20px] mobile:w-[15px] mobile:h-[15px] dark:filter-invert(1) dark:invert-[1] rotate-180"
         disabled={choice === 'false'}
         onClick={() => {
           if (choice === 'false') return;
