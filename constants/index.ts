@@ -94,7 +94,7 @@ export const DESCRIPTIONANDUNITOFVARIABLES: {
   },
   journaling: {
     definition: 'any points throughout the day worthy of note',
-    unit: '',
+    unit: 'Text entry outlining days events, personal emotions, and or daily notes.',
   },
   date: {
     definition: 'the current day’s date',
