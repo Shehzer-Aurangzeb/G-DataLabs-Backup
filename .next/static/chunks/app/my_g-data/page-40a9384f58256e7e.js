@@ -1,8 +1,8 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
   [651],
   {
-    1785: function (e, a, t) {
-      Promise.resolve().then(t.bind(t, 6066)), Promise.resolve().then(t.bind(t, 8390));
+    5660: function (e, a, t) {
+      Promise.resolve().then(t.bind(t, 8390)), Promise.resolve().then(t.bind(t, 6066));
     },
     4697: function (e, a, t) {
       'use strict';
@@ -244,7 +244,7 @@
   },
   function (e) {
     e.O(0, [986, 139, 16, 10, 897, 100, 509, 971, 596, 744], function () {
-      return e((e.s = 1785));
+      return e((e.s = 5660));
     }),
       (_N_E = e.O());
   },

@@ -8,9 +8,9 @@
   "/reset_password/page": "/reset_password",
   "/signup/page": "/signup",
   "/my_g-data/consent/page": "/my_g-data/consent",
+  "/my_g-data/rewards/page": "/my_g-data/rewards",
+  "/my_g-data/screen-data/page": "/my_g-data/screen-data",
   "/my_g-data/personal-data/page": "/my_g-data/personal-data",
   "/my_g-data/company/page": "/my_g-data/company",
-  "/reset_password/confirm/page": "/reset_password/confirm",
-  "/my_g-data/rewards/page": "/my_g-data/rewards",
-  "/my_g-data/screen-data/page": "/my_g-data/screen-data"
+  "/reset_password/confirm/page": "/reset_password/confirm"
 }
