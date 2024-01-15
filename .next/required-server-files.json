@@ -139,7 +139,7 @@
       "appDir": true,
       "isrMemoryCacheSize": 52428800,
       "fullySpecified": false,
-      "outputFileTracingRoot": "/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App",
+      "outputFileTracingRoot": "/Users/muhammadharis/Desktop/G-DataLabs",
       "swcTraceProfiling": false,
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
@@ -151,7 +151,7 @@
     },
     "configFileName": "next.config.js"
   },
-  "appDir": "/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App",
+  "appDir": "/Users/muhammadharis/Desktop/G-DataLabs",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

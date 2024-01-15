@@ -1,4 +1,4 @@
-// File: /Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/account/page.tsx
+// File: /Users/muhammadharis/Desktop/G-DataLabs/app/account/page.tsx
 import * as entry from '../../../../app/account/page.js';
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js';
 

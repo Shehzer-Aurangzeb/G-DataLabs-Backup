@@ -290,7 +290,7 @@
       /***/
     },
 
-    /***/ 90602: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 73802: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       __webpack_require__.r(__webpack_exports__);
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -351,7 +351,7 @@
                         Promise.resolve(/* import() eager */).then(
                           __webpack_require__.bind(__webpack_require__, 53238),
                         ),
-                      '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/reset_password/page.tsx',
+                      '/Users/muhammadharis/Desktop/G-DataLabs/app/reset_password/page.tsx',
                     ],
                   },
                 ],
@@ -362,16 +362,16 @@
           {
             layout: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6182)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/layout.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/layout.tsx',
             ],
             loading: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 96330)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/loading.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/loading.tsx',
             ],
           },
         ],
       }.children;
-      const pages = ['/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/reset_password/page.tsx'];
+      const pages = ['/Users/muhammadharis/Desktop/G-DataLabs/app/reset_password/page.tsx'];
 
       // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -404,9 +404,19 @@
       /***/
     },
 
-    /***/ 60337: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
+    /***/ 37115: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 54095));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
+
+      /***/
+    },
+
+    /***/ 38969: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
 
       /***/
     },
@@ -427,8 +437,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./hooks/useAuth.ts
       var useAuth = __webpack_require__(64260);
-      // EXTERNAL MODULE: ./node_modules/formik/dist/index.js
-      var dist = __webpack_require__(27439);
+      // EXTERNAL MODULE: ./node_modules/formik/dist/formik.cjs.production.min.js
+      var formik_cjs_production_min = __webpack_require__(44952);
       // EXTERNAL MODULE: ./node_modules/next/link.js
       var next_link = __webpack_require__(11440);
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link);
@@ -443,7 +453,8 @@
       // EXTERNAL MODULE: ./components/UI/Button/index.tsx
       var Button = __webpack_require__(67782); // CONCATENATED MODULE: ./components/screens/ResetPassword/Form/index.tsx
       function ResetPasswordForm({ isLoading, resetPassword }) {
-        const { handleSubmit, handleChange, values, touched, errors } = (0, dist.useFormik)({
+        const { handleSubmit, handleChange, values, touched, errors } = (0,
+        formik_cjs_production_min /* useFormik */.TA)({
           initialValues: auth /* RESETPASSWORDFORMINITIALVALUES */.E0,
           validationSchema: schema /* ResetPasswordFormSchema */.gf,
           onSubmit: async (results, onSubmit) => {
@@ -524,7 +535,7 @@
       // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
       var module_proxy = __webpack_require__(61363); // CONCATENATED MODULE: ./components/screens/ResetPassword/index.tsx
       const proxy = (0, module_proxy.createProxy)(
-        String.raw`/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/components/screens/ResetPassword/index.tsx`,
+        String.raw`/Users/muhammadharis/Desktop/G-DataLabs/components/screens/ResetPassword/index.tsx`,
       );
 
       // Accessing the __esModule property and exporting $$typeof are required here.
@@ -550,6 +561,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [644, 652, 469, 782, 732, 628], () => __webpack_exec__(90602));
+  var __webpack_exports__ = __webpack_require__.X(0, [644, 460, 978, 782, 732, 628], () => __webpack_exec__(73802));
   module.exports = __webpack_exports__;
 })();

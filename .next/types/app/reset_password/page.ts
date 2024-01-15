@@ -1,4 +1,4 @@
-// File: /Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/reset_password/page.tsx
+// File: /Users/muhammadharis/Desktop/G-DataLabs/app/reset_password/page.tsx
 import * as entry from '../../../../app/reset_password/page.js';
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js';
 

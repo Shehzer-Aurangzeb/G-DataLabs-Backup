@@ -2,7 +2,7 @@
 (self['webpackChunk_N_E'] = self['webpackChunk_N_E'] || []).push([
   [826],
   {
-    /***/ 113: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 760: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -10,7 +10,7 @@
       // EXPORTS
       __webpack_require__.d(__webpack_exports__, {
         default: () =>
-          /* binding */ next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fshehzerabbasi_2FDownloads_2FProjects_2FG_Datalabs_2FApp_matchers_preferredRegion_middlewareConfig_e30_3D_,
+          /* binding */ next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fmuhammadharis_2FDesktop_2FG_DataLabs_matchers_preferredRegion_middlewareConfig_e30_3D_,
       });
 
       // NAMESPACE OBJECT: ./middleware.ts
@@ -2127,7 +2127,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
           return NextResponse.redirect(new URL(PATHS.LOGIN, request.url));
         }
         return NextResponse.next();
-      } // CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.ts&page=%2Fmiddleware&rootDir=%2FUsers%2Fshehzerabbasi%2FDownloads%2FProjects%2FG-Datalabs%2FApp&matchers=&preferredRegion=&middlewareConfig=e30%3D!
+      } // CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.ts&page=%2Fmiddleware&rootDir=%2FUsers%2Fmuhammadharis%2FDesktop%2FG-DataLabs&matchers=&preferredRegion=&middlewareConfig=e30%3D!
 
       const mod = { ...middleware_namespaceObject };
       const handler = mod.middleware || mod.default;
@@ -2136,7 +2136,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
         throw new Error('The Middleware "pages/middleware" must export a `middleware` or a `default` function');
       }
 
-      /* harmony default export */ function next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fshehzerabbasi_2FDownloads_2FProjects_2FG_Datalabs_2FApp_matchers_preferredRegion_middlewareConfig_e30_3D_(
+      /* harmony default export */ function next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fmuhammadharis_2FDesktop_2FG_DataLabs_matchers_preferredRegion_middlewareConfig_e30_3D_(
         opts,
       ) {
         return adapter({
@@ -2626,7 +2626,7 @@ Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ var __webpack_exports__ = __webpack_exec__(113);
+    /******/ var __webpack_exports__ = __webpack_exec__(760);
     /******/ (_ENTRIES = typeof _ENTRIES === 'undefined' ? {} : _ENTRIES).middleware_middleware = __webpack_exports__;
     /******/
   },

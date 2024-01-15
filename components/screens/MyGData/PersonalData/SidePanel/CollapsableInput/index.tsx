@@ -46,6 +46,7 @@ function CollapsableInput({
         } rounded-xl bg-light dark:bg-main transition duration-300`}
       >
         <Image
+          unoptimized
           src={arrow}
           alt="arrow-icon"
           height={24}

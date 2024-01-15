@@ -290,7 +290,7 @@
       /***/
     },
 
-    /***/ 48050: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 38939: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       __webpack_require__.r(__webpack_exports__);
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -351,7 +351,7 @@
                         Promise.resolve(/* import() eager */).then(
                           __webpack_require__.bind(__webpack_require__, 51377),
                         ),
-                      '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/our_g-data/page.tsx',
+                      '/Users/muhammadharis/Desktop/G-DataLabs/app/our_g-data/page.tsx',
                     ],
                   },
                 ],
@@ -362,16 +362,16 @@
           {
             layout: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6182)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/layout.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/layout.tsx',
             ],
             loading: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 96330)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/loading.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/loading.tsx',
             ],
           },
         ],
       }.children;
-      const pages = ['/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/our_g-data/page.tsx'];
+      const pages = ['/Users/muhammadharis/Desktop/G-DataLabs/app/our_g-data/page.tsx'];
 
       // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -400,6 +400,16 @@
       });
 
       //# sourceMappingURL=app-page.js.map
+
+      /***/
+    },
+
+    /***/ 38969: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
 
       /***/
     },
@@ -434,6 +444,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [644, 469], () => __webpack_exec__(48050));
+  var __webpack_exports__ = __webpack_require__.X(0, [644, 978], () => __webpack_exec__(38939));
   module.exports = __webpack_exports__;
 })();

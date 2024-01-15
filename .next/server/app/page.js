@@ -290,7 +290,7 @@
       /***/
     },
 
-    /***/ 16892: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 90009: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       __webpack_require__.r(__webpack_exports__);
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -346,7 +346,7 @@
                 page: [
                   () =>
                     Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 49617)),
-                  '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/page.tsx',
+                  '/Users/muhammadharis/Desktop/G-DataLabs/app/page.tsx',
                 ],
               },
             ],
@@ -354,16 +354,16 @@
           {
             layout: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6182)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/layout.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/layout.tsx',
             ],
             loading: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 96330)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/loading.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/loading.tsx',
             ],
           },
         ],
       }.children;
-      const pages = ['/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/page.tsx'];
+      const pages = ['/Users/muhammadharis/Desktop/G-DataLabs/app/page.tsx'];
 
       // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -396,8 +396,18 @@
       /***/
     },
 
-    /***/ 14911: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 67805: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 30815));
+
+      /***/
+    },
+
+    /***/ 90830: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
 
       /***/
     },
@@ -619,7 +629,7 @@
         height: 2335,
         width: 2145,
         blurDataURL:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAMAAAAC2hU0AAAAV1BMVEVMaXHxyxPsxB7wUivdqSn2NCTz3Hf/50bivEDxxTdUYaDhtiTgtiTqWi2GY37ldDDrTDHCnTwpg8X6OCZNgKfdrSgqeMxvhoibeGs/g7YufcFZm7z/5m/yRFUMAAAAHXRSTlMAY1l0MZVgCBE2N00q0amyXW6TzsprVby8jNdNaVU66tAAAAAJcEhZcwAAITcAACE3ATNYn3oAAAA9SURBVHicFctHEoAgEADBIS6LAQWz/v+dFvduYBgBEt6jiahhrlbATet2CCYUc96KXdr15C5dfr8ediTKDzWxAe1DEp5JAAAAAElFTkSuQmCC',
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAzElEQVR42mOAgQeb1TwebRUxZEAGb04VC4Ml90qq3l1nacLAwMDw8Qij2euDFlwMby9UZLw4V2f3i4Ghc1na9BUqbQen/zrG4MMAA++MraNepWndPjPfMy+ufvNlhoLTNv//M/AzPD8hk/k2TGvGs0bLrW8PM0S1t80/mN29ver/UwZdhheHpDNf5loFfdVjuLGtoW0PQ82hewwMT8QYkMHbCobsifrzjKes3eT3/2VOAgMIfL3ExfR4vhDnrdW6lTCFPx+Xp/z/6cUIAFNBVIf10k5KAAAAAElFTkSuQmCC',
         blurWidth: 7,
         blurHeight: 8,
       }; // CONCATENATED MODULE: ./public/images/logo-dark.png
@@ -628,7 +638,7 @@
         height: 2335,
         width: 2146,
         blurDataURL:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAMAAAAC2hU0AAAAWlBMVEVMaXHY2Nfi596hv4seIyj/diKJgq+ypHDlJDRmWomAO3HuHi5vQWY5MTGVlI5eUS5LPTiFcTXFnD8vKiLPybr/tACQeLoQcqQYQVevn3vGt5fW1dLLy8//pACzsoT5AAAAHnRSTlMApFZifl85By4SY0w+obPPX7J0zeJdVWt0vtP5Oy1q15DUAAAACXBIWXMAACE3AAAhNwEzWJ96AAAAPUlEQVR4nBXKRxKAMAwAsU21DYTeCf//JoPOAloFMFTJRtPF3u0CcZhXL6Qybbd7SeNyPfWfZ/ZBwA4kyAc6IQIHk7wr0wAAAABJRU5ErkJggg==',
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAyUlEQVR42mOAgdeKBh5vGWQNGZBBh0WOEIj+Jqmi+srGwwjEnlK82Wx510ZOhgabwvSOoBo7BgaG9o2bN266c/fB+trYTZ4MDDAgYB9VGadz89T84JJrl85++PDuseP/BAZehv9lihlpunoz5jU7bX2/gCHszKGt9+/euNL9fyaDJsOvIsWMjgDXIAYGhmsHNy84cPfu3f+PHv2UZkABZknZizccN7n+4HLg3L3N8Qwg8L+AgckprotTqXhxBUzd0oMTU+o3WjACAF57UDMfW/v+AAAAAElFTkSuQmCC',
         blurWidth: 7,
         blurHeight: 8,
       }; // CONCATENATED MODULE: ./public/images/logo_dark.gif
@@ -1079,7 +1089,7 @@
       // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
       var module_proxy = __webpack_require__(61363); // CONCATENATED MODULE: ./components/screens/Home/index.tsx
       const proxy = (0, module_proxy.createProxy)(
-        String.raw`/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/components/screens/Home/index.tsx`,
+        String.raw`/Users/muhammadharis/Desktop/G-DataLabs/components/screens/Home/index.tsx`,
       );
 
       // Accessing the __esModule property and exporting $$typeof are required here.
@@ -1105,6 +1115,6 @@
   var __webpack_require__ = require('../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [644, 91, 469, 782, 54], () => __webpack_exec__(16892));
+  var __webpack_exports__ = __webpack_require__.X(0, [644, 91, 978, 782, 54], () => __webpack_exec__(90009));
   module.exports = __webpack_exports__;
 })();

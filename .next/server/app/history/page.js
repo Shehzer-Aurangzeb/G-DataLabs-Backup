@@ -290,7 +290,7 @@
       /***/
     },
 
-    /***/ 42239: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 87681: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       __webpack_require__.r(__webpack_exports__);
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -351,7 +351,7 @@
                         Promise.resolve(/* import() eager */).then(
                           __webpack_require__.bind(__webpack_require__, 47341),
                         ),
-                      '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/history/page.tsx',
+                      '/Users/muhammadharis/Desktop/G-DataLabs/app/history/page.tsx',
                     ],
                   },
                 ],
@@ -362,16 +362,16 @@
           {
             layout: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6182)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/layout.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/layout.tsx',
             ],
             loading: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 96330)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/loading.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/loading.tsx',
             ],
           },
         ],
       }.children;
-      const pages = ['/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/history/page.tsx'];
+      const pages = ['/Users/muhammadharis/Desktop/G-DataLabs/app/history/page.tsx'];
 
       // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -404,9 +404,19 @@
       /***/
     },
 
-    /***/ 47336: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 41372: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 55296));
+
+      /***/
+    },
+
+    /***/ 38969: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
 
       /***/
     },
@@ -730,7 +740,7 @@
       // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
       var module_proxy = __webpack_require__(61363); // CONCATENATED MODULE: ./components/screens/History/index.tsx
       const proxy = (0, module_proxy.createProxy)(
-        String.raw`/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/components/screens/History/index.tsx`,
+        String.raw`/Users/muhammadharis/Desktop/G-DataLabs/components/screens/History/index.tsx`,
       );
 
       // Accessing the __esModule property and exporting $$typeof are required here.
@@ -756,6 +766,6 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [644, 960, 469, 54], () => __webpack_exec__(42239));
+  var __webpack_exports__ = __webpack_require__.X(0, [644, 960, 978, 54], () => __webpack_exec__(87681));
   module.exports = __webpack_exports__;
 })();

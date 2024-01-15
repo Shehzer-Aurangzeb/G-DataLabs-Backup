@@ -11,8 +11,8 @@ exports.modules = {
       return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
     }
 
-    var react = __webpack_require__(18038);
-    var react__default = _interopDefault(react);
+    var React = __webpack_require__(18038);
+    var React__default = _interopDefault(React);
 
     function ownKeys(object, enumerableOnly) {
       var keys = Object.keys(object);
@@ -236,15 +236,15 @@ exports.modules = {
           status = checkExisting(src);
         }
 
-        var _c = (0, react__default.useState)(status ? status.loading : Boolean(src)),
+        var _c = (0, React__default.useState)(status ? status.loading : Boolean(src)),
           loading = _c[0],
           setLoading = _c[1];
 
-        var _d = (0, react__default.useState)(status ? status.error : null),
+        var _d = (0, React__default.useState)(status ? status.error : null),
           error = _d[0],
           setError = _d[1];
 
-        (0, react__default.useEffect)(
+        (0, React__default.useEffect)(
           function () {
             // Nothing to do on server, or if no src specified, or
             // if loading has already resolved to "loaded" or "error" state.
@@ -445,25 +445,25 @@ exports.modules = {
         loading = _useScript2[0],
         error = _useScript2[1]; // internal state
 
-      var _useState = react.useState(null),
+      var _useState = React.useState(null),
         _useState2 = _slicedToArray(_useState, 2),
         plaid = _useState2[0],
         setPlaid = _useState2[1];
 
-      var _useState3 = react.useState(false),
+      var _useState3 = React.useState(false),
         _useState4 = _slicedToArray(_useState3, 2),
         iframeLoaded = _useState4[0],
         setIframeLoaded = _useState4[1];
 
       var products = (options.product || []).slice().sort().join(',');
-      react.useEffect(
+      React.useEffect(
         function () {
           // If the link.js script is still loading, return prematurely
           if (loading) {
             return;
-          } // If the token and publicKey is undefined, return prematurely
+          } // If the token, publicKey, and received redirect URI are undefined, return prematurely
 
-          if (!options.token && !options.publicKey) {
+          if (!options.token && !options.publicKey && !options.receivedRedirectUri) {
             return;
           }
 
@@ -542,7 +542,7 @@ exports.modules = {
         error = _usePlaidLink.error,
         open = _usePlaidLink.open;
 
-      return /*#__PURE__*/ react__default.createElement(
+      return /*#__PURE__*/ React__default.createElement(
         'button',
         {
           disabled: Boolean(error),
@@ -567,6 +567,60 @@ exports.modules = {
     };
     PlaidLink.displayName = 'PlaidLink';
 
+    var _excluded$1 = ['style', 'className'];
+    var PlaidEmbeddedLink = function PlaidEmbeddedLink(props) {
+      var style = props.style,
+        className = props.className,
+        config = _objectWithoutProperties(props, _excluded$1); // Asynchronously load the plaid/link/stable url into the DOM
+
+      var _useScript = useScript({
+          src: PLAID_LINK_STABLE_URL,
+          checkForExisting: true,
+        }),
+        _useScript2 = _slicedToArray(_useScript, 2),
+        loading = _useScript2[0],
+        error = _useScript2[1];
+
+      var embeddedLinkTarget = React.useRef(null);
+      React.useEffect(
+        function () {
+          // If the external link JS script is still loading, return prematurely
+          if (loading) {
+            return;
+          }
+
+          if (error || !window.Plaid) {
+            // eslint-disable-next-line no-console
+            console.error('Error loading Plaid', error);
+            return;
+          }
+
+          if (config.token == null || config.token == '') {
+            console.error('A token is required to initialize embedded Plaid Link');
+            return;
+          } // The embedded Link interface doesn't use the `usePlaidLink` hook to manage
+          // its Plaid Link instance because the embedded Link integration in link-initialize
+          // maintains its own handler internally.
+
+          var _window$Plaid$createE = window.Plaid.createEmbedded(
+              _objectSpread2({}, config),
+              embeddedLinkTarget.current,
+            ),
+            destroy = _window$Plaid$createE.destroy; // Clean up embedded Link component on unmount
+
+          return function () {
+            destroy();
+          };
+        },
+        [loading, error, config, embeddedLinkTarget],
+      );
+      return /*#__PURE__*/ React__default.createElement('div', {
+        style: style,
+        className: className,
+        ref: embeddedLinkTarget,
+      });
+    };
+
     // The following event names are stable and will not be deprecated or changed
 
     (function (PlaidLinkStableEvent) {
@@ -575,8 +629,12 @@ exports.modules = {
       PlaidLinkStableEvent['HANDOFF'] = 'HANDOFF';
       PlaidLinkStableEvent['SELECT_INSTITUTION'] = 'SELECT_INSTITUTION';
       PlaidLinkStableEvent['ERROR'] = 'ERROR';
+      PlaidLinkStableEvent['BANK_INCOME_INSIGHTS_COMPLETED'] = 'BANK_INCOME_INSIGHTS_COMPLETED';
+      PlaidLinkStableEvent['IDENTITY_VERIFICATION_PASS_SESSION'] = 'IDENTITY_VERIFICATION_PASS_SESSION';
+      PlaidLinkStableEvent['IDENTITY_VERIFICATION_FAIL_SESSION'] = 'IDENTITY_VERIFICATION_FAIL_SESSION';
     })(exports.aq || (exports.aq = {}));
 
+    __webpack_unused_export__ = PlaidEmbeddedLink;
     __webpack_unused_export__ = PlaidLink;
     exports.Iw = usePlaidLink;
 

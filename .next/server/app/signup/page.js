@@ -290,7 +290,7 @@
       /***/
     },
 
-    /***/ 17833: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 63143: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       'use strict';
       __webpack_require__.r(__webpack_exports__);
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -349,7 +349,7 @@
                     page: [
                       () =>
                         Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7602)),
-                      '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/signup/page.tsx',
+                      '/Users/muhammadharis/Desktop/G-DataLabs/app/signup/page.tsx',
                     ],
                   },
                 ],
@@ -360,16 +360,16 @@
           {
             layout: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6182)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/layout.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/layout.tsx',
             ],
             loading: [
               () => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 96330)),
-              '/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/loading.tsx',
+              '/Users/muhammadharis/Desktop/G-DataLabs/app/loading.tsx',
             ],
           },
         ],
       }.children;
-      const pages = ['/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/app/signup/page.tsx'];
+      const pages = ['/Users/muhammadharis/Desktop/G-DataLabs/app/signup/page.tsx'];
 
       // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -402,9 +402,19 @@
       /***/
     },
 
-    /***/ 95144: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 99755: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 86135));
       Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 31162));
+
+      /***/
+    },
+
+    /***/ 38969: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+      Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
 
       /***/
     },
@@ -425,8 +435,8 @@
       var react_ = __webpack_require__(18038);
       // EXTERNAL MODULE: ./hooks/useAuth.ts
       var useAuth = __webpack_require__(64260);
-      // EXTERNAL MODULE: ./node_modules/formik/dist/index.js
-      var dist = __webpack_require__(27439);
+      // EXTERNAL MODULE: ./node_modules/formik/dist/formik.cjs.production.min.js
+      var formik_cjs_production_min = __webpack_require__(44952);
       // EXTERNAL MODULE: ./node_modules/next/link.js
       var next_link = __webpack_require__(11440);
       var link_default = /*#__PURE__*/ __webpack_require__.n(next_link);
@@ -482,7 +492,8 @@
       /* harmony default export */ const UI_Checkbox = Checkbox; // CONCATENATED MODULE: ./components/screens/Signup/Form/index.tsx
 
       function SignupForm({ isLoading, registerUser }) {
-        const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0, dist.useFormik)({
+        const { handleSubmit, handleChange, values, touched, errors, setFieldValue } = (0,
+        formik_cjs_production_min /* useFormik */.TA)({
           initialValues: auth /* SIGNUPFORMINITIALVALUES */.vK,
           validationSchema: schema /* SignupFormSchema */.fb,
           onSubmit: async (results, onSubmit) => {
@@ -697,7 +708,7 @@
       // EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
       var module_proxy = __webpack_require__(61363); // CONCATENATED MODULE: ./components/screens/Signup/index.tsx
       const proxy = (0, module_proxy.createProxy)(
-        String.raw`/Users/shehzerabbasi/Downloads/Projects/G-Datalabs/App/components/screens/Signup/index.tsx`,
+        String.raw`/Users/muhammadharis/Desktop/G-DataLabs/components/screens/Signup/index.tsx`,
       );
 
       // Accessing the __esModule property and exporting $$typeof are required here.
@@ -723,8 +734,8 @@
   var __webpack_require__ = require('../../webpack-runtime.js');
   __webpack_require__.C(exports);
   var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-  var __webpack_exports__ = __webpack_require__.X(0, [644, 652, 469, 782, 732, 628, 473], () =>
-    __webpack_exec__(17833),
+  var __webpack_exports__ = __webpack_require__.X(0, [644, 460, 978, 782, 732, 628, 473], () =>
+    __webpack_exec__(63143),
   );
   module.exports = __webpack_exports__;
 })();
