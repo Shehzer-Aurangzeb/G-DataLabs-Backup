@@ -347,7 +347,7 @@ exports.modules = {
     function Logo() {
       const { theme } = (0, ThemeProvider /* useTheme */.F)();
       return /*#__PURE__*/ (0, jsx_runtime_.jsxs)(link_default(), {
-        href: constants_navigation /* PATHS */.y.HOME,
+        href: 'https://www.g-datalabs.com/',
         className: 'flex flex-row gap-x-3 items-center',
         children: [
           /*#__PURE__*/ jsx_runtime_.jsx('div', {
