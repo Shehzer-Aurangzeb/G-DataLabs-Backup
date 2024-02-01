@@ -97,17 +97,17 @@ function Table({ columns, data }: IProps) {
                           />
                         ))
                       : cell.column.Header === 'Feedback'
-                      ? cell.value && (
-                          <Image
-                            src="/icons/like_filled__icon.png"
-                            key={uuidv4()}
-                            alt={'feedback-image'}
-                            className={`my-3 h-[20px] w-[20px] mx-auto ${
-                              cell.value === 'true' ? 'rotate-0' : 'rotate-180'
-                            }`}
-                          />
-                        )
-                      : cell.render('Cell')}
+                        ? cell.value && (
+                            <Image
+                              src="/icons/like_filled__icon.png"
+                              key={uuidv4()}
+                              alt={'feedback-image'}
+                              className={`my-3 h-[20px] w-[20px] mx-auto ${
+                                cell.value === 'true' ? 'rotate-0' : 'rotate-180'
+                              }`}
+                            />
+                          )
+                        : cell.render('Cell')}
                   </td>
                 ))}
               </tr>

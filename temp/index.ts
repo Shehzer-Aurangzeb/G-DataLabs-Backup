@@ -243,3 +243,25 @@ export const CONSENTAPIRESPONSEDATA = [
     user_id: 30,
   },
 ];
+export const DATATABLEDATA = [
+  {
+    name: 'EMOTIONAL_OVERALL',
+    prices: '0.00',
+    action: '',
+  },
+  {
+    name: 'WEATHER',
+    prices: '13.5',
+    action: '',
+  },
+  {
+    name: 'RELATIVE_FINANCE_STATUS',
+    prices: '0.00',
+    action: '',
+  },
+  {
+    name: 'EXERCISE_TIME',
+    prices: '0.00',
+    action: '',
+  },
+];

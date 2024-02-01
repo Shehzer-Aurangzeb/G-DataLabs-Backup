@@ -16,4 +16,6 @@ export const PATHS = {
   COOKIEPOLICY: 'https://www.g-datalabs.com/cookie_and_policy',
   TERMS: 'https://www.g-datalabs.com/terms_condition',
   CONFIRMPASSWORD: '/reset_password/confirm',
+  DATA: '/our_g-data/data',
+  CHART: '/our_g-data/data/charts',
 };

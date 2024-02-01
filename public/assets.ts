@@ -26,6 +26,7 @@ import no_data from './images/no-data.png';
 import no_chats from './images/no-chats.png';
 import showpassword from './icons/showpassword__icon.png';
 import hidepassword from './icons/hidepassword__icon.png';
+import trade_icon from './icons/trade_icon.png';
 
 export {
   home,
@@ -38,6 +39,7 @@ export {
   bulb_active,
   bulb_inactive,
   logout,
+  trade_icon,
   send,
   sidebar_icon_light,
   sidebar_icon_dark,

@@ -40,6 +40,20 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
     accessor: 'id' as keyof Columns, // accessor is the "key" in the data
   },
 ];
+export const DATATABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Name',
+    accessor: 'name' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Prices',
+    accessor: 'price' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Action',
+    accessor: 'action' as keyof Columns, // accessor is the "key" in the data
+  },
+];
 export const CONSENTTABLEDATA = {
   'Emotional Overall': {
     Consent: 'FALSE',
