@@ -1,13 +1,12 @@
 'use client';
 
-// @ts-nocheck
-/* eslint-disable */
-
+// @ts-ignore
+// eslint-disable-next-line no-continue
 import React from 'react';
-import Container from '@/components/UI/Containers';
 import dynamic from 'next/dynamic';
 import Loader from '../Loader/Loader';
-
+// @ts-ignore
+// eslint-disable-next-line no-continue
 const Plot = dynamic(() => import('react-plotly.js'), {
   ssr: false,
 });

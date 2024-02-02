@@ -1,6 +1,7 @@
 'use client';
 
 // @ts-ignore
+// eslint-disable-next-line no-continue
 
 import React, { useState, useEffect } from 'react';
 import LineChart from '@/components/UI/LineChart';
@@ -11,6 +12,7 @@ import { useTheme } from '@/context/ThemeProvider';
 import { usePathname } from 'next/navigation';
 import { DATATABLEDATA } from '@/temp';
 import Button from '@/components/UI/Button';
+
 type DataType = {
   x: string[];
   y: number[];
@@ -62,7 +64,8 @@ export default function Main() {
 
   useEffect(() => {
     const data = generateChartData(selectedTimeRange);
-    //ts-ignore
+    // @ts-ignore
+    // eslint-disable-next-line no-continue
     setChartData(data);
   }, [selectedTimeRange]);
 
