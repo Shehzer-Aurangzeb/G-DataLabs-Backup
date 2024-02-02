@@ -2,6 +2,7 @@
 import { Column, useTable } from 'react-table';
 import React, { useEffect } from 'react';
 import { Columns } from '@/types';
+import { useTheme } from '@/context/ThemeProvider';
 
 import { trade_icon } from '@/public/assets';
 import Link from 'next/link';
@@ -13,6 +14,8 @@ interface IProps {
 }
 
 function Table({ columns, data }: IProps) {
+  const { theme } = useTheme();
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns,
     data,
@@ -53,8 +56,16 @@ function Table({ columns, data }: IProps) {
                   `}
                 >
                   {cell.column.id === 'action' ? (
-                    <Link href="/our_g-data/data/charts">
-                      <Image src={trade_icon} alt="alt" className="cursor-pointer" />
+                    <Link
+                      href={`/our_g-data/data/charts/${cell.row.original.name}`}
+                      className="justify-center items-center flex"
+                    >
+                      <Image
+                        src={trade_icon}
+                        alt="alt"
+                        className="cursor-pointer w-[25px] h-[25px] dark:invert-0 dark:brightness-100 dark:filter-1 dark:inset-0"
+                        style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
+                      />
                     </Link>
                   ) : (
                     cell.render('Cell')

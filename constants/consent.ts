@@ -46,7 +46,7 @@ export const DATATABLECOLUMNS: Column<Columns>[] = [
     accessor: 'name' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Prices',
+    Header: 'Price',
     accessor: 'price' as keyof Columns, // accessor is the "key" in the data
   },
   {

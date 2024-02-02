@@ -33,7 +33,7 @@ function Select({ className, options, style, value, onClick, increasePadding }: 
       ref={selectRef}
       style={style}
       className={[
-        `relative bg-chat dark:bg-darkChat dark:text-main ${increasePadding ?? 'py-[10px]'} px-4 ${
+        `relative bg-chat dark:bg-[#1C1C1C] dark:text-main ${increasePadding ?? 'py-[10px]'} px-4 ${
           isOpen ? 'rounded-md rounded-b-none' : 'rounded-md'
         } w-full`,
         className,
@@ -57,7 +57,7 @@ function Select({ className, options, style, value, onClick, increasePadding }: 
       </div>
 
       {isOpen && (
-        <ul className="list-none rounded-b-md absolute bg-chat dark:bg-darkChat w-full top-[44px] left-0 z-10">
+        <ul className="list-none rounded-b-md absolute bg-chat dark:bg-[#1C1C1C] w-full top-[44px] left-0 z-10">
           {options
             .filter((item) => item.value !== value)
             .map((item) => (

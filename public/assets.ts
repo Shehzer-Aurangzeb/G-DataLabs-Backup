@@ -27,6 +27,7 @@ import no_chats from './images/no-chats.png';
 import showpassword from './icons/showpassword__icon.png';
 import hidepassword from './icons/hidepassword__icon.png';
 import trade_icon from './icons/trade_icon.png';
+import trade_icon2 from './icons/trade_icon2.png';
 
 export {
   home,
@@ -58,4 +59,5 @@ export {
   no_chats,
   showpassword,
   hidepassword,
+  trade_icon2,
 };
