@@ -36,7 +36,11 @@ export const LoginFormSchema = object({
   email: string().email().required('Email is required'),
   password: string().required('Password is required'),
 });
-
+export const SellFormSchema = object({
+  limitPrice: number().min(1, 'Value must be at least 0'),
+  amount: number().min(0, 'Value must be at least 0'),
+  total: number().min(0, 'Value must be at least 0'),
+});
 export const SignupFormSchema = object({
   firstName: string().min(2, 'First Name is too short').required('First Name is required'),
   lastName: string().min(2, 'Last Name is too short').required('Last Name is required'),
@@ -74,3 +78,4 @@ export type ResetPasswordFormSchemaType = InferType<typeof ResetPasswordFormSche
 export type ConfirmPasswordFormSchemaType = InferType<typeof ConfirmPasswordFormSchema>;
 
 export type SignupFormSchemaType = InferType<typeof SignupFormSchema>;
+export type SellFormSchemaType = InferType<typeof SellFormSchema>;

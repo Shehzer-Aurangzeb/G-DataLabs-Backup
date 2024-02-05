@@ -18,4 +18,5 @@ export const PATHS = {
   CONFIRMPASSWORD: '/reset_password/confirm',
   DATA: '/our_g-data/data',
   CHART: '/our_g-data/data/charts',
+  ASSETS: '/our_g-data/assets',
 };

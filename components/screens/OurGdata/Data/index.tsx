@@ -12,11 +12,11 @@ function Main() {
     () =>
       DATATABLEDATA.map((item) => ({
         ...item,
-        price: item.prices, // Assuming you want to rename prices to price
       })),
     [DATATABLEDATA],
   );
   console.log(tableData);
+
   return (
     <div className={`overflow-x-auto w-full h-full max-w-[${maxWidth}]`}>
       <Table data={tableData} columns={DATATABLECOLUMNS} />

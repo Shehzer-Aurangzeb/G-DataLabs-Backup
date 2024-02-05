@@ -83,6 +83,7 @@ function Table({ columns, data }: IProps) {
               <tr {...row.getRowProps()} className="even:bg-[#d4d4d4]  dark:even:bg-[#6a6a6a] dark:odd:bg-darkChat">
                 {row.cells.map((cell: any) => (
                   <td
+                    key={cell.id}
                     {...cell.getCellProps()}
                     className="border border-[#ced4da] py-6 px-7 mobile:p-3 text-black font-sans font-normal text-base mobile:text-sm text-center"
                   >

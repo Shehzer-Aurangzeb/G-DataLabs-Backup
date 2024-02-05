@@ -100,7 +100,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
         {rows.map((row: any) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <tr {...row.getRowProps()} key={row.id}>
               {row.cells.map((cell: any, cellIndex: number) => (
                 <td
                   key={cell.id}

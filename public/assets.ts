@@ -28,6 +28,7 @@ import showpassword from './icons/showpassword__icon.png';
 import hidepassword from './icons/hidepassword__icon.png';
 import trade_icon from './icons/trade_icon.png';
 import trade_icon2 from './icons/trade_icon2.png';
+import delete_icon from './icons/delete__icon.png';
 
 export {
   home,
@@ -60,4 +61,5 @@ export {
   showpassword,
   hidepassword,
   trade_icon2,
+  delete_icon,
 };

@@ -1,12 +1,11 @@
 /* eslint-disable no-nested-ternary */
+/* eslint-disable no-return-assign */
+
+'use client';
+
 import { Column, useTable } from 'react-table';
 import React, { useEffect } from 'react';
 import { Columns } from '@/types';
-import { useTheme } from '@/context/ThemeProvider';
-import { LineChart } from '@/components/UI/LineChart2';
-import { trade_icon } from '@/public/assets';
-import Link from 'next/link';
-import Image from 'next/image';
 
 interface IProps {
   data: any;
@@ -14,7 +13,6 @@ interface IProps {
 }
 
 function Table({ columns, data }: IProps) {
-  const { theme } = useTheme();
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns,
     data,
@@ -23,8 +21,9 @@ function Table({ columns, data }: IProps) {
   useEffect(() => {
     // Add any side effects based on data changes if needed
   }, [data]);
+
   return (
-    <table {...getTableProps()} className="w-full">
+    <table {...getTableProps()} className="w-full -mt-2">
       <thead>
         {headerGroups.map((headerGroup: any) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
@@ -53,34 +52,9 @@ function Table({ columns, data }: IProps) {
                   className={`border border-[#ced4da] dark:border-white py-6 px-7 mobile:p-3 text-black  dark:text-main font-sans font-normal text-base mobile:text-sm text-center
                   `}
                 >
-                  {cell.column.id === 'graph' && (
-                    <div className="max-w-[80px] justify-center items-center flex">
-                      <LineChart data={row.original.chardata} color="green" />
-                    </div>
-                  )}
-                  {cell.column.id === 'action' ? (
-                    <Link
-                      href={`/our_g-data/data/charts/${cell.row.original.name}`}
-                      className="justify-center items-center flex"
-                    >
-                      <Image
-                        src={trade_icon}
-                        alt="alt"
-                        className="cursor-pointer w-[25px] h-[25px] dark:invert-0 dark:brightness-100 dark:filter-1 dark:inset-0"
-                        style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
-                      />
-                    </Link>
-                  ) : (
-                    cell.render('Cell')
-                  )}
-                  {/* <Actions
-                    isAllowed={row.values.Consent !== 'FALSE'}
-                    isDisabled={row.values.id === null}
-                    onClick={() => {
-                      // Add your action logic here
-                    }}
-                //   /> */}
-                  {/* {cell.render('Cell')} */}
+                  {cell.column.id === 'total'
+                    ? (row.original.total = row.original.value * row.original.price)
+                    : cell.render('Cell')}
                 </td>
               ))}
             </tr>

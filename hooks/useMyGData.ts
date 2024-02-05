@@ -18,7 +18,6 @@ export const useMyGData = () => {
   const { isLoading, setIsLoading } = useLoading();
   const { personalData, setPersonalData, gData, rData, cData, screenData, compData, setCompData } = usePersonalData();
   const { getAllConsentData, gTableColumns, updateMyGData, getAllPersonalData } = useApp();
-
   const savePersonalData = useCallback(
     async (personal_data: PersonalDataSchemaType) => {
       try {

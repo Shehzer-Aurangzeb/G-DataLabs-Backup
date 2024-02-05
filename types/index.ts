@@ -10,6 +10,9 @@ type NAVITEM = {
 export type NAVITEMS = NAVITEM & {
   nestedItems?: NAVITEM[];
 };
+export interface ChartData {
+  [key: string]: number;
+}
 
 export enum Theme {
   DARK = 'dark',
@@ -63,6 +66,14 @@ export enum TableName {
   CData = 'Consent Data',
   CompData = 'Company Data',
 }
+export type DatatableType = {
+  name: string;
+  prices: number | undefined;
+  price: number[];
+  timeFrame: string[];
+  limitPrice: number;
+  chardata: { [key: string]: number } | undefined;
+}[];
 export type PersonalDataType = {
   consents_to_sell: boolean;
   created_at: string;

@@ -5,6 +5,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Loader from '../Loader/Loader';
+
 // @ts-ignore
 // eslint-disable-next-line no-continue
 const Plot = dynamic(() => import('react-plotly.js'), {

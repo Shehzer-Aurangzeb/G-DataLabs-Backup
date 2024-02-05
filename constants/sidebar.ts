@@ -79,9 +79,9 @@ export const APPITEMS: TNAVITEMS[] = [
         to: PATHS.DATA,
       },
       {
-        title: 'Price',
+        title: 'Assets',
         icon: '',
-        to: PATHS.PERSONAL,
+        to: PATHS.ASSETS,
       },
     ],
   },

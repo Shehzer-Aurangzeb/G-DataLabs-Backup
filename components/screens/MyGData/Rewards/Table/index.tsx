@@ -25,7 +25,6 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     };
   }>({});
   const [recordName, setRecordName] = useState('');
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     if (!/^\d*\.?\d*$/.test(value)) return;

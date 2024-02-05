@@ -9,21 +9,22 @@ import { DATATIMETYPESOPTIONS } from '@/constants/ourgdata';
 import { maxWidth } from '@/constants';
 import Select from '@/components/UI/Select';
 import { useTheme } from '@/context/ThemeProvider';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { DATATABLEDATA } from '@/temp';
 import Button from '@/components/UI/Button';
 
 type DataType = {
-  x: string[];
-  y: number[];
+  x: string[] | undefined;
+  y: number[] | undefined;
   type: string;
   mode: string;
   marker: { color: string };
 };
 export default function Main() {
+  const router = useRouter();
   const pathname = usePathname();
   const title = pathname.split('/').pop();
-  const grapghData = DATATABLEDATA.find((item) => item.name === title);
+  const graphData = DATATABLEDATA.find((item) => item.name === title);
   const { theme } = useTheme();
   const color = theme === 'dark' ? '#454545' : '#D9D9D9';
   const color2 = theme === 'light' ? '#454545' : '#D9D9D9';
@@ -39,8 +40,10 @@ export default function Main() {
     if (timeRange === '1 DAY') {
       return [
         {
-          y: grapghData?.price,
-          x: grapghData?.timeFrame,
+          // @ts-ignore
+          x: Object.keys(graphData?.chardata),
+          // @ts-ignore
+          y: Object.values(graphData?.chardata),
           type: 'scatter',
           mode: 'lines+markers',
           marker: { color: 'red' },
@@ -50,8 +53,8 @@ export default function Main() {
     if (timeRange === '15 HOUR' || timeRange === '5 HOUR' || timeRange === '45 MINS') {
       return [
         {
-          y: grapghData?.price,
-          x: grapghData?.timeFrame,
+          y: graphData?.price,
+          x: graphData?.timeFrame,
           type: 'scatter',
           mode: 'lines+markers',
           marker: { color: 'red' },
@@ -80,14 +83,13 @@ export default function Main() {
     plot_bgcolor: color,
     paper_bgcolor: color,
     responsive: true,
-    width: 840,
   };
 
   return (
     <div className={`overflow-x-auto w-full h-full max-w-[${maxWidth}]`}>
       <p className="font-bold text-[28px] dark:text-white justify-center items-center flex mb-4">{title}</p>
       <div className="justify-between flex items-center mx-4">
-        <p className="font-bold text-[24px] dark:text-white">Price : {grapghData?.prices}</p>
+        <p className="font-bold text-[24px] dark:text-white">Price : {graphData?.prices} $</p>
         <Select
           value={selectedDataType}
           options={DATATIMETYPESOPTIONS}
@@ -100,12 +102,18 @@ export default function Main() {
         />
       </div>
 
-      <div className="justify-center flex item-center my-4 max-w-[900px] mobile:max-w-[500px] laptop:max-w-[800px] rounded-md mx-2">
+      <div className="justify-center flex item-center my-4 max-w-full rounded-md mx-2">
         <LineChart data={chartData} layout={chartLayout} />
       </div>
       <div className="flex justify-center items-center gap-x-4 my-4 bottom-2">
         <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue max-w-[250px]" title="BUY" />
-        <Button type="submit" className="bg-[#F5B11A] w-full max-w-[250px]" title="SELL" />
+        <Button
+          className="bg-[#F5B11A] w-full max-w-[250px]"
+          title="SELL"
+          onClick={() => {
+            router.push(`${pathname}/sell`);
+          }}
+        />
       </div>
     </div>
   );
