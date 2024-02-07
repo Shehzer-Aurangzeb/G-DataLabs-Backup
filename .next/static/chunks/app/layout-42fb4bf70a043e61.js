@@ -123,7 +123,7 @@
                       }),
               }),
               (0, n.jsx)('h3', {
-                className: 'text-main font-sans laptop:text-2xl text-3xl font-bold dark:text-primary',
+                className: 'text-[#575757] font-sans laptop:text-2xl text-3xl font-bold dark:text-primary',
                 children: 'G-DataLabs',
               }),
             ],
