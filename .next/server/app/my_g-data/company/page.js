@@ -519,23 +519,36 @@
           },
           [updateConsentRewards, values],
         );
-        (0, react_.useEffect)(() => {
-          const timeout = setTimeout(() => {
-            if (!recordID) return;
-            updateConsentRewards([
-              {
-                demanded_reward_value: Number(values[recordID].pricing),
-                usage: values[recordID].use,
-                threshold: Number(values[recordID].threshold),
-                personal_data_field: {
-                  field_name: recordID,
-                },
+        // useEffect(() => {
+        //   const timeout = setTimeout(() => {
+        //     if (!recordID) return;
+        //     updateConsentRewards([
+        //       {
+        //         demanded_reward_value: Number(values[recordID].pricing),
+        //         usage: values[recordID].use,
+        //         threshold: Number(values[recordID].threshold),
+        //         personal_data_field: {
+        //           field_name: recordID,
+        //         },
+        //       },
+        //     ]);
+        //     setRecordID('');
+        //   }, 2000);
+        //   return () => clearTimeout(timeout);
+        // }, [values, recordID, updateConsentRewards]);
+        const handleButtonClick = () => {
+          if (!recordID) return;
+          updateConsentRewards([
+            {
+              demanded_reward_value: Number(values[recordID].pricing),
+              usage: values[recordID].use,
+              threshold: Number(values[recordID].threshold),
+              personal_data_field: {
+                field_name: recordID,
               },
-            ]);
-            setRecordID('');
-          }, 2000);
-          return () => clearTimeout(timeout);
-        }, [values, recordID, updateConsentRewards]);
+            },
+          ]);
+        };
         (0, react_.useEffect)(() => {
           setValues((0, lib /* createCompanyState */.DQ)(data));
         }, [data]);
@@ -563,9 +576,13 @@
               ...getTableBodyProps(),
               children: rows.map((row) => {
                 prepareRow(row);
-                return /*#__PURE__*/ jsx_runtime_.jsx('tr', {
-                  ...row.getRowProps(),
-                  children: row.cells.map((cell, cellIndex) =>
+                return /*#__PURE__*/ (0, react_.createElement)(
+                  'tr',
+                  {
+                    ...row.getRowProps(),
+                    key: row.id,
+                  },
+                  row.cells.map((cell, cellIndex) =>
                     /*#__PURE__*/ (0, jsx_runtime_.jsxs)(
                       'td',
                       {
@@ -590,6 +607,7 @@
                               value: values[row.values.fieldName] ? values[row.values.fieldName].use : '',
                               onChange: (e) => handleChange(e, 'use'),
                               className: 'min-w-[200px]',
+                              onClick: () => {},
                             }),
                           cell.column.id === 'Pricing' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
@@ -601,6 +619,7 @@
                               value: values[row.values.fieldName] ? values[row.values.fieldName].pricing : '',
                               onChange: (e) => handleChange(e, 'pricing'),
                               className: 'min-w-[160px]',
+                              onclick: handleButtonClick,
                             }),
                           cell.column.id === 'Threshold' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {
@@ -611,13 +630,14 @@
                               value: values[row.values.fieldName] ? values[row.values.fieldName].threshold : '',
                               onChange: (e) => handleChange(e, 'threshold'),
                               className: 'min-w-[160px]',
+                              onclick: handleButtonClick,
                             }),
                         ],
                       },
                       cell.id,
                     ),
                   ),
-                });
+                );
               }),
             }),
           ],

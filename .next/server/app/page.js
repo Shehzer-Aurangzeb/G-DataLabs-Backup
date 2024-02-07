@@ -426,7 +426,7 @@
       function Main({ children, className = ' ', style }) {
         return /*#__PURE__*/ jsx_runtime_.jsx('div', {
           className: [
-            'bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden',
+            'bg-[#fbf8f1] drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden',
             className,
           ].join(' '),
           style: style,
@@ -892,7 +892,7 @@
           type: 'main',
           children: [
             /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-              className: 'absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main',
+              className: 'absolute py-2 w-full left-4 font-sans z-10 bg-[#fbf8f1] dark:bg-main',
               children: [
                 /*#__PURE__*/ jsx_runtime_.jsx('span', {
                   className: 'text-[#333333aa] dark:text-[#c4c4c4] mr-2 mobile:text-sm',

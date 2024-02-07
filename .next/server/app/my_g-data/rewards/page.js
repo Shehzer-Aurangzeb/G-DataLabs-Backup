@@ -478,21 +478,32 @@
           }));
           setRecordName(fieldName);
         };
+        const handleButtonClick = () => {
+          if (!recordName) return;
+          updateConsentRewards({
+            id: Number(PDefinedValue[recordName].id),
+            payload: {
+              demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+              consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+            },
+          });
+          setRecordName('');
+        };
         // debouncing
-        (0, react_.useEffect)(() => {
-          const timeout = setTimeout(() => {
-            if (!recordName) return;
-            updateConsentRewards({
-              id: Number(PDefinedValue[recordName].id),
-              payload: {
-                demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
-                consents_to_sell: PDefinedValue[recordName].consents_to_sell,
-              },
-            });
-            setRecordName('');
-          }, 2000);
-          return () => clearTimeout(timeout);
-        }, [PDefinedValue, recordName, updateConsentRewards]);
+        // useEffect(() => {
+        //   const timeout = setTimeout(() => {
+        //     if (!recordName) return;
+        //     updateConsentRewards({
+        //       id: Number(PDefinedValue[recordName].id),
+        //       payload: {
+        //         demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+        //         consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+        //       },
+        //     });
+        //     setRecordName('');
+        //   }, 2000);
+        //   return () => clearTimeout(timeout);
+        // }, [PDefinedValue, recordName, updateConsentRewards]);
         (0, react_.useEffect)(() => {
           setPDefinedValue(createRewardsTableState(data));
         }, [data]);
@@ -553,10 +564,11 @@
                               id: row.values.id,
                               type: 'text',
                               pattern: '\\d*\\.?\\d*',
-                              readOnly: row.values.id === null,
+                              readOnly: row.values.Consent === 'FALSE',
                               isMonetaryInput: true,
                               value: PDefinedValue[row.values.PDataAndScreen]?.demanded_reward_value,
                               onChange: handleChange,
+                              onclick: handleButtonClick,
                             }),
                           cell.column.id === 'OtherCompValue' &&
                             /*#__PURE__*/ jsx_runtime_.jsx(Input /* default */.Z, {

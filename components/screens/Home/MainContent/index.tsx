@@ -30,7 +30,7 @@ function MainContent({
 }: TProps) {
   return (
     <Container type="main">
-      <div className="absolute py-2 w-full left-4 font-sans z-10 bg-light dark:bg-main">
+      <div className="absolute py-2 w-full left-4 font-sans z-10 bg-[#fbf8f1] dark:bg-main">
         <span className="text-[#333333aa] dark:text-[#c4c4c4] mr-2 mobile:text-sm">Powered By</span>
         <Link
           href="https://platform.openai.com/docs/models/gpt-3-5"

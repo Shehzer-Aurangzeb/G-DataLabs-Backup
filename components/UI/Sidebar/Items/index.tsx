@@ -29,7 +29,7 @@ function Items({ items }: IProps) {
               alt="icon"
               className="w-[30px] h-[30px]"
             />
-            <span className="font-sans text-main dark:text-primary text-xl font-medium">{item.title}</span>
+            <span className="font-sans text-[#575757] dark:text-primary text-xl font-medium">{item.title}</span>
           </Link>
 
           {item.nestedItems && (
@@ -51,7 +51,7 @@ function Items({ items }: IProps) {
                           theme === Theme.DARK ? SIDEBARLINKSCOLORS.DARK[index] : SIDEBARLINKSCOLORS.LIGHT[index],
                       }}
                     />
-                    <span className="font-sans text-main dark:text-primary text-base font-medium">
+                    <span className="font-sans text-[#575757] dark:text-primary text-base font-medium">
                       {nestedItem.title}
                     </span>
                   </Link>

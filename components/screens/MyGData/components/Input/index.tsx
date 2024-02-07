@@ -10,6 +10,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   isMonetaryInput?: boolean;
   currency?: string;
+  onclick?: () => void;
 }
 function Input({
   readOnly,
@@ -21,6 +22,7 @@ function Input({
   className,
   currency = '$',
   isMonetaryInput = false,
+  onclick,
 }: IProps) {
   return (
     <div
@@ -37,18 +39,19 @@ function Input({
       <input
         autoComplete="off"
         pattern={pattern}
-        onChange={onChange}
         name={name}
         readOnly={readOnly}
         id={name}
         type={type || 'number'}
         value={value}
+        onChange={onChange}
         className="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]"
       />
-
-      <label htmlFor={name} className={`cursor-pointer ${readOnly && 'opacity-0 invisible'}`}>
-        <Image src={edit} alt="edit-icon" className="w-[24px] h-[24px] dark:invert" />
-      </label>
+      <div onClick={onclick} role="presentation">
+        <label htmlFor={name} className={`cursor-pointer ${readOnly && 'opacity-0 invisible'}`}>
+          <Image src={edit} alt="edit-icon" className="w-[24px] h-[24px] dark:invert" />
+        </label>
+      </div>
     </div>
   );
 }

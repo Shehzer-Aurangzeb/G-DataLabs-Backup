@@ -404,7 +404,7 @@ exports.modules = {
                       className: 'w-[30px] h-[30px]',
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx('span', {
-                      className: 'font-sans text-main dark:text-primary text-xl font-medium',
+                      className: 'font-sans text-[#575757] dark:text-primary text-xl font-medium',
                       children: item.title,
                     }),
                   ],
@@ -434,7 +434,7 @@ exports.modules = {
                                 },
                               }),
                               /*#__PURE__*/ jsx_runtime_.jsx('span', {
-                                className: 'font-sans text-main dark:text-primary text-base font-medium',
+                                className: 'font-sans text-[#575757] dark:text-primary text-base font-medium',
                                 children: nestedItem.title,
                               }),
                             ],
@@ -658,7 +658,7 @@ exports.modules = {
 
     function MainLayout({ children }) {
       return /*#__PURE__*/ (0, jsx_runtime_.jsxs)('div', {
-        className: 'h-screen w-screen flex dark:bg-[#b6b6b5] flex-row py-5 pr-5',
+        className: 'h-screen w-screen flex bg-[#f1e6d9] dark:bg-[#b6b6b5] flex-row py-5 pr-5',
         children: [/*#__PURE__*/ jsx_runtime_.jsx(UI_Sidebar, {}), children],
       });
     }
@@ -4083,7 +4083,7 @@ exports.modules = {
     function Main({ children, className = ' ', style }) {
       return /*#__PURE__*/ jsx_runtime_.jsx('div', {
         className: [
-          'bg-light drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden',
+          'bg-[#fbf8f1] drop-shadow-container h-[calc(100vh_-_2.5rem)] w-full flex-1 rounded-l-lg relative overflow-hidden',
           className,
         ].join(' '),
         style: style,

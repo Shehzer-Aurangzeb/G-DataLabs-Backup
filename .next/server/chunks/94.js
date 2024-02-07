@@ -84,6 +84,7 @@ exports.modules = {
       className,
       currency = '$',
       isMonetaryInput = false,
+      onclick,
     }) {
       return /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('div', {
         className: [
@@ -99,26 +100,30 @@ exports.modules = {
           /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('input', {
             autoComplete: 'off',
             pattern: pattern,
-            onChange: onChange,
             name: name,
             readOnly: readOnly,
             id: name,
             type: type || 'number',
             value: value,
+            onChange: onChange,
             className:
               'bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[100px]',
           }),
-          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('label', {
-            htmlFor: name,
-            className: `cursor-pointer ${readOnly && 'opacity-0 invisible'}`,
-            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
-              _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
-              {
-                src: _public_assets__WEBPACK_IMPORTED_MODULE_3__ /* .edit */.eP,
-                alt: 'edit-icon',
-                className: 'w-[24px] h-[24px] dark:invert',
-              },
-            ),
+          /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('div', {
+            onClick: onclick,
+            role: 'presentation',
+            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx('label', {
+              htmlFor: name,
+              className: `cursor-pointer ${readOnly && 'opacity-0 invisible'}`,
+              children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(
+                _components_UI_StyledImage__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z,
+                {
+                  src: _public_assets__WEBPACK_IMPORTED_MODULE_3__ /* .edit */.eP,
+                  alt: 'edit-icon',
+                  className: 'w-[24px] h-[24px] dark:invert',
+                },
+              ),
+            }),
           }),
         ],
       });
