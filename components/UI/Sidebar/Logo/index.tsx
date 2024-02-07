@@ -9,7 +9,7 @@ import { Theme } from '@/types';
 function Logo() {
   const { theme } = useTheme();
   return (
-    <Link href="https://www.g-datalabs.com/" className="flex flex-row gap-x-3 items-center">
+    <Link href="https://www.g-datalabs.com/" className="flex flex-row gap-x-3 items-center mt-[0.5rem] md:mt-0">
       <div className="relative w-[50px] h-[50px] laptop:w-[40px] laptop:h-[40px]">
         {theme === Theme.LIGHT ? (
           <Image unoptimized src="/images/logo.png" alt="logo" fill className="object-contain " />

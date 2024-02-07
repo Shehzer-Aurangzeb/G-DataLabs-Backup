@@ -5,8 +5,8 @@
     1839: function (e, i, n) {
       var t = n(7437);
       n(2265);
-      var r = n(3427),
-        o = n(4246);
+      var o = n(3427),
+        r = n(4246);
       i.Z = function (e) {
         let {
           children: i,
@@ -24,8 +24,8 @@
           disabled: s || l,
           children: [
             s
-              ? (0, t.jsx)(o.Z, { style: { color: '#fff', margin: '0 auto' } })
-              : (0, t.jsx)(r.Z, { src: c, alt: 'button-icon', className: ' h-full w-full' }),
+              ? (0, t.jsx)(r.Z, { style: { color: '#fff', margin: '0 auto' } })
+              : (0, t.jsx)(o.Z, { src: c, alt: 'button-icon', className: ' h-full w-full' }),
             i,
           ],
         });
@@ -63,16 +63,16 @@
     3427: function (e, i, n) {
       var t = n(7437);
       n(2265);
-      var r = n(6691),
-        o = n.n(r);
+      var o = n(6691),
+        r = n.n(o);
       i.Z = function (e) {
-        let { className: i, src: n, alt: r, rounded: a = !1 } = e;
+        let { className: i, src: n, alt: o, rounded: a = !1 } = e;
         return (0, t.jsx)('div', {
           className: ['relative', i].join(' '),
-          children: (0, t.jsx)(o(), {
+          children: (0, t.jsx)(r(), {
             unoptimized: !0,
             src: n,
-            alt: r,
+            alt: o,
             fill: !0,
             className: ''.concat(a ? 'object-cover rounded-full' : 'object-contain', ' '),
           }),
@@ -82,14 +82,14 @@
     3470: function (e, i, n) {
       n.d(i, {
         A: function () {
-          return o;
+          return r;
         },
         r: function () {
-          return r;
+          return o;
         },
       });
       var t = n(9611);
-      let r = [
+      let o = [
           { Header: 'Personal Data and Webcam', accessor: 'PDataAndWeb' },
           { Header: 'Definition', accessor: 'Definition' },
           { Header: 'List Of Unit', accessor: 'Unit' },
@@ -99,7 +99,7 @@
           { Header: 'Consent', accessor: 'Consent' },
           { Header: 'Field Name', accessor: 'fieldName' },
         ],
-        o = {
+        r = {
           'EMOTIONAL OVERALL': {
             Consent: 'FALSE',
             Definition: t.Gj.emotional_overall.definition,
@@ -312,14 +312,14 @@
     9787: function (e, i, n) {
       n.d(i, {
         E: function () {
-          return o;
+          return r;
         },
         J: function () {
-          return r;
+          return o;
         },
       });
       var t = n(9611);
-      let r = [
+      let o = [
           { Header: 'Personal Data and Webcam', accessor: 'PDataAndWeb' },
           { Header: 'Definition', accessor: 'Definition' },
           { Header: 'List Of Unit', accessor: 'Unit' },
@@ -330,7 +330,7 @@
           { Header: 'Consent', accessor: 'Consent' },
           { Header: 'id', accessor: 'id' },
         ],
-        o = {
+        r = {
           'Emotional Overall': {
             Consent: 'FALSE',
             Definition: t.Gj.emotional_overall.definition,
@@ -566,22 +566,22 @@
     9611: function (e, i, n) {
       n.d(i, {
         Gj: function () {
-          return o;
+          return r;
         },
         kk: function () {
           return a;
         },
         nz: function () {
-          return r;
+          return o;
         },
       });
       var t = n(8118);
-      let r = [
+      let o = [
           { title: 'Text', color: '#046C98', value: t.D.TEXT, darkColor: '#A1BF8C' },
           { title: 'Image', color: '#F5B11A', value: t.D.IMAGES, darkColor: '#F5B11A' },
           { title: 'Text + Image', color: '#E62431', value: t.D.BOTH, darkColor: '#907CB4' },
         ],
-        o = {
+        r = {
           emotional_list: {
             definition: 'list of emotions experienced throughout the day',
             unit: 'Price per list of daily emotions',
@@ -677,14 +677,14 @@
     5021: function (e, i, n) {
       n.d(i, {
         f: function () {
-          return r;
+          return o;
         },
         p: function () {
-          return o;
+          return r;
         },
       });
       var t = n(9611);
-      let r = [
+      let o = [
           { Header: 'Personal Data and ScreenData', accessor: 'PDataAndScreen' },
           { Header: 'List Of Unit', accessor: 'Unit' },
           { Header: 'Consent', accessor: 'Consent' },
@@ -692,7 +692,7 @@
           { Header: 'Other Companies Value', accessor: 'OtherCompValue' },
           { Header: 'id', accessor: 'id' },
         ],
-        o = {
+        r = {
           'Emotional Overall': {
             Consent: 'TRUE',
             PDefinedValue: '0.00',
@@ -841,11 +841,11 @@
     1846: function (e, i, n) {
       n.d(i, {
         O: function () {
-          return r;
+          return o;
         },
       });
       var t = n(2265);
-      let r = (e, i) => {
+      let o = (e, i) => {
         let n = (0, t.useCallback)(
           (n) => {
             e && e.current && !e.current.contains(n.target) && i();
@@ -866,11 +866,11 @@
     9907: function (e, i, n) {
       n.d(i, {
         i: function () {
-          return r;
+          return o;
         },
       });
       var t = n(2265);
-      function r() {
+      function o() {
         let [e, i] = (0, t.useState)({ width: 0, height: 0 });
         return (
           (0, t.useEffect)(() => {
@@ -892,10 +892,10 @@
           return c;
         },
         IH: function () {
-          return m;
+          return g;
         },
         x7: function () {
-          return b;
+          return D;
         },
         T7: function () {
           return d;
@@ -904,31 +904,31 @@
           return l;
         },
         W6: function () {
-          return g;
+          return A;
         },
         Xv: function () {
-          return U;
-        },
-        WA: function () {
           return p;
         },
-        JE: function () {
+        WA: function () {
           return E;
         },
-        QM: function () {
+        JE: function () {
           return C;
         },
+        QM: function () {
+          return _;
+        },
         oB: function () {
-          return G;
+          return T;
         },
         eP: function () {
-          return D;
+          return U;
         },
         th: function () {
-          return S;
+          return w;
         },
         m8: function () {
-          return o;
+          return r;
         },
         nm: function () {
           return a;
@@ -937,34 +937,31 @@
           return t;
         },
         kP: function () {
-          return r;
+          return o;
         },
         kS: function () {
           return u;
         },
         PA: function () {
-          return j;
+          return b;
         },
         HB: function () {
           return v;
         },
         PD: function () {
-          return T;
+          return G;
         },
         lW: function () {
           return h;
         },
         fR: function () {
-          return w;
+          return j;
         },
         Ix: function () {
-          return A;
-        },
-        pE: function () {
           return f;
         },
         ws: function () {
-          return _;
+          return m;
         },
       });
       var t = {
@@ -974,14 +971,14 @@
           blurWidth: 0,
           blurHeight: 0,
         },
-        r = {
+        o = {
           src: '/_next/static/media/home__icon_dark.836472a3.svg',
           height: 31,
           width: 31,
           blurWidth: 0,
           blurHeight: 0,
         },
-        o = {
+        r = {
           src: '/_next/static/media/history__icon.317786c2.svg',
           height: 31,
           width: 31,
@@ -1032,15 +1029,6 @@
         },
         h = { src: '/_next/static/media/send__icon.ef522f85.svg', height: 41, width: 40, blurWidth: 0, blurHeight: 0 },
         f = {
-          src: '/_next/static/media/sidebar__icon.ffb450fe.png',
-          height: 256,
-          width: 256,
-          blurDataURL:
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAATklEQVR42mWNMQ5AQBQF5wgbJ1AIsYnSAXRarUSpwiV0Sg48kSj98r1kZgALK0sbs4lvnt4+ru5eJuyc7R0B3MzYujg4AXhYhyMgUfrPvqNHQdEzcD6aAAAAAElFTkSuQmCC',
-          blurWidth: 8,
-          blurHeight: 8,
-        },
-        A = {
           src: '/_next/static/media/sidebar_dark__icon.058fcac0.png',
           height: 256,
           width: 256,
@@ -1049,47 +1037,47 @@
           blurWidth: 8,
           blurHeight: 8,
         },
-        g = { src: '/_next/static/media/chat__icon.a90e55c7.svg', height: 25, width: 25, blurWidth: 0, blurHeight: 0 },
-        m = { src: '/_next/static/media/add__icon.759b9985.svg', height: 31, width: 30, blurWidth: 0, blurHeight: 0 },
-        _ = {
+        A = { src: '/_next/static/media/chat__icon.a90e55c7.svg', height: 25, width: 25, blurWidth: 0, blurHeight: 0 },
+        g = { src: '/_next/static/media/add__icon.759b9985.svg', height: 31, width: 30, blurWidth: 0, blurHeight: 0 },
+        m = {
           src: '/_next/static/media/upload__icon.155b8d29.svg',
           height: 37,
           width: 36,
           blurWidth: 0,
           blurHeight: 0,
         },
-        C = {
+        _ = {
           src: '/_next/static/media/cross_disable__icon.5c8e8498.svg',
           height: 36,
           width: 36,
           blurWidth: 0,
           blurHeight: 0,
         },
-        E = {
+        C = {
           src: '/_next/static/media/cross_active__icon.4db9eef5.svg',
           height: 36,
           width: 36,
           blurWidth: 0,
           blurHeight: 0,
         },
-        p = {
+        E = {
           src: '/_next/static/media/check_disable__icon.f95d0a9b.svg',
           height: 36,
           width: 36,
           blurWidth: 0,
           blurHeight: 0,
         },
-        U = {
+        p = {
           src: '/_next/static/media/check_active__icon.0ce21cf2.svg',
           height: 36,
           width: 36,
           blurWidth: 0,
           blurHeight: 0,
         },
-        D = { src: '/_next/static/media/edit__icon.0dee8109.svg', height: 25, width: 24, blurWidth: 0, blurHeight: 0 },
-        b = { src: '/_next/static/media/arrow__icon.c780bc0f.svg', height: 24, width: 28, blurWidth: 0, blurHeight: 0 },
-        T = { src: '/_next/static/media/plus__icon.30d10bc7.svg', height: 21, width: 23, blurWidth: 0, blurHeight: 0 },
-        G = {
+        U = { src: '/_next/static/media/edit__icon.0dee8109.svg', height: 25, width: 24, blurWidth: 0, blurHeight: 0 },
+        D = { src: '/_next/static/media/arrow__icon.c780bc0f.svg', height: 24, width: 28, blurWidth: 0, blurHeight: 0 },
+        G = { src: '/_next/static/media/plus__icon.30d10bc7.svg', height: 21, width: 23, blurWidth: 0, blurHeight: 0 },
+        T = {
           src: '/_next/static/media/default-profile.b62773a2.png',
           height: 90,
           width: 90,
@@ -1107,7 +1095,7 @@
           blurWidth: 8,
           blurHeight: 8,
         },
-        j = {
+        b = {
           src: '/_next/static/media/no-chats.8d8a2b29.png',
           height: 100,
           width: 100,
@@ -1116,7 +1104,7 @@
           blurWidth: 8,
           blurHeight: 8,
         },
-        w = {
+        j = {
           src: '/_next/static/media/showpassword__icon.9d4e8d08.png',
           height: 24,
           width: 24,
@@ -1125,7 +1113,7 @@
           blurWidth: 8,
           blurHeight: 8,
         },
-        S = {
+        w = {
           src: '/_next/static/media/hidepassword__icon.84b28e09.png',
           height: 60,
           width: 60,
@@ -1142,8 +1130,8 @@
         },
       });
       var t = n(3198),
-        r = n(2265),
-        o = n(5531),
+        o = n(2265),
+        r = n(5531),
         a = n(8118),
         s = n(323);
       let c = () => {
@@ -1154,53 +1142,53 @@
             recentChatHistory: c,
             activeChatID: d,
           } = (0, t.v9)((e) => e.chats),
-          l = (0, o.TL)(),
-          u = (0, r.useCallback)(
+          l = (0, r.TL)(),
+          u = (0, o.useCallback)(
             (e) => {
               l((0, s.hH)(e));
             },
             [l],
           ),
-          h = (0, r.useCallback)(() => {
+          h = (0, o.useCallback)(() => {
             l((0, s.Zp)());
           }, [l]),
-          f = (0, r.useCallback)(
+          f = (0, o.useCallback)(
             (e, i) => {
               l((0, s.IM)({ chat: e, newMessageID: i }));
             },
             [l],
           ),
-          A = (0, r.useCallback)(
+          A = (0, o.useCallback)(
             (e) => {
               l((0, s.vV)(e));
             },
             [l],
           ),
-          g = (0, r.useCallback)(() => {
+          g = (0, o.useCallback)(() => {
             l((0, s.vV)({ data: '', choice: a.D.TEXT }));
           }, [l]),
-          m = (0, r.useCallback)(
+          m = (0, o.useCallback)(
             (e) => {
               l((0, s._1)(e));
             },
             [l],
           ),
-          _ = (0, r.useCallback)(
+          _ = (0, o.useCallback)(
             (e) => {
               l((0, s.cM)(e));
             },
             [l],
           ),
-          C = (0, r.useCallback)(() => {
+          C = (0, o.useCallback)(() => {
             l((0, s.vO)());
           }, [l]),
-          E = (0, r.useCallback)(
+          E = (0, o.useCallback)(
             (e) => {
               l((0, s.TK)(e));
             },
             [l],
           ),
-          p = (0, r.useCallback)(
+          p = (0, o.useCallback)(
             (e) => {
               E(e.id), e.messages.length > 0 && l((0, s.NI)(e.messages));
             },
@@ -1256,17 +1244,17 @@
         },
       });
       var t = n(9930),
-        r = n(8118);
-      let o = {
+        o = n(8118);
+      let r = {
           chats: [],
           chatHistory: [],
           recentChatHistory: {},
           activeChatID: void 0,
-          userPrompt: { data: '', choice: r.D.TEXT },
+          userPrompt: { data: '', choice: o.D.TEXT },
         },
         a = (0, t.oM)({
           name: 'chats',
-          initialState: o,
+          initialState: r,
           reducers: {
             setChatsAction: (e, i) => ({ ...e, chats: [...e.chats, i.payload] }),
             updateChatAction: (e, i) => ({
@@ -1298,30 +1286,30 @@
       i.ZP = a.reducer;
     },
     8118: function (e, i, n) {
-      var t, r;
+      var t, o;
       n.d(i, {
         D: function () {
           return t;
         },
       }),
-        ((r = t || (t = {})).BOTH = 'both'),
-        (r.TEXT = 'answer'),
-        (r.IMAGES = 'images');
+        ((o = t || (t = {})).BOTH = 'both'),
+        (o.TEXT = 'answer'),
+        (o.IMAGES = 'images');
     },
     22: function (e, i, n) {
       n.d(i, {
         d: function () {
-          return o;
+          return r;
         },
       });
       var t = n(9930);
-      let r = (0, t.oM)({
+      let o = (0, t.oM)({
           name: 'loading',
           initialState: { isLoading: !1 },
           reducers: { setIsLoadingStateAction: (e, i) => ({ ...e, isLoading: i.payload }) },
         }),
-        { setIsLoadingStateAction: o } = r.actions;
-      i.Z = r.reducer;
+        { setIsLoadingStateAction: r } = o.actions;
+      i.Z = o.reducer;
     },
     859: function (e, i, n) {
       n.d(i, {
@@ -1345,10 +1333,10 @@
         },
       });
       var t = n(9930),
-        r = n(9787),
-        o = n(3470),
+        o = n(9787),
+        r = n(3470),
         a = n(5021);
-      let s = { personalData: {}, gData: {}, rData: a.p, cData: r.E, compData: o.A, screenData: [] },
+      let s = { personalData: {}, gData: {}, rData: a.p, cData: o.E, compData: r.A, screenData: [] },
         c = (0, t.oM)({
           name: 'my_g_data',
           initialState: s,
@@ -1374,17 +1362,17 @@
     8421: function (e, i, n) {
       n.d(i, {
         H: function () {
-          return o;
+          return r;
         },
       });
       var t = n(9930);
-      let r = (0, t.oM)({
+      let o = (0, t.oM)({
           name: 'sidebar',
           initialState: { isOpen: !1 },
           reducers: { setIsOpenAction: (e, i) => ({ isOpen: i.payload }) },
         }),
-        { setIsOpenAction: o } = r.actions;
-      i.Z = r.reducer;
+        { setIsOpenAction: r } = o.actions;
+      i.Z = o.reducer;
     },
     5531: function (e, i, n) {
       n.d(i, {
@@ -1393,8 +1381,8 @@
         },
       });
       var t = n(7373),
-        r = n(9930),
-        o = n(3198),
+        o = n(9930),
+        r = n(3198),
         a = n(1267),
         s = n(6346),
         c = n(1850),
@@ -1407,39 +1395,39 @@
       let g = (0, t.UY)({ user: d.Z, loading: l.Z, my_g_data: u.ZP, chats: h.ZP, sidebar: f.Z, weather: A.Z }),
         m = { key: 'root', storage: c.Z, blacklist: ['loading', 'user', 'chats', 'my_g_data'] },
         _ = (0, a.OJ)(m, g),
-        C = (0, r.xC)({ reducer: _, middleware: [s.Z] });
+        C = (0, o.xC)({ reducer: _, middleware: [s.Z] });
       (i.ZP = C), (0, a.p5)(C);
-      let E = o.I0;
+      let E = r.I0;
     },
     8557: function (e, i, n) {
       n.d(i, {
         K: function () {
-          return o;
+          return r;
         },
       });
       var t = n(9930);
-      let r = (0, t.oM)({
+      let o = (0, t.oM)({
           name: 'user',
           initialState: { isAuthenticated: !1, user: void 0 },
           reducers: { setUserAction: (e, i) => ({ ...e, ...i.payload }) },
         }),
-        { setUserAction: o } = r.actions;
-      i.Z = r.reducer;
+        { setUserAction: r } = o.actions;
+      i.Z = o.reducer;
     },
     54: function (e, i, n) {
       n.d(i, {
         _: function () {
-          return o;
+          return r;
         },
       });
       var t = n(9930);
-      let r = (0, t.oM)({
+      let o = (0, t.oM)({
           name: 'weather',
           initialState: { weather: void 0 },
           reducers: { setWeatherAction: (e, i) => ({ ...e, weather: i.payload }) },
         }),
-        { setWeatherAction: o } = r.actions;
-      i.Z = r.reducer;
+        { setWeatherAction: r } = o.actions;
+      i.Z = o.reducer;
     },
   },
 ]);

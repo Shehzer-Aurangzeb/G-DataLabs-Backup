@@ -348,7 +348,7 @@ exports.modules = {
       const { theme } = (0, ThemeProvider /* useTheme */.F)();
       return /*#__PURE__*/ (0, jsx_runtime_.jsxs)(link_default(), {
         href: 'https://www.g-datalabs.com/',
-        className: 'flex flex-row gap-x-3 items-center',
+        className: 'flex flex-row gap-x-3 items-center mt-[0.5rem] md:mt-0',
         children: [
           /*#__PURE__*/ jsx_runtime_.jsx('div', {
             className: 'relative w-[50px] h-[50px] laptop:w-[40px] laptop:h-[40px]',
@@ -611,7 +611,7 @@ exports.modules = {
                 className: 'absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
                 onClick: () => setIsOpen(!isOpen),
                 type: 'button',
-                src: assets /* sidebar_icon_light */.pE,
+                src: assets /* sidebar_icon_dark */.Ix,
               }),
             }),
           /*#__PURE__*/ (0, jsx_runtime_.jsxs)('aside', {
@@ -632,7 +632,7 @@ exports.modules = {
                     'z-10 absolute top-3 right-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
                   onClick: () => setIsOpen(!isOpen),
                   type: 'button',
-                  src: assets /* sidebar_icon_light */.pE,
+                  src: assets /* sidebar_icon_dark */.Ix,
                 }),
               /*#__PURE__*/ jsx_runtime_.jsx(Sidebar_Items, {
                 items: navItems,
@@ -2955,11 +2955,10 @@ exports.modules = {
       lW: () => /* reexport */ send_icon,
       fR: () => /* reexport */ showpassword_icon,
       Ix: () => /* reexport */ sidebar_dark_icon,
-      pE: () => /* reexport */ sidebar_icon,
       ws: () => /* reexport */ upload_icon,
     }); // CONCATENATED MODULE: ./public/icons/home__icon.svg
 
-    // UNUSED EXPORTS: myGData
+    // UNUSED EXPORTS: myGData, sidebar_icon_light
 
     /* harmony default export */ const home_icon = {
       src: '/_next/static/media/home__icon.77c058d5.svg',

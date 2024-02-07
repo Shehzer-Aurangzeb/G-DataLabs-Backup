@@ -38,7 +38,7 @@
       a.r(t),
         a.d(t, {
           default: function () {
-            return I;
+            return P;
           },
         });
       var n = a(7437),
@@ -101,7 +101,7 @@
           let { theme: e } = (0, _.F)();
           return (0, n.jsxs)(w(), {
             href: 'https://www.g-datalabs.com/',
-            className: 'flex flex-row gap-x-3 items-center',
+            className: 'flex flex-row gap-x-3 items-center mt-[0.5rem] md:mt-0',
             children: [
               (0, n.jsx)('div', {
                 className: 'relative w-[50px] h-[50px] laptop:w-[40px] laptop:h-[40px]',
@@ -263,8 +263,8 @@
             ],
           });
         },
-        E = a(1515),
-        R = function (e) {
+        R = a(1515),
+        T = function (e) {
           let { logoutUser: t, user: a } = e;
           return (0, n.jsxs)('div', {
             className:
@@ -281,7 +281,7 @@
                 children: [
                   (0, n.jsx)('h3', {
                     className: 'font-sans font-bold text-xl text-active  leading-6  max-w-[140px] truncate',
-                    children: (0, E.kC)(''.concat(a.firstName, ' ').concat(a.lastName)),
+                    children: (0, R.kC)(''.concat(a.firstName, ' ').concat(a.lastName)),
                   }),
                   (0, n.jsx)('p', {
                     className: 'font-sans font-normal text-active text-base max-w-[140px] truncate',
@@ -298,8 +298,8 @@
             ],
           });
         },
-        T = a(1839),
-        L = function () {
+        E = a(1839),
+        I = function () {
           let { width: e } = (0, m.i)(),
             { isOpen: t, setIsOpen: a } = g(),
             o = (0, s.useRef)(null),
@@ -330,12 +330,12 @@
                 e < 1280 &&
                   (0, n.jsx)('div', {
                     className: 'h-[calc(100vh_-_2.5rem)] bg-[#f1e6d9] dark:bg-transparent relative w-[50px]',
-                    children: (0, n.jsx)(T.Z, {
+                    children: (0, n.jsx)(E.Z, {
                       className:
                         'absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
                       onClick: () => a(!t),
                       type: 'button',
-                      src: c.pE,
+                      src: c.Ix,
                     }),
                   }),
                 (0, n.jsxs)('aside', {
@@ -352,17 +352,17 @@
                   children: [
                     (0, n.jsx)(j, {}),
                     e < 1280 &&
-                      (0, n.jsx)(T.Z, {
+                      (0, n.jsx)(E.Z, {
                         className:
                           'z-10 absolute top-3 right-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
                         onClick: () => a(!t),
                         type: 'button',
-                        src: c.pE,
+                        src: c.Ix,
                       }),
                     (0, n.jsx)(D, { items: v }),
                     (0, n.jsxs)('div', {
                       className: 'max-w-sidebarItem w-full',
-                      children: [h && y && (0, n.jsx)(R, { logoutUser: b, user: y }), (0, n.jsx)(A, {})],
+                      children: [h && y && (0, n.jsx)(T, { logoutUser: b, user: y }), (0, n.jsx)(A, {})],
                     }),
                   ],
                 }),
@@ -370,16 +370,16 @@
             })
           );
         },
-        P = function (e) {
+        L = function (e) {
           let { children: t } = e;
           return (0, n.jsxs)('div', {
             className: 'h-screen w-screen flex bg-[#f1e6d9] dark:bg-[#b6b6b5] flex-row py-5 pr-5',
-            children: [(0, n.jsx)(L, {}), t],
+            children: [(0, n.jsx)(I, {}), t],
           });
         },
-        I = function (e) {
+        P = function (e) {
           let { children: t } = e;
-          return (0, n.jsx)(P, { children: t });
+          return (0, n.jsx)(L, { children: t });
         };
     },
     289: function (e, t, a) {
@@ -479,7 +479,7 @@
               x(a);
             } catch (e) {}
           }, [m, x]),
-          E = (0, s.useCallback)(async () => {
+          R = (0, s.useCallback)(async () => {
             try {
               if (!j || !j.accountType || j.accountType === b.Z8.PERSONAL) return;
               let { data: e } = await i.h.get('api/company_consents_rewards/'.concat(j.id, '/')),
@@ -487,7 +487,7 @@
               v(t);
             } catch (e) {}
           }, [v, j]),
-          R = (0, s.useCallback)(async () => {
+          T = (0, s.useCallback)(async () => {
             try {
               let { data: e } = await i.h.get('api/user_personal_data/last_five'),
                 t = (0, o.uR)({ tableName: d.me.GData, data: e });
@@ -496,31 +496,31 @@
               N(a), u(t);
             } catch (e) {}
           }, [u]),
-          T = (0, s.useCallback)(async () => {
+          E = (0, s.useCallback)(async () => {
             try {
               let { data: e } = await i.h.get('api/file-data/'),
                 t = (0, o.Xe)(e.data);
               y(t);
             } catch (e) {}
           }, [y]),
-          L = (0, s.useCallback)(() => {
-            D(), R(), k(), w(), A(), T(), E();
-          }, [D, R, A, k, T, w, E]),
-          P = (0, s.useMemo)(
+          I = (0, s.useCallback)(() => {
+            D(), T(), k(), w(), A(), E(), R();
+          }, [D, T, A, k, E, w, R]),
+          L = (0, s.useMemo)(
             () => ({
               gTableColumns: _,
               getAllConsentData: A,
-              updateMyGData: R,
+              updateMyGData: T,
               getAllPersonalData: D,
-              getAllCompanyConsentData: E,
+              getAllCompanyConsentData: R,
             }),
-            [_, A, R, D, E],
+            [_, A, T, D, R],
           );
         return (
           (0, s.useEffect)(() => {
-            j && L();
-          }, [j, L]),
-          (0, n.jsx)(g.Provider, { value: P, children: t })
+            j && I();
+          }, [j, I]),
+          (0, n.jsx)(g.Provider, { value: L, children: t })
         );
       };
     },
