@@ -606,7 +606,7 @@ exports.modules = {
         children: [
           width < 1280 &&
             /*#__PURE__*/ jsx_runtime_.jsx('div', {
-              className: 'h-[calc(100vh_-_2.5rem)] bg-main dark:bg-transparent relative w-[50px]',
+              className: 'h-[calc(100vh_-_2.5rem)] bg-[#f1e6d9] dark:bg-transparent relative w-[50px]',
               children: /*#__PURE__*/ jsx_runtime_.jsx(IconButton /* default */.Z, {
                 className: 'absolute top-2 left-2 flex items-center justify-center w-[30px] h-[30px] dark:invert-[1]',
                 onClick: () => setIsOpen(!isOpen),
@@ -618,7 +618,7 @@ exports.modules = {
             ref: containerRef,
             className: `h-[calc(100vh_-_2.5rem)] flex flex-col gap-y-4 max-w-[360px] mobile:max-w-full items-start justify-between overflow-y-auto ${
               width < 1280
-                ? `fixed z-20 transition-all duration-300 bg-main dark:bg-[#9f9f9e] ${
+                ? `fixed z-20 transition-all duration-300 bg-light dark:bg-[#9f9f9e] ${
                     isOpen ? 'w-full  pl-5' : 'w-0 p-0'
                   }`
                 : ' pl-5 w-[25%] bg-transparent'
