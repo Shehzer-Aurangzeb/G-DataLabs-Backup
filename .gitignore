@@ -4,13 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
-/.next
-/.vscode
-/.yarn
+
 # testing
 /coverage
 
 # next.js
+/.next/
 /out/
 
 # production
