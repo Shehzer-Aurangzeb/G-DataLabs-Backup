@@ -32,7 +32,7 @@ export default async function middleware(request: NextRequest) {
       pathname === PATHS.OURGDATA) &&
     !cookie
   ) {
-    return NextResponse.redirect(new URL(PATHS.LOGIN, request.url));
+    return NextResponse.redirect(new URL(PATHS.HOME, request.url));
   }
 
   return NextResponse.next();

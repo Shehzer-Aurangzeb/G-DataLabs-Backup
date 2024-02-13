@@ -94,8 +94,8 @@ function Main() {
       <form className="flex flex-row flex-wrap gap-5 justify-center items-center" noValidate onSubmit={handleSubmit}>
         <div className="flex flex-row flex-wrap gap-x-14 gap-y-6 items-center justify-center">
           <Input
-            label="Limit Data"
-            placeholder="Limit Data"
+            label="Unit"
+            placeholder="0.00"
             name="limitPrice"
             error={
               (touched.limitPrice &&

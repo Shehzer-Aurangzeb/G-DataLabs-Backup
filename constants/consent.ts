@@ -68,7 +68,7 @@ export const SELLDATACOLUMNS: Column<Columns>[] = [
     accessor: 'amount' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Limit Data',
+    Header: 'Unit',
     accessor: 'limitPrice' as keyof Columns, // accessor is the "key" in the data
   },
   {
@@ -90,7 +90,7 @@ export const ASSETSDATACOLUMNS: Column<Columns>[] = [
     accessor: 'price' as keyof Columns, // accessor is the "key" in the data
   },
   {
-    Header: 'Data',
+    Header: 'Unit',
     accessor: 'value' as keyof Columns, // accessor is the "key" in the data
   },
   {

@@ -17,7 +17,7 @@ function Container({ children, type, className = '', style }: IProps) {
           {children}
         </Main>
       )}
-      {type === 'side' && <Side className={`${className} dark:bg-main`}>{children}</Side>}
+      {type === 'side' && <Side className={`${className} dark:bg-main bg-[#f1e6d9]`}>{children}</Side>}
     </>
   );
 }

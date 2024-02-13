@@ -21,7 +21,6 @@ function Table({ columns, data }: IProps) {
   useEffect(() => {
     // Add any side effects based on data changes if needed
   }, [data]);
-
   return (
     <table {...getTableProps()} className="w-full -mt-2">
       <thead>

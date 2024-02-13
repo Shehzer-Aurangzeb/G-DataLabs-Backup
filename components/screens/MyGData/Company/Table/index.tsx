@@ -56,24 +56,37 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     },
     [updateConsentRewards, values],
   );
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!recordID) return;
-      updateConsentRewards([
-        {
-          demanded_reward_value: Number(values[recordID].pricing),
-          usage: values[recordID].use,
-          threshold: Number(values[recordID].threshold),
-          personal_data_field: {
-            field_name: recordID,
-          },
-        },
-      ]);
-      setRecordID('');
-    }, 2000);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     if (!recordID) return;
+  //     updateConsentRewards([
+  //       {
+  //         demanded_reward_value: Number(values[recordID].pricing),
+  //         usage: values[recordID].use,
+  //         threshold: Number(values[recordID].threshold),
+  //         personal_data_field: {
+  //           field_name: recordID,
+  //         },
+  //       },
+  //     ]);
+  //     setRecordID('');
+  //   }, 2000);
 
-    return () => clearTimeout(timeout);
-  }, [values, recordID, updateConsentRewards]);
+  //   return () => clearTimeout(timeout);
+  // }, [values, recordID, updateConsentRewards]);
+  const handleButtonClick = () => {
+    if (!recordID) return;
+    updateConsentRewards([
+      {
+        demanded_reward_value: Number(values[recordID].pricing),
+        usage: values[recordID].use,
+        threshold: Number(values[recordID].threshold),
+        personal_data_field: {
+          field_name: recordID,
+        },
+      },
+    ]);
+  };
   useEffect(() => {
     setValues(createCompanyState(data));
   }, [data]);
@@ -126,6 +139,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       value={values[row.values.fieldName] ? values[row.values.fieldName].use : ''}
                       onChange={(e) => handleChange(e, 'use')}
                       className="min-w-[200px]"
+                      onClick={() => {}}
                     />
                   )}
                   {cell.column.id === 'Pricing' && (
@@ -138,6 +152,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       value={values[row.values.fieldName] ? values[row.values.fieldName].pricing : ''}
                       onChange={(e) => handleChange(e, 'pricing')}
                       className="min-w-[160px]"
+                      onclick={handleButtonClick}
                     />
                   )}
                   {cell.column.id === 'Threshold' && (
@@ -149,6 +164,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       value={values[row.values.fieldName] ? values[row.values.fieldName].threshold : ''}
                       onChange={(e) => handleChange(e, 'threshold')}
                       className="min-w-[160px]"
+                      onclick={handleButtonClick}
                     />
                   )}
                 </td>

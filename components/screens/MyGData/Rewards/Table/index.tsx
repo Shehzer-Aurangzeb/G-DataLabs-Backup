@@ -29,6 +29,7 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     const { value, name } = e.target;
     if (!/^\d*\.?\d*$/.test(value)) return;
     const fieldName = name.split('-')[0];
+
     setPDefinedValue((prev) => ({
       ...prev,
       [fieldName]: {
@@ -38,23 +39,33 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
     }));
     setRecordName(fieldName);
   };
-
+  const handleButtonClick = () => {
+    if (!recordName) return;
+    updateConsentRewards({
+      id: Number(PDefinedValue[recordName].id),
+      payload: {
+        demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+        consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+      },
+    });
+    setRecordName('');
+  };
   // debouncing
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!recordName) return;
-      updateConsentRewards({
-        id: Number(PDefinedValue[recordName].id),
-        payload: {
-          demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
-          consents_to_sell: PDefinedValue[recordName].consents_to_sell,
-        },
-      });
-      setRecordName('');
-    }, 2000);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     if (!recordName) return;
+  //     updateConsentRewards({
+  //       id: Number(PDefinedValue[recordName].id),
+  //       payload: {
+  //         demanded_reward_value: parseFloat(PDefinedValue[recordName].demanded_reward_value),
+  //         consents_to_sell: PDefinedValue[recordName].consents_to_sell,
+  //       },
+  //     });
+  //     setRecordName('');
+  //   }, 2000);
 
-    return () => clearTimeout(timeout);
-  }, [PDefinedValue, recordName, updateConsentRewards]);
+  //   return () => clearTimeout(timeout);
+  // }, [PDefinedValue, recordName, updateConsentRewards]);
 
   useEffect(() => {
     setPDefinedValue(createRewardsTableState(data));
@@ -114,10 +125,11 @@ function Table({ columns, data, updateConsentRewards }: IProps) {
                       id={row.values.id}
                       type="text"
                       pattern="\d*\.?\d*"
-                      readOnly={row.values.id === null}
+                      readOnly={row.values.Consent === 'FALSE'}
                       isMonetaryInput
                       value={PDefinedValue[row.values.PDataAndScreen]?.demanded_reward_value}
                       onChange={handleChange}
+                      onclick={handleButtonClick}
                     />
                   )}
                   {cell.column.id === 'OtherCompValue' && (

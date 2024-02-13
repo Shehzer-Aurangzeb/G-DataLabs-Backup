@@ -113,6 +113,7 @@ export default function Main() {
           onClick={() => {
             router.push(`${pathname}/sell`);
           }}
+          isLoading={false}
         />
       </div>
     </div>
