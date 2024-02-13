@@ -40,6 +40,64 @@ export const CONSENTTABLECOLUMNS: Column<Columns>[] = [
     accessor: 'id' as keyof Columns, // accessor is the "key" in the data
   },
 ];
+export const DATATABLECOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Name',
+    accessor: 'name' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Price',
+    accessor: 'prices' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Graph',
+    accessor: 'graph' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Action',
+    accessor: 'action' as keyof Columns, // accessor is the "key" in the data
+  },
+];
+export const SELLDATACOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Name',
+    accessor: 'name' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Price',
+    accessor: 'amount' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Unit',
+    accessor: 'limitPrice' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Total',
+    accessor: 'total' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Action',
+    accessor: 'action' as keyof Columns, // accessor is the "key" in the data
+  },
+];
+export const ASSETSDATACOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Name',
+    accessor: 'name' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Price',
+    accessor: 'price' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Unit',
+    accessor: 'value' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Total',
+    accessor: 'total' as keyof Columns, // accessor is the "key" in the data
+  },
+];
 export const CONSENTTABLEDATA = {
   'Emotional Overall': {
     Consent: 'FALSE',

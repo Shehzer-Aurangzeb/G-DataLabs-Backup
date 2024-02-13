@@ -72,6 +72,18 @@ export const APPITEMS: TNAVITEMS[] = [
     icon: '/images/logo.png',
     icon_dark: '/images/logo-dark.png',
     to: PATHS.OURGDATA,
+    nestedItems: [
+      {
+        title: 'Data',
+        icon: '',
+        to: PATHS.DATA,
+      },
+      {
+        title: 'Assets',
+        icon: '',
+        to: PATHS.ASSETS,
+      },
+    ],
   },
   {
     title: 'My Account',

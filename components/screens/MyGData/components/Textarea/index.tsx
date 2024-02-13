@@ -27,7 +27,6 @@ function Textarea({ readOnly, name, onChange, value, className }: IProps) {
         cols={5}
         className="bg-chat dark:bg-[#727271] py-3 px-6 rounded-sm text-white font-sans font-medium text-xl focus:outline-none w-full max-w-[140px] resize-none"
       />
-
       <label htmlFor={name} className={`cursor-pointer ${readOnly && 'opacity-0 invisible'}`}>
         <Image src={edit} alt="edit-icon" className="w-[24px] h-[24px] dark:invert" />
       </label>

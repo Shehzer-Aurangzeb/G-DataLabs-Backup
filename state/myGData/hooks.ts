@@ -53,7 +53,6 @@ export const usePersonalData = () => {
     },
     [dispatch],
   );
-
   return {
     setPersonalData,
     setGData,
