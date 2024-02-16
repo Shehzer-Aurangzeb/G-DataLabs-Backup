@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import LineChart from '@/components/UI/LineChart';
+import CandleChart from '@/components/UI/CandleChart'; // Import CandleChart component
 import { DATATIMETYPESOPTIONS } from '@/constants/ourgdata';
 import { maxWidth } from '@/constants';
 import Select from '@/components/UI/Select';
@@ -20,6 +21,7 @@ type DataType = {
   mode: string;
   marker: { color: string };
 };
+
 export default function Main() {
   const router = useRouter();
   const pathname = usePathname();
@@ -31,6 +33,7 @@ export default function Main() {
   const [selectedTimeRange, setSelectedTimeRange] = useState('1 DAY');
   const [chartData, setChartData] = useState<DataType[]>([]);
   const [selectedDataType, setSelectedDataType] = useState('1 DAY');
+  const [chartType, setChartType] = useState('line'); // Track chart type
 
   const handleDataTypeChange = (selectedValue: string) => {
     setSelectedDataType(selectedValue);
@@ -40,37 +43,27 @@ export default function Main() {
     if (timeRange === '1 DAY') {
       return [
         {
-          // @ts-ignore
-          x: Object.keys(graphData?.chardata),
-          // @ts-ignore
-          y: Object.values(graphData?.chardata),
-          type: 'scatter',
-          mode: 'lines+markers',
+          x: Object.keys(graphData?.chardata || {}),
+          y: Object.values(graphData?.chardata || {}),
+          type: chartType === 'line' ? 'scatter' : 'candlestick', // Adjust type based on chartType
+          mode: chartType === 'line' ? 'lines+markers' : undefined,
           marker: { color: 'red' },
         },
       ];
     }
-    if (timeRange === '15 HOUR' || timeRange === '5 HOUR' || timeRange === '45 MINS') {
-      return [
-        {
-          y: graphData?.price,
-          x: graphData?.timeFrame,
-          type: 'scatter',
-          mode: 'lines+markers',
-          marker: { color: 'red' },
-        },
-      ];
-    }
-
+    // Handle other time ranges accordingly
+    // Modify this part as per your data structure
     return [];
   };
 
   useEffect(() => {
     const data = generateChartData(selectedTimeRange);
-    // @ts-ignore
-    // eslint-disable-next-line no-continue
-    setChartData(data);
-  }, [selectedTimeRange]);
+    const updatedData = data.map((item) => ({
+      ...item,
+      mode: item.mode || '', // Provide a default value for mode
+    }));
+    setChartData(updatedData);
+  }, [selectedTimeRange, chartType]); // Include chartType in dependencies
 
   const chartLayout = {
     xaxis: {
@@ -90,20 +83,36 @@ export default function Main() {
       <p className="font-bold text-[28px] dark:text-white justify-center items-center flex mb-4">{title}</p>
       <div className="justify-between flex items-center mx-4">
         <p className="font-bold text-[24px] dark:text-white">Price : {graphData?.prices} $</p>
-        <Select
-          value={selectedDataType}
-          options={DATATIMETYPESOPTIONS}
-          className="w-full max-w-[200px]"
-          onClick={(item: string) => {
-            handleDataTypeChange(item);
-            setSelectedTimeRange(item);
-            console.log(item);
-          }}
-        />
+        <div className="flex mx-4 gap-x-6">
+          <Select
+            value={selectedDataType}
+            options={DATATIMETYPESOPTIONS}
+            className="w-full max-w-[200px]"
+            onClick={(item: string) => {
+              handleDataTypeChange(item);
+              setSelectedTimeRange(item);
+            }}
+          />
+          {/* Selector for choosing chart type */}
+          <Select
+            value={chartType}
+            options={[
+              { label: 'Line Chart', value: 'line' },
+              { label: 'Candle Chart', value: 'candle' },
+            ]}
+            className="w-full max-w-[200px]"
+            onClick={(item: string) => setChartType(item)}
+          />
+        </div>
       </div>
 
       <div className="justify-center flex item-center my-4 max-w-full rounded-md mx-2">
-        <LineChart data={chartData} layout={chartLayout} />
+        {/* Render either LineChart or CandleChart based on chartType */}
+        {chartType === 'line' ? (
+          <LineChart data={chartData} layout={chartLayout} />
+        ) : (
+          <CandleChart data={chartData} layout={chartLayout} />
+        )}
       </div>
       <div className="flex justify-center items-center gap-x-4 my-4 bottom-2">
         <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue max-w-[250px]" title="BUY" />
