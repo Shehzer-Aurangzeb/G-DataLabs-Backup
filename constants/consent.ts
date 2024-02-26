@@ -79,6 +79,32 @@ export const SELLDATACOLUMNS: Column<Columns>[] = [
     Header: 'Action',
     accessor: 'action' as keyof Columns, // accessor is the "key" in the data
   },
+  {
+    Header: 'Status',
+    accessor: 'status' as keyof Columns, // accessor is the "key" in the data
+  },
+];
+export const BUYDATACOLUMNS: Column<Columns>[] = [
+  {
+    Header: 'Name',
+    accessor: 'name' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Price',
+    accessor: 'price' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Unit',
+    accessor: 'unit' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Total',
+    accessor: 'total' as keyof Columns, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Buy',
+    accessor: 'buy' as keyof Columns, // accessor is the "key" in the data
+  },
 ];
 export const ASSETSDATACOLUMNS: Column<Columns>[] = [
   {

@@ -67,12 +67,13 @@ export enum TableName {
   CompData = 'Company Data',
 }
 export type DatatableType = {
-  name: string;
+  name: string | undefined;
   prices: number | undefined;
   price?: number[];
   timeFrame?: string[];
   limitPrice?: number;
   chardata?: { [key: string]: number } | undefined;
+  status: string | undefined;
 }[];
 export type PersonalDataType = {
   consents_to_sell: boolean;

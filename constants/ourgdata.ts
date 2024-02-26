@@ -1,6 +1,6 @@
 export enum DATATIMETYPE {
   DAY = '1 DAY',
-  HOUR = '15 HOUR',
+  HOUR = '15 Mins',
   HALFMINS = '45 MINS',
   HOUR2 = '5 HOUR',
 }

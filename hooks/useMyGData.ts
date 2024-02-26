@@ -71,6 +71,7 @@ export const useMyGData = () => {
         setIsLoading(true);
         const { data } = await api.post('api/company_consents_rewards', payload);
         const companyData = createTableData({ tableName: TableName.CompData, data: data.data });
+
         setCompData(companyData);
         toast.success('Consent updated');
       } catch (e) {

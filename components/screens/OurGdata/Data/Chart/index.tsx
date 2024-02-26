@@ -115,7 +115,14 @@ export default function Main() {
         )}
       </div>
       <div className="flex justify-center items-center gap-x-4 my-4 bottom-2">
-        <Button type="submit" className="bg-blue w-full disabled:bg-disabledBlue max-w-[250px]" title="BUY" />
+        <Button
+          type="submit"
+          className="bg-blue w-full disabled:bg-disabledBlue max-w-[250px]"
+          title="BUY"
+          onClick={() => {
+            router.push(`${pathname}/buy`);
+          }}
+        />
         <Button
           className="bg-[#F5B11A] w-full max-w-[250px]"
           title="SELL"

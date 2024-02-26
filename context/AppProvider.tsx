@@ -62,6 +62,7 @@ function AppProvider({ children }: IProps) {
   const getAllConsentData = useCallback(async () => {
     try {
       const { data } = await api.get('api/user_consents_rewards');
+      console.log(data);
       const rData = createTableData({ tableName: TableName.RData, data: data.data });
       setRData(rData);
       const consentTableData = createTableData({ tableName: TableName.CData, data: data.data });

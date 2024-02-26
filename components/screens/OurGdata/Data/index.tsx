@@ -6,20 +6,25 @@ import { DATATABLECOLUMNS } from '@/constants/consent';
 import NoData from '@/components/UI/NoDataMessage';
 import { DatatableType } from '@/types';
 import { io } from 'socket.io-client';
+import moment from 'moment-timezone';
 import Table from './Table';
 
 function Main() {
-  const socket = io('https://api.g-datalabs.com/market_place', {
+  const socket = io(`${process.env.NEXT_PUBLIC_REACT_APP_BASE_URL}market_place`, {
     transports: ['websocket', 'polling'],
     reconnection: true,
   });
   const [tableData, setTableData] = useState<DatatableType>([]);
   useEffect(() => {
     socket.on('connect', () => {
-      socket.emit('consent_averages', {});
+      console.log('123');
+      socket.emit('consent_averages', {
+        interval: [moment().format('YYYY-MM-DD 00:00:00'), moment().subtract(1, 'days').format('YYYY-MM-DD 00:00:00')],
+      });
     });
 
     socket.on('consent_averages', (data) => {
+      console.log(data);
       if (data) {
         setTableData(
           data?.data?.map((item: any) => ({

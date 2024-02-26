@@ -16,14 +16,21 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-    },
+      "@/*": ["./*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "ecosystem.config.js"],
-  "exclude": ["node_modules"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "ecosystem.config.js",
+    "components/screens/OurGdata/Data/Buy/Table"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -5,7 +5,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '@/components/UI/Input';
 import { maxWidth } from '@/constants';
 import Button from '@/components/UI/Button';
@@ -15,6 +15,7 @@ import { useFormik } from 'formik';
 import { SELLINITIALVALUES } from '@/constants/auth';
 import { SellFormSchema } from '@/schema';
 import { SELLDATACOLUMNS } from '@/constants/consent';
+
 import Table from './Table';
 
 type UpdatedValues = {
@@ -30,14 +31,19 @@ function Main() {
   const pathname = usePathname();
   const title = pathname.split('/');
   const titleValue = title[title.length - 2];
+  const [total, setTotal] = useState(0);
   const data = DATATABLEDATA.find((item) => item.name === titleValue);
   let validation = true;
+
   const { handleSubmit, handleChange, values, touched, errors, setFieldValue, isValid } = useFormik({
-    initialValues: SELLINITIALVALUES,
+    initialValues: {
+      ...SELLINITIALVALUES,
+      amount: data?.prices,
+    },
     validationSchema: SellFormSchema,
     onSubmit: async (results, onSubmit) => {
       if (isValid && validation) {
-        console.log(results);
+        console.log('result', results);
         onSubmit.setSubmitting(false);
         const updatedValues = {
           ...values,
@@ -48,6 +54,11 @@ function Main() {
       }
     },
   });
+  useEffect(() => {
+    const newTotal = values?.amount && values.limitPrice && (values.amount * values.limitPrice || 0);
+    setTotal(newTotal || 0);
+  }, [values?.amount, values?.limitPrice]);
+
   const handleMaxButtonClick = () => {
     setFieldValue('limitPrice', data?.limitPrice || '');
     const value = data?.limitPrice && data?.prices ? data?.limitPrice * data?.prices : 0;
@@ -58,17 +69,22 @@ function Main() {
     };
     setTableData([updatedValues]);
   };
+
   const handleLimitPriceChange = (e: any) => {
-    const newLimitPrice = e.target.value;
-    if (!Number.isNaN(newLimitPrice) && data?.prices) {
-      const newTotal = newLimitPrice * data?.prices;
-      console.log('newTotal', newTotal);
-      setFieldValue('total', newTotal);
-    } else {
-      setFieldValue('total', 0.0);
-    }
-    handleChange(e);
+    handleChange(e); // Update values asynchronously
+    setTimeout(() => {
+      const newLimitPrice = e.target.value;
+
+      if (!Number.isNaN(newLimitPrice) && values?.amount) {
+        const newTotal = newLimitPrice * values?.amount;
+        console.log('newTotal', newTotal);
+        setFieldValue('total', newTotal);
+      } else {
+        setFieldValue('total', 0.0);
+      }
+    }, 0);
   };
+
   const handleDelete = (index: number) => {
     const newTableData = [...tableData];
     newTableData.splice(index, 1);
@@ -85,14 +101,14 @@ function Main() {
       <div className="flex justify-between items-center">
         <p className="text-primary dark:text-main text-lg font-bold font-sans">Last Price (24H) : {data?.prices} $ </p>
         <Button
-          className="bg-primary dark:bg-black text-white font-bold font-sans px-8 mx-4"
+          className="bg-primary dark:bg-black dark:text-white font-bold font-sans px-8 mx-4 bg-slate-600 text-black"
           title="Max"
           type="button"
           onClick={handleMaxButtonClick}
         />
       </div>
-      <form className="flex flex-row flex-wrap gap-5 justify-center items-center" noValidate onSubmit={handleSubmit}>
-        <div className="flex flex-row flex-wrap gap-x-14 gap-y-6 items-center justify-center">
+      <form className="flex flex-col gap-5 justify-center items-center" noValidate onSubmit={handleSubmit}>
+        <div className="flex flex-col flex-wrap gap-x-14 gap-y-6 items-center justify-center">
           <Input
             label="Unit"
             placeholder="0.00"
@@ -114,16 +130,18 @@ function Main() {
             type="number"
             min={0}
           />
-
           <Input
-            label="Amount"
+            label="Amount ($)"
             placeholder="0.00"
-            readOnly
             name="amount"
             error={touched.amount && errors.amount}
-            value={`${data?.prices} $`}
+            value={values.amount}
             className="max-w-[450px] w-full"
-            onChange={() => setFieldValue('amount', data?.price)}
+            onChange={(e) => {
+              const newAmount = e.target.value;
+              handleChange(e);
+              setFieldValue('amount', newAmount); // Update values.amount
+            }}
           />
 
           <Input
@@ -132,7 +150,7 @@ function Main() {
             readOnly
             name="total"
             error={touched.total && errors.total}
-            value={`${values.total} $`}
+            value={`${total} $`}
             className="max-w-[450px] w-full"
           />
         </div>
@@ -144,7 +162,7 @@ function Main() {
             title="Sell"
             disabled={!isValid}
             onClick={() => {
-              setFieldValue('amount', data?.prices);
+              setFieldValue('total', total);
             }}
           />
           <Button

@@ -290,6 +290,7 @@ export const DATATABLEDATA: DatatableType = [
       '22:00:00': 3,
       '23:00:00': 40,
     },
+    status: 'None',
   },
   {
     name: 'WEATHER',
@@ -334,6 +335,7 @@ export const DATATABLEDATA: DatatableType = [
       '09:00:00',
     ],
     limitPrice: 20,
+    status: 'None',
   },
   {
     name: 'RELATIVE_FINANCE_STATUS',
@@ -378,6 +380,7 @@ export const DATATABLEDATA: DatatableType = [
       '09:00:00',
     ],
     limitPrice: 30,
+    status: 'None',
   },
   {
     name: 'EXERCISE_TIME',
@@ -422,6 +425,7 @@ export const DATATABLEDATA: DatatableType = [
       '09:00:00',
     ],
     limitPrice: 10,
+    status: 'None',
   },
 ];
 

@@ -1,21 +1,23 @@
 /* eslint-disable no-nested-ternary */
 // eslint-disable-next-line import/no-named-as-default
 
-import { Column, useTable } from 'react-table';
+import { useTable } from 'react-table';
 import React, { useEffect, useState } from 'react';
-import { Columns } from '@/types';
+// import { Columns } from '@/types';
 import { useTheme } from '@/context/ThemeProvider';
-import { Modal } from '@/components/UI/Modal';
+import Modal from '@/components/UI/Modal';
 import { delete_icon } from '@/public/assets';
 import Image from 'next/image';
+import buy_icon from '@/public/icons/dollar.gif';
 
 interface IProps {
   data: any;
-  columns: Column<Columns>[];
-  handleDelete: (index: number) => void;
+  columns: any;
+  handleDelete?: (index: number) => void;
+  handleBuy?: ((index: number) => void | undefined) | undefined;
 }
 
-function Table({ columns, data, handleDelete }: IProps) {
+function Table({ columns, data, handleDelete, handleBuy }: IProps) {
   const { theme } = useTheme();
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
@@ -33,36 +35,41 @@ function Table({ columns, data, handleDelete }: IProps) {
     setIsOpen(false);
   };
   const handleDeleteClick = () => {
-    handleDelete(index);
-    closeModal();
+    if (handleDelete) {
+      handleDelete(index);
+      closeModal();
+    }
   };
-
+  const handleBuyClick = () => {
+    if (handleBuy) {
+      handleBuy(index);
+      closeModal();
+    }
+  };
   useEffect(() => {
     // Add any side effects based on data changes if needed
   }, [data]);
   return (
     <>
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold text-black dark:text-white">Are you sure you want to delete this item?</h1>
-          <div className="flex justify-center mt-5">
-            <button
-              type="button"
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-5"
-              onClick={handleDeleteClick}
-            >
-              Yes
-            </button>
-            <button
-              type="button"
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              onClick={closeModal}
-            >
-              No
-            </button>
-          </div>
-        </div>
-      </Modal>
+      {handleBuy && (
+        <Modal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          handleActionClick={handleBuyClick}
+          handleAction={handleBuyClick}
+          title="Do you Really want to Buy"
+        />
+      )}
+      {handleDelete && (
+        <Modal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          handleActionClick={handleDeleteClick}
+          handleAction={handleDelete}
+          title="Are you sure to Delete"
+        />
+      )}
+
       <table {...getTableProps()} className="w-full">
         <thead>
           {headerGroups.map((headerGroup: any) => (
@@ -103,6 +110,22 @@ function Table({ columns, data, handleDelete }: IProps) {
                       >
                         <Image
                           src={delete_icon}
+                          alt="alt"
+                          className="cursor-pointer w-[25px] h-[25px] dark:invert-0 dark:brightness-100 dark:filter-1 dark:inset-0"
+                          style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
+                        />
+                      </button>
+                    ) : cell.column.id === 'buy' ? (
+                      <button
+                        className=""
+                        type="submit"
+                        onClick={() => {
+                          setIndex(row.index);
+                          openModal();
+                        }}
+                      >
+                        <Image
+                          src={buy_icon}
                           alt="alt"
                           className="cursor-pointer w-[25px] h-[25px] dark:invert-0 dark:brightness-100 dark:filter-1 dark:inset-0"
                           style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }}
