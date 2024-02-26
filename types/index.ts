@@ -69,10 +69,10 @@ export enum TableName {
 export type DatatableType = {
   name: string;
   prices: number | undefined;
-  price: number[];
-  timeFrame: string[];
-  limitPrice: number;
-  chardata: { [key: string]: number } | undefined;
+  price?: number[];
+  timeFrame?: string[];
+  limitPrice?: number;
+  chardata?: { [key: string]: number } | undefined;
 }[];
 export type PersonalDataType = {
   consents_to_sell: boolean;
