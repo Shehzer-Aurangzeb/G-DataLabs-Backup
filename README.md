@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 # G-DataLabs-Backup
 
->>>>>>> 93996ea63b8671e27a30df2d43b4450d9a73aaff
 This repository serves as a backup for the G-DataLabs project, created during my tenure at ConceptZI. As the project's creator, I've taken the initiative to back up its contents before transferring ownership of the main repository.
 
 The G-DataLabs project is live and accessible at https://ai.g-datalabs.com/
